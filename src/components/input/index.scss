@@ -1,0 +1,78 @@
+@import '../../style/variable.scss';
+
+.x-input-container {
+    position: relative;
+    .x-input {
+        display: block;
+        width: 100%;
+        font-size: .14rem;
+        background-color: #ffffff;
+        border: 1px solid $theme-border;
+        color: #595959;
+        border-radius: .04rem;
+        box-sizing: border-box;
+        transition: all .3s;
+        outline: none;
+        &::-webkit-input-placeholder {
+            color: $theme-border;
+        }
+        &.disabled {
+            background-color: $theme-background-gray;
+            color: $theme-disable-font;
+            cursor: not-allowed;
+            &:hover {
+                border-color: $theme-border;
+            }
+        }
+        &.danger {
+            color: $theme-danger;
+            border-color: $theme-danger;
+            &:hover {
+                border-color: $theme-danger;
+            }
+            &:focus {
+                border-color: $theme-danger;
+            }
+        }
+        &:hover {
+            border-color: $theme-active;
+        }
+        &:focus {
+            border-color: $theme-active;
+        }
+        &.lg {
+            padding: .065rem .1rem;
+        }
+        &.md {
+            padding: .035rem .1rem;
+        }
+        &.sm {
+            padding: .005rem .1rem;
+        }
+    }
+    & > i {
+        position: absolute;
+        right: .15rem;
+        top: 50%;
+        transform: translate(0, -50%);
+    }
+    .search-btn {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
+        background-color: #5B85FC;
+        text-align: center;
+        border-top-right-radius: .04rem;
+        border-bottom-right-radius: .04rem;
+        color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 .2rem;
+        cursor: pointer;
+        & > i {
+            color: #ffffff;
+        }
+    }
+}

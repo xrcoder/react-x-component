@@ -1,0 +1,82 @@
+.x-sidebar {
+  width: 2rem;
+  color: #314659;
+  border-right: .5px solid #E9E9E9;
+  background-color: #fff;
+  margin-top: .2rem;
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.x-sidebar .tree-header {
+  position: relative;
+}
+
+.x-sidebar .tree-header .header-icon {
+  font-size: .12rem;
+}
+
+.x-sidebar .pull-right {
+  width: auto;
+  position: absolute;
+  right: .2rem;
+  transition: transform .5s ease;
+}
+
+.x-sidebar .treeview.menu-open .pull-right {
+  transform: rotate(-90deg);
+  transition: transform .5s ease;
+}
+
+.x-sidebar .treeview-menu {
+  height: 0;
+  transition: height .5s;
+  padding-left: 0;
+  overflow: hidden;
+}
+
+.x-sidebar .treeview-menu .menu-item {
+  font-size: .12rem;
+}
+
+.x-sidebar .treeview-menu .menu-item .english-name {
+  margin-right: .1rem;
+}
+
+.x-sidebar .treeview-menu .menu-item .name {
+  color: #909090;
+}
+
+.x-sidebar .child-icon {
+  font-size: .12rem;
+  margin-right: .1rem;
+}
+
+.x-sidebar .menu-item, .x-sidebar .tree-header {
+  padding: .12rem .2rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.x-sidebar .menu-item:hover a, .x-sidebar .tree-header:hover a {
+  color: #5B86FD;
+}
+
+.x-sidebar .menu-item:hover a .name, .x-sidebar .tree-header:hover a .name {
+  color: #5B86FD;
+}
+
+.x-sidebar .menu-item.active, .x-sidebar .tree-header.active {
+  cursor: pointer;
+  background-color: rgba(91, 134, 253, 0.1);
+  border-right: 3px solid #5B86FD;
+}
+
+.x-sidebar .menu-item.active a, .x-sidebar .menu-item.active .name, .x-sidebar .tree-header.active a, .x-sidebar .tree-header.active .name {
+  color: #5B86FD;
+}
+
+.x-sidebar .menu-item .icon-left, .x-sidebar .tree-header .icon-left {
+  width: .2rem;
+}

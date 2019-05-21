@@ -1,0 +1,132 @@
+.x-pagination {
+  display: flex;
+  align-items: center;
+}
+
+.x-pagination .x-pagination-list > li {
+  display: inline-block;
+  margin-right: .1rem;
+  webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.x-pagination .x-pagination-list > li:last-child {
+  margin-right: 0;
+}
+
+.x-pagination .x-pagination-list > .page-item {
+  display: inline-block;
+  width: .28rem;
+  height: .28rem;
+  line-height: .28rem;
+  text-align: center;
+  border-radius: .04rem;
+  border: 1px solid #D9D9D9;
+  transition: all .3s;
+  cursor: pointer;
+}
+
+.x-pagination .x-pagination-list > .page-item.more {
+  border: none;
+}
+
+.x-pagination .x-pagination-list > .page-item.more:hover {
+  border-color: #D9D9D9;
+}
+
+.x-pagination .x-pagination-list > .page-item.active {
+  border-color: #5B86FD;
+}
+
+.x-pagination .x-pagination-list > .page-item:hover {
+  border-color: #5B86FD;
+}
+
+.x-pagination .x-pagination-list .prev, .x-pagination .x-pagination-list .next {
+  cursor: pointer;
+}
+
+.x-pagination .x-pagination-list .prev:hover, .x-pagination .x-pagination-list .next:hover {
+  color: #5B86FD;
+}
+
+.x-pagination .x-pagination-list .prev.disabled, .x-pagination .x-pagination-list .next.disabled {
+  color: #B8B8B8;
+  cursor: not-allowed;
+}
+
+.x-pagination .pagesize-change {
+  margin-left: 0.2rem;
+  display: flex;
+  align-items: center;
+}
+
+.x-pagination .goto-page {
+  display: flex;
+  align-items: center;
+}
+
+.x-pagination .goto-page .goto-input {
+  margin: 0 .1rem;
+}
+
+.x-pagination .goto-page input.x-input {
+  padding: .06rem;
+  text-align: center;
+  width: .4rem;
+}
+
+.x-pagination .pagination-select {
+  width: 60px;
+  margin-right: .1rem;
+}
+
+.x-pagination.lg .x-pagination-list > .page-item {
+  width: .32rem;
+  height: .32rem;
+  line-height: .32rem;
+}
+
+.x-pagination.lg .goto-input > input {
+  height: .32rem;
+  line-height: .32rem;
+}
+
+.x-pagination.lg .pagination-select > div {
+  height: .32rem;
+  line-height: .32rem;
+}
+
+.x-pagination.md .x-pagination-list > .page-item {
+  width: .28rem;
+  height: .28rem;
+  line-height: .28rem;
+}
+
+.x-pagination.md .goto-input > input {
+  height: .28rem;
+  line-height: .28rem;
+}
+
+.x-pagination.md .pagination-select > div {
+  height: .28rem;
+  line-height: .28rem;
+}
+
+.x-pagination.sm .x-pagination-list > .page-item {
+  width: .24rem;
+  height: .24rem;
+  line-height: .24rem;
+}
+
+.x-pagination.sm .goto-input > input {
+  height: .24rem;
+  line-height: .24rem;
+}
+
+.x-pagination.sm .pagination-select > div {
+  height: .24rem;
+  line-height: .24rem;
+}

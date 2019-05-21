@@ -1,0 +1,78 @@
+/**
+ * name: 
+ * desc:
+ * date: 2018/12/29
+ * author: kelvin
+ */
+.x-image-view {
+  cursor: pointer;
+  width: .75rem;
+  height: .75rem;
+}
+
+.x-image-view.lg {
+  width: .95rem;
+  height: .95rem;
+}
+
+.x-image-view.md {
+  width: .75rem;
+  height: .75rem;
+}
+
+.x-image-view.sm {
+  width: .6rem;
+  height: .6rem;
+}
+
+.x-imgview-box {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.x-imgview-box .imgview-box {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all .8s;
+}
+
+.x-imgview-box .img-canvas {
+  transition: all .8s;
+}
+
+.x-imgview-box .x-imgview-loading {
+  font-size: .16rem;
+  color: #ffffff;
+  text-align: center;
+  position: absolute;
+}
+
+.x-imgview-box .x-imgview-close {
+  background: #B8B8B8;
+  position: absolute;
+  top: -0.18rem;
+  right: -0.18rem;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: .36rem;
+  height: .36rem;
+}
+
+.x-imgview-box .x-imgview-close > i {
+  font-size: .25rem;
+  margin: 0;
+  color: #ffffff;
+  cursor: pointer;
+}

@@ -1,0 +1,49 @@
+// 栅格系统基础框架
+
+$gridColumns: 12!default;
+
+.x-row * {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+.x-grid-row [class^=col-] {
+    padding: 0 1%;
+}
+
+//计算列展示
+@mixin calc-grid-column($i,$class){
+    .col-#{$class}-#{$i} {
+        width: percentage(($i/$gridColumns));
+        display: inline-block;
+    }
+}
+//class值为  sm、md、lg
+@mixin mark-grid($class) {
+    @include loopGridColumns($class);
+}
+
+//循环12列
+@mixin loopGridColumns($class){
+    @for $i from $gridColumns through 1{
+        @include calc-grid-column($i,$class);
+    }
+}
+
+@media (max-width: 992px){
+    .x-grid-row [class^=col-] {
+        display: block;
+    }
+}
+
+@media (min-width: 992px) {
+    @include mark-grid('sm')
+}
+
+@media (min-width: 1200px) {
+    @include mark-grid('md')
+}
+
+@media (min-width: 1500px) {
+    @include mark-grid('lg')
+}

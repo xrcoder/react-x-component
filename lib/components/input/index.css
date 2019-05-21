@@ -1,0 +1,91 @@
+.x-input-container {
+  position: relative;
+}
+
+.x-input-container .x-input {
+  display: block;
+  width: 100%;
+  font-size: .14rem;
+  background-color: #ffffff;
+  border: 1px solid #D9D9D9;
+  color: #595959;
+  border-radius: .04rem;
+  box-sizing: border-box;
+  transition: all .3s;
+  outline: none;
+}
+
+.x-input-container .x-input::-webkit-input-placeholder {
+  color: #D9D9D9;
+}
+
+.x-input-container .x-input.disabled {
+  background-color: #F5F5F5;
+  color: #B8B8B8;
+  cursor: not-allowed;
+}
+
+.x-input-container .x-input.disabled:hover {
+  border-color: #D9D9D9;
+}
+
+.x-input-container .x-input.danger {
+  color: #DD4B39;
+  border-color: #DD4B39;
+}
+
+.x-input-container .x-input.danger:hover {
+  border-color: #DD4B39;
+}
+
+.x-input-container .x-input.danger:focus {
+  border-color: #DD4B39;
+}
+
+.x-input-container .x-input:hover {
+  border-color: #5B86FD;
+}
+
+.x-input-container .x-input:focus {
+  border-color: #5B86FD;
+}
+
+.x-input-container .x-input.lg {
+  padding: .065rem .1rem;
+}
+
+.x-input-container .x-input.md {
+  padding: .035rem .1rem;
+}
+
+.x-input-container .x-input.sm {
+  padding: .005rem .1rem;
+}
+
+.x-input-container > i {
+  position: absolute;
+  right: .15rem;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.x-input-container .search-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  background-color: #5B85FC;
+  text-align: center;
+  border-top-right-radius: .04rem;
+  border-bottom-right-radius: .04rem;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 .2rem;
+  cursor: pointer;
+}
+
+.x-input-container .search-btn > i {
+  color: #ffffff;
+}
