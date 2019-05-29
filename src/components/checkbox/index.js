@@ -21,7 +21,7 @@ class XCheckbox extends Component {
 
     componentDidMount() {
         let arr = [];
-        let checkboxList = JSON.parse(JSON.stringify(this.state.selectedList))
+        let checkboxList = JSON.parse(JSON.stringify(this.state.checkboxList))
         let selectedValueList = JSON.parse(JSON.stringify(this.state.selectedValueList))
         checkboxList.map(item => {
             selectedValueList.map(item_ => {
