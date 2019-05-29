@@ -37,9 +37,9 @@ class XCheckbox extends Component {
 
     componentWillUnmount(){
         this.setState({
-            selectedValueList:props.selectedValueList||[],
+            selectedValueList:this.props.selectedValueList||[],
             selectedList:[],
-            checkboxList:props.checkboxList
+            checkboxList:this.props.checkboxList
         })
     }
 
