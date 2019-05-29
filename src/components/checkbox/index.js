@@ -23,12 +23,13 @@ class XCheckbox extends Component {
         let arr= [];
         this.state.checkboxList.map(item=>{
             this.state.selectedValueList.map(item_=>{
-                if(item.value==item_){
+                if(item_&&item.value==item_){
                     item.selected=true;
                     arr.push(item);
                 }
             })
         })
+        console.log(this.state,999)
         this.setState({
             selectedList:arr
         })
@@ -37,7 +38,7 @@ class XCheckbox extends Component {
 
     componentWillUnmount(){
         this.setState({
-            selectedValueList:this.props.selectedValueList||[],
+            selectedValueList:[],
             selectedList:[],
             checkboxList:this.props.checkboxList
         })
