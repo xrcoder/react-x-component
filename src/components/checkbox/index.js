@@ -26,6 +26,8 @@ class XCheckbox extends Component {
                 if(item_&&item.value==item_){
                     item.selected=true;
                     arr.push(item);
+                }else {
+                    item.selected = false;
                 }
             })
         })
