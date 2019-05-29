@@ -35,6 +35,14 @@ class XCheckbox extends Component {
         
     }
 
+    componentWillUnmount(){
+        this.setState({
+            selectedValueList:props.selectedValueList||[],
+            selectedList:[],
+            checkboxList:props.checkboxList
+        })
+    }
+
     render(){
         return (
             <div className="x-checkbox">
