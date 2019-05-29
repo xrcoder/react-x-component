@@ -33,9 +33,6 @@ class XCheckbox extends Component {
                 }
             }) 
         })
-        checkboxList.map(item=>{
-            item.selected = false;
-        })
 
         this.setState({
             selectedList: arr,
