@@ -37,14 +37,14 @@ const Modal = (C, opt) => {
                 }, 50);
             }
 
-            confirm () {
+            confirm(res = 'success') {
                 this.close();
-                resolve('sucess');
+                resolve(res);
             }
 
-            cancel () {
+            cancel(res = 'cancel') {
                 this.close();
-                reject('cancel');
+                reject(res);
             }
 
             close () {
