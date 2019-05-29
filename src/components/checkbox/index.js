@@ -31,21 +31,17 @@ class XCheckbox extends Component {
                 } else {
                     item.selected = false;
                 }
-            })
+            }) 
         })
-        console.log(this.state, 999)
-        this.setState({
-            selectedList: arr
+        checkboxList.map(item=>{
+            item.selected = false;
         })
 
-    }
-
-    componentWillUnmount() {
         this.setState({
-            selectedValueList: [],
-            selectedList: [],
-            checkboxList: this.props.checkboxList
+            selectedList: arr,
+            checkboxList:checkboxList
         })
+
     }
 
     render() {
