@@ -8,9 +8,14 @@ class XSelect extends Component {
     static propTypes = {
         options: PropTypes.array,
         selectedValueList:PropTypes.array,
-        selectedList:PropTypes.array
+        selectedList:PropTypes.array,
+        size: PropTypes.oneOf(['lg', 'md'])
     };
 
+    static defaultProps = {
+        size: 'lg'
+    };
+      
     constructor(props) {
         super(props)
         this.state = {
@@ -49,8 +54,8 @@ class XSelect extends Component {
     //         options:props.options,
     //         selectedValue:props.selectedValue,
     //         selectedValueList:props.selectedList,
-
-    //     }
+           
+    //     }  
     // }
 
     componentWillReceiveProps(props){
@@ -109,6 +114,7 @@ class XSelect extends Component {
      }
 
     render() {
+        console.log(this.state,33333)
         return (
             this.state.mode=='multiple'?
             <div className={`x-select ${this.state.showOptions ? 'x-select-clicked' : null}  x-select-clicked-multiple`} ref={this.xSelect} onClick={(e) => {
@@ -136,7 +142,7 @@ class XSelect extends Component {
                                         arr_options[selected_index].selected=false;
                                     }
                                 })
-
+                                
                                 this.setState({
                                     selectedList:arr,
                                     options:arr_options
@@ -155,7 +161,7 @@ class XSelect extends Component {
                                 this.state.options.map((item, index) => {
                                     return (
                                         <li key={''+index + item.value} className={`x-select-li ${item.selected==true?'x-select-li-true':null}`} onClick={(e) => {
-
+                                            
                                             let arr = JSON.parse(JSON.stringify(this.state.selectedList))
                                             let selected = false;
                                             let selected_index;
@@ -165,7 +171,7 @@ class XSelect extends Component {
                                                     selected_index=index
                                                 }
                                             })
-
+                                            
                                             if(!selected){
                                                 item.selected=true;
                                                 arr.push(item);
@@ -176,7 +182,7 @@ class XSelect extends Component {
                                             }else{
                                                 item.selected=false;
                                                 arr.splice(selected_index,1)
-
+                                                
                                                 this.setState({
                                                     selectedList:arr
                                                 })
@@ -192,7 +198,7 @@ class XSelect extends Component {
                 </div>
 
             </div>:
-             <div className={`x-select x-select-content-height ${this.state.showOptions ? 'x-select-clicked' : null}`} ref={this.xSelect} onClick={(e) => {
+             <div className={`x-select x-select-content-height ${this.state.showOptions ? 'x-select-clicked' : null} x-select-${this.props.size}`} ref={this.xSelect} onClick={(e) => {
                 if(this.props.disabled){
                     return
                 }else{
@@ -204,7 +210,7 @@ class XSelect extends Component {
                 // e.nativeEvent.stopImmediatePropagation();
             }}>
                 {
-
+                   
                    (this.state.selected.value!==undefined&&this.state.selected.value!=-1)?<div placeholder="请选择" readOnly disabled={true} value={this.state.selected.label} className={`x-select-title ${this.props.disabled?'x-select-disabled':null}`} >{this.state.selected.label}</div>:<div readOnly disabled={true} value={this.state.selected.label} className={`x-select-title ${this.props.disabled?'x-select-disabled':null}`} >请选择</div>
                 }
                 <XIcon type='angle-left'></XIcon>
@@ -213,7 +219,7 @@ class XSelect extends Component {
                 } */}
                 {
                     this.state.options.length ?
-                        <ul className={`x-select-ul ${this.state.showOptions?'x-select-ul-show':null}`}>
+                        <ul className={`x-select-ul ${this.state.showOptions?'x-select-ul-show':null} x-select-ul-${this.props.size}`}>
                             {
                                 this.state.options.map((item, index) => {
                                     return (

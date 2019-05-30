@@ -853,6 +853,24 @@
   background-color: whitesmoke;
 }
 
+.x-select .x-select-ul-lg {
+  margin-top: 0.32rem;
+}
+
+.x-select .x-select-ul-lg .x-select-li {
+  height: 0.3rem;
+  line-height: 0.3rem;
+}
+
+.x-select .x-select-ul-md {
+  margin-top: 0.26rem;
+}
+
+.x-select .x-select-ul-md .x-select-li {
+  height: 0.24rem;
+  line-height: 0.24rem;
+}
+
 .x-select .xicon-angle-left, .x-select .xicon-angle-right {
   position: absolute;
   margin-right: 0.15rem;
@@ -870,6 +888,14 @@
 .x-select-clicked .x-select-ul {
   opacity: 1;
   max-height: 1.5rem;
+}
+
+.x-select-clicked .x-select-ul-lg {
+  max-height: 1.5rem;
+}
+
+.x-select-clicked .x-select-ul-md {
+  max-height: 1.2rem;
 }
 
 .x-select-clicked .xicon-angle-left, .x-select-clicked .xicon-angle-right {
@@ -890,6 +916,16 @@
 .x-select-content-height {
   height: 0.32rem;
   box-sizing: border-box;
+}
+
+.x-select-lg {
+  height: 0.32rem;
+  line-height: 0.3rem;
+}
+
+.x-select-md {
+  height: 0.26rem;
+  line-height: 0.24rem;
 }
 
 .x-pagination {
