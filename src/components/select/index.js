@@ -42,7 +42,7 @@ class XSelect extends Component {
         } else {
             this.setState({
                 options: this.filterData(arr),
-                selectedList: this.getSelectedList(this.state.selectedValueList)
+                selectedList: this.getSelectedList(this.props.selectedValueList)
             })
         }
     }
