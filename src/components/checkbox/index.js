@@ -24,19 +24,17 @@ class XCheckbox extends Component {
         let checkboxList = JSON.parse(JSON.stringify(this.state.checkboxList))
         let selectedValueList = JSON.parse(JSON.stringify(this.state.selectedValueList))
         checkboxList.map(item => {
-            selectedValueList.map(item_ => {
-                if (item_ && item.value == item_) {
-                    item.selected = true;
-                    arr.push(item);
-                } else {
-                    item.selected = false;
-                }
-            }) 
+            if (selectedValueList.indexOf(item.value) != -1) {
+                item.selected = true
+                arr.push(item)
+            } else {
+                item.selected = false
+            }
         })
 
         this.setState({
             selectedList: arr,
-            checkboxList:checkboxList
+            checkboxList: checkboxList
         })
 
     }
