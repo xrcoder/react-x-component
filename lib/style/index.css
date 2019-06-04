@@ -2,6 +2,7 @@
 .x-btn {
   padding: 0 0.15rem;
   height: 0.26rem;
+  word-break: keep-all;
   display: inline-block;
   border-radius: 4px;
   background-color: #fff;
