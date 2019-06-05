@@ -4,6 +4,8 @@ import classnames from 'classnames';
 import XIcon from '../icon';
 import XInput from '../input';
 import XSelect from '../select';
+import intl from 'react-intl-universal';
+import loadLocales from '../locales/loadlocales';
 
 class XPagination extends Component {
     static propTypes = {
@@ -16,7 +18,8 @@ class XPagination extends Component {
         onPageChange: PropTypes.func,
         onPageSizeChange: PropTypes.func,
         showJumpPage: PropTypes.bool,
-        showPageSize: PropTypes.bool
+        showPageSize: PropTypes.bool,
+        locale: PropTypes.string
     }
 
     static defaultProps = {
@@ -31,7 +34,8 @@ class XPagination extends Component {
         onPageSizeChange: () => {
         },
         showJumpPage: false,
-        showPageSize: false
+        showPageSize: false,
+        locale: 'zh_CN'
     }
 
     constructor(props) {
@@ -45,7 +49,14 @@ class XPagination extends Component {
             className: props.className,
             showJumpPage: props.showJumpPage,
             jumpPage: '',
+            initDone: false
         };
+    }
+
+    componentDidMount() {
+        loadLocales(this.props.locale).then(()=>{
+            this.setState({initDone: true});
+        });
     }
 
     componentWillReceiveProps(nextProps) {
@@ -162,89 +173,91 @@ class XPagination extends Component {
         } else {
             return (
                 <div className={`x-pagination ${size} ${className}`}>
-        <ul className="x-pagination-list">
-                <li className={classnames('prev', {disabled: this.state.currPage == 1})}
-            onClick={() => {
-                if (this.state.currPage == 1) {
-                    return;
-                }
-                this.onCurrPageChange(this.state.currPage - 1)
-            }}>
-        <XIcon type="angle-left"/>上一页
-                </li>
-            {
-                pageList.map((item, index) => {
-                    return <li key={`page_index_${index}`}
-                    className={classnames('page-item', {active: currPage == item}, {more: item == '...'})}
-                    onClick={() => {
-                        if (item !== '...') {
-                            this.onCurrPageChange(item)
+                    <ul className="x-pagination-list">
+                        <li className={classnames('prev', {disabled: this.state.currPage == 1})}
+                            onClick={() => {
+                                if (this.state.currPage == 1) {
+                                    return;
+                                }
+                                this.onCurrPageChange(this.state.currPage - 1)
+                            }}>
+                            <XIcon type="angle-left"/>{intl.get('Pagination.prevPage').d(`上一页`)}
+                        </li>
+                        {
+                            pageList.map((item, index) => {
+                                return <li key={`page_index_${index}`}
+                                           className={classnames('page-item', {active: currPage == item}, {more: item == '...'})}
+                                           onClick={() => {
+                                               if (item !== '...') {
+                                                   this.onCurrPageChange(item)
+                                               }
+                                           }}
+                                >{item}</li>
+                            })
                         }
-                    }}
-                >{item}</li>
-                })
-            }
-        <li className={classnames('next', {disabled: this.state.currPage == totalPage})}
-            onClick={() => {
-                if (this.state.currPage == totalPage) {
-                    return;
-                }
-                this.onCurrPageChange(this.state.currPage + 1)
-            }}>
-            下一页<XIcon type="angle-right"/>
-                </li>
-                </ul>
-            {
-                this.state.showJumpPage && <div className="goto-page">
-                <span>跳至</span>
-                <XInput
-                placeholder="1"
-                value={jumpPage}
-                onChange={(res) => {
-                // 检测不允许输入非数字
-                let reg = /^[0-9]+$/g;
-                if (res !== "") {
-                    // 输入不为空
-                    if (reg.test(res)) {
-                        reg.lastIndex = 0;
-                        let page = res > totalPage ? totalPage : res <= 0 ? 1 : res;//两端范围都要限制
-                        this.setState({
-                            jumpPage: page
-                        });
+                        <li className={classnames('next', {disabled: this.state.currPage == totalPage})}
+                            onClick={() => {
+                                if (this.state.currPage == totalPage) {
+                                    return;
+                                }
+                                this.onCurrPageChange(this.state.currPage + 1)
+                            }}>
+                            {intl.get('Pagination.nextPage').d(`下一页`)}
+                            <XIcon type="angle-right"/>
+                        </li>
+                    </ul>
+                    {
+                        this.state.showJumpPage && <div className="goto-page">
+                            <span>{intl.get('Pagination.jumpTo').d(`跳至`)}</span>
+                            <XInput
+                                placeholder="1"
+                                value={jumpPage}
+                                onChange={(res) => {
+                                    // 检测不允许输入非数字
+                                    let reg = /^[0-9]+$/g;
+                                    if (res !== "") {
+                                        // 输入不为空
+                                        if (reg.test(res)) {
+                                            reg.lastIndex = 0;
+                                            let page = res > totalPage ? totalPage : res <= 0 ? 1 : res;//两端范围都要限制
+                                            this.setState({
+                                                jumpPage: page
+                                            });
+                                        }
+                                    } else {
+                                        this.setState({
+                                            jumpPage: ""
+                                        });
+                                    }
+                                }}
+                                onEnter={this.onPageJump.bind(this)}
+                                className="goto-input"/>
+                            <span>{intl.get('Pagination.page').d(`页`)}</span>
+                        </div>
                     }
-                } else {
-                    this.setState({
-                        jumpPage: ""
-                    });
-                }
-            }}
-                onEnter={this.onPageJump.bind(this)}
-                className="goto-input"/>
-                    <span>页</span>
-                    </div>
-            }
-            {
-                this.props.showPageSize ? <div className="pagesize-change">
-                <span>每页：</span>
-            <div className={"pagination-select"}>
-                <XSelect
-                selectedValue={this.state.pageSize}
-                options={pageSizeOpts}
-                size={"md"}
-                onChange={(res) => {
-                let pageSize = res.value;
-                this.onPageSizeChange(pageSize);
-            }}></XSelect>
-            </div>
-            <span>条记录</span>
-            </div> : ''
-            }
-        </div>
-        );
+                    {
+                        this.props.showPageSize ? <div className="pagesize-change">
+                            <div className={"pagination-select"}>
+                                <XSelect
+                                    selectedValue={this.state.pageSize}
+                                    options={pageSizeOpts}
+                                    size={"md"}
+                                    onChange={(res) => {
+                                        let pageSize = res.value;
+                                        this.onPageSizeChange(pageSize);
+                                    }}></XSelect>
+                            </div>
+                            <span>{intl.get('Pagination.itemsPerPage').d(`条/页`)}</span>
+                        </div> : ''
+                    }
+                </div>
+            );
         }
     }
+
     render() {
         return (
+            this.state.initDone &&
             this.renderPagination()
         );
     }

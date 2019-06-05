@@ -2,30 +2,27 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import XIcon from '../icon';
+import intl from 'react-intl-universal';
+import loadLocales from '../locales/loadlocales';
 
 class XInput extends React.Component {
-    constructor() {
-        super();
-        this.value = '';
-    }
-
     static propTypes = {
         isError: PropTypes.bool,
-        defaultValue: PropTypes.string,
         size: PropTypes.string,
         placeholder: PropTypes.string,
         className: PropTypes.string,
         onChange: PropTypes.func,
         onEnter: PropTypes.func,
         onFocus: PropTypes.func,
-        onBlur: PropTypes.func
+        onBlur: PropTypes.func,
+        locale: PropTypes.string
     }
 
     static defaultProps = {
         isError: false,
-        defaultValue: '',
         size: 'md',
-        placeholder: '请输入',
+        placeholder: '',
+        locale: 'zh_CN',
         onChange: () => {
         },
         onEnter: () => {
@@ -36,18 +33,27 @@ class XInput extends React.Component {
         }
     }
 
+    state = {
+        initDone:false
+    }
+
+    componentWillMount() {
+        loadLocales(this.props.locale).then(()=>{
+            this.setState({initDone: true});
+        });
+    }
+
     render() {
-        const {isError, defaultValue, size, placeholder, className, onChange, onEnter, onFocus, onBlur, disabled, icon, search, searchBtn, ...otherProps} = this.props;
+        const {isError, size, placeholder, className, onChange, onEnter, onFocus, onBlur, disabled, icon, search, searchBtn, ...otherProps} = this.props;
         return (
+            this.state.initDone && 
             <div className={classnames('x-input-container', className)}>
                 <input
                     {...otherProps}
                     className={classnames('x-input', `${size}`, {disabled: disabled}, {danger: isError})}
                     disabled={disabled}
-                    defaultValue={defaultValue}
-                    placeholder={placeholder}
+                    placeholder={placeholder || intl.get('Global.inputPlaceholder').d(`请输入`)}
                     onChange={(e) => {
-                        this.value = e.target.value;
                         onChange(e.target.value, e);
                     }}
                     onFocus={() => {

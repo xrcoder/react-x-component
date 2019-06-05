@@ -3,6 +3,8 @@ import classnames from 'classnames';
 import Modal from './modal';
 import XIcon from '../icon';
 import XBtn from '../button';
+import intl from 'react-intl-universal';
+import loadLocales from '../locales/loadlocales';
 
 import Header from './header';
 import Body from './body';
@@ -20,9 +22,9 @@ function Alert(props) {
                 <div className="content">{data.content}</div>
             </Body>
             <Footer key="Footer">
-                <XBtn type={data.CancelType} size={data.btnSzie} onClick={() => {
-                    cancel();
-                }}>{data.cancelText}</XBtn>
+                <XBtn type={data.okType} size={data.btnSzie} onClick={() => {
+                    confirm();
+                }}>{data.okText}</XBtn>
             </Footer>
         </div>
     );
@@ -30,18 +32,19 @@ function Alert(props) {
 
 export default (opt = {}) => {
 
+    loadLocales(opt.locale || 'zh_CN');
+
     let _opt = {
         backDrop: opt.backDrop || false, //点击背景是否关闭
         size: opt.size || 'sm', //确认框大小
         className: classnames('x-modal-alert', opt.className),
         data: {
-            tipsTitle: opt.tipsTitle || '系统提示', //标题
-            content: opt.content || '您确定要执行此操作吗？', //内容
+            tipsTitle: opt.tipsTitle || intl.get('Modal.tipsTitle').d(`系统提示`), //标题
+            content: opt.content || intl.get('Modal.tipsContent').d(`您确定要执行此操作吗？`), //内容
             tipsIcon: opt.tipsIcon || 'alarm', //提示icon
-            cancelText: opt.cancelText || '关闭', //取消按钮文案
-            CancelType: opt.CancelType || 'default', //取消按钮类型
+            okText: opt.okText || intl.get('Modal.okText').d(`知道了`), //按钮文案
+            okType: opt.okType || 'primary', //按钮类型
         },
     };
-
     return Modal(Alert, _opt)
 }

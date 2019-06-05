@@ -5,9 +5,11 @@
  * author: kelvin
  */
 
+import intl from 'react-intl-universal';
+
 function getXhrError(option, xhr) {
     // 构造一个错误对象，并返回
-    const msg = `上传失败：${option.url} ${xhr.status}`;
+    const msg = intl.get('Upload.error').d(`上传失败`) + `：${option.url} ${xhr.status}`;
     const err = new Error(msg);
     err.status = xhr.status;
     err.method = 'post';
@@ -66,7 +68,7 @@ export default (option) => {
 
     xhr.timeout = option.timeout || 10000;
     xhr.ontimeout = () => {
-        option.onError({status: xhr.status, msg: '请求超时'})
+        option.onError({status: xhr.status, msg: intl.get('Upload.timeout').d('请求超时')})
     }
 
     xhr.open('post', option.url, true);

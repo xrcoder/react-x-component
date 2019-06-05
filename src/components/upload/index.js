@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import $_upload from './upload';
 import XButton from '../button';
 // import './index.scss';
+import intl from 'react-intl-universal';
+import loadLocales from '../locales/loadlocales';
 
 function getUid() {
     // 获取唯一ID值
@@ -24,21 +26,30 @@ class XUpload extends React.Component {
         onSuccess: PropTypes.func,
         onError: PropTypes.func,
         timeout: PropTypes.number,
-        name: PropTypes.string
+        name: PropTypes.string,
+        locale: PropTypes.string
     };
 
     static defaultProps = {
         fileType: '*',
         timeout: 3000,
-        name: 'file'
+        name: 'file',
+        locale: 'zh_CN'
     };
 
     constructor() {
         super();
         this.state = {
-            getUid: getUid()
+            getUid: getUid(),
+            initDone: false
         };
         this.uploadList = {};
+    }
+
+    componentDidMount() {
+        loadLocales(this.props.locale).then(()=>{
+            this.setState({initDone: true});
+        });
     }
 
     onChange(e) {
@@ -103,9 +114,10 @@ class XUpload extends React.Component {
     render() {
         const {children, fileType} = this.props;
         return (
+            this.state.initDone &&
             <div className="x-upload" onClick={this.handleClick.bind(this)}>
                 <div className="x-upload-trigger">
-                    {children ? children : <XButton icon="upload">上传文件</XButton>}
+                    {children ? children : <XButton icon="upload">{intl.get('Upload.upload').d(`文件上传`)}</XButton>}
                 </div>
                 <input
                     type="file"

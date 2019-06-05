@@ -82,19 +82,3 @@ const Modal = (C, opt) => {
 }
 
 export default Modal;
-
-Modal.propTypes = {
-    confirmText: PropTypes.string,
-    cancelText: PropTypes.string,
-    size: PropTypes.oneOf(['sm', 'md', 'lg']),
-    ConfirmType: PropTypes.oneOf(['primary', 'default', 'warning']),
-    CancelType: PropTypes.oneOf(['primary', 'default', 'warning'])
-};
-
-Modal.defaultProps = {
-    confirmText: '确定',   //确认按钮文案
-    cancelText: '取消',   //取消按钮文案
-    size: 'md',    //底部操作按钮大小
-    ConfirmType: 'primary', //确认框类型
-    CancelType: 'default', //取消按钮类型
-};

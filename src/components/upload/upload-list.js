@@ -7,9 +7,28 @@
 import React from 'react';
 import XIcon from '../../components/icon';
 import XImgView from '../../components/image-view';
+import intl from 'react-intl-universal';
+import loadLocales from '../locales/loadlocales';
 
 export default class extends React.Component {
-    state = {}
+    
+    static propTypes = {
+        locale: PropTypes.string
+    };
+
+    static defaultProps = {
+        locale: 'zh_CN'
+    };
+
+    state = {
+        initDone: false
+    }
+
+    componentDidMount() {
+        loadLocales(this.props.locale).then(()=>{
+            this.setState({initDone: true});
+        });
+    }
 
     static getDerivedStateFromProps(props, state) {
         if (Object.keys(props.files).length > 0) {
@@ -46,10 +65,11 @@ export default class extends React.Component {
         const {uid, percent, imgData, status} = data;
         let ref = React.createRef();// 获取图片预览组件内部的dom ref
         return (
+            this.state.initDone &&
             <div className="x-upload-item-preview" key={`thirdUploadImg_${index}`}>
                 {
                     status <= 1 ? <div className="x-upload-loading-box">
-                        <div className="x-upload-loading-txt">文件上传中</div>
+                        <div className="x-upload-loading-txt">{intl.get('Upload.loading').d(`文件上传中`) }</div>
                         <div className="x-upload-loading">
                             <div
                                 className="x-upload-loading-bar"

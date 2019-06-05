@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 // import './index.scss';
 import PropTypes from 'prop-types';
 import XIcon from '../icon';
+import intl from 'react-intl-universal';
+import loadLocales from '../locales/loadlocales';
 
 class XSelect extends Component {
 
@@ -9,11 +11,13 @@ class XSelect extends Component {
         options: PropTypes.array,
         selectedValueList:PropTypes.array,
         selectedList:PropTypes.array,
-        size: PropTypes.oneOf(['lg', 'md'])
+        size: PropTypes.oneOf(['lg', 'md']),
+        locale: PropTypes.string
     };
 
     static defaultProps = {
-        size: 'lg'
+        size: 'lg',
+        locale: 'zh_CN'
     };
       
     constructor(props) {
@@ -45,6 +49,9 @@ class XSelect extends Component {
                 selectedList: this.getSelectedList(this.props.selectedValueList)
             })
         }
+        loadLocales(this.props.locale).then(()=>{
+            this.setState({initDone: true});
+        });
     }
 
     // static getDerivedStateFromProps(props,state){
@@ -114,8 +121,8 @@ class XSelect extends Component {
      }
 
     render() {
-        console.log(this.state,33333)
         return (
+            this.state.initDone && 
             this.state.mode=='multiple'?
             <div className={`x-select ${this.state.showOptions ? 'x-select-clicked' : null}  x-select-clicked-multiple`} ref={this.xSelect} onClick={(e) => {
                 if(this.props.disabled){
@@ -126,9 +133,8 @@ class XSelect extends Component {
                         showOptions: !showOptions
                     })
                 }
-                // e.nativeEvent.stopImmediatePropagation();
             }}>
-                <div placeholder="请选择" disabled={true} value={this.state.selected.label} className={`x-select-title x-select-title-multiple ${this.props.disabled?'x-select-disabled':null}`} >
+                <div placeholder={intl.get('Global.selectPlaceholder').d(`请选择`)} disabled={true} value={this.state.selected.label} className={`x-select-title x-select-title-multiple ${this.props.disabled?'x-select-disabled':null}`} >
                     {
                         this.state.selectedList.map((item,index)=>{
                             return (<span className="x-select-item-multiple" key={''+item.label+index}>{item.label}<XIcon type='close-a' onClick={(e)=>{

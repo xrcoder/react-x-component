@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import XPagination from '../pagination';
 import XIcon from '../icon';
 import XLoading from '../loading';
+import intl from 'react-intl-universal';
+import loadLocales from '../locales/loadlocales';
 
 const OrderArea = (props) => {
     const [isUp, setIsUp] = useState(false);
@@ -33,9 +35,9 @@ const OrderArea = (props) => {
 
     return (
         <div className="order-box">
-            <div className={isUp ? `order-up selected` : `order-up`}
+            <div title={intl.get('Table.sortUp').d(`升序`)} className={isUp ? `order-up selected` : `order-up`}
                 onClick={upClick.bind(this)}></div>
-            <div className={isDown ? `order-down selected` : `order-down`}
+            <div title={intl.get('Table.sortDown').d(`降序`)} className={isDown ? `order-down selected` : `order-down`}
                 onClick={downClick.bind(this)}></div>
         </div>
     )
@@ -43,11 +45,19 @@ const OrderArea = (props) => {
 
 const XTable = (props) => {
 
-    const { tableConf, dataList, noBorder, pageSize,currPage, count, size, noPagination, isLoading, onOrderChange, onPageChange } = props;
+    const { tableConf, dataList, noBorder, count, currPage, pageSize, size, noPagination, isLoading, onOrderChange, onPageChange } = props;
     const [orderName, setOrderName] = useState('');
     const [orderType, setOrderType] = useState('');
+    const [initDone, setInitDone] = useState(false);
+
+    useEffect(() => {
+        loadLocales(props.locale).then(()=>{
+            setInitDone(true)
+        });  
+      },initDone);
 
     return (
+        initDone && 
         <div className="x-table">
             {
                 isLoading ? <XLoading type={'table'} /> : null
@@ -88,7 +98,6 @@ const XTable = (props) => {
                                             tableConf.map((itemCol, indexCol) => {
                                                 return (
                                                     <td key={indexRow + indexCol} style={{textAlign: itemCol.align || 'left'}}>
-                                                        {/* {itemRow[itemCol.key]} */}
                                                         {
                                                             itemCol.render ? itemCol.render(itemRow) : itemRow[itemCol['key']]
                                                         }
@@ -102,9 +111,7 @@ const XTable = (props) => {
                                 <tr>
                                     <td colSpan={props.tableConf.length} className={`table-no-data`}>
                                         <div className="no-data">
-                                            {/* <img src={NodataImg} alt="" /> */}
-                                            {/* <XIcon type="no-data" /> */}
-                                            <div className="no-data-msg">暂无数据</div>
+                                            <div className="no-data-msg">{intl.get('Global.empty').d(`暂无数据`)}</div>
                                         </div>
                                     </td>
                                 </tr>
@@ -114,8 +121,9 @@ const XTable = (props) => {
             </div>
             {
                 !noPagination && <div className="x-pagination-wrapper">
-                    <span className="total-info">共 {count} 条</span>
+                    <span className="total-info">{intl.get('Table.count',{count: count}).d(`共 ${count} 条`)}</span>
                     <XPagination
+                        locale={props.locale}
                         count={count}
                         pageSize={pageSize}
                         currPage={currPage}
