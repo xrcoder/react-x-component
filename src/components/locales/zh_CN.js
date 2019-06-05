@@ -1,7 +1,8 @@
 export default {
     locale: 'zh-cn',
     Global: {
-      placeholder: '请选择',
+      selectPlaceholder: '请选择',
+      inputPlaceholder: '请输入',
       empty: '暂无数据'
     },
     Upload: {

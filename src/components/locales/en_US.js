@@ -1,7 +1,8 @@
 export default {
     locale: 'en-us',
     Global: {
-      placeholder: 'Pleale select',
+      selectPlaceholder: 'Pleale select',
+      inputPlaceholder: 'Please input...',
       empty: 'No Data'
     },
     Upload: {
