@@ -4,7 +4,7 @@ import XPagination from '../pagination';
 import XIcon from '../icon';
 import XLoading from '../loading';
 import intl from 'react-intl-universal';
-import loadLocales from '../locales/loadlocales';
+// import loadLocales from '../locales/loadlocales';
 
 const OrderArea = (props) => {
     const [isUp, setIsUp] = useState(false);
@@ -51,13 +51,13 @@ const XTable = (props) => {
     const [initDone, setInitDone] = useState(false);
 
     useEffect(() => {
-        loadLocales(props.locale).then(()=>{
-            setInitDone(true)
-        });  
+        // loadLocales(props.locale).then(()=>{
+            setInitDone(window.localStorage.getItem('initDone'))
+        // });  
       },initDone);
 
     return (
-        initDone && 
+        initDone !== false && 
         <div className="x-table">
             {
                 isLoading ? <XLoading type={'table'} /> : null

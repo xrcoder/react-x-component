@@ -4,7 +4,7 @@ import Modal from './modal';
 import XIcon from '../icon';
 import XBtn from '../button';
 import intl from 'react-intl-universal';
-import loadLocales from '../locales/loadlocales';
+// import loadLocales from '../locales/loadlocales';
 
 import Header from './header';
 import Body from './body';
@@ -32,17 +32,17 @@ function Alert(props) {
 
 export default (opt = {}) => {
 
-    loadLocales(opt.locale || 'zh_CN');
+    // loadLocales(opt.locale || 'zh_CN');
 
     let _opt = {
         backDrop: opt.backDrop || false, //点击背景是否关闭
         size: opt.size || 'sm', //确认框大小
         className: classnames('x-modal-alert', opt.className),
         data: {
-            tipsTitle: opt.tipsTitle || intl.get('Modal.tipsTitle').d(`系统提示`), //标题
-            content: opt.content || intl.get('Modal.tipsContent').d(`您确定要执行此操作吗？`), //内容
+            tipsTitle: opt.tipsTitle || intl.get('XComponentModal.tipsTitle').d(`系统提示`), //标题
+            content: opt.content || intl.get('XComponentModal.tipsContent').d(`您确定要执行此操作吗？`), //内容
             tipsIcon: opt.tipsIcon || 'alarm', //提示icon
-            okText: opt.okText || intl.get('Modal.okText').d(`知道了`), //按钮文案
+            okText: opt.okText || intl.get('XComponentModal.okText').d(`知道了`), //按钮文案
             okType: opt.okType || 'primary', //按钮类型
         },
     };

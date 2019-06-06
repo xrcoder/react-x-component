@@ -8,7 +8,7 @@ import React from 'react';
 import XIcon from '../../components/icon';
 import XImgView from '../../components/image-view';
 import intl from 'react-intl-universal';
-import loadLocales from '../locales/loadlocales';
+// import loadLocales from '../locales/loadlocales';
 
 export default class extends React.Component {
     
@@ -25,9 +25,9 @@ export default class extends React.Component {
     }
 
     componentDidMount() {
-        loadLocales(this.props.locale).then(()=>{
-            this.setState({initDone: true});
-        });
+        // loadLocales(this.props.locale).then(()=>{
+            this.setState({initDone: window.localStorage.getItem('initDone')});
+        // });
     }
 
     static getDerivedStateFromProps(props, state) {
@@ -65,11 +65,11 @@ export default class extends React.Component {
         const {uid, percent, imgData, status} = data;
         let ref = React.createRef();// 获取图片预览组件内部的dom ref
         return (
-            this.state.initDone &&
+            this.state.initDone !== fasle &&
             <div className="x-upload-item-preview" key={`thirdUploadImg_${index}`}>
                 {
                     status <= 1 ? <div className="x-upload-loading-box">
-                        <div className="x-upload-loading-txt">{intl.get('Upload.loading').d(`文件上传中`) }</div>
+                        <div className="x-upload-loading-txt">{intl.get('XComponentUpload.loading').d(`文件上传中`) }</div>
                         <div className="x-upload-loading">
                             <div
                                 className="x-upload-loading-bar"

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import XIcon from '../icon';
 import intl from 'react-intl-universal';
-import loadLocales from '../locales/loadlocales';
+// import loadLocales from '../locales/loadlocales';
 
 class XSelect extends Component {
 
@@ -49,9 +49,9 @@ class XSelect extends Component {
                 selectedList: this.getSelectedList(this.props.selectedValueList)
             })
         }
-        loadLocales(this.props.locale).then(()=>{
-            this.setState({initDone: true});
-        });
+        // loadLocales(this.props.locale).then(()=>{
+            this.setState({initDone: window.localStorage.getItem('initDone')});
+        // });
     }
 
     // static getDerivedStateFromProps(props,state){
@@ -122,7 +122,7 @@ class XSelect extends Component {
 
     render() {
         return (
-            this.state.initDone && 
+            this.state.initDone !== false && 
             this.state.mode=='multiple'?
             <div className={`x-select ${this.state.showOptions ? 'x-select-clicked' : null}  x-select-clicked-multiple`} ref={this.xSelect} onClick={(e) => {
                 if(this.props.disabled){
@@ -134,7 +134,7 @@ class XSelect extends Component {
                     })
                 }
             }}>
-                <div placeholder={intl.get('Global.selectPlaceholder').d(`请选择`)} disabled={true} value={this.state.selected.label} className={`x-select-title x-select-title-multiple ${this.props.disabled?'x-select-disabled':null}`} >
+                <div placeholder={intl.get('XComponentGlobal.selectPlaceholder').d(`请选择`)} disabled={true} value={this.state.selected.label} className={`x-select-title x-select-title-multiple ${this.props.disabled?'x-select-disabled':null}`} >
                     {
                         this.state.selectedList.map((item,index)=>{
                             return (<span className="x-select-item-multiple" key={''+item.label+index}>{item.label}<XIcon type='close-a' onClick={(e)=>{

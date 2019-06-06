@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import XIcon from '../icon';
 import intl from 'react-intl-universal';
-import loadLocales from '../locales/loadlocales';
+// import loadLocales from '../locales/loadlocales';
 
 class XInput extends React.Component {
     static propTypes = {
@@ -38,21 +38,21 @@ class XInput extends React.Component {
     }
 
     componentWillMount() {
-        loadLocales(this.props.locale).then(()=>{
-            this.setState({initDone: true});
-        });
+        // loadLocales(this.props.locale).then(()=>{
+            this.setState({initDone: window.localStorage.getItem('initDone')});
+        // });
     }
 
     render() {
         const {isError, size, placeholder, className, onChange, onEnter, onFocus, onBlur, disabled, icon, search, searchBtn, ...otherProps} = this.props;
         return (
-            this.state.initDone && 
+            this.state.initDone !== false && 
             <div className={classnames('x-input-container', className)}>
                 <input
                     {...otherProps}
                     className={classnames('x-input', `${size}`, {disabled: disabled}, {danger: isError})}
                     disabled={disabled}
-                    placeholder={placeholder || intl.get('Global.inputPlaceholder').d(`请输入`)}
+                    placeholder={placeholder || intl.get('XComponentUploadGlobal.inputPlaceholder').d(`请输入`)}
                     onChange={(e) => {
                         onChange(e.target.value, e);
                     }}
