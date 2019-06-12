@@ -141,7 +141,7 @@ class XSelect extends Component {
                 <div placeholder={intl.get('KOF_REACT_X_COMPONENT_GLOBAL_SELECTPLACEHOLDER').d(`请选择`)} disabled={true} value={this.state.selected.label} className={`x-select-title x-select-title-multiple ${this.props.disabled?'x-select-disabled':null}`} >
                     {
                         this.state.selectedList.map((item,index)=>{
-                            return (<span className="x-select-item-multiple" key={''+item.label+index}>{item.label}<XIcon type='close-a' onClick={(e)=>{
+                            return (<span className="x-select-item-multiple" key={''+item.label+index}>{item.label}<XIcon type={`${item.disable?null:'close-a'}`} onClick={(e)=>{
                                 let arr = JSON.parse(JSON.stringify(this.state.selectedList));
                                 let arr_options = JSON.parse(JSON.stringify(this.state.options));
                                 let selected_index;
@@ -170,7 +170,7 @@ class XSelect extends Component {
                             {
                                 this.state.options.map((item, index) => {
                                     return (
-                                        <li key={''+index + item.value} className={`x-select-li ${item.selected==true?'x-select-li-true':null}`} onClick={(e) => {
+                                        <li key={''+index + item.value} className={`x-select-li ${item.selected==true?'x-select-li-true':null} ${item.disable?'x-select-li-disable':null}`} onClick={(e) => {
                                             
                                             let arr = JSON.parse(JSON.stringify(this.state.selectedList))
                                             let selected = false;

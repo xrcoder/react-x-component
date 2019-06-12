@@ -92,6 +92,10 @@
              font-weight: 400;
              background-color: rgba($color: $theme-background-gray, $alpha: 1);
          }
+         .x-select-li-disable{
+            cursor: not-allowed;
+            pointer-events: none;
+        }
  
  
          //size
