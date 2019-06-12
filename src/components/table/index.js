@@ -4,7 +4,7 @@ import XPagination from '../pagination';
 import XIcon from '../icon';
 import XLoading from '../loading';
 import intl from 'react-intl-universal';
-// import loadLocales from '../locales/loadlocales';
+import loadLocales from '../locales/loadlocales';
 
 const OrderArea = (props) => {
     const [isUp, setIsUp] = useState(false);
@@ -35,9 +35,9 @@ const OrderArea = (props) => {
 
     return (
         <div className="order-box">
-            <div title={intl.get('Table.sortUp').d(`升序`)} className={isUp ? `order-up selected` : `order-up`}
+            <div title={intl.get('KOF_REACT_X_COMPONENT_TABLE_SOETUP').d(`升序`)} className={isUp ? `order-up selected` : `order-up`}
                 onClick={upClick.bind(this)}></div>
-            <div title={intl.get('Table.sortDown').d(`降序`)} className={isDown ? `order-down selected` : `order-down`}
+            <div title={intl.get('KOF_REACT_X_COMPONENT_TABLE_SORTDOWN').d(`降序`)} className={isDown ? `order-down selected` : `order-down`}
                 onClick={downClick.bind(this)}></div>
         </div>
     )
@@ -51,9 +51,13 @@ const XTable = (props) => {
     const [initDone, setInitDone] = useState(false);
 
     useEffect(() => {
-        // loadLocales(props.locale).then(()=>{
-            setInitDone(window.localStorage.getItem('initDone'))
-        // });  
+        if(window.localStorage.getItem('isStoragelocale')){
+            setInitDone(window.localStorage.getItem('initDone'));
+        }else{
+            loadLocales(this.props.locale).then(()=>{
+                setInitDone(true);
+            });
+        }
       },initDone);
 
     return (
@@ -111,7 +115,7 @@ const XTable = (props) => {
                                 <tr>
                                     <td colSpan={props.tableConf.length} className={`table-no-data`}>
                                         <div className="no-data">
-                                            <div className="no-data-msg">{intl.get('Global.empty').d(`暂无数据`)}</div>
+                                            <div className="no-data-msg">{intl.get('KOF_REACT_X_COMPONENT_GLOBAL_ENPTY').d(`暂无数据`)}</div>
                                         </div>
                                     </td>
                                 </tr>
@@ -121,7 +125,7 @@ const XTable = (props) => {
             </div>
             {
                 !noPagination && <div className="x-pagination-wrapper">
-                    <span className="total-info">{intl.get('Table.count',{count: count}).d(`共 ${count} 条`)}</span>
+                    <span className="total-info">{intl.get('KOF_REACT_X_COMPONENT_TABLE_COUNT',{count: count}).d(`共 ${count} 条`)}</span>
                     <XPagination
                         locale={props.locale}
                         count={count}

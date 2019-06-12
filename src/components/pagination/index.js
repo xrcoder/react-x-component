@@ -5,7 +5,7 @@ import XIcon from '../icon';
 import XInput from '../input';
 import XSelect from '../select';
 import intl from 'react-intl-universal';
-// import loadLocales from '../locales/loadlocales';
+import loadLocales from '../locales/loadlocales';
 
 class XPagination extends Component {
     static propTypes = {
@@ -54,9 +54,13 @@ class XPagination extends Component {
     }
 
     componentDidMount() {
-        // loadLocales(this.props.locale).then(()=>{
+        if(window.localStorage.getItem('isStoragelocale')){
             this.setState({initDone: window.localStorage.getItem('initDone')});
-        // });
+        }else{
+            loadLocales(this.props.locale).then(()=>{
+                this.setState({initDone: true});
+            });
+        }
     }
 
     componentWillReceiveProps(nextProps) {
@@ -181,7 +185,7 @@ class XPagination extends Component {
                                 }
                                 this.onCurrPageChange(this.state.currPage - 1)
                             }}>
-                            <XIcon type="angle-left"/>{intl.get('XComponentPagination.prevPage').d(`上一页`)}
+                            <XIcon type="angle-left"/>{intl.get('KOF_REACT_X_COMPONENT_PAGINATION_PREVPAGE').d(`上一页`)}
                         </li>
                         {
                             pageList.map((item, index) => {
@@ -202,13 +206,13 @@ class XPagination extends Component {
                                 }
                                 this.onCurrPageChange(this.state.currPage + 1)
                             }}>
-                            {intl.get('XComponentPagination.nextPage').d(`下一页`)}
+                            {intl.get('KOF_REACT_X_COMPONENT_PAGINATION_NEXTPAGE').d(`下一页`)}
                             <XIcon type="angle-right"/>
                         </li>
                     </ul>
                     {
                         this.state.showJumpPage && <div className="goto-page">
-                            <span>{intl.get('XComponentPagination.jumpTo').d(`跳至`)}</span>
+                            <span>{intl.get('KOF_REACT_X_COMPONENT_PAGINATION_JUMPTO').d(`跳至`)}</span>
                             <XInput
                                 placeholder="1"
                                 value={jumpPage}
@@ -232,7 +236,7 @@ class XPagination extends Component {
                                 }}
                                 onEnter={this.onPageJump.bind(this)}
                                 className="goto-input"/>
-                            <span>{intl.get('XComponentPagination.page').d(`页`)}</span>
+                            <span>{intl.get('KOF_REACT_X_COMPONENT_PAGINATION_PAGE').d(`页`)}</span>
                         </div>
                     }
                     {
@@ -247,7 +251,7 @@ class XPagination extends Component {
                                         this.onPageSizeChange(pageSize);
                                     }}></XSelect>
                             </div>
-                            <span>{intl.get('XComponentPagination.itemsPerPage').d(`条/页`)}</span>
+                            <span>{intl.get('KOF_REACT_X_COMPONENT_PAGINATION_ITEMSPERPAGE').d(`条/页`)}</span>
                         </div> : ''
                     }
                 </div>

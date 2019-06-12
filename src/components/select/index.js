@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import XIcon from '../icon';
 import intl from 'react-intl-universal';
-// import loadLocales from '../locales/loadlocales';
+import loadLocales from '../locales/loadlocales';
 
 class XSelect extends Component {
 
@@ -49,9 +49,13 @@ class XSelect extends Component {
                 selectedList: this.getSelectedList(this.props.selectedValueList)
             })
         }
-        // loadLocales(this.props.locale).then(()=>{
+        if(window.localStorage.getItem('isStoragelocale')){
             this.setState({initDone: window.localStorage.getItem('initDone')});
-        // });
+        }else{
+            loadLocales(this.props.locale).then(()=>{
+                this.setState({initDone: true});
+            });
+        }
     }
 
     // static getDerivedStateFromProps(props,state){
@@ -134,7 +138,7 @@ class XSelect extends Component {
                     })
                 }
             }}>
-                <div placeholder={intl.get('XComponentGlobal.selectPlaceholder').d(`请选择`)} disabled={true} value={this.state.selected.label} className={`x-select-title x-select-title-multiple ${this.props.disabled?'x-select-disabled':null}`} >
+                <div placeholder={intl.get('KOF_REACT_X_COMPONENT_GLOBAL_SELECTPLACEHOLDER').d(`请选择`)} disabled={true} value={this.state.selected.label} className={`x-select-title x-select-title-multiple ${this.props.disabled?'x-select-disabled':null}`} >
                     {
                         this.state.selectedList.map((item,index)=>{
                             return (<span className="x-select-item-multiple" key={''+item.label+index}>{item.label}<XIcon type='close-a' onClick={(e)=>{
@@ -217,7 +221,7 @@ class XSelect extends Component {
             }}>
                 {
                    
-                   (this.state.selected.value!==undefined&&this.state.selected.value!=-1)?<div placeholder="请选择" readOnly disabled={true} value={this.state.selected.label} className={`x-select-title ${this.props.disabled?'x-select-disabled':null}`} >{this.state.selected.label}</div>:<div readOnly disabled={true} value={this.state.selected.label} className={`x-select-title ${this.props.disabled?'x-select-disabled':null}`} >请选择</div>
+                   (this.state.selected.value!==undefined&&this.state.selected.value!=-1)?<div placeholder={intl.get('KOF_REACT_X_COMPONENT_GLOBAL_SELECTPLACEHOLDER').d(`请选择`)} readOnly disabled={true} value={this.state.selected.label} className={`x-select-title ${this.props.disabled?'x-select-disabled':null}`} >{this.state.selected.label}</div>:<div readOnly disabled={true} value={this.state.selected.label} className={`x-select-title ${this.props.disabled?'x-select-disabled':null}`} >请选择</div>
                 }
                 <XIcon type='angle-left'></XIcon>
                 {/* {

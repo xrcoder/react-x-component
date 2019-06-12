@@ -8,7 +8,7 @@ import React from 'react';
 import XIcon from '../../components/icon';
 import XImgView from '../../components/image-view';
 import intl from 'react-intl-universal';
-// import loadLocales from '../locales/loadlocales';
+import loadLocales from '../locales/loadlocales';
 
 export default class extends React.Component {
     
@@ -25,9 +25,13 @@ export default class extends React.Component {
     }
 
     componentDidMount() {
-        // loadLocales(this.props.locale).then(()=>{
+        if(window.localStorage.getItem('isStoragelocale')){
             this.setState({initDone: window.localStorage.getItem('initDone')});
-        // });
+        }else{
+            loadLocales(this.props.locale).then(()=>{
+                this.setState({initDone: true});
+            });
+        }
     }
 
     static getDerivedStateFromProps(props, state) {
@@ -69,7 +73,7 @@ export default class extends React.Component {
             <div className="x-upload-item-preview" key={`thirdUploadImg_${index}`}>
                 {
                     status <= 1 ? <div className="x-upload-loading-box">
-                        <div className="x-upload-loading-txt">{intl.get('XComponentUpload.loading').d(`文件上传中`) }</div>
+                        <div className="x-upload-loading-txt">{intl.get('KOF_REACT_X_COMPONENT_UPLOAD_LOADING').d(`文件上传中`) }</div>
                         <div className="x-upload-loading">
                             <div
                                 className="x-upload-loading-bar"

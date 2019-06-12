@@ -38,9 +38,13 @@ class XInput extends React.Component {
     }
 
     componentWillMount() {
-        // loadLocales(this.props.locale).then(()=>{
+        if(window.localStorage.getItem('isStoragelocale')){
             this.setState({initDone: window.localStorage.getItem('initDone')});
-        // });
+        }else{
+            loadLocales(this.props.locale).then(()=>{
+                this.setState({initDone: true});
+            });
+        }
     }
 
     render() {
@@ -52,7 +56,7 @@ class XInput extends React.Component {
                     {...otherProps}
                     className={classnames('x-input', `${size}`, {disabled: disabled}, {danger: isError})}
                     disabled={disabled}
-                    placeholder={placeholder || intl.get('XComponentUploadGlobal.inputPlaceholder').d(`请输入`)}
+                    placeholder={placeholder || intl.get('KOF_REACT_X_COMPONENT_GLOBAL_INPUTPLACEHOLDER').d(`请输入`)}
                     onChange={(e) => {
                         onChange(e.target.value, e);
                     }}

@@ -9,7 +9,7 @@ import intl from 'react-intl-universal';
 
 function getXhrError(option, xhr) {
     // 构造一个错误对象，并返回
-    const msg = intl.get('XComponentUpload.error').d(`上传失败`) + `：${option.url} ${xhr.status}`;
+    const msg = intl.get('KOF_REACT_X_COMPONENT_UPLOAD_ERROR').d(`上传失败`) + `：${option.url} ${xhr.status}`;
     const err = new Error(msg);
     err.status = xhr.status;
     err.method = 'post';
