@@ -39,6 +39,26 @@ class XCheckbox extends Component {
 
     }
 
+    componentWillReceiveProps(props) {
+        let arr = [];
+        let checkboxList = JSON.parse(JSON.stringify(props.checkboxList))
+        let selectedValueList = JSON.parse(JSON.stringify(props.selectedValueList))
+        checkboxList.map(item => {
+            if (selectedValueList.indexOf(item.value) != -1) {
+                item.selected = true
+                arr.push(item)
+            } else {
+                item.selected = false
+            }
+        })
+
+        this.setState({
+            selectedList: arr,
+            checkboxList: checkboxList
+        })
+
+    }
+
     render() {
         return (
             <div className="x-checkbox">
