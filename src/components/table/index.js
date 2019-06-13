@@ -54,7 +54,7 @@ const XTable = (props) => {
         if(window.localStorage.getItem('isStoragelocale')){
             setInitDone(window.localStorage.getItem('initDone'));
         }else{
-            loadLocales(this.props.locale).then(()=>{
+            loadLocales(props.locale).then(()=>{
                 setInitDone(true);
             });
         }
