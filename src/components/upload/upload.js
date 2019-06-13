@@ -6,8 +6,14 @@
  */
 
 import intl from 'react-intl-universal';
+import loadLocales from '../locales/loadlocales';
 
 function getXhrError(option, xhr) {
+
+    if(!window.localStorage.getItem('isStoragelocale')){
+        loadLocales(opt.locale || 'zh_CN');
+    }
+
     // 构造一个错误对象，并返回
     const msg = intl.get('KOF_REACT_X_COMPONENT_UPLOAD_ERROR').d(`上传失败`) + `：${option.url} ${xhr.status}`;
     const err = new Error(msg);
@@ -68,7 +74,7 @@ export default (option) => {
 
     xhr.timeout = option.timeout || 10000;
     xhr.ontimeout = () => {
-        option.onError({status: xhr.status, msg: intl.get('XComponentUpload.timeout').d('请求超时')})
+        option.onError({status: xhr.status, msg: intl.get('Upload.timeout').d('请求超时')})
     }
 
     xhr.open('post', option.url, true);

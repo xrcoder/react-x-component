@@ -5,13 +5,14 @@
  * author: kelvin
  */
 import React from 'react';
+import PropTypes from 'prop-types';
 import XIcon from '../../components/icon';
-import XImgView from '../../components/image-view';
+import XImgView from '../../components/imageView';
 import intl from 'react-intl-universal';
 import loadLocales from '../locales/loadlocales';
 
 export default class extends React.Component {
-    
+
     static propTypes = {
         locale: PropTypes.string
     };
@@ -69,7 +70,6 @@ export default class extends React.Component {
         const {uid, percent, imgData, status} = data;
         let ref = React.createRef();// 获取图片预览组件内部的dom ref
         return (
-            this.state.initDone !== fasle &&
             <div className="x-upload-item-preview" key={`thirdUploadImg_${index}`}>
                 {
                     status <= 1 ? <div className="x-upload-loading-box">
@@ -129,6 +129,7 @@ export default class extends React.Component {
     render() {
         const {files, styleType} = this.props;
         return (
+            this.state.initDone &&
             <div className="x-upload-list">
                 {
                     Object.keys(files).map((fileUid, index) => {

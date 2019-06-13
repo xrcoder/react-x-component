@@ -1,18 +1,24 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import $_upload from './upload';
-import XButton from '../button';
-// import './index.scss';
-import intl from 'react-intl-universal';
-import loadLocales from '../locales/loadlocales';
+/**
+ * name:
+ * desc:
+ * date: 2019/1/25
+ * author: kelvin
+ */
+import React from 'react'
+import PropTypes from 'prop-types'
+import $_upload from './upload'
+import XButton from '../button'
+import './index.scss'
+import intl from 'react-intl-universal'
+import loadLocales from '../locales/loadlocales'
 
 function getUid() {
     // 获取唯一ID值
-    const now = +(new Date());
-    let index = 0;
+    const now = +(new Date())
+    let index = 0
     return {
         uid() {
-            return `upload-${now}-${++index}`;
+            return `upload-${now}-${++index}`
         }
     }
 }
@@ -28,61 +34,61 @@ class XUpload extends React.Component {
         timeout: PropTypes.number,
         name: PropTypes.string,
         locale: PropTypes.string
-    };
+    }
 
     static defaultProps = {
         fileType: '*',
         timeout: 3000,
         name: 'file',
         locale: 'zh_CN'
-    };
+    }
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props)
         this.state = {
             getUid: getUid(),
             initDone: false
-        };
-        this.uploadList = {};
+        }
+        this.uploadList = {}
     }
 
     componentDidMount() {
-        if(window.localStorage.getItem('isStoragelocale')){
-            this.setState({initDone: window.localStorage.getItem('initDone')});
-        }else{
-            loadLocales(this.props.locale).then(()=>{
-                this.setState({initDone: true});
-            });
+        if (window.localStorage.getItem('isStoragelocale')) {
+            this.setState({initDone: window.localStorage.getItem('initDone')})
+        } else {
+            loadLocales(this.props.locale).then(() => {
+                this.setState({initDone: true})
+            })
         }
     }
 
     onChange(e) {
-        let files = e.target.files || e.dataTransfer.files;
+        let files = e.target.files || e.dataTransfer.files
         if (!files.length) {
-            return;
+            return
         } else {
-            this.uploadFiles(files);
+            this.uploadFiles(files)
         }
         e.target.setAttribute('type', 'text')
     }
 
     uploadFiles(files) {
-        const postList = Array.prototype.slice.call(files);
+        const postList = Array.prototype.slice.call(files)
         postList.map((item) => {
-            let file = item;
-            file.uid = this.state.getUid.uid();
-            this.upload(file, files);
-        });
+            let file = item
+            file.uid = this.state.getUid.uid()
+            this.upload(file, files)
+        })
     }
 
     upload(file, fileList) {
-        const {onStart, onProgress, onSuccess, onError, data, headers} = this.props;
-        const {props} = this;
+        const {onStart, onProgress, onSuccess, onError, data, headers} = this.props
+        const {props} = this
         new Promise(resolve => {
-            const {url} = props;
-            resolve(url);
+            const {url} = props
+            resolve(url)
         }).then(url => {
-            const {uid} = file;
+            const {uid} = file
             this.uploadList[uid] = $_upload({
                 url,
                 filename: props.name,
@@ -90,19 +96,19 @@ class XUpload extends React.Component {
                 data,
                 headers,
                 onProgress: onProgress ? e => {
-                    onProgress(e, file);
+                    onProgress(e, file)
                 } : null,
                 onSuccess: (res, xhr) => {
-                    delete this.uploadList[uid];
-                    onSuccess(res, file, xhr);
+                    delete this.uploadList[uid]
+                    onSuccess(res, file, xhr)
                 },
                 onError: (err, res) => {
-                    delete this.uploadList[uid];
-                    onError(err, file);
+                    delete this.uploadList[uid]
+                    onError(err, file)
                 }
-            });
-            onStart(file);
-        });
+            })
+            onStart(file)
+        })
     }
 
     handleClick() {
@@ -112,27 +118,40 @@ class XUpload extends React.Component {
         * 本代码中解决分布在 onChange和handleClick方法中
         * */
         this.refs.uploadInput.setAttribute('type', 'file')
-        this.refs.uploadInput.click();
+        this.refs.uploadInput.click()
     }
 
     render() {
-        const {children, fileType} = this.props;
+        const {children, fileType, directory} = this.props
         return (
-            this.state.initDone !== false &&
+            this.state.initDone &&
             <div className="x-upload" onClick={this.handleClick.bind(this)}>
                 <div className="x-upload-trigger">
-                    {children ? children : <XButton icon="upload">{intl.get('KOF_REACT_X_COMPONENT_UPLOAD_UPLOAD').d(`文件上传`)}</XButton>}
+                    {children ? children :
+                        <XButton icon="upload">{intl.get('KOF_REACT_X_COMPONENT_UPLOAD_UPLOAD').d(`文件上传`)}</XButton>}
                 </div>
-                <input
-                    type="file"
-                    accept={fileType}
-                    onChange={this.onChange.bind(this)}
-                    ref="uploadInput"
-                    className="x-upload-input"
-                />
+                {
+                    directory ?
+                        <input
+                            type="file"
+                            accept={fileType}
+                            onChange={this.onChange.bind(this)}
+                            ref="uploadInput"
+                            className="x-upload-input"
+                            webkitdirectory="true"
+                            multiple={true}
+                        /> :
+                        <input
+                            type="file"
+                            accept={fileType}
+                            onChange={this.onChange.bind(this)}
+                            ref="uploadInput"
+                            className="x-upload-input"
+                        />
+                }
             </div>
-        );
+        )
     }
 }
 
-export default XUpload;
+export default XUpload
