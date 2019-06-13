@@ -52,9 +52,11 @@ class XCheckbox extends Component {
                                         return
                                     }
                                     if (this.props.checked === false) {
+                                        item.selected = true
                                         this.props.onChange([item])
                                     } else {
-                                        this.props.onChange([{ value: -1, label: item.label }])
+                                        item.selected = false
+                                        this.props.onChange([item])
                                     }
 
                                 }}>
@@ -67,49 +69,49 @@ class XCheckbox extends Component {
                                 </div>
                             )
                         } else {
-                        return (
-                            <div key={item.label + index} className={`x-checkbox-li ${item.selected ? 'active-checkbox' : null} ${item.disable == true ? 'checkbox-disable' : null}`} onClick={() => {
+                            return (
+                                <div key={item.label + index} className={`x-checkbox-li ${item.selected ? 'active-checkbox' : null} ${item.disable == true ? 'checkbox-disable' : null}`} onClick={() => {
 
-                                if (item.disable) {
-                                    return
-                                }
-
-                                let arr = JSON.parse(JSON.stringify(this.state.selectedList))
-                                let selected = false;
-                                let selected_index;
-                                arr.length && arr.map((item_, index) => {
-                                    if (item_.value == item.value && item_.label == item.label) {
-                                        selected = true;
-                                        selected_index = index
+                                    if (item.disable) {
+                                        return
                                     }
-                                })
 
-                                // let arr = JSON.parse(JSON.stringify(this.state.selectedList))
-                                if (selected) {
-                                    item.selected = false;
-                                    arr.splice(selected_index, 1)
-                                    this.setState({
-                                        selectedList: arr
+                                    let arr = JSON.parse(JSON.stringify(this.state.selectedList))
+                                    let selected = false;
+                                    let selected_index;
+                                    arr.length && arr.map((item_, index) => {
+                                        if (item_.value == item.value && item_.label == item.label) {
+                                            selected = true;
+                                            selected_index = index
+                                        }
                                     })
-                                } else {
-                                    item.selected = true;
-                                    arr.push(item);
-                                    this.setState({
-                                        selectedList: arr
-                                    })
-                                }
 
-                                this.props.onChange(arr)
-                            }}>
-                                {
-                                    item.selected == true ?
-                                        <XIcon type='checkbox-selected'></XIcon> : <XIcon type='checkbox'></XIcon>
-                                }
-                                {item.label}
+                                    // let arr = JSON.parse(JSON.stringify(this.state.selectedList))
+                                    if (selected) {
+                                        item.selected = false;
+                                        arr.splice(selected_index, 1)
+                                        this.setState({
+                                            selectedList: arr
+                                        })
+                                    } else {
+                                        item.selected = true;
+                                        arr.push(item);
+                                        this.setState({
+                                            selectedList: arr
+                                        })
+                                    }
 
-                            </div>
-                        )
-                    }
+                                    this.props.onChange(arr)
+                                }}>
+                                    {
+                                        item.selected == true ?
+                                            <XIcon type='checkbox-selected'></XIcon> : <XIcon type='checkbox'></XIcon>
+                                    }
+                                    {item.label}
+
+                                </div>
+                            )
+                        }
                     })
                 }
             </div>
