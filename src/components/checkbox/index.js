@@ -44,6 +44,29 @@ class XCheckbox extends Component {
             <div className="x-checkbox">
                 {
                     this.state.checkboxList.map((item, index) => {
+                        if (this.props.checked === false || this.props.checked === true) {
+                            return (
+                                <div key={item.label + index} className={`x-checkbox-li ${this.props.checked ? 'active-checkbox' : null} ${item.disable == true ? 'checkbox-disable' : null}`} onClick={() => {
+
+                                    if (item.disable) {
+                                        return
+                                    }
+                                    if (this.props.checked === false) {
+                                        this.props.onChange([item])
+                                    } else {
+                                        this.props.onChange([{ value: -1, label: item.label }])
+                                    }
+
+                                }}>
+                                    {
+                                        this.props.checked == true ?
+                                            <XIcon type='checkbox-selected'></XIcon> : <XIcon type='checkbox'></XIcon>
+                                    }
+                                    {item.label}
+
+                                </div>
+                            )
+                        } else {
                         return (
                             <div key={item.label + index} className={`x-checkbox-li ${item.selected ? 'active-checkbox' : null} ${item.disable == true ? 'checkbox-disable' : null}`} onClick={() => {
 
@@ -86,6 +109,7 @@ class XCheckbox extends Component {
 
                             </div>
                         )
+                    }
                     })
                 }
             </div>
