@@ -149,7 +149,8 @@ XTable.propTypes = {
     onOrderChange: PropTypes.func,
     size: PropTypes.string,
     pageSize: PropTypes.number,
-    dataList: PropTypes.array
+    dataList: PropTypes.array,
+    locale: PropTypes.string
 };
 
 XTable.defaultProps = {
@@ -157,5 +158,6 @@ XTable.defaultProps = {
     onPageChange:()=>{},
     onOrderChange: ()=>{},
     pageSize: 10,
-    dataList: []
+    dataList: [],
+    locale: 'zh_CN'
 };
