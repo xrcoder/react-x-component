@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import XIcon from '../icon';
 import intl from 'react-intl-universal';
-// import loadLocales from '../locales/loadlocales';
+import loadLocales from '../locales/loadlocales';
 
 class XInput extends React.Component {
     static propTypes = {
