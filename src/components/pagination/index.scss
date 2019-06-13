@@ -11,13 +11,15 @@
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
+            i {
+                vertical-align: middle;
+            }
         }
         & > li:last-child {
             margin-right: 0;
         }
         & > .page-item {
             display: inline-block;
-            width: .28rem;
             height: .28rem;
             line-height: .28rem;
             text-align: center;
@@ -33,9 +35,11 @@
             }
             &.active {
                 border-color: $theme-active;
+                color: $theme-active;
             }
             &:hover {
                 border-color: $theme-active;
+                color: $theme-active;
             }
         }
         .prev, .next {
@@ -50,13 +54,13 @@
         }
     }
     .pagesize-change {
-        margin-left: 0.2rem;
         display: flex;
         align-items: center;
     }
     .goto-page {
         display: flex;
         align-items: center;
+        margin: 0 .2rem;
         .goto-input {
             margin: 0 .1rem;
         }
@@ -75,7 +79,7 @@
     &.lg {
         .x-pagination-list {
             & > .page-item {
-                width: .32rem;
+                padding: 0 .1rem;
                 height: .32rem;
                 line-height: .32rem;
             }
@@ -96,7 +100,7 @@
     &.md {
         .x-pagination-list {
             & > .page-item {
-                width: .28rem;
+                padding: 0 .08rem;
                 height: .28rem;
                 line-height: .28rem;
             }
@@ -117,7 +121,7 @@
     &.sm {
         .x-pagination-list {
             & > .page-item {
-                width: .24rem;
+                padding: 0 0.05rem;
                 height: .24rem;
                 line-height: .24rem;
             }

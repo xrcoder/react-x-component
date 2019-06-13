@@ -8,7 +8,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import $_upload from './upload'
 import XButton from '../button'
-import './index.scss'
 import intl from 'react-intl-universal'
 import loadLocales from '../locales/loadlocales'
 
