@@ -123,7 +123,7 @@ class XUpload extends React.Component {
     render() {
         const {children, fileType, directory} = this.props
         return (
-            this.state.initDone &&
+            this.state.initDone!==false &&
             <div className="x-upload" onClick={this.handleClick.bind(this)}>
                 <div className="x-upload-trigger">
                     {children ? children :
