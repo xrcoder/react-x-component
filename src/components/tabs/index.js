@@ -6,14 +6,6 @@ class XTabs extends Component {
     static propTypes = {
         tabList:PropTypes.array
     };
-    
-    constructor(props){
-        super(props)
-        this.state={
-            activeTabValue:props.activeTabValue||props.tabList[0].value,
-            activeTab:{}
-        }
-    }
 
     render(){
         let len = this.props.tabList.length;
@@ -23,7 +15,7 @@ class XTabs extends Component {
                 {
                     this.props.tabList.map((item,index)=>{
                         return (
-                            <div  key={item.label+index} className={`x-tab-li ${item.value==this.state.activeTabValue?'active-tab':null} ${item.disable==true?'tab-disable':null}`} onClick={(e)=>{
+                            <div  key={item.label+index} className={`x-tab-li ${item.value==this.props.activeTabValue?'active-tab':null} ${item.disable==true?'tab-disable':null}`} onClick={(e)=>{
                                 if(item.disable==true){
                                     return;
                                 }
