@@ -221,7 +221,7 @@ class XSelect extends Component {
             }}>
                 {
                    
-                   (this.state.selected.value!==undefined&&this.state.selected.value!=-1)?<div placeholder={intl.get('KOF_REACT_X_COMPONENT_GLOBAL_SELECTPLACEHOLDER').d(`请选择`)} readOnly disabled={true} value={this.state.selected.label} className={`x-select-title ${this.props.disabled?'x-select-disabled':null}`} >{this.state.selected.label}</div>:<div readOnly disabled={true} value={this.state.selected.label} className={`x-select-title ${this.props.disabled?'x-select-disabled':null}`} >请选择</div>
+                   (this.state.selected.value!==undefined&&this.state.selected.value!=-1)?<div placeholder={intl.get('KOF_REACT_X_COMPONENT_GLOBAL_SELECTPLACEHOLDER').d(`请选择`)} readOnly disabled={true} value={this.state.selected.label} className={`x-select-title ${this.props.disabled?'x-select-disabled':null}`} >{this.state.selected.label}</div>:<div readOnly disabled={true} value={this.state.selected.label} className={`x-select-title ${this.props.disabled?'x-select-disabled':null}`} >{intl.get('KOF_REACT_X_COMPONENT_GLOBAL_SELECTPLACEHOLDER').d(`请选择`)}</div>
                 }
                 <XIcon type='angle-left'></XIcon>
                 {/* {

@@ -129,7 +129,7 @@ export default class extends React.Component {
     render() {
         const {files, styleType} = this.props;
         return (
-            this.state.initDone &&
+            this.state.initDone!==false &&
             <div className="x-upload-list">
                 {
                     Object.keys(files).map((fileUid, index) => {

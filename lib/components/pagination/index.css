@@ -12,13 +12,16 @@
   user-select: none;
 }
 
+.x-pagination .x-pagination-list > li i {
+  vertical-align: middle;
+}
+
 .x-pagination .x-pagination-list > li:last-child {
   margin-right: 0;
 }
 
 .x-pagination .x-pagination-list > .page-item {
   display: inline-block;
-  width: .28rem;
   height: .28rem;
   line-height: .28rem;
   text-align: center;
@@ -38,10 +41,12 @@
 
 .x-pagination .x-pagination-list > .page-item.active {
   border-color: #5B86FD;
+  color: #5B86FD;
 }
 
 .x-pagination .x-pagination-list > .page-item:hover {
   border-color: #5B86FD;
+  color: #5B86FD;
 }
 
 .x-pagination .x-pagination-list .prev, .x-pagination .x-pagination-list .next {
@@ -58,7 +63,6 @@
 }
 
 .x-pagination .pagesize-change {
-  margin-left: 0.2rem;
   display: flex;
   align-items: center;
 }
@@ -66,6 +70,7 @@
 .x-pagination .goto-page {
   display: flex;
   align-items: center;
+  margin: 0 .2rem;
 }
 
 .x-pagination .goto-page .goto-input {
@@ -84,7 +89,7 @@
 }
 
 .x-pagination.lg .x-pagination-list > .page-item {
-  width: .32rem;
+  padding: 0 .1rem;
   height: .32rem;
   line-height: .32rem;
 }
@@ -100,7 +105,7 @@
 }
 
 .x-pagination.md .x-pagination-list > .page-item {
-  width: .28rem;
+  padding: 0 .08rem;
   height: .28rem;
   line-height: .28rem;
 }
@@ -116,7 +121,7 @@
 }
 
 .x-pagination.sm .x-pagination-list > .page-item {
-  width: .24rem;
+  padding: 0 0.05rem;
   height: .24rem;
   line-height: .24rem;
 }
