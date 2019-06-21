@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import './index.scss';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { XIcon } from 'components';
+import { XIcon } from '../icon';
 
 class XButtonGroup extends Component {
     constructor(props) {
