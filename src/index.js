@@ -1,5 +1,7 @@
 export { default as XButton } from './components/button/index.js';
 
+export { default as XButtonGroup } from './components/buttonGroup/index.js';
+
 export { default as XInput } from './components/input/index.js';
 
 export { default as XRadio } from './components/radio/index.js';

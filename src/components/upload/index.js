@@ -81,7 +81,7 @@ class XUpload extends React.Component {
     }
 
     upload(file, fileList) {
-        const {onStart, onProgress, onSuccess, onError, data, headers} = this.props
+        const {onStart, onProgress, onSuccess, onError, data, headers, timeout} = this.props
         const {props} = this
         new Promise(resolve => {
             const {url} = props
@@ -93,6 +93,7 @@ class XUpload extends React.Component {
                 filename: props.name,
                 file,
                 data,
+                timeout,
                 headers,
                 onProgress: onProgress ? e => {
                     onProgress(e, file)
