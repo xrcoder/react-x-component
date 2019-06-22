@@ -138,7 +138,7 @@ class XUpload extends React.Component {
                             ref="uploadInput"
                             className="x-upload-input"
                             webkitdirectory="true"
-                            multiple={true}
+                            // multiple={true}
                         /> :
                         <input
                             type="file"
