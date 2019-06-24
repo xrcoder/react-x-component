@@ -1,0 +1,29 @@
+.x-menu {
+  flex: 1;
+}
+
+.x-menu-horizontal {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 .15rem;
+}
+
+.x-menu-horizontal li {
+  float: left;
+  font-size: .16rem;
+  padding: 0 .46rem;
+  cursor: pointer;
+  line-height: .58rem;
+  border-bottom: 2px solid transparent;
+}
+
+.x-menu-horizontal li.active,
+.x-menu-horizontal li:hover {
+  color: #5B86FD;
+}
+
+.x-menu-horizontal li.active {
+  border-bottom-color: #5B86FD;
+}
