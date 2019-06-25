@@ -23,7 +23,7 @@ class XTooltip extends React.Component {
         return (
             <span className={`x-tooltip ${this.props.className}`}>
                 <span className="top">{this.props.children}</span>
-                <span className={`box box-${this.props.position}`}>{this.state.content}</span>
+                <span className={`box box-${this.props.position}`}>{this.props.content}</span>
             </span>
         );
     }
