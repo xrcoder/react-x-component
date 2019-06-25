@@ -72,12 +72,61 @@ class XUpload extends React.Component {
     }
 
     uploadFiles(files) {
+        const {onProgress, onSuccess, sync} = this.props
         const postList = Array.prototype.slice.call(files)
-        postList.map((item) => {
+        let promiseList = []
+
+        postList.map((item, index) => {
             let file = item
             file.uid = this.state.getUid.uid()
-            this.upload(file, files)
+            if (sync) {
+                //多文件 同步上传，串行
+                promiseList.push(this.createUploadPromiseList(file, index + 1))
+            } else {
+                // 异步上传，并行
+                this.upload(file, files)
+            }
         })
+
+        if (sync) {
+            //多文件 同步上传，串行
+            let total = promiseList.length
+            promiseList.reduce((prev, next) => {
+                return prev.then((res) => {
+                    if (res.index > 0) {
+                        onProgress({percent: ((res.index / total) * 100)}, res.file)
+                    }
+                    return next()
+                })
+            }, Promise.resolve({status: 'init', index: 0})).then((res) => {
+                onProgress({percent: ((res.index / total) * 100)}, res.file)
+                onSuccess(res.res, res.file, res.xhr)
+            })
+        }
+    }
+
+    createUploadPromiseList(file, index) {
+        const {data, headers, url} = this.props
+        return () => {
+            return new Promise((resolve, reject) => {
+                // 创建upload list promise
+                const {uid} = file
+                this.uploadList[uid] = $_upload({
+                    url,
+                    filename: this.props.name,
+                    file,
+                    data,
+                    headers,
+                    onSuccess: (res, xhr) => {
+                        delete this.uploadList[uid]
+                        resolve({status: 'ok', index: index, file, res, xhr})// index表示当前进度,status表示上传是否成功
+                    },
+                    onError: (err, res) => {
+                        resolve({status: 'fail', index: index, file, res, xhr: null})
+                    }
+                })
+            })
+        }
     }
 
     upload(file, fileList) {
@@ -124,7 +173,7 @@ class XUpload extends React.Component {
     render() {
         const {children, fileType, directory} = this.props
         return (
-            this.state.initDone!==false &&
+            this.state.initDone !== false &&
             <div className="x-upload" onClick={this.handleClick.bind(this)}>
                 <div className="x-upload-trigger">
                     {children ? children :
