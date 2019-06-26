@@ -14,7 +14,8 @@ const OrderArea = (props) => {
     const upClick = () => {
         setIsUp(()=>{
             props.onOrderChange({
-                type: !isUp ? 'up' : null,
+                // type: !isUp ? 'up' : null,
+                type: 'up',
                 key: props.keyCode
             })
             return !isUp;
@@ -26,7 +27,8 @@ const OrderArea = (props) => {
         setIsUp(false);
         setIsDown(()=>{
             props.onOrderChange({
-                type: !isDown ? 'down' : null,
+                // type: !isDown ? 'down' : null,
+                type:'down',
                 key: props.keyCode
             })
             return !isDown;
