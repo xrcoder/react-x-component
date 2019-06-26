@@ -1,43 +1,51 @@
-import React, { Component } from 'react';
-// import './index.scss';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import XIcon from '../icon';
 
-class XButton extends Component {
+export default class extends Component {
+    constructor(props) {
+        super(props);
+    }
+
     static propTypes = {
-        type: PropTypes.oneOf(['primary', 'default', 'warning']),
-        size: PropTypes.oneOf(['lg', 'md', 'sm'])
+        type: PropTypes.oneOf(['default', 'primary', 'warning']),
+        size: PropTypes.oneOf(['lg', 'md', 'sm']),
+        disabled: PropTypes.bool,// 是否禁用
+        inverse: PropTypes.bool,// 是否反色
+        onClick: PropTypes.func,
+        style: PropTypes.object
     };
 
     static defaultProps = {
         type: 'default',
-        size: 'md'
+        size: 'md',
+        inverse: false,
+        disabled: false,
+        style: null
     };
 
-    getIcon() {
-        return this.props.icon ? <XIcon type={`${this.props.icon}`}></XIcon> : null
-    }
-    getLoadingIcon() {
-        return <XIcon type={'refresh'}></XIcon>
-    }
-
     render() {
+        const {className, style, onClick} = this.props;
         let btnClass = classnames({
-            'x-btn': true,
+            'x-btn': true,// default
             'x-btn-primary': this.props.type === 'primary',
             'x-btn-warning': this.props.type === 'warning',
             'x-btn-lg': this.props.size === 'lg',
             'x-btn-sm': this.props.size === 'sm',
             'x-btn-disable': this.props.disabled,
-            'x-btn-loading': this.props.loading
-        });
+            'x-btn-inverse': this.props.inverse
+        }, className);
         return (
-            this.props.loading == true ? <button {...this.props} className={btnClass}>{this.getLoadingIcon()}{this.props.children}</button> :
-                <button {...this.props} className={btnClass}>{this.getIcon()}{this.props.children}</button>
-        )
+            <button
+                style={style}
+                className={btnClass}
+                onClick={() => {
+                    onClick && onClick();
+                }}
+            >
+                {this.props.children}
+            </button>
+        );
     }
 
 }
-
-export default XButton;
