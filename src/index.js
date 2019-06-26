@@ -42,4 +42,8 @@ export { default as XModal } from './components/modal/index.js';
 
 export { default as XToggle } from './components/toggle/index.js';
 
+export { default as LayoutA } from './components/layoutA/index.js';
+
+export { default as LayoutB } from './components/layoutB/index.js';
+
 export * from './components/grid/index.js';
