@@ -25,7 +25,7 @@ export default class extends Component {
     };
 
     render() {
-        const {className, style, onClick} = this.props;
+        const {className, style, onClick, disabled} = this.props;
         let btnClass = classnames({
             'x-btn': true,// default
             'x-btn-primary': this.props.type === 'primary',
@@ -39,8 +39,11 @@ export default class extends Component {
             <button
                 style={style}
                 className={btnClass}
-                onClick={() => {
-                    onClick && onClick();
+                onClick={(e) => {
+                    if (disabled) {
+                        return;
+                    }
+                    onClick && onClick(e);
                 }}
             >
                 {this.props.children}
