@@ -6,7 +6,7 @@ export default class extends React.Component {
     render() {
         return (
             <aside className={classnames('x-b-sidebar', this.props.className)} style={this.props.style}>
-                <div className="x-b-sidebar">{this.props.children}</div>
+                {this.props.children}
             </aside>
         );
     }
