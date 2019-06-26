@@ -36,20 +36,24 @@
 }
 
 .x-btn {
-  padding: 0 0.15rem;
-  height: 0.26rem;
-  word-break: keep-all;
+  padding: 0 0.75rem;
+  height: 1.4rem;
   display: inline-block;
   border-radius: 4px;
   background-color: #fff;
   cursor: pointer;
-  font-size: 0.14rem;
+  font-size: 0.7rem;
   color: #595959;
   outline: none;
   border: 1px solid #D9D9D9;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+}
+
+.x-btn-inverse {
+  background-color: #595959;
+  color: #ffffff;
 }
 
 .x-btn:hover {
@@ -63,7 +67,11 @@
 .x-btn-primary {
   background-color: #5B86FD;
   color: #fff;
-  border: 1px solid #5B86FD;
+}
+
+.x-btn-primary.x-btn-inverse {
+  background-color: #ffffff;
+  color: #5B86FD;
 }
 
 .x-btn-warning {
@@ -71,66 +79,31 @@
   color: #DD4B39;
 }
 
-.x-btn .xicon {
-  margin-right: 0.05rem;
-  font-size: 0.14rem;
+.x-btn-warning.x-btn-inverse {
+  background-color: #DD4B39;
+  color: #F5F5F5;
 }
 
 .x-btn-disable {
   cursor: not-allowed;
   background-color: #F5F5F5;
   color: #B8B8B8;
-  border: 1px solid #D9D9D9;
 }
 
 .x-btn-disable:hover {
   opacity: 1;
 }
 
-.x-btn-loading {
-  cursor: not-allowed;
-  background-color: #AAC0FD;
-  color: #fff;
-}
-
-.x-btn-loading:hover {
-  opacity: 1;
-}
-
 .x-btn-lg {
-  padding: 0 0.35rem;
-  height: 0.32rem;
-  font-size: 0.16rem;
+  padding: 0 1.75rem;
+  height: 1.6rem;
+  font-size: 0.8rem;
 }
 
 .x-btn-sm {
   padding: 0 0.2rem;
-  height: 0.2rem;
-  font-size: 0.12rem;
-}
-
-.x-btn .xicon-refresh {
-  animation: myfirst 1s infinite linear;
-  -webkit-animation: myfirst 1s infinite linear;
-  transform: rotate(360deg);
-}
-
-@keyframes myfirst {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@-webkit-keyframes myfirst {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  height: 1rem;
+  font-size: 0.6rem;
 }
 
 .x-input-container {
@@ -422,7 +395,7 @@
   box-sizing: border-box;
 }
 
-.x-grid-row [class^=col-] {
+.x-row [class^=col-] {
   padding: 0 1%;
 }
 

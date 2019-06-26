@@ -3,7 +3,7 @@
   box-sizing: border-box;
 }
 
-.x-grid-row [class^=col-] {
+.x-row [class^=col-] {
   padding: 0 1%;
 }
 
