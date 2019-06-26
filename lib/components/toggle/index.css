@@ -1,0 +1,52 @@
+.x-toggle {
+  position: relative;
+  display: inline-block;
+}
+
+.x-toggle.open .x-toggle-box {
+  display: block;
+}
+
+.x-toggle-top {
+  cursor: pointer;
+}
+
+.x-toggle-box {
+  position: absolute;
+  display: none;
+  z-index: 9999;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0 2px 8px 0px rgba(0, 0, 0, 0.15);
+}
+
+.x-toggle-box.bottomLeft {
+  top: 100%;
+  left: 0;
+}
+
+.x-toggle-box.bottomRight {
+  top: 100%;
+  right: 0;
+}
+
+.x-toggle-box.topRight {
+  bottom: 100%;
+  right: 0;
+}
+
+.x-toggle-box.topLeft {
+  bottom: 100%;
+  left: 0;
+}
+
+.x-toggle-box.bottomCenter {
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.x-toggle-box.topCenter {
+  left: 50%;
+  bottom: 100%;
+  transform: translate(-50%);
+}

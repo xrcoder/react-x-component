@@ -1,0 +1,62 @@
+/**
+ * Created by Rayr Lee on 2019-06-25.
+ * 左右方案布局(A)
+ */
+@import '../../style/variable.scss';
+
+.x-a-layout {
+    position: relative;
+    display: flex;
+    height: 100vh;
+}
+
+.x-a-sidebar {
+    position: relative;
+    width: 11rem;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.x-a-logo {
+    position: relative;
+    height: 2.5rem;
+}
+
+.x-a-sidebar-content {
+    position: relative;
+    height: 0;
+    flex: 1;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.x-a-header {
+    position: relative;
+    height: 2.5rem;
+    flex: none;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.x-a-container {
+    position: relative;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.x-a-content {
+    position: relative;
+    flex: 1;
+    height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.x-a-footer {
+    background: #fff;
+    padding: 0.75rem;
+    color: #444;
+    font-size: .7rem;
+    border-top: .5px solid $theme-border;
+}
