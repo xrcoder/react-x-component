@@ -18,7 +18,8 @@ const OrderArea = (props) => {
                 type: 'up',
                 key: props.keyCode
             })
-            return !isUp;
+            // return !isUp;
+            return true
         });
         setIsDown(false);
     }
@@ -31,7 +32,8 @@ const OrderArea = (props) => {
                 type:'down',
                 key: props.keyCode
             })
-            return !isDown;
+            // return !isDown;
+            return true
         });
     }
 
