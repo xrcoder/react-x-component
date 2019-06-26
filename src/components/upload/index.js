@@ -94,12 +94,12 @@ class XUpload extends React.Component {
             promiseList.reduce((prev, next) => {
                 return prev.then((res) => {
                     if (res.index > 0) {
-                        onProgress({percent: ((res.index / total) * 100)}, res.file, res.xhr)
+                        onProgress({percent: ((res.index / total) * 100)}, res.file, res)
                     }
                     return next()
                 })
             }, Promise.resolve({status: 'init', index: 0})).then((res) => {
-                onProgress({percent: ((res.index / total) * 100)}, res.file, res.xhr)
+                onProgress({percent: ((res.index / total) * 100)}, res.file, res)
                 onSuccess(res.res, res.file, res.xhr)
             })
         }

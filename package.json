@@ -1,6 +1,6 @@
 {
   "name": "react-x-component",
-  "version": "0.1.74",
+  "version": "0.1.75",
   "description": "react-x-component",
   "main": "lib/index.js",
   "scripts": {
