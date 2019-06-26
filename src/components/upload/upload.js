@@ -10,7 +10,7 @@ import loadLocales from '../locales/loadlocales';
 
 function getXhrError(option, xhr) {
 
-    if(!window.localStorage.getItem('isStoragelocale')){
+    if (!window.localStorage.getItem('isStoragelocale')) {
         loadLocales(opt.locale || 'zh_CN');
     }
 
@@ -47,7 +47,7 @@ export default (option) => {
             if (e.total > 0) {
                 e.percent = e.loaded / e.total * 100;
             }
-            option.onProgress(e);
+            option.onProgress(e, xhr);
         }
     }
 
@@ -74,7 +74,7 @@ export default (option) => {
 
     xhr.timeout = option.timeout || 10000;
     xhr.ontimeout = () => {
-        option.onError({status: xhr.status, msg: intl.get('Upload.timeout').d('请求超时')})
+        option.onError({ status: xhr.status, msg: intl.get('Upload.timeout').d('请求超时') })
     }
 
     xhr.open('post', option.url, true);
