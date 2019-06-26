@@ -1,4 +1,4 @@
-export { default as XButton } from './components/button/index.js';
+export { default as Button } from './components/button/index.js';
 
 export { default as XButtonGroup } from './components/buttonGroup/index.js';
 
