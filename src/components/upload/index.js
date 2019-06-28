@@ -47,17 +47,20 @@ class XUpload extends React.Component {
         super(props)
         this.state = {
             getUid: getUid(),
-            initDone: false
+            initDone: false,
+            totalNum: 0,
+            fileNum: 0,
+            successNum: 0
         }
         this.uploadList = {}
     }
 
     componentDidMount() {
         if (window.localStorage.getItem('isStoragelocale')) {
-            this.setState({ initDone: window.localStorage.getItem('initDone') })
+            this.setState({initDone: window.localStorage.getItem('initDone')})
         } else {
             loadLocales(this.props.locale).then(() => {
-                this.setState({ initDone: true })
+                this.setState({initDone: true})
             })
         }
     }
@@ -73,21 +76,36 @@ class XUpload extends React.Component {
     }
 
     uploadFiles(files) {
-        const { onProgress, onSuccess, sync } = this.props
+        const {onProgress, onSuccess, sync, fileFilter} = this.props
         const postList = Array.prototype.slice.call(files)
         let promiseList = []
+
+        let totalNum = postList.length
+        let fileNum = 0
 
         postList.map((item, index) => {
             let file = item
             file.uid = this.state.getUid.uid()
             if (sync) {
                 //多文件 同步上传，串行
-                promiseList.push(this.createUploadPromiseList(file, index + 1))
+                if (fileFilter.indexOf(file.type) !== -1) {
+                    // 过滤文件类型，为了配合文件夹上传，过滤掉不符合格式的
+                    fileNum++
+                    promiseList.push(this.createUploadPromiseList(file, fileNum))
+                }
             } else {
                 // 异步上传，并行
                 this.upload(file, files)
             }
         })
+
+        // 更新state
+        console.log('文件总数：', totalNum, '符合格式的文件：', fileNum)
+        this.setState({
+            totalNum: totalNum,
+            fileNum: fileNum
+        })
+
 
         if (sync) {
             //多文件 同步上传，串行
@@ -95,39 +113,57 @@ class XUpload extends React.Component {
             promiseList.reduce((prev, next) => {
                 return prev.then((res) => {
                     if (res.index > 0) {
-                        onProgress({ percent: ((res.index / total) * 100), xhr: res.xhr })
+                        onProgress({
+                            percent: ((res.index / total) * 100),
+                            xhr: res.xhr,
+                            totalFileNum: this.state.totalNum,
+                            fileNum: this.state.fileNum
+                        })
                     }
                     return next()
                 })
-            }, Promise.resolve({ status: 'init', index: 0 })).then((res) => {
-                onProgress({ percent: ((res.index / total) * 100), xhr: res.xhr })
-                onSuccess(res.res)
+            }, Promise.resolve({status: 'init', index: 0})).then((res) => {
+                onProgress({
+                    percent: ((res.index / total) * 100),
+                    xhr: res.xhr,
+                    totalFileNum: this.state.totalNum,
+                    fileNum: this.state.fileNum
+                })
+                onSuccess(res.res, {
+                    total: this.state.totalNum,
+                    fileNum: this.state.fileNum,
+                    successNum: this.state.successNum
+                })
             })
         }
     }
 
     createUploadPromiseList(file, index) {
-        const { data, headers, url, onSyncProgress } = this.props
+        const {data, headers, url, onSyncProgress} = this.props
         return () => {
             return new Promise((resolve, reject) => {
                 // 创建upload list promise
-                const { uid } = file
+                const {uid} = file
                 this.uploadList[uid] = $_upload({
                     url,
                     filename: this.props.name,
                     file,
                     data,
                     headers,
-                    onStart: () => { },
+                    onStart: () => {
+                    },
                     onProgress: (e, xhr) => {
-                        onSyncProgress(e.percent, xhr)
+                        onSyncProgress(e.percent, xhr, this.state.totalNum, this.state.fileNum, this.state.successNum)
                     },
                     onSuccess: (res, xhr) => {
                         delete this.uploadList[uid]
-                        resolve({ status: 'ok', index: index, file, res, xhr })// index表示当前进度,status表示上传是否成功
+                        this.setState({
+                            successNum: (this.state.successNum + 1)
+                        })
+                        resolve({status: true, index: index, file, res, xhr})// index表示当前进度,status表示上传是否成功
                     },
                     onError: (err, res) => {
-                        resolve({ status: 'fail', index: index, file, res, xhr: null })
+                        resolve({status: false, index: index, file, res, xhr: null})
                     }
                 })
             })
@@ -135,13 +171,13 @@ class XUpload extends React.Component {
     }
 
     upload(file, fileList) {
-        const { onStart, onProgress, onSuccess, onError, data, headers, timeout } = this.props
-        const { props } = this
+        const {onStart, onProgress, onSuccess, onError, data, headers, timeout} = this.props
+        const {props} = this
         new Promise(resolve => {
-            const { url } = props
+            const {url} = props
             resolve(url)
         }).then(url => {
-            const { uid } = file
+            const {uid} = file
             this.uploadList[uid] = $_upload({
                 url,
                 filename: props.name,
@@ -176,7 +212,7 @@ class XUpload extends React.Component {
     }
 
     render() {
-        const { children, fileType, directory } = this.props
+        const {children, fileType, directory} = this.props
         return (
             this.state.initDone !== false &&
             <div className="x-upload" onClick={this.handleClick.bind(this)}>
@@ -193,7 +229,7 @@ class XUpload extends React.Component {
                             ref="uploadInput"
                             className="x-upload-input"
                             webkitdirectory="true"
-                        // multiple={true}
+                            // multiple={true}
                         /> :
                         <input
                             type="file"
