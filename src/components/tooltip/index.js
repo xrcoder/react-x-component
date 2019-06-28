@@ -1,32 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
+// import './index.scss';
 
-class XTooltip extends React.Component {
+const Tooltip = ({ children, className, position, content, style }) => {
 
-    static propTypes = {
-        position: PropTypes.oneOf(['top', 'left', 'right','bottom'])
-    };
-
-    static defaultProps = {
-        position:'right'
-    };
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            position: this.props.position || 'right',
-            content: this.props.content
-        }
-    }
-
-    render() {
-        return (
-            <span className={`x-tooltip ${this.props.className}`}>
-                <span className="top">{this.props.children}</span>
-                <span className={`box box-${this.props.position}`}>{this.state.content}</span>
-            </span>
-        );
-    }
+    return (
+        <span className={classnames('x-tooltip', className)} style={style}>
+            <span className="top">{children}</span>
+            <span className={classnames('box', `box-${position}`)}>{content}</span>
+        </span>
+    );
 }
 
-export default XTooltip;
+export default Tooltip;
+
+Tooltip.propTypes = {
+    position: PropTypes.oneOf(['top', 'left', 'right', 'bottom']),
+    className: PropTypes.string,
+    style: PropTypes.object
+};
+
+Tooltip.defaultProps = {
+    position: 'top',
+    className: '',
+    style: null
+};

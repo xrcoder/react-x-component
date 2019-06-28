@@ -14,7 +14,7 @@ export { default as XHeader } from './components/header/index.js';
 
 export { default as XSidebar } from './components/sidebar/index.js';
 
-export { default as XBox } from './components/box/index.js';
+export { default as Box } from './components/box/index.js';
 
 export { default as XMenu } from './components/menu/index.js';
 
@@ -22,7 +22,7 @@ export { default as XToast } from './components/toast/index.js';
 
 export { default as XCheckbox } from './components/checkbox/index.js';
 
-export { default as XTooltip } from './components/tooltip/index.js';
+export { default as Tooltip } from './components/tooltip/index.js';
 
 export { default as XSelect } from './components/select/index.js';
 

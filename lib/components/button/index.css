@@ -1,6 +1,5 @@
 .x-btn {
-  padding: 0 0.75rem;
-  height: 1.4rem;
+  padding: 0.25rem 0.75rem;
   display: inline-block;
   border-radius: 4px;
   background-color: #fff;
@@ -58,13 +57,11 @@
 }
 
 .x-btn-lg {
-  padding: 0 1.75rem;
-  height: 1.6rem;
+  padding: 0.4rem 1.75rem;
   font-size: 0.8rem;
 }
 
 .x-btn-sm {
-  padding: 0 0.2rem;
-  height: 1rem;
+  padding: 0.15rem 0.2rem;
   font-size: 0.6rem;
 }
