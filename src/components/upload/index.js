@@ -66,8 +66,10 @@ class XUpload extends React.Component {
     }
 
     onChange(e) {
+        let {onSyncProgress} = this.props
         let files = e.target.files || e.dataTransfer.files
         if (!files.length) {
+            onSyncProgress(0, null, this.state.totalNum, this.state.fileNum, this.state.successNum)
             return
         } else {
             this.uploadFiles(files)
