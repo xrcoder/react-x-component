@@ -76,12 +76,17 @@ class XUpload extends React.Component {
     }
 
     uploadFiles(files) {
-        const {onProgress, onSuccess, sync, fileFilter} = this.props
+        const {onProgress, onSuccess, sync, fileFilter, onSyncProgress} = this.props
         const postList = Array.prototype.slice.call(files)
         let promiseList = []
 
         let totalNum = postList.length
         let fileNum = 0
+
+        if (totalNum <= 0) {
+            onSyncProgress(0, null, totalNum, fileNum, this.state.successNum)
+            return
+        }
 
         postList.map((item, index) => {
             let file = item
