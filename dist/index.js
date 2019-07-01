@@ -41,8 +41,7 @@
     Select: true,
     Switch: true,
     Collapse: true,
-    DropdownSelect: true,
-    DataTree: true
+    DropdownSelect: true
   };
   Object.defineProperty(_exports, "Remind", {
     enumerable: true,
@@ -182,12 +181,6 @@
       return _dropdown["default"];
     }
   });
-  Object.defineProperty(_exports, "DataTree", {
-    enumerable: true,
-    get: function get() {
-      return _tree["default"];
-    }
-  });
   _remind = _interopRequireDefault(_remind);
   _a = _interopRequireDefault(_a);
   _b = _interopRequireDefault(_b);
@@ -261,5 +254,14 @@
       }
     });
   });
-  _tree = _interopRequireDefault(_tree);
+  Object.keys(_tree).forEach(function (key) {
+    if (key === "default" || key === "__esModule") return;
+    if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
+    Object.defineProperty(_exports, key, {
+      enumerable: true,
+      get: function get() {
+        return _tree[key];
+      }
+    });
+  });
 });

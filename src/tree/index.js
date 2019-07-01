@@ -2,6 +2,8 @@ import * as React from 'react';
 import { Tree } from 'element-react';
 import Input from '../input';
 import Tooltip from '../tooltip';
+import Button from '../button';
+import Popper from '../popper';
 
 let tmpItem = null;
 let treeId = -1;
@@ -380,4 +382,408 @@ DataTree.defaultProps = {
     maxChoose: 0
 }
 
-export default DataTree;
+class TreeSelection extends React.Component {
+    xSelect;
+    xTree;
+    xTreeSecond;
+    xTreeIsInit = false;
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            checkedList: props.checkedList && props.checkedList.length > 0 ? props.checkedList : [],
+            list: props.list && props.list.length > 0 ? props.list : [],
+            checkedKeys: props.checkedKeys && props.checkedKeys.length > 0 ? props.checkedKeys : [],
+            defaultCheckedObjs: props.defaultCheckedObjs && props.defaultCheckedObjs.length > 0 ? props.defaultCheckedObjs : [],
+            tabIndex: 0,
+            searchTxt: '',
+            defaultCheckedKeys: props.defaultCheckedKeys || [],
+            nodeList: props.checkedList && props.checkedList.length > 0 ? props.checkedList : []
+        };
+        this.removeItem = this.removeItem.bind(this);
+        this.removeAll = this.removeAll.bind(this);
+        this.onPoperChange = this.onPoperChange.bind(this);
+        this.xSelect = React.createRef();
+    }
+
+    // componentWillReceiveProps(props) {
+    //     if (props.list && props.list.length !== this.state.list.length) {
+    //         this.setState({
+    //             list: props.list
+    //         });
+    //     }
+    //     if (props.defaultCheckedObjs &&
+    //             props.defaultCheckedObjs.length > 0 && props.defaultCheckedObjs.length != this.state.defaultCheckedObjs.length) {
+    //                 console.log('??????', props.defaultCheckedObjs)
+    //         this.setState({
+    //             checkedList: props.defaultCheckedObjs
+    //         });
+    //     }
+    //     if (props.checkedKeys &&
+    //             props.checkedKeys.length > 0 && props.checkedKeys.length != this.state.checkedKeys.length) {
+    //         this.setState({
+    //             checkedKeys: props.checkedKeys
+    //         })
+    //     }
+    // }
+
+    static getDerivedStateFromProps(nextProps, prevState) {
+        // if (nextProps.list && nextProps.list.length !== prevState.list.length) {
+        return {
+            list: nextProps.list,
+            checkedList: nextProps.checkedList,
+            checkedKeys: nextProps.checkedKeys
+        };
+        // }
+        // console.log(nextProps.checkedList, nextProps)
+        // //defaultCheckedObjs 做标记用
+        // if (nextProps.checkedList.length > 0) {
+        //     return {
+
+        //     }
+        // }
+
+        // if (nextProps.checkedKeys && nextProps.checkedKeys.length !== prevState.checkedKeys.length) {
+        //     return {
+        //     }
+        // }
+        // return null
+    }
+
+    removeItem(item) {
+        let { checkedList, checkedKeys } = this.state;
+        let { onChange } = this.props;
+        for (let i = 0; i < checkedList.length; i++) {
+            if (checkedList[i].id == item.id) {
+                checkedList.splice(i, 1);
+                break;
+            }
+        }
+        for (let i = 0; i < checkedKeys.length; i++) {
+            if (checkedKeys[i] == item.id) {
+                checkedKeys.splice(i, 1);
+                let tree = this.xTree || this.xTreeSecond;
+                try {
+                    tree && tree.setChecked(item.id, false);
+                } catch (e) {
+                    console.log(e);
+                }
+                break;
+            }
+        }
+        this.setState({
+            checkedList,
+            checkedKeys
+        });
+        onChange && onChange(checkedList, checkedKeys);
+        this.forceUpdate();
+    }
+
+    removeAll() {
+        let { checkedList, checkedKeys } = this.state;
+        let { onChange } = this.props;
+
+        for (let i = 0; i < checkedKeys.length; i++) {
+            let tree = this.xTree || this.xTreeSecond;
+            try {
+                tree && tree.setChecked(checkedKeys[i], false);
+            } catch (e) {
+                console.log(e);
+            }
+        }
+        checkedList = [];
+        checkedKeys = [];
+        this.setState({
+            checkedList,
+            checkedKeys
+        });
+        onChange && onChange(checkedList, checkedKeys);
+        this.forceUpdate();
+    }
+
+    onPoperChange(isShow) {
+        if (isShow) {
+            setTimeout(() => {
+                let tree = this.xTree || this.xTreeSecond;
+                try {
+                    if (tree) {
+                        this.xTreeIsInit = true;
+                        tree.setCheckedNodes(this.state.checkedList);
+                        this.forceUpdate();
+                    }
+                } catch (e) { }
+            }, 300);
+        }
+    }
+
+    renderContent(nodeModel, data, store) {
+        return (
+            <React.Fragment>
+                <span className={['tree-label', data.tag === undefined ? '' : 'label-tag-' + data.tag].join(' ')}>{data.label || data.name}</span>
+            </React.Fragment>
+        );
+    }
+
+    render() {
+        let { checkedList, list, checkedKeys, tabIndex, searchTxt } = this.state;
+        let { secondList, onNodeClicked, canSearch, canCount, placeholder, onChange, tab, onTabChange, defaultCheckedKeys, clearable } = this.props;
+
+        return (
+            <Popper
+                placement="rightTop"
+                trigger="click"
+                overlayClassName="tree-selection-popup"
+                onVisibleChange={this.onPoperChange}
+                content={
+                    <React.Fragment>
+                        {onTabChange && (
+                            <div className="c-row">
+                                <Button
+                                    type={tab[tabIndex] === tab[0] ? 'primary' : null}
+                                    onClick={res => {
+                                        onTabChange(tab[0]);
+                                        this.setState({ tabIndex: 0 }, () => {
+                                            this.xTree.setCheckedKeys(checkedKeys);
+                                            this.xTree.filter(searchTxt);
+                                        });
+                                    }}
+                                >
+                                    {tab[0]}
+                                </Button>
+                                <Button
+                                    type={tab[tabIndex] === tab[1] ? 'primary' : null}
+                                    onClick={res => {
+                                        onTabChange(tab[1]);
+                                        this.setState({ tabIndex: 1 }, () => {
+                                            this.xTreeSecond.setCheckedKeys(checkedKeys);
+                                            this.xTreeSecond.filter(searchTxt);
+                                        });
+                                    }}
+                                >
+                                    {tab[1]}
+                                </Button>
+                            </div>
+                        )}
+                        {canSearch ? (
+                            <div className="c-row">
+                                <Input
+                                    placeholder="请输入"
+                                    onChange={text => {
+                                        this.setState({ searchTxt: text });
+                                        console.log(this.xTree, this.xTreeSecond);
+                                        tabIndex == 0 && this.xTree.filter(text);
+                                        tabIndex == 1 && this.xTreeSecond.filter(text);
+                                    }}
+                                />
+                                <span className="icon-search"></span>
+                            </div>
+                        ) : null}
+                        {tabIndex === 0 && (
+                            <Tree
+                                data={list}
+                                className={['no-edit', this.props.type == 'device' ? 'device' : ''].join(' ')}
+                                options={
+                                    this.props.options
+                                        ? this.props.options
+                                        : {
+                                            children: 'children',
+                                            label: 'label'
+                                        }
+                                }
+                                isShowCheckbox={true}
+                                highlightCurrent={false}
+                                onCheckChange={(data, checked, indeterminate) => { }}
+                                onNodeClicked={(data, reactElement) => {
+                                    onNodeClicked && onNodeClicked(data, reactElement);
+                                    if (this.props.isHideAfterClick && this.xSelect && this.xSelect.current) {
+                                        this.xSelect.current.click();
+                                    }
+                                }}
+                                onCurrentChange={(data, node) => {
+                                    let nodeList = [],
+                                        nodeKey = [];
+                                    let nowCheckedList = this.xTree.getCheckedNodes();
+
+                                    nowCheckedList &&
+                                        nowCheckedList.forEach((item, index) => {
+                                            if (!item.children) {
+                                                if (!this.props.showTag) {
+                                                    nodeList.push(item);
+                                                    nodeKey.push(item.id);
+                                                } else {
+                                                    if (this.props.showTag === item.tag) {
+                                                        nodeList.push(item);
+                                                        nodeKey.push(item.id);
+                                                    }
+                                                }
+                                            }
+                                        });
+                                    this.setState({
+                                        checkedKeys: this.xTree.getCheckedKeys(),
+                                        checkedList: nodeList
+                                    });
+                                    onChange && onChange(nodeList, nodeKey);
+                                }}
+                                nodeKey="id"
+                                ref={e => {
+                                    this.xTree = e;
+                                }}
+                                filterNodeMethod={(value, data) => {
+                                    if (!value) return true;
+                                    return data.label.indexOf(value) !== -1;
+                                }}
+                                defaultCheckedKeys={defaultCheckedKeys}
+                                renderContent={(...args) => this.renderContent(...args)}
+                            />
+                        )}
+                        {tabIndex === 1 && (
+                            <Tree
+                                data={secondList}
+                                className={['no-edit', this.props.type == 'device' ? 'device' : ''].join(' ')}
+                                options={
+                                    this.props.options
+                                        ? this.props.options
+                                        : {
+                                            children: 'children',
+                                            label: 'label'
+                                        }
+                                }
+                                isShowCheckbox={true}
+                                highlightCurrent={false}
+                                onCurrentChange={(data, node) => {
+                                    let nodeList = [],
+                                        nodeKey = [];
+                                    let nowCheckedList = this.xTreeSecond.getCheckedNodes();
+                                    nowCheckedList &&
+                                        nowCheckedList.forEach((item, index) => {
+                                            if (!item.children) {
+                                                if (!this.props.showTag) {
+                                                    nodeList.push(item);
+                                                    nodeKey.push(item.id);
+                                                } else {
+                                                    if (this.props.showTag === item.tag) {
+                                                        nodeList.push(item);
+                                                        nodeKey.push(item.id);
+                                                    }
+                                                }
+                                            }
+                                        });
+
+                                    this.setState({
+                                        checkedKeys: this.xTreeSecond.getCheckedKeys(),
+                                        checkedList: nodeList
+                                    });
+                                    onChange && onChange(nodeList, nodeKey);
+                                }}
+                                onCheckChange={(data, checked, indeterminate) => {
+                                    // let arr = checkedList;
+                                    // let keyArr = checkedKeys;
+                                    // if (checked) {
+                                    //     let i;
+                                    //     for (i = 0; i < arr.length; i++) {
+                                    //         if (arr[i].id == data.id) {
+                                    //             break;
+                                    //         }
+                                    //     }
+                                    //     if (i >= arr.length) {
+                                    //         arr.push(data);
+                                    //         keyArr.push(data.id);
+                                    //     }
+                                    // } else {
+                                    //     for (let i = 0; i < arr.length; i++) {
+                                    //         if (arr[i].id == data.id) {
+                                    //             arr.splice(i, 1);
+                                    //             keyArr.splice(i, 1);
+                                    //             break;
+                                    //         }
+                                    //     }
+                                    // }
+                                    // this.setState({
+                                    //     checkedList: arr,
+                                    //     checkedKeys: keyArr
+                                    // });
+                                    // onChange && onChange(arr, keyArr);
+                                }}
+                                onNodeClicked={(data, reactElement) => {
+                                    onNodeClicked && onNodeClicked(data, reactElement);
+                                    // this.forceUpdate();
+                                }}
+                                nodeKey="id"
+                                ref={e => (this.xTreeSecond = e)}
+                                filterNodeMethod={(value, data) => {
+                                    if (!value) return true;
+                                    return data.label.indexOf(value) !== -1;
+                                }}
+                                defaultCheckedKeys={defaultCheckedKeys}
+                                renderContent={(...args) => this.renderContent(...args)}
+                            />
+                        )}
+                    </React.Fragment>
+                }
+            >
+                <div className={['x-select', 'x-select-multiple', checkedList && checkedList.length > 0 ? 'x-select-hasvalue' : ''].join(' ')} ref={this.xSelect}>
+                    <div className="x-select-title">
+                        <span
+                            className={clearable && checkedList && checkedList.length > 0 ? 'cls' : 'arrow'}
+                            onClick={e => {
+                                if (clearable && checkedList && checkedList.length > 0) {
+                                    e.stopPropagation();
+                                    this.removeAll();
+                                }
+                            }}
+                        ></span>
+                        <span className="input-placeholder">{placeholder || '选择设备'}</span>
+                        {checkedList && checkedList.length > 0 ? (
+                            <ul className="x-select-ul-value">
+                                {checkedList.map((item, index) => {
+                                    return (
+                                        <li key={'' + index + item.value} className="x-select-li">
+                                            {item.label || item.name}
+                                            <span
+                                                className="cls-icon"
+                                                onClick={e => {
+                                                    this.removeItem(item);
+                                                    e.preventDefault();
+                                                    e.stopPropagation();
+                                                }}
+                                            ></span>
+                                        </li>
+                                    );
+                                })}
+                            </ul>
+                        ) : null}
+                        {canCount && <span className="count">{`已选${checkedList ? checkedList.length : 0}个`}</span>}
+                    </div>
+                </div>
+            </Popper>
+        );
+    }
+}
+
+TreeSelection.defaultProps = {
+    list: [],
+    secondList: [],
+    onChange: () => { },
+    checkedList: [],
+    options: {},
+    canSearch: false,
+    onCheckChange: () => { },
+    onNodeClicked: () => { },
+    defaultCheckedKeys: [],
+    defaultCheckedObjs: [],
+    selectedKeys: [],
+    placeholder: '请输入',
+    checkedKeys: [],
+    tab: [],
+    onTabChange: () => { },
+    canCount: false,
+    showTag: 0,
+    type: '',
+    isHideAfterClick: false,
+    clearable: false
+}
+
+export default {
+    DataTree, TreeSelection
+};
+

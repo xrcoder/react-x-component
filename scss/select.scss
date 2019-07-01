@@ -90,6 +90,7 @@
         transition: all 100ms;
         cursor: pointer !important;
         padding: 7.5px 12px !important;
+        word-wrap: break-word;
     }
 
     &-select__option--is-selected {
