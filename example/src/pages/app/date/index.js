@@ -1,5 +1,5 @@
 import React from 'react';
-import {Box, Row, Col, TimePicker, TimeSelect, DatePicker} from 'react-x-component';
+import {Box, Row, Col, TimePicker, TimeSelect, DatePicker, DateRangePicker} from 'react-x-component';
 
 class TimerDemo extends React.Component {
     constructor(props) {
@@ -127,6 +127,58 @@ class DateDemoShort extends React.Component {
     }
 }
 
+class DateDemoRange extends React.Component {
+
+    constructor (props) {
+        super(props);
+        this.state = {
+            value: null,
+            isShowTime: false    //是否带时间
+        }
+    }
+
+    render () {
+        const {value, isShowTime} = this.state;
+        return (
+            <DateRangePicker
+                value={value}
+                isShowTime={isShowTime}
+                format={isShowTime ? 'yyyy-MM-dd HH:mm' : 'yyyy-MM-dd'}
+                onChange={date => {
+                    this.setState({value: date});
+                    this.props.onChange && this.props.onChange(date);
+                }}
+            />
+        )
+    }
+}
+
+class DateDemoRangeWithTime extends React.Component {
+
+    constructor (props) {
+        super(props);
+        this.state = {
+            value: null,
+            isShowTime: true    //是否带时间
+        }
+    }
+
+    render () {
+        const {value, isShowTime} = this.state;
+        return (
+            <DateRangePicker
+                value={value}
+                isShowTime={isShowTime}
+                format={isShowTime ? 'yyyy-MM-dd HH:mm' : 'yyyy-MM-dd'}
+                onChange={date => {
+                    this.setState({value: date});
+                    this.props.onChange && this.props.onChange(date);
+                }}
+            />
+        )
+    }
+}
+
 class DateDemoWeek extends React.Component {
     constructor(props) {
         super(props)
@@ -215,6 +267,15 @@ export default function () {
                     </Box.Body>
                     <Box.Body>
                         <DateDemoShort/>
+                    </Box.Body>
+                </Box>
+                <Box>
+                    <Box.Header>范围选择器</Box.Header>
+                    <Box.Body>
+                        <DateDemoRange/>
+                    </Box.Body>
+                    <Box.Body>
+                        <DateDemoRangeWithTime/>
                     </Box.Body>
                 </Box>
             </Col>
