@@ -1,12 +1,13 @@
-import React, {Component} from "react";
+import React from "react";
 import classnames from 'classnames';
 
- const XIcon = (props) => {
+export default ({name, onClick = null, className}) => {
+
+    let _name = name ? `fa-${name}` : null;
+
     return (
-        <i className={classnames('xicon', 'xicon-' + props.type, props.className)} onClick={(e) => {
-            props.onClick && props.onClick(e)
+        <i className={classnames('fa', _name, className)} onClick={(e) => {
+            onClick && onClick(e);
         }}></i>
     );
 };
-
-export default XIcon;

@@ -1,78 +1,57 @@
 @import '../../style/variable.scss';
 
-.x-input-container {
+.x-input {
     position: relative;
+    display: inline-block;
+    font-size: 14px;
+    background-color: #fff;
+    border: 1px solid $input-border-color;
+    color: $input-font-color;
+    border-radius: 2px;
+    box-sizing: border-box;
+    transition: all .2s;
+    outline: none;
+    padding: 8px 10px;
+
+    &::-webkit-input-placeholder {
+        color: $input-placeholder-color;
+    }
+
+    &:disabled {
+        background-color: $input-disabled-bg-color;
+        color: $input-disabled-font-color;
+        cursor: not-allowed;
+    }
+
+    &:focus {
+        border-color: $input-active-border-color;
+    }
+}
+
+.x-input-group {
+    position: relative;
+    display: inline-flex;
+    font-size: 14px;
+
     .x-input {
-        display: block;
-        width: 100%;
-        font-size: .14rem;
-        background-color: #ffffff;
-        border: 1px solid $theme-border;
-        color: #595959;
-        border-radius: .04rem;
-        box-sizing: border-box;
-        transition: all .3s;
-        outline: none;
-        &::-webkit-input-placeholder {
-            color: $theme-border;
-        }
-        &.disabled {
-            background-color: $theme-background-gray;
-            color: $theme-disable-font;
-            cursor: not-allowed;
-            &:hover {
-                border-color: $theme-border;
-            }
-        }
-        &.danger {
-            color: $theme-danger;
-            border-color: $theme-danger;
-            &:hover {
-                border-color: $theme-danger;
-            }
-            &:focus {
-                border-color: $theme-danger;
-            }
-        }
-        &:hover {
-            border-color: $theme-active;
-        }
-        &:focus {
-            border-color: $theme-active;
-        }
-        &.lg {
-            padding: .065rem .1rem;
-        }
-        &.md {
-            padding: .035rem .1rem;
-        }
-        &.sm {
-            padding: .005rem .1rem;
-        }
+        flex: 1;
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
     }
-    & > i {
+
+    .group-addon-right .x-btn {
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+    }
+
+    .clear-btn {
         position: absolute;
-        right: .15rem;
         top: 50%;
-        transform: translate(0, -50%);
-    }
-    .search-btn {
-        position: absolute;
-        right: 0;
-        top: 0;
-        height: 100%;
-        background-color: #5B85FC;
-        text-align: center;
-        border-top-right-radius: .04rem;
-        border-bottom-right-radius: .04rem;
-        color: #ffffff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 0 .2rem;
+        margin-top: -6px;
+        right: 10px;
+        height: 12px;
+        line-height: 12px;
         cursor: pointer;
-        & > i {
-            color: #ffffff;
-        }
+        color: rgba(145, 143, 151, 1);
     }
 }

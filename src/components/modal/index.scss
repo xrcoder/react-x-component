@@ -94,8 +94,8 @@
 }
 
 .x-modal-dialog .x-modal-body {
-    border-top: 1px solid $theme-border;
-    border-bottom: 1px solid $theme-border;
+    border-top: 1px solid $input-border-color;
+    border-bottom: 1px solid $input-border-color;
 }
 
 .x-modal-confirm,.x-modal-alert{
@@ -114,12 +114,6 @@
         .xicon,.iconfont{
             margin-right: .08rem;
             font-size: .2rem;
-        }
-        .xicon-question{
-            color: $theme-danger;
-        }
-        .xicon-alarm{
-            color: $theme-warning;
         }
     }
     .content{

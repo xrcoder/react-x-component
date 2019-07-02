@@ -1,142 +1,171 @@
-@import '../../style/variable.scss';
+/**
+ * name: 
+ * desc:
+ * date: 2018/12/27
+ * author: kelvin
+ */
+ @import '../../style/variable.scss';
 
-.x-pagination {
-    display: flex;
-    align-items: center;
-    .x-pagination-list {
-        & > li {
-            display: inline-block;
-            margin-right: .1rem;
-            webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-            i {
-                vertical-align: middle;
-            }
-        }
-        & > li:last-child {
-            margin-right: 0;
-        }
-        & > .page-item {
-            display: inline-block;
-            height: .28rem;
-            line-height: .28rem;
-            text-align: center;
-            border-radius: .04rem;
-            border: 1px solid $theme-border;
-            transition: all .3s;
-            cursor: pointer;
-            &.more {
-                border: none;
-                &:hover {
-                    border-color: $theme-border;
-                }
-            }
-            &.active {
-                border-color: $theme-active;
-                color: $theme-active;
-            }
-            &:hover {
-                border-color: $theme-active;
-                color: $theme-active;
-            }
-        }
-        .prev, .next {
-            cursor: pointer;
-            &:hover {
-                color: $theme-active;
-            }
-            &.disabled {
-                color: $theme-disable-font;
-                cursor: not-allowed;
-            }
-        }
-    }
-    .pagesize-change {
-        display: flex;
-        align-items: center;
-    }
-    .goto-page {
-        display: flex;
-        align-items: center;
-        margin: 0 .2rem;
-        .goto-input {
-            margin: 0 .1rem;
-        }
-        input.x-input {
-            padding: .06rem;
-            text-align: center;
-            width: .4rem;
-        }
-    }
-    .pagination-select {
-        width: 60px;
-        margin-right: .1rem;
-
-    }
-
-    &.lg {
-        .x-pagination-list {
-            & > .page-item {
-                padding: 0 .1rem;
-                height: .32rem;
-                line-height: .32rem;
-            }
-        }
-        .goto-input {
-            & > input {
-                height: .32rem;
-                line-height: .32rem;
-            }
-        }
-        .pagination-select {
-            & > div {
-                height: .32rem;
-                line-height: .32rem;
-            }
-        }
-    }
-    &.md {
-        .x-pagination-list {
-            & > .page-item {
-                padding: 0 .08rem;
-                height: .28rem;
-                line-height: .28rem;
-            }
-        }
-        .goto-input {
-            & > input {
-                height: .28rem;
-                line-height: .28rem;
-            }
-        }
-        .pagination-select {
-            & > div {
-                height: .28rem;
-                line-height: .28rem;
-            }
-        }
-    }
-    &.sm {
-        .x-pagination-list {
-            & > .page-item {
-                padding: 0 0.05rem;
-                height: .24rem;
-                line-height: .24rem;
-            }
-        }
-        .goto-input {
-            & > input {
-                height: .24rem;
-                line-height: .24rem;
-            }
-        }
-        .pagination-select {
-            & > div {
-                height: .24rem;
-                line-height: .24rem;
-            }
-        }
-    }
-}
+ .x-pagination {
+     display: flex;
+     align-items: center;
+     .x-pagination-list {
+         & > li {
+             display: inline-block;
+             margin-right: .5rem;
+             webkit-user-select: none;
+             -moz-user-select: none;
+             -ms-user-select: none;
+             user-select: none;
+             i {
+                 vertical-align: middle;
+             }
+         }
+         & > li:last-child {
+             margin-right: 0;
+         }
+         & > .page-item {
+             display: inline-block;
+             height: 1.4rem;
+             line-height: 1.4rem;
+             text-align: center;
+             border-radius: .2rem;
+             border: 1px solid $input-border-color;
+             transition: all .3s;
+             cursor: pointer;
+             &.more {
+                 border: none;
+                 &:hover {
+                     border-color: $input-border-color;
+                 }
+             }
+             &.active {
+                 border-color: $input-active-border-color;
+                 color: $input-active-border-color;
+             }
+             &:hover {
+                 border-color: $input-active-border-color;
+                 color: $input-active-border-color;
+             }
+         }
+         .prev, .next {
+             cursor: pointer;
+             &:hover {
+                 color: $input-active-border-color;
+             }
+             &.disabled {
+                 color: $input-disabled-font-color;
+                 cursor: not-allowed;
+             }
+         }
+     }
+     .pagesize-change {
+         display: flex;
+         align-items: center;
+     }
+     .goto-page {
+         display: flex;
+         align-items: center;
+         margin: 0 1rem;
+         .goto-input {
+             margin: 0 .5rem;
+         }
+         input.x-input {
+             padding: .3rem;
+             text-align: center;
+             width: 2rem;
+         }
+     }
+     .pagination-select {
+         width: 60px;
+         margin-right: .5rem;
+ 
+     }
+     
+     &.lg {
+         .x-pagination-list {
+             & > .page-item {
+                 padding: 0 .5rem;
+                 height: 1.6rem;
+                 line-height: 1.6rem;
+             }
+         }
+         .goto-input {
+             & > input {
+                 height: 1.6rem;
+                 line-height: 1.6rem;
+             }
+         }
+         .pagination-select {
+             & > div {
+                 height: 1.6rrem;
+                 line-height: 1.6rrem;
+             }
+         }
+     }
+     &.md {
+         .x-pagination-list {
+             & > .page-item {
+                 padding: 0 .4rem;
+                 height: 1.4rem;
+                 line-height: 1.4rem;
+             }
+         }
+         .goto-input {
+             & > input {
+                 height: 1.4rem;
+                 line-height: 1.4rem;
+             }
+         }
+         .pagination-select {
+             & > div {
+                 height: 1.4rem;
+                 line-height: 1.4rem;
+             }
+         }
+     }
+     &.sm {
+         .x-pagination-list {
+             & > .page-item {
+                 padding: 0 0.25rem;
+                 height: 1.2rem;
+                 line-height: 1.2rem;
+             }
+         }
+         .goto-input {
+             & > input {
+                 height: 1.2rem;
+                 line-height: 1.2rem;
+             }
+         }
+         .pagination-select {
+             & > div {
+                 height: 1.2rem;
+                 line-height: 1.2rem;
+             }
+         }
+     }
+ 
+     &-inverse {
+         .x-pagination-list {
+             & > .page-item {
+                 color: #ffffff;
+                 &.more {
+                     border: none;
+                     &:hover {
+                         border-color: $input-border-color;
+                     }
+                 }
+                 &.active {
+                     background-color: $input-active-border-color;
+                     color: #ffffff; 
+ 
+                 }
+                 &:hover {
+                     background-color: $input-active-border-color;
+                     color: #ffffff; 
+                 }
+             }
+         }
+     }
+ }

@@ -4,8 +4,8 @@
     display: inline-block;
     white-space: nowrap;
     .x-checkbox-li{
-        padding: 0.2rem 0;
-        width:1.2rem;
+        padding: 1rem 0;
+        width: 6rem;
         text-align: center;
         cursor: pointer;
         display: inline-block;
@@ -14,10 +14,11 @@
         }
     }
     .active-checkbox{
-        color: $theme-active;
+        color: $input-active-border-color;
+        // border-bottom: 2px solid $input-active-border-color;
     }
     .checkbox-disable{
         cursor: not-allowed;
-        color: $theme-border;
+        color: $input-border-color;
     }
 }

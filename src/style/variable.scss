@@ -1,19 +1,10 @@
-$theme-deep-font: #314659;
-$theme-shallow-font: #909090;
-//主题字体
-$theme-font: #595959;
-//禁用状态文字
-$theme-disable-font: #B8B8B8;
+$theme-color: #2a1166;
 
-$theme-active: #5B86FD;
-$theme-shallow-active: #AAC0FD;
-
-$theme-border: #D9D9D9;
-
-$theme-danger: #DD4B39;
-
-$theme-warning: #E96900;
-//灰色背景色  下拉框选中背景、多选背景
-$theme-background-gray: #F5F5F5;
-
-$theme-success: #55C97B;
+//输入框配色
+$input-font-color: #484852;
+$input-border-color: #D0D2DA;
+$input-active-border-color: #645A82;
+$input-disabled-font-color: rgba(72, 72, 82, 0.3);
+$input-disabled-bg-color: #F4F4F6;
+$input-placeholder-color: #B0B2B8;
+//按钮配色

@@ -2,6 +2,7 @@
 
 .x-radio{
     display: inline-block;
+    // white-space: nowrap;
     .x-radio-li{
         padding: 0.2rem 0;
         width:1.2rem;
@@ -15,8 +16,7 @@
         }
     }
     .active-radio{
-        color: $theme-active;
-        // border-bottom: 2px solid $theme-active;
+        color: $input-active-border-color;
     }
     .x-selected-img{
         // position: relative;
@@ -33,4 +33,3 @@
         color: #d9d9d9;
     }
 }
-

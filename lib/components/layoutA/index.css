@@ -7,11 +7,12 @@
   position: relative;
   display: flex;
   height: 100vh;
+  background-color: #ecf0f5;
 }
 
 .x-a-sidebar {
   position: relative;
-  width: 11rem;
+  width: 11.5rem;
   flex: none;
   display: flex;
   flex-direction: column;
@@ -57,5 +58,5 @@
   padding: 0.75rem;
   color: #444;
   font-size: .7rem;
-  border-top: 0.5px solid #D9D9D9;
+  border-top: 0.5px solid #D0D2DA;
 }

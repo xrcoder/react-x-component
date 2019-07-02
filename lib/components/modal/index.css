@@ -96,8 +96,8 @@
 }
 
 .x-modal-dialog .x-modal-body {
-  border-top: 1px solid #D9D9D9;
-  border-bottom: 1px solid #D9D9D9;
+  border-top: 1px solid #D0D2DA;
+  border-bottom: 1px solid #D0D2DA;
 }
 
 .x-modal-confirm .x-modal-header, .x-modal-alert .x-modal-header {
@@ -119,14 +119,6 @@
 .x-modal-confirm .title .xicon, .x-modal-confirm .title .iconfont, .x-modal-alert .title .xicon, .x-modal-alert .title .iconfont {
   margin-right: .08rem;
   font-size: .2rem;
-}
-
-.x-modal-confirm .title .xicon-question, .x-modal-alert .title .xicon-question {
-  color: #DD4B39;
-}
-
-.x-modal-confirm .title .xicon-alarm, .x-modal-alert .title .xicon-alarm {
-  color: #E96900;
 }
 
 .x-modal-confirm .content, .x-modal-alert .content {
