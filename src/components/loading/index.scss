@@ -1,0 +1,161 @@
+.x-loading {
+    background: rgba(255, 255, 255, 0.75);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.page-loading {
+        position: absolute;
+    }
+
+    &.table-loading {
+        position: absolute;
+    }
+
+    &.sm-loading {
+        height: 167px;
+    }
+
+    &.big-loading {
+        height: 900px;
+    }
+
+    .loading-box {
+        width: .36rem;
+        height: .36rem;
+        position: relative;
+        .dot {
+            width: .12rem;
+            height: .12rem;
+            border-radius: 100%;
+            display: inline-block;
+
+            &-1 {
+                animation: loadingAnimate_1 1.5s linear infinite;
+                background-color: #98B2FC;
+                position: absolute;
+                top: 0;
+                left: 50%;
+                transform: translate(-50%, 0);
+            }
+
+            &-2 {
+                animation: loadingAnimate_2 1.5s linear infinite;
+                background-color: #B6C9FB;
+                position: absolute;
+                top: 50%;
+                right: 0;
+                transform: translate(0, -50%);
+            }
+
+            &-3 {
+                animation: loadingAnimate_3 1.5s linear infinite;
+                background-color: #D9E2FB;
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translate(-50%, 0);
+            }
+
+            &-4 {
+                animation: loadingAnimate_4 1.5s linear infinite;
+                background-color: #7297FF;
+                position: absolute;
+                top: 50%;
+                left: 0;
+                transform: translate(0, -50%);
+            }
+        }
+    }
+}
+
+.sm-loading {
+    height: 167px;
+}
+
+
+@keyframes loadingAnimate_1 {
+    0% {
+        background-color: #98B2FC;
+    }
+
+    25% {
+        background-color: #B6C9FB;
+    }
+
+    50% {
+        background-color: #D9E2FB;
+    }
+
+    75% {
+        background-color: #7297FF;
+    }
+    100% {
+        background-color: #98B2FC;
+    }
+}
+
+@keyframes loadingAnimate_2 {
+    0% {
+        background-color: #B6C9FB;
+    }
+
+    25% {
+        background-color: #D9E2FB;
+    }
+
+    50% {
+        background-color: #7297FF;
+    }
+
+    75% {
+        background-color: #98B2FC;
+    }
+    100% {
+        background-color: #B6C9FB;
+    }
+}
+
+@keyframes loadingAnimate_3 {
+    0% {
+        background-color: #D9E2FB;
+    }
+
+    25% {
+        background-color: #7297FF;
+    }
+
+    50% {
+        background-color: #98B2FC;
+    }
+
+    75% {
+        background-color: #B6C9FB;
+    }
+    100% {
+        background-color: #D9E2FB;
+    }
+}
+
+@keyframes loadingAnimate_4 {
+    0% {
+        background-color: #7297FF;
+    }
+
+    25% {
+        background-color: #98B2FC;
+    }
+
+    50% {
+        background-color: #B6C9FB;
+    }
+
+    75% {
+        background-color: #D9E2FB;
+    }
+    100% {
+        background-color: #7297FF;
+    }
+}
