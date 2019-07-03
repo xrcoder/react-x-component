@@ -12,6 +12,14 @@
   padding: 8px 10px;
 }
 
+.x-input.x-input-error {
+  border-color: #EF5353;
+}
+
+.x-input.x-input-error:focus {
+  border-color: #EF5353;
+}
+
 .x-input::-webkit-input-placeholder {
   color: #B0B2B8;
 }
@@ -41,6 +49,12 @@
 .x-input-group .group-addon-right .x-btn {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
+  border-left: none;
+  padding: 9px 10px;
+}
+
+.x-input-group .group-addon-right .x-btn .fa {
+  margin-right: 0;
 }
 
 .x-input-group .clear-btn {

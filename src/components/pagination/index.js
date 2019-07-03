@@ -1,4 +1,4 @@
-import './index.scss';
+// import './index.scss';
 
 import Pagination from './pagination';
 import Page from './page';

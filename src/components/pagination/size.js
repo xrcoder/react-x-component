@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { Select } from 'components';
+import { Select } from '../select';
 
 const Size = (props) => {
 

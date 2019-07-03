@@ -146,6 +146,14 @@
   padding: 8px 10px;
 }
 
+.x-input.x-input-error {
+  border-color: #EF5353;
+}
+
+.x-input.x-input-error:focus {
+  border-color: #EF5353;
+}
+
 .x-input::-webkit-input-placeholder {
   color: #B0B2B8;
 }
@@ -175,6 +183,12 @@
 .x-input-group .group-addon-right .x-btn {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
+  border-left: none;
+  padding: 9px 10px;
+}
+
+.x-input-group .group-addon-right .x-btn .fa {
+  margin-right: 0;
 }
 
 .x-input-group .clear-btn {
@@ -227,29 +241,75 @@
 }
 
 .x-checkbox {
-  display: inline-block;
-  white-space: nowrap;
+  display: inline-flex;
 }
 
-.x-checkbox .x-checkbox-li {
-  padding: 1rem 0;
-  width: 6rem;
-  text-align: center;
+.x-checkbox .item {
+  display: inline-flex;
   cursor: pointer;
-  display: inline-block;
+  margin-right: 10px;
 }
 
-.x-checkbox .x-checkbox-li i {
-  margin-right: 6px;
+.x-checkbox .item:hover .icon {
+  border-color: #2A1166;
 }
 
-.x-checkbox .active-checkbox {
-  color: #645A82;
+.x-checkbox .item:hover .name {
+  color: #2A1166;
 }
 
-.x-checkbox .checkbox-disable {
+.x-checkbox .item:last-child {
+  margin-right: 0;
+}
+
+.x-checkbox .icon {
+  display: block;
+  width: 14px;
+  height: 14px;
+  border: 1px solid #D0D2DA;
+  border-radius: 2px;
+  transition: 0.2s all;
+}
+
+.x-checkbox .name {
+  color: #484852;
+  font-size: 14px;
+  line-height: 14px;
+  margin-left: 6px;
+}
+
+.x-checkbox .selected .icon {
+  position: relative;
+  border-color: #2A1166;
+  background-color: #2A1166;
+}
+
+.x-checkbox .selected .fa {
+  position: absolute;
+  left: 0;
+  top: -1px;
+  color: #fff;
+  font-size: 12px;
+  height: 14px;
+  width: 14px;
+  line-height: 14px;
+}
+
+.x-checkbox .disabled {
   cursor: not-allowed;
-  color: #D0D2DA;
+  opacity: 0.65;
+}
+
+.x-checkbox .disabled.item:hover .icon {
+  border-color: #D0D2DA;
+}
+
+.x-checkbox .disabled.item:hover .name {
+  color: #484852;
+}
+
+.x-checkbox .disabled.item.selected:hover .icon {
+  border-color: #2A1166;
 }
 
 .x-box {
@@ -820,170 +880,78 @@
   line-height: 1.2rem;
 }
 
-/**
- * name: 
- * desc:
- * date: 2018/12/27
- * author: kelvin
- */
 .x-pagination {
   display: flex;
   align-items: center;
 }
 
-.x-pagination .x-pagination-list > li {
+.x-pagination-page {
+  display: inline-flex;
+  font-size: 14px;
+  line-height: 26px;
+  justify-content: center;
+  color: #2a1166;
+}
+
+.x-pagination-page > li {
   display: inline-block;
-  margin-right: .5rem;
+  padding: 0 8px;
   webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
 
-.x-pagination .x-pagination-list > li i {
+.x-pagination-page > li i {
   vertical-align: middle;
 }
 
-.x-pagination .x-pagination-list > li:last-child {
-  margin-right: 0;
-}
-
-.x-pagination .x-pagination-list > .page-item {
+.x-pagination-page > .page-item {
   display: inline-block;
-  height: 1.4rem;
-  line-height: 1.4rem;
   text-align: center;
-  border-radius: .2rem;
-  border: 1px solid #D0D2DA;
   transition: all .3s;
   cursor: pointer;
+  background-color: #fff;
 }
 
-.x-pagination .x-pagination-list > .page-item.more {
-  border: none;
+.x-pagination-page > .page-item.active {
+  font-weight: bold;
+  color: #999999;
 }
 
-.x-pagination .x-pagination-list > .page-item.more:hover {
-  border-color: #D0D2DA;
+.x-pagination-page > .page-item:hover {
+  font-weight: bold;
+  color: #999999;
 }
 
-.x-pagination .x-pagination-list > .page-item.active {
-  border-color: #645A82;
-  color: #645A82;
-}
-
-.x-pagination .x-pagination-list > .page-item:hover {
-  border-color: #645A82;
-  color: #645A82;
-}
-
-.x-pagination .x-pagination-list .prev, .x-pagination .x-pagination-list .next {
+.x-pagination-page .prev, .x-pagination-page .next {
+  color: #676570;
   cursor: pointer;
 }
 
-.x-pagination .x-pagination-list .prev:hover, .x-pagination .x-pagination-list .next:hover {
-  color: #645A82;
+.x-pagination-page .prev:hover, .x-pagination-page .next:hover {
+  color: #2a1166;
 }
 
-.x-pagination .x-pagination-list .prev.disabled, .x-pagination .x-pagination-list .next.disabled {
+.x-pagination-page .prev.disabled, .x-pagination-page .next.disabled {
   color: rgba(72, 72, 82, 0.3);
   cursor: not-allowed;
 }
 
-.x-pagination .pagesize-change {
-  display: flex;
+.x-pagination-size {
+  font-size: 14px;
+  color: #676570;
+  display: inline-flex;
   align-items: center;
 }
 
-.x-pagination .goto-page {
-  display: flex;
-  align-items: center;
-  margin: 0 1rem;
-}
-
-.x-pagination .goto-page .goto-input {
-  margin: 0 .5rem;
-}
-
-.x-pagination .goto-page input.x-input {
-  padding: .3rem;
-  text-align: center;
-  width: 2rem;
-}
-
-.x-pagination .pagination-select {
+.x-pagination-size-select {
   width: 60px;
-  margin-right: .5rem;
+  margin: 0 10px;
 }
 
-.x-pagination.lg .x-pagination-list > .page-item {
-  padding: 0 .5rem;
-  height: 1.6rem;
-  line-height: 1.6rem;
-}
-
-.x-pagination.lg .goto-input > input {
-  height: 1.6rem;
-  line-height: 1.6rem;
-}
-
-.x-pagination.lg .pagination-select > div {
-  height: 1.6rrem;
-  line-height: 1.6rrem;
-}
-
-.x-pagination.md .x-pagination-list > .page-item {
-  padding: 0 .4rem;
-  height: 1.4rem;
-  line-height: 1.4rem;
-}
-
-.x-pagination.md .goto-input > input {
-  height: 1.4rem;
-  line-height: 1.4rem;
-}
-
-.x-pagination.md .pagination-select > div {
-  height: 1.4rem;
-  line-height: 1.4rem;
-}
-
-.x-pagination.sm .x-pagination-list > .page-item {
-  padding: 0 0.25rem;
-  height: 1.2rem;
-  line-height: 1.2rem;
-}
-
-.x-pagination.sm .goto-input > input {
-  height: 1.2rem;
-  line-height: 1.2rem;
-}
-
-.x-pagination.sm .pagination-select > div {
-  height: 1.2rem;
-  line-height: 1.2rem;
-}
-
-.x-pagination-inverse .x-pagination-list > .page-item {
-  color: #ffffff;
-}
-
-.x-pagination-inverse .x-pagination-list > .page-item.more {
-  border: none;
-}
-
-.x-pagination-inverse .x-pagination-list > .page-item.more:hover {
-  border-color: #D0D2DA;
-}
-
-.x-pagination-inverse .x-pagination-list > .page-item.active {
-  background-color: #645A82;
-  color: #ffffff;
-}
-
-.x-pagination-inverse .x-pagination-list > .page-item:hover {
-  background-color: #645A82;
-  color: #ffffff;
+.x-pagination .x-pagination-page {
+  flex: 1;
 }
 
 /**

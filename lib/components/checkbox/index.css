@@ -1,25 +1,71 @@
 .x-checkbox {
-  display: inline-block;
-  white-space: nowrap;
+  display: inline-flex;
 }
 
-.x-checkbox .x-checkbox-li {
-  padding: 1rem 0;
-  width: 6rem;
-  text-align: center;
+.x-checkbox .item {
+  display: inline-flex;
   cursor: pointer;
-  display: inline-block;
+  margin-right: 10px;
 }
 
-.x-checkbox .x-checkbox-li i {
-  margin-right: 6px;
+.x-checkbox .item:hover .icon {
+  border-color: #2A1166;
 }
 
-.x-checkbox .active-checkbox {
-  color: #645A82;
+.x-checkbox .item:hover .name {
+  color: #2A1166;
 }
 
-.x-checkbox .checkbox-disable {
+.x-checkbox .item:last-child {
+  margin-right: 0;
+}
+
+.x-checkbox .icon {
+  display: block;
+  width: 14px;
+  height: 14px;
+  border: 1px solid #D0D2DA;
+  border-radius: 2px;
+  transition: 0.2s all;
+}
+
+.x-checkbox .name {
+  color: #484852;
+  font-size: 14px;
+  line-height: 14px;
+  margin-left: 6px;
+}
+
+.x-checkbox .selected .icon {
+  position: relative;
+  border-color: #2A1166;
+  background-color: #2A1166;
+}
+
+.x-checkbox .selected .fa {
+  position: absolute;
+  left: 0;
+  top: -1px;
+  color: #fff;
+  font-size: 12px;
+  height: 14px;
+  width: 14px;
+  line-height: 14px;
+}
+
+.x-checkbox .disabled {
   cursor: not-allowed;
-  color: #D0D2DA;
+  opacity: 0.65;
+}
+
+.x-checkbox .disabled.item:hover .icon {
+  border-color: #D0D2DA;
+}
+
+.x-checkbox .disabled.item:hover .name {
+  color: #484852;
+}
+
+.x-checkbox .disabled.item.selected:hover .icon {
+  border-color: #2A1166;
 }
