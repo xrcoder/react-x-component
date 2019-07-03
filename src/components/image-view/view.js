@@ -18,7 +18,7 @@ export default (src) => {
                 super();
                 this.state = {
                     isLoading: true,
-                    loadingStr: '图片加载中...',
+                    loadingStr: 'loading...',
                     boxW: 100,
                     boxH: 100
                 };
@@ -51,7 +51,7 @@ export default (src) => {
                 image.onerror = () => {
                     this.setState({
                         isLoading: true,
-                        loadingStr: '图片加载失败'
+                        loadingStr: 'error'
                     });
                 };
             }
@@ -59,7 +59,7 @@ export default (src) => {
             handleBgClick(e) {
                 let target = e.target;
                 let cls = target.className;
-                if (cls === 'x-imgview-box') {
+                if (cls === 'x-imgview-box'||cls === 'x-imgview-box-i18n') {
                     this.close();
                 }
             }
@@ -73,7 +73,7 @@ export default (src) => {
                 const {boxW, boxH, isLoading, loadingStr} = this.state;
                 let style = {width: `${boxW}px`, height: `${boxH}px`};
                 return (
-                    <div className="x-imgview-box" ref="imgviewBox" onClick={this.handleBgClick.bind(this)}>
+                    <div className={localStorage.getItem('direction')=='right'?'x-imgview-box-i18n':'x-imgview-box'} ref="imgviewBox" onClick={this.handleBgClick.bind(this)}>
                         <div className="imgview-box" ref="imgview" style={style}>
                             <canvas id="imgCanvas" ref="imgCanvas" className="img-canvas" style={style}></canvas>
                             {

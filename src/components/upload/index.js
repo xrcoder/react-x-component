@@ -222,7 +222,7 @@ class XUpload extends React.Component {
         const {children, fileType, directory} = this.props
         return (
             this.state.initDone !== false &&
-            <div className="x-upload" onClick={this.handleClick.bind(this)}>
+            <div className={localStorage.getItem('direction')=='right'?'x-upload-i18n':'x-upload'} onClick={this.handleClick.bind(this)}>
                 <div className="x-upload-trigger">
                     {children ? children :
                         <XButton icon="upload">{intl.get('KOF_REACT_X_COMPONENT_UPLOAD_UPLOAD').d(`文件上传`)}</XButton>}

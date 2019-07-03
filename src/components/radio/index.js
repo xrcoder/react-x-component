@@ -17,7 +17,7 @@ class XRadio extends Component {
 
     render() {
         return (
-            <div className="x-radio">
+            <div className={localStorage.getItem('direction')=='right'?'x-radio-i18n':'x-radio'}>
                 {
                     this.props.radioList.map((item, index) => {
                         if (this.props.checked === false || this.props.checked === true) {

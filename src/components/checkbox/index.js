@@ -61,7 +61,7 @@ class XCheckbox extends Component {
 
     render() {
         return (
-            <div className="x-checkbox">
+            <div className={localStorage.getItem('direction')=='right'?'x-checkbox-i18n':'x-checkbox'}>
                 {
                     this.state.checkboxList.map((item, index) => {
                         if (this.props.checked === false || this.props.checked === true) {

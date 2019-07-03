@@ -10,7 +10,7 @@ class XTabs extends Component {
     render(){
         let len = this.props.tabList.length;
         return (
-            <div className="x-tabs-content">
+            <div className={localStorage.getItem('direction')=='right'?'x-tabs-content-i18n':'x-tabs-content'}>
             <div className="x-tabs">
                 {
                     this.props.tabList.map((item,index)=>{

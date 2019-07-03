@@ -21,3 +21,25 @@
         color: $theme-border;
     }
 }
+
+.x-checkbox-i18n{
+    display: inline-block;
+    white-space: nowrap;
+    .x-checkbox-li{
+        padding: 0.2rem 0;
+        width:1.2rem;
+        text-align: center;
+        cursor: pointer;
+        display: inline-block;
+        i{
+            margin-left: 6px;
+        }
+    }
+    .active-checkbox{
+        color: $theme-active;
+    }
+    .checkbox-disable{
+        cursor: not-allowed;
+        color: $theme-border;
+    }
+}

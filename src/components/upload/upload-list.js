@@ -130,7 +130,7 @@ export default class extends React.Component {
         const {files, styleType} = this.props;
         return (
             this.state.initDone!==false &&
-            <div className="x-upload-list">
+            <div className={localStorage.getItem('direction')=='right'?'x-upload-list-i18n':'x-upload-list'}>
                 {
                     Object.keys(files).map((fileUid, index) => {
                         switch (styleType) {

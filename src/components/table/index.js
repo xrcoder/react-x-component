@@ -66,7 +66,7 @@ const XTable = (props) => {
 
     return (
         initDone !== false && 
-        <div className="x-table">
+        <div className={localStorage.getItem('direction')=='right'?'x-table-i18n':'x-table'}>
             {
                 isLoading ? <XLoading type={'table'} /> : null
             }

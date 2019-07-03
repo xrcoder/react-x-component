@@ -82,3 +82,86 @@
         to {transform: rotate(360deg);}
     }
 }
+
+.x-btn-i18n{
+    padding: 0 0.15rem;
+    height: 0.26rem;
+    word-break: keep-all;
+    // line-height: 0.32rem;
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+    font-size: 0.14rem;
+    color: $theme-font;
+    outline: none;
+    border: 1px solid $theme-border;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    &:hover{
+        opacity: 0.8; 
+     }
+     &:active{
+         opacity: 1;
+     }
+     .x-btn-primary{
+        background-color: $theme-active;
+        color:#fff;
+        border:1px solid $theme-active;
+    }
+    .x-btn-warning{
+        background-color: $theme-background-gray;
+        color:$theme-danger
+    }
+    .xicon{
+        margin-left: 0.05rem;
+        font-size: 0.14rem;
+    }
+    .x-btn-disable{
+        cursor: not-allowed;
+        background-color: $theme-background-gray;
+        color: $theme-disable-font;
+        border:1px solid $theme-border;
+        &:hover{
+            opacity: 1;
+        }
+    }
+    .x-btn-loading{
+        cursor: not-allowed;
+        background-color: #AAC0FD;
+        color:#fff;
+        &:hover{
+            opacity: 1;
+        }
+    }
+    .x-btn-lg{
+        padding: 0 0.35rem;
+        height:0.32rem;
+        // line-height:0.4rem;
+        font-size: 0.16rem;
+    }
+    .x-btn-sm{
+        padding:0 0.2rem;
+        height:0.2rem;
+        // line-height:0.24rem;
+        font-size: 0.12rem
+    }
+    .xicon-refresh{
+        animation: myfirst 1s infinite linear;
+        -webkit-animation: myfirst 1s infinite linear;
+        transform: rotate(360deg);
+    }
+    
+    @keyframes myfirst
+    {
+        from {transform: rotate(0deg);}
+        to {transform: rotate(360deg);}
+    }
+    
+    @-webkit-keyframes myfirst
+    {
+        from {transform: rotate(0deg);}
+        to {transform: rotate(360deg);}
+    }
+}

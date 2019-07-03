@@ -51,7 +51,7 @@ class XInput extends React.Component {
         const {isError, size, placeholder, className, onChange, onEnter, onFocus, onBlur, disabled, icon, search, searchBtn, ...otherProps} = this.props;
         return (
             this.state.initDone !== false && 
-            <div className={classnames('x-input-container', className)}>
+            <div className={classnames(`${localStorage.getItem('direction')=='right'?'x-input-container-i18n':'x-input-container'}`, className)}>
                 <input
                     {...otherProps}
                     className={classnames('x-input', `${size}`, {disabled: disabled}, {danger: isError})}

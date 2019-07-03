@@ -176,7 +176,7 @@ class XPagination extends Component {
             return null;
         } else {
             return (
-                <div className={`x-pagination ${size} ${className}`}>
+                <div className={`${localStorage.getItem('direction')=='right'?'x-pagination-i18n':'x-pagination'} ${size} ${className}`}>
                     <ul className="x-pagination-list">
                         <li className={classnames('prev', {disabled: this.state.currPage == 1})}
                             onClick={() => {

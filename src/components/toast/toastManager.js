@@ -62,7 +62,7 @@ class Notification extends React.Component {
     render() {
         const {notices} = this.state;
         return (
-            <TransitionGroup className={"x-toast-notification"}>
+            <TransitionGroup className={localStorage.getItem('direction')=='right'?'x-toast-notification-i18n':'x-toast-notification'}>
                 {
                     notices.map((data, index) => {
                         return (

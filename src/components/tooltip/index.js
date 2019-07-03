@@ -21,7 +21,7 @@ class XTooltip extends React.Component {
 
     render() {
         return (
-            <span className={`x-tooltip ${this.props.className}`}>
+            <span className={`${localStorage.getItem('direction')=='right'?'x-tooltip-i18n':'x-tooltip'} ${this.props.className}`}>
                 <span className="top">{this.props.children}</span>
                 <span className={`box box-${this.props.position}`}>{this.props.content}</span>
             </span>
