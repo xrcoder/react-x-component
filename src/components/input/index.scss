@@ -13,6 +13,13 @@
     outline: none;
     padding: 8px 10px;
 
+    &.x-input-error {
+        border-color: $input-error-border-color;
+        &:focus {
+            border-color: $input-error-border-color;
+        }
+    }
+
     &::-webkit-input-placeholder {
         color: $input-placeholder-color;
     }
@@ -42,6 +49,12 @@
     .group-addon-right .x-btn {
         border-bottom-left-radius: 0;
         border-top-left-radius: 0;
+        border-left: none;
+        padding: 9px 10px;
+
+        .fa {
+            margin-right: 0;
+        }
     }
 
     .clear-btn {

@@ -1,4 +1,4 @@
-// import './index.scss';
+import './index.scss';
 
 import Input from './input';
 import Addon from './addon';

@@ -1,5 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
+import Button from '../button';
 
 import Input from './input';
 import Group from './group';

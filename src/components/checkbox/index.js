@@ -1,142 +1,92 @@
-import React, { Component } from 'react';
-// import './index.scss';
+import './index.scss';
+import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
-import XIcon from '../icon';
+import classnames from 'classnames';
+import Icon from '../icon';
 
-class XCheckbox extends Component {
+function useCheckList(initialValue) {
+    let [list, setList] = useState(initialValue);
+    let updateData = (res) => {
+        setList(res);
+    };
+    return {list, updateData};
+}
 
-    static propTypes = {
-        selectedValueList: PropTypes.array,
-        checkboxList: PropTypes.array
+function useCheckData(initialValue) {
+    let [data, setData] = useState(initialValue);
+    let onSelected = (res, fn) => {
+        let selected = data.slice(0);
+        let index = selected.indexOf(res.value);
+        if (index > -1) {
+            selected.splice(index, 1);
+        } else {
+            selected.push(res.value);
+        }
+        setData(selected);
+        fn(selected);
     };
 
-    constructor(props) {
-        super(props)
-        this.state = {
-            selectedValueList: props.selectedValueList || [],
-            selectedList: [],
-            checkboxList: props.checkboxList
-        }
+    let updateData = (res) => {
+        setData(res);
     }
 
-    componentDidMount() {
-        let arr = [];
-        let checkboxList = JSON.parse(JSON.stringify(this.state.checkboxList))
-        let selectedValueList = JSON.parse(JSON.stringify(this.state.selectedValueList))
-        checkboxList.map(item => {
-            if (selectedValueList.indexOf(item.value) != -1) {
-                item.selected = true
-                arr.push(item)
-            } else {
-                item.selected = false
+    return {data, onSelected, updateData};
+}
+
+function Item({selected, data, onSelected}) {
+
+    let isSelected = selected.indexOf(data.value) > -1;
+
+    return (
+        <div className={classnames('item', {selected: isSelected})} onClick={() => {
+            onSelected(data);
+        }}>
+            <span className="icon">{isSelected ? <Icon name="check"></Icon> : null}</span>
+            <span className="name">{data.label}</span>
+        </div>
+    )
+}
+
+function CheckBox(props) {
+    const {className, style, data, selected, onChange} = props;
+
+    const oList = useCheckList(data.slice(0));
+    const oData = useCheckData(selected.slice(0));
+
+    useEffect(() => {
+        oData.updateData(selected);
+        oList.updateData(data);
+    }, [data, selected]);
+    return (
+        <div className={classnames('x-checkbox', className)} style={style}>
+            {
+                oList.list.map((item) => {
+                    return (
+                        <Item key={item.value} data={item} selected={oData.data} onSelected={(res) => {
+                            oData.onSelected(res, onChange);
+                        }}/>
+                    )
+                })
             }
-        })
+        </div>
+    )
+}
 
-        this.setState({
-            selectedList: arr,
-            checkboxList: checkboxList
-        })
+CheckBox.propTypes = {
+    classnames: PropTypes.string,
+    data: PropTypes.array,
+    selected: PropTypes.array,
+    style: PropTypes.object,
+    onChange: PropTypes.func
+}
 
-    }
-
-    componentWillReceiveProps(props) {
-        let arr = [];
-        let checkboxList = JSON.parse(JSON.stringify(props.checkboxList))
-        let selectedValueList = JSON.parse(JSON.stringify(props.selectedValueList))
-        checkboxList.map(item => {
-            if (selectedValueList.indexOf(item.value) != -1) {
-                item.selected = true
-                arr.push(item)
-            } else {
-                item.selected = false
-            }
-        })
-
-        this.setState({
-            selectedList: arr,
-            checkboxList: checkboxList
-        })
-
-    }
-
-    render() {
-        return (
-            <div className="x-checkbox">
-                {
-                    this.state.checkboxList.map((item, index) => {
-                        if (this.props.checked === false || this.props.checked === true) {
-                            return (
-                                <div key={item.label + index} className={`x-checkbox-li ${this.props.checked ? 'active-checkbox' : null} ${item.disable == true ? 'checkbox-disable' : null}`} onClick={() => {
-
-                                    if (item.disable) {
-                                        return
-                                    }
-                                    if (this.props.checked === false) {
-                                        item.selected = true
-                                        this.props.onChange([item])
-                                    } else {
-                                        item.selected = false
-                                        this.props.onChange([item])
-                                    }
-
-                                }}>
-                                    {
-                                        this.props.checked == true ?
-                                            <XIcon type='checkbox-selected'></XIcon> : <XIcon type='checkbox'></XIcon>
-                                    }
-                                    {item.label}
-
-                                </div>
-                            )
-                        } else {
-                            return (
-                                <div key={item.label + index} className={`x-checkbox-li ${item.selected ? 'active-checkbox' : null} ${item.disable == true ? 'checkbox-disable' : null}`} onClick={() => {
-
-                                    if (item.disable) {
-                                        return
-                                    }
-
-                                    let arr = JSON.parse(JSON.stringify(this.state.selectedList))
-                                    let selected = false;
-                                    let selected_index;
-                                    arr.length && arr.map((item_, index) => {
-                                        if (item_.value == item.value && item_.label == item.label) {
-                                            selected = true;
-                                            selected_index = index
-                                        }
-                                    })
-
-                                    // let arr = JSON.parse(JSON.stringify(this.state.selectedList))
-                                    if (selected) {
-                                        item.selected = false;
-                                        arr.splice(selected_index, 1)
-                                        this.setState({
-                                            selectedList: arr
-                                        })
-                                    } else {
-                                        item.selected = true;
-                                        arr.push(item);
-                                        this.setState({
-                                            selectedList: arr
-                                        })
-                                    }
-
-                                    this.props.onChange(arr)
-                                }}>
-                                    {
-                                        item.selected == true ?
-                                            <XIcon type='checkbox-selected'></XIcon> : <XIcon type='checkbox'></XIcon>
-                                    }
-                                    {item.label}
-
-                                </div>
-                            )
-                        }
-                    })
-                }
-            </div>
-        )
+CheckBox.defaultProps = {
+    classnames: '',
+    data: [],
+    selected: [],
+    style: null,
+    onChange: function () {
     }
 }
 
-export default XCheckbox;
+export default CheckBox;

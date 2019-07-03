@@ -1,24 +1,84 @@
 @import '../../style/variable.scss';
 
-.x-checkbox{
-    display: inline-block;
-    white-space: nowrap;
-    .x-checkbox-li{
-        padding: 1rem 0;
-        width: 6rem;
-        text-align: center;
+.x-checkbox {
+    display: inline-flex;
+
+    .item {
+        display: inline-flex;
         cursor: pointer;
-        display: inline-block;
-        i{
-            margin-right: 6px;
+        margin-right: 10px;
+
+        &:hover {
+            .icon {
+                border-color: #2A1166;
+            }
+
+            .name {
+                color: #2A1166;
+            }
+        }
+        &:last-child {
+            margin-right: 0;
         }
     }
-    .active-checkbox{
-        color: $input-active-border-color;
-        // border-bottom: 2px solid $input-active-border-color;
+
+    .icon {
+        display: block;
+        width: 14px;
+        height: 14px;
+        border: 1px solid #D0D2DA;
+        border-radius: 2px;
+        transition: 0.2s all;
     }
-    .checkbox-disable{
+
+    .name {
+        color: $input-font-color;
+        font-size: 14px;
+        line-height: 14px;
+        margin-left: 6px;
+    }
+
+    .selected {
+        .icon {
+            position: relative;
+            border-color: #2A1166;
+            background-color: #2A1166;
+        }
+
+        .fa {
+            position: absolute;
+            left: 0;
+            top: -1px;
+            color: #fff;
+            font-size: 12px;
+            height: 14px;
+            width: 14px;
+            line-height: 14px;
+        }
+    }
+
+    .disabled {
         cursor: not-allowed;
-        color: $input-border-color;
+        opacity: 0.65;
+    }
+
+    .disabled.item {
+        &:hover {
+            .icon {
+                border-color: #D0D2DA;
+            }
+
+            .name {
+                color: $input-font-color;
+            }
+        }
+    }
+
+    .disabled.item.selected {
+        &:hover {
+            .icon {
+                border-color: #2A1166;
+            }
+        }
     }
 }

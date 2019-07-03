@@ -1,5 +1,4 @@
-// import './index.scss';
-import * as React from 'react';
+import React from 'react';
 import classnames from 'classnames';
 
 export default (props) => {
