@@ -23,3 +23,29 @@
   cursor: not-allowed;
   color: #D9D9D9;
 }
+
+.x-checkbox-i18n {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.x-checkbox-i18n .x-checkbox-li {
+  padding: 0.2rem 0;
+  width: 1.2rem;
+  text-align: center;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.x-checkbox-i18n .x-checkbox-li i {
+  margin-left: 6px;
+}
+
+.x-checkbox-i18n .active-checkbox {
+  color: #5B86FD;
+}
+
+.x-checkbox-i18n .checkbox-disable {
+  cursor: not-allowed;
+  color: #D9D9D9;
+}

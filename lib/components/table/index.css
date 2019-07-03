@@ -140,3 +140,146 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.x-table-i18n {
+  position: relative;
+}
+
+.x-table-i18n .x-table-wrapper {
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: 4px;
+  border: 1px solid #D9D9D9;
+  font-size: .14rem;
+  line-height: .14rem;
+}
+
+.x-table-i18n .x-table-wrapper.no-border {
+  border: none;
+}
+
+.x-table-i18n .x-table-wrapper table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.x-table-i18n .x-table-wrapper table tr:nth-child(even) {
+  background-color: rgba(91, 134, 253, 0.05);
+}
+
+.x-table-i18n .x-table-wrapper table thead th {
+  background-color: rgba(91, 134, 253, 0.1);
+  color: #6B7491;
+  padding: .2rem .3rem;
+  text-align: right;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.x-table-i18n .x-table-wrapper table tbody {
+  overflow-x: hidden;
+  color: #909090;
+}
+
+.x-table-i18n .x-table-wrapper table tbody td {
+  padding: .16rem .3rem;
+}
+
+.x-table-i18n .x-table-wrapper table tbody td.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.x-table-i18n .x-table-wrapper table tbody td a {
+  width: .16rem;
+  height: .16rem;
+}
+
+.x-table-i18n .x-table-wrapper table tbody td a.normal {
+  color: #5B86FD;
+}
+
+.x-table-i18n .x-table-wrapper table tbody td a.delete {
+  color: #9B9B9B;
+}
+
+.x-table-i18n .x-table-wrapper table td, .x-table-i18n .x-table-wrapper table th {
+  margin: 0;
+}
+
+.x-table-i18n .x-table-wrapper table .table-no-data {
+  text-align: center;
+}
+
+.x-table-i18n .x-table-wrapper table .td-c {
+  text-align: center;
+}
+
+.x-table-i18n .x-table-wrapper table .td-r {
+  text-align: left;
+}
+
+.x-table-i18n .x-table-wrapper table .td-l {
+  text-align: right;
+}
+
+.x-table-i18n .x-table-wrapper table .td-btngroup {
+  white-space: nowrap;
+}
+
+.x-table-i18n .x-table-wrapper table .order-box {
+  display: inline-block;
+  vertical-align: baseline;
+  margin-right: 0.08rem;
+}
+
+.x-table-i18n .x-table-wrapper table .order-box .order-up {
+  width: 0;
+  height: 0;
+  border-width: 0 5px 5px 5px;
+  border-color: transparent transparent #6B7491 transparent;
+  border-style: solid;
+  margin-bottom: 2px;
+  cursor: pointer;
+}
+
+.x-table-i18n .x-table-wrapper table .order-box .order-up:hover {
+  border-color: transparent transparent #5B86FD transparent;
+}
+
+.x-table-i18n .x-table-wrapper table .order-box .order-up.selected {
+  border-color: transparent transparent #5B86FD transparent;
+}
+
+.x-table-i18n .x-table-wrapper table .order-box .order-down {
+  border-width: 5px 5px 0 5px;
+  border-color: #6B7491 transparent transparent transparent;
+  border-style: solid;
+  cursor: pointer;
+}
+
+.x-table-i18n .x-table-wrapper table .order-box .order-down:hover {
+  border-color: #5B86FD transparent transparent transparent;
+}
+
+.x-table-i18n .x-table-wrapper table .order-box .order-down.selected {
+  border-color: #5B86FD transparent transparent transparent;
+}
+
+.x-table-i18n .x-table-wrapper.xs table thead th {
+  padding: .16rem .1rem;
+}
+
+.x-table-i18n .x-table-wrapper.xs table tbody td {
+  font-size: .12rem;
+  padding: .12rem .1rem;
+  line-height: .12rem;
+}
+
+.x-table-i18n .x-pagination-wrapper {
+  margin: .15rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

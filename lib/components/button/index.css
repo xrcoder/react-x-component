@@ -95,3 +95,101 @@
     transform: rotate(360deg);
   }
 }
+
+.x-btn-i18n {
+  padding: 0 0.15rem;
+  height: 0.26rem;
+  word-break: keep-all;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+  font-size: 0.14rem;
+  color: #595959;
+  outline: none;
+  border: 1px solid #D9D9D9;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.x-btn-i18n:hover {
+  opacity: 0.8;
+}
+
+.x-btn-i18n:active {
+  opacity: 1;
+}
+
+.x-btn-i18n .x-btn-primary {
+  background-color: #5B86FD;
+  color: #fff;
+  border: 1px solid #5B86FD;
+}
+
+.x-btn-i18n .x-btn-warning {
+  background-color: #F5F5F5;
+  color: #DD4B39;
+}
+
+.x-btn-i18n .xicon {
+  margin-left: 0.05rem;
+  font-size: 0.14rem;
+}
+
+.x-btn-i18n .x-btn-disable {
+  cursor: not-allowed;
+  background-color: #F5F5F5;
+  color: #B8B8B8;
+  border: 1px solid #D9D9D9;
+}
+
+.x-btn-i18n .x-btn-disable:hover {
+  opacity: 1;
+}
+
+.x-btn-i18n .x-btn-loading {
+  cursor: not-allowed;
+  background-color: #AAC0FD;
+  color: #fff;
+}
+
+.x-btn-i18n .x-btn-loading:hover {
+  opacity: 1;
+}
+
+.x-btn-i18n .x-btn-lg {
+  padding: 0 0.35rem;
+  height: 0.32rem;
+  font-size: 0.16rem;
+}
+
+.x-btn-i18n .x-btn-sm {
+  padding: 0 0.2rem;
+  height: 0.2rem;
+  font-size: 0.12rem;
+}
+
+.x-btn-i18n .xicon-refresh {
+  animation: myfirst 1s infinite linear;
+  -webkit-animation: myfirst 1s infinite linear;
+  transform: rotate(360deg);
+}
+
+@keyframes myfirst {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes myfirst {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -31,3 +31,37 @@
   cursor: not-allowed;
   color: #D9D9D9;
 }
+
+.x-tabs-content-i18n {
+  overflow: hidden;
+  max-width: 6rem;
+}
+
+.x-tabs-content-i18n .x-tabs {
+  display: inline-block;
+  white-space: nowrap;
+  border-bottom: 1px solid #D9D9D9;
+  position: relative;
+  right: 0;
+  transition: right 0.5s;
+}
+
+.x-tabs-content-i18n .x-tabs .x-tab-li {
+  padding: 0.2rem 0;
+  width: 1.2rem;
+  text-align: center;
+  cursor: pointer;
+  display: inline-block;
+  transition: border-bottom 0.5s;
+  border-bottom: 2px solid rgba(217, 217, 217, 0);
+}
+
+.x-tabs-content-i18n .x-tabs .active-tab {
+  color: #5B86FD;
+  border-bottom: 2px solid #5b86fd;
+}
+
+.x-tabs-content-i18n .x-tabs .tab-disable {
+  cursor: not-allowed;
+  color: #D9D9D9;
+}
