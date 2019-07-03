@@ -116,7 +116,7 @@
   position: absolute;
   top: 0;
   right: 50%;
-  transform: translate(-50%, 0);
+  transform: translate(50%, 0);
 }
 
 .x-loading-i18n .loading-box .dot-2 {
@@ -134,7 +134,7 @@
   position: absolute;
   bottom: 0;
   right: 50%;
-  transform: translate(-50%, 0);
+  transform: translate(50%, 0);
 }
 
 .x-loading-i18n .loading-box .dot-4 {

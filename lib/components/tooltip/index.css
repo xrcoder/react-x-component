@@ -128,7 +128,7 @@
 
 .x-tooltip-i18n .box-top {
   bottom: calc(100% + 6px);
-  transform: translate(-50%, 0);
+  transform: translate(50%, 0);
   margin-right: -50%;
 }
 
@@ -164,7 +164,7 @@
 
 .x-tooltip-i18n .box-bottom {
   top: calc(100% + 6px);
-  transform: translate(-50%, 0);
+  transform: translate(50%, 0);
   margin-right: -50%;
 }
 
@@ -181,7 +181,7 @@
 }
 
 .x-tooltip-i18n .box-left {
-  transform: translate(-100%, -50%);
+  transform: translate(100%, -50%);
   top: 50%;
   margin-right: calc(-100% - 6px);
 }

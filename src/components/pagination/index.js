@@ -185,7 +185,7 @@ class XPagination extends Component {
                                 }
                                 this.onCurrPageChange(this.state.currPage - 1)
                             }}>
-                            <XIcon type="angle-left"/>{intl.get('KOF_REACT_X_COMPONENT_PAGINATION_PREVPAGE').d(`上一页`)}
+                            <XIcon type={localStorage.getItem('direction')=='right'?'angle-right':'angle-left'} />{intl.get('KOF_REACT_X_COMPONENT_PAGINATION_PREVPAGE').d(`上一页`)}
                         </li>
                         {
                             pageList.map((item, index) => {
@@ -207,7 +207,7 @@ class XPagination extends Component {
                                 this.onCurrPageChange(this.state.currPage + 1)
                             }}>
                             {intl.get('KOF_REACT_X_COMPONENT_PAGINATION_NEXTPAGE').d(`下一页`)}
-                            <XIcon type="angle-right"/>
+                            <XIcon type= {localStorage.getItem('direction')=='right'?'angle-left':'angle-right'}/>
                         </li>
                     </ul>
                     {

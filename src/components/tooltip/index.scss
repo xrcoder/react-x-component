@@ -118,7 +118,7 @@
 
     .box-top{
         bottom: calc(100% + 6px);
-        transform: translate(-50%,0);
+        transform: translate(50%,0);
         margin-right:-50%;
         &::before{
             content:'';
@@ -150,7 +150,7 @@
     }
     .box-bottom{
         top: calc(100% + 6px);
-        transform: translate(-50%,0);
+        transform: translate(50%,0);
         margin-right:-50%;
         &::before{
             content:'';
@@ -165,7 +165,7 @@
         }
     }
     .box-left{
-        transform: translate(-100%,-50%);
+        transform: translate(100%,-50%);
         top:50%;
         margin-right:calc(-100% - 6px);
         &::before{

@@ -138,7 +138,7 @@
 }
 
 .x-select-clicked .x-select-ul {
-  opacity: 1;
+  opacity: 1 !important;
   max-height: 1.5rem;
 }
 
@@ -310,7 +310,7 @@
   margin-left: 0.15rem;
   left: 0rem;
   top: 50%;
-  transform: translate(50%, -50%) rotate(-90deg);
+  transform: translate(-50%, -50%) rotate(-90deg);
   cursor: pointer;
   transition: transform 0.5s;
 }
@@ -320,7 +320,7 @@
 }
 
 .x-select-i18n .x-select-clicked .x-select-ul {
-  opacity: 1;
+  opacity: 1 !important;
   max-height: 1.5rem;
 }
 
@@ -333,7 +333,7 @@
 }
 
 .x-select-i18n .x-select-clicked .xicon-angle-left, .x-select-i18n .x-select-clicked .xicon-angle-right {
-  transform: translate(50%, -50%) rotate(90deg);
+  transform: translate(-50%, -50%) rotate(90deg);
 }
 
 .x-select-i18n .x-select-clicked-multiple {
