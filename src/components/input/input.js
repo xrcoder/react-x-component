@@ -16,7 +16,6 @@ function useInputValue(initialValue) {
     return {value, onChange, updateValue};
 }
 
-
 function Input({placeholder, value = '', className, style, onChange, onEnter, onFocus, onBlur, disabled, maxLength}) {
 
     const oInput = useInputValue(value);

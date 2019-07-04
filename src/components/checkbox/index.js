@@ -54,9 +54,13 @@ function CheckBox(props) {
     const oData = useCheckData(selected.slice(0));
 
     useEffect(() => {
-        oData.updateData(selected);
         oList.updateData(data);
-    }, [data, selected]);
+    }, [data]);
+
+    useEffect(() => {
+        oData.updateData(selected);
+    }, [selected]);
+
     return (
         <div className={classnames('x-checkbox', className)} style={style}>
             {

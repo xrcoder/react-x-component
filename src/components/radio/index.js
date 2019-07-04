@@ -45,8 +45,11 @@ function Radio(props) {
 
     useEffect(() => {
         oList.updateData(data);
+    }, [data]);
+
+    useEffect(() => {
         oData.updateData(selected);
-    }, [data, selected]);
+    }, [selected]);
 
     return (
         <div className={classnames('x-radio', className)} style={style}>
