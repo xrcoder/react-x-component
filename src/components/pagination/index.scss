@@ -2,7 +2,7 @@
 @import '../../style/variable.scss';
 
 .x-pagination {
-    display: flex;
+    display: inline-flex;
     align-items: center;
         &-page{
             display: inline-flex;
@@ -60,8 +60,8 @@
                 width: 100%;
             }
             .x-select-single .x-select-title{
-                height: 30px;
-                line-height: 30px;
+                height: 28px;
+                line-height: 28px;
             }
         }
     }

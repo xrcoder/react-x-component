@@ -32,4 +32,6 @@ export {default as Table} from './components/table/index.js';
 
 export {default as Loading} from './components/loading/index.js';
 
+export {default as Switch} from './components/switch/index.js';
+
 export * from './components/grid/index.js';

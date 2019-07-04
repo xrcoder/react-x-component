@@ -1,5 +1,5 @@
 .x-pagination {
-  display: flex;
+  display: inline-flex;
   align-items: center;
 }
 
@@ -73,8 +73,8 @@
 }
 
 .x-pagination-size-select .x-select-single .x-select-title {
-  height: 30px;
-  line-height: 30px;
+  height: 28px;
+  line-height: 28px;
 }
 
 .x-pagination .x-pagination-page {
