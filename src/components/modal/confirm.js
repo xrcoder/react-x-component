@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import classnames from 'classnames';
 import Modal from './modal';
-import XIcon from '../icon';
-import XBtn from '../button';
-import intl from 'react-intl-universal';
-import loadLocales from '../locales/loadlocales';
+import Icon from '../icon';
+import Button from '../button';
 
 import Header from './header';
 import Body from './body';
 import Footer from './footer';
+import intl from 'react-intl-universal';
+import loadLocales from '../locales/loadlocales';
 
 function Confirm(props) {
 
@@ -18,22 +18,22 @@ function Confirm(props) {
         <div className="x-modal-confirm">
             <Header key="Header" {...props}></Header>
             <Body key="Body">
-                <h4 className="title"><XIcon type={data.tipsIcon} />{data.tipsTitle}</h4>
+                <h4 className="title"><Icon type={data.tipsIcon} />{data.tipsTitle}</h4>
                 <div className="content">{data.content}</div>
             </Body>
             <Footer key="Footer">
-                <XBtn type={data.CancelType} size={data.btnSzie} onClick={() => {
+                <Button type={data.CancelType} size={data.btnSzie} onClick={() => {
                     cancel();
-                }}>{data.cancelText}</XBtn>
-                <XBtn type={data.ConfirmType} size={data.btnSzie} onClick={() => {
+                }}>{data.cancelText}</Button>
+                <Button type={data.ConfirmType} size={data.btnSzie} onClick={() => {
                     confirm();
-                }}>{data.confirmText}</XBtn>
+                }}>{data.confirmText}</Button>
             </Footer>
         </div>
     );
 }
 
-export default (opt = {}) => {
+export default (opt = {})=> {
 
     if(!window.localStorage.getItem('isStoragelocale')){
         loadLocales(opt.locale || 'zh_CN');

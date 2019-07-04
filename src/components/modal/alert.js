@@ -1,8 +1,8 @@
 import React from 'react';
 import classnames from 'classnames';
 import Modal from './modal';
-import XIcon from '../icon';
-import XBtn from '../button';
+import Icon from '../icon';
+import Button from '../button';
 import intl from 'react-intl-universal';
 import loadLocales from '../locales/loadlocales';
 
@@ -18,13 +18,13 @@ function Alert(props) {
         <div className="x-modal-alert">
             <Header key="Header" {...props}></Header>
             <Body key="Body">
-                <h4 className="title"><XIcon type={data.tipsIcon} />{data.tipsTitle}</h4>
+                <h4 className="title"><Icon name={data.tipsIcon} />{data.tipsTitle}</h4>
                 <div className="content">{data.content}</div>
             </Body>
             <Footer key="Footer">
-                <XBtn type={data.okType} size={data.btnSzie} onClick={() => {
+                <Button type={data.okType} size={data.btnSzie} onClick={() => {
                     confirm();
-                }}>{data.okText}</XBtn>
+                }}>{data.okText}</Button>
             </Footer>
         </div>
     );
@@ -48,5 +48,6 @@ export default (opt = {}) => {
             okType: opt.okType || 'primary', //按钮类型
         },
     };
+
     return Modal(Alert, _opt)
 }

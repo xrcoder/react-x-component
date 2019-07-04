@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 // import './index.scss';
 import PropTypes from 'prop-types';
-import XIcon from '../icon';
-import intl from 'react-intl-universal';
-import loadLocales from '../locales/loadlocales';
+import classnames from 'classnames';
 
-class XSelect extends Component {
+export default class extends Component {
 
     static propTypes = {
-        options: PropTypes.array,
-        selectedValueList:PropTypes.array,
-        selectedList:PropTypes.array,
-        size: PropTypes.oneOf(['lg', 'md']),
-        locale: PropTypes.string
+        options: PropTypes.array,               //选项列表
+        selectedValueList: PropTypes.array,     //默认已选择列表
+        selectedList: PropTypes.array,          //已勾选列表
+        size: PropTypes.oneOf(['lg', 'md']),    //尺寸
+        locale: PropTypes.string,               //本地化
+        placeholder: PropTypes.string,          //placeholder
+        mode: PropTypes.string,                 //类型
+        selectedValue: PropTypes.number         //已选项
     };
 
     static defaultProps = {
@@ -23,13 +24,15 @@ class XSelect extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            showOptions: false,
+            showOptions: false,                                  
             selectedValue: props.selectedValue,
-            selected:{},
-            options: props.options || [],
-            mode: props.mode || 'single',
-            selectedValueList:props.selectedValueList||[],
-            selectedList:[]
+            selectedValueList: props.selectedValueList || [],    
+            selected: {},                            
+            options: props.options || [],                 
+            mode: props.mode ? props.mode : 'single',  
+            selectedList: props.selectedValueList || [],
+            placeholder: props.placeholder || '请选择',
+            multipleHeight: 36
         }
         this.xSelect = React.createRef();
     }
@@ -37,37 +40,25 @@ class XSelect extends Component {
     componentDidMount() {
         document.addEventListener('click', this.handleDocClick);
         let arr = this.props.options;
-        let value = this.state.selectedValue;
-        if (value!=-1&&value!==undefined) {
+
+        if (this.state.mode === 'single') {
+            let value = this.state.selectedValue;
             this.setState({
-                options: this.filterData(arr),
+                selectedValue: value ? value : {},
                 selected: this.getSelected(value)
             })
         } else {
+            let value = this.state.selectedValueList;
             this.setState({
-                options: this.filterData(arr),
-                selectedList: this.getSelectedList(this.props.selectedValueList)
+                selectedList: this.getSelectedList(value)
             })
         }
-        if(window.localStorage.getItem('isStoragelocale')){
-            this.setState({initDone: window.localStorage.getItem('initDone')});
-        }else{
-            loadLocales(this.props.locale).then(()=>{
-                this.setState({initDone: true});
-            });
-        }
-    }
 
-    // static getDerivedStateFromProps(props,state){
-    //     console.log(this,7777);
-    //     console.log(props,state,8888333)
-    //     return{
-    //         options:props.options,
-    //         selectedValue:props.selectedValue,
-    //         selectedValueList:props.selectedList,
-           
-    //     }  
-    // }
+        this.setState({
+            options: this.filterData(arr)
+        });
+
+    }
 
     componentWillReceiveProps(props){
         this.setState({
@@ -75,7 +66,7 @@ class XSelect extends Component {
             selectedValue:props.selectedValue,
             selectedValueList:props.selectedValueList,
             selected:this.getSelected(props.selectedValue),
-            selectedList:this.getSelectedList(props.selectedValueList||[])
+            selectedList:this.getSelectedList(props.selectedList||[])
         })
     }
 
@@ -102,15 +93,17 @@ class XSelect extends Component {
         })
         return arr_new
     }
+
     getSelected(selectedValue){
         let obj={}
-       this.filterData(this.props.options).map(item=>{
-           if(item.value==selectedValue){
-            obj=item
-           }
-       })
-       return obj;
+        this.filterData(this.props.options).map(item=>{
+            if(item.value==selectedValue){
+                obj=item
+            }
+        })
+        return obj;
     }
+
     getSelectedList(selectedValueList){
         let selectedList = [];
         this.filterData(this.props.options).map(item=>{
@@ -122,135 +115,113 @@ class XSelect extends Component {
             })
         })
         return selectedList
-     }
+    }
+
+    SelectFn(item) {
+        switch (this.state.mode) {
+            case 'single':
+                this.setState({
+                    selected: item,
+                    selectedValue:item.value,
+                    showOptions: false
+                })
+                this.props.onChange && this.props.onChange(item)
+                break;
+            case 'multiple':
+                let result = this.state.selectedList;
+                if (item.selected) {
+                    result = result.filter((subItem) => {
+                        if (subItem.value === item.value) {
+                            return false;
+                        } else {
+                            return true;
+                        }
+                    });
+                    item.selected = false;
+                } else {
+                    item.selected = true;
+                    result.push(item);
+                }
+                this.setState({
+                    selectedList: result
+                })
+                this.props.onChange && this.props.onChange(result);
+                setTimeout(() => {
+                    this.setState({
+                        multipleHeight: this.xSelect.current && this.xSelect.current.clientHeight
+                    })
+                }, 0);
+                break;
+            default:
+        }
+    }
 
     render() {
+        let {showOptions, placeholder, mode, selected, selectedList, options, selectedValue } = this.state;
+        let {disabled, onMultiShow, onChange} = this.props;
         return (
-            this.state.initDone !== false && 
-            this.state.mode=='multiple'?
-            <div className={`x-select ${this.state.showOptions ? 'x-select-clicked' : null}  x-select-clicked-multiple`} ref={this.xSelect} onClick={(e) => {
-                if(this.props.disabled){
+            <div className={classnames({
+                'x-select': true,
+                'x-select-clicked': showOptions,
+                'x-select-single': mode === 'single',
+                'x-select-multiple': mode === 'multiple',
+                'x-select-disabled': disabled,
+                'x-select-hasvalue': !!selected.label || selectedList.length > 0
+            })} ref={this.xSelect} onClick={(e) => {
+                if(disabled){
                     return
                 }else{
-                    let showOptions = this.state.showOptions
                     this.setState({
                         showOptions: !showOptions
-                    })
+                    });
+                    onMultiShow && onMultiShow(e, showOptions);
                 }
             }}>
-                <div placeholder={intl.get('KOF_REACT_X_COMPONENT_GLOBAL_SELECTPLACEHOLDER').d(`请选择`)} disabled={true} value={this.state.selected.label} className={`x-select-title x-select-title-multiple ${this.props.disabled?'x-select-disabled':null}`} >
+                <div disabled={true} value={selected.label} className={
+                    classnames({
+                        'x-select-title': true,
+                        'x-select-disabled': disabled
+                    })
+                } >
+                    <span className="arrow"></span>
                     {
-                        this.state.selectedList.map((item,index)=>{
-                            return (<span className="x-select-item-multiple" key={''+item.label+index}>{item.label}<XIcon type={`${item.disable?null:'close-a'}`} onClick={(e)=>{
-                                let arr = JSON.parse(JSON.stringify(this.state.selectedList));
-                                let arr_options = JSON.parse(JSON.stringify(this.state.options));
-                                let selected_index;
-                                arr_options.map((item_,index_)=>{
-                                    if(item.label==item_.label){
-                                        selected_index=index_
-                                        arr.splice(index,1)
-                                        arr_options[selected_index].selected=false;
-                                    }
+                        !!selected.label ? 
+                            <span className="value">{selected.label}</span> : 
+                            <span className="placeholder">{placeholder}</span>
+                    }
+                    {
+                        mode !== 'single' && selectedList.length ?
+                        <ul className="x-select-ul-value">
+                            {
+                                selectedList.map((item, index) => {
+                                    return (
+                                        <li key={''+index + item.value} className={classnames('x-select-li')} onClick={(e) => {
+                                            this.SelectFn(item)
+                                            e.stopPropagation();
+                                        }}>{item.label}<span className="cls-icon"></span></li>
+                                    )
                                 })
-                                
-                                this.setState({
-                                    selectedList:arr,
-                                    options:arr_options
-                                })
-                                this.props.onChange(arr)
-                                e.nativeEvent.stopImmediatePropagation();
-                            }}></XIcon></span>)
-                        })
+                            }
+                        </ul> : null
                     }
                 </div>
-                <div>
                 {
-                    this.state.options.length ?
-                        <ul className={`x-select-ul ${this.state.showOptions?'x-select-ul-show':null}`}>
+                    options.length ?
+                        <ul className="x-select-ul-list" style={{top: `${mode === 'multiple' ? this.state.multipleHeight : ''}px`}}>
                             {
-                                this.state.options.map((item, index) => {
+                                options.map((item, index) => {
                                     return (
-                                        <li key={''+index + item.value} className={`x-select-li ${item.selected==true?'x-select-li-true':null} ${item.disable?'x-select-li-disable':null}`} onClick={(e) => {
-                                            
-                                            let arr = JSON.parse(JSON.stringify(this.state.selectedList))
-                                            let selected = false;
-                                            let selected_index;
-                                            arr.map((item_,index)=>{
-                                                if(item.label==item_.label){
-                                                    selected = true;
-                                                    selected_index=index
-                                                }
-                                            })
-                                            
-                                            if(!selected){
-                                                item.selected=true;
-                                                arr.push(item);
-                                                this.setState({
-                                                    selectedList: arr,
-                                                    showOptions: false
-                                                })
-                                            }else{
-                                                item.selected=false;
-                                                arr.splice(selected_index,1)
-                                                
-                                                this.setState({
-                                                    selectedList:arr
-                                                })
-                                            }
-                                            this.props.onChange(arr)
-                                            // e.nativeEvent.stopImmediatePropagation();
+                                        <li key={''+index + item.value} className={classnames('x-select-li', {'x-select-li-true': item.value === selectedValue || item.selected})} onClick={(e) => {
+                                            this.SelectFn(item)
+                                            e.stopPropagation();
                                         }}>{item.label}</li>
                                     )
                                 })
                             }
                         </ul> : null
                 }
-                </div>
-
-            </div>:
-             <div className={`x-select x-select-content-height ${this.state.showOptions ? 'x-select-clicked' : null} x-select-${this.props.size}`} ref={this.xSelect} onClick={(e) => {
-                if(this.props.disabled){
-                    return
-                }else{
-                    let showOptions = this.state.showOptions
-                    this.setState({
-                        showOptions: !showOptions
-                    })
-                }
-                // e.nativeEvent.stopImmediatePropagation();
-            }}>
-                {
-                   
-                   (this.state.selected.value!==undefined&&this.state.selected.value!=-1)?<div placeholder={intl.get('KOF_REACT_X_COMPONENT_GLOBAL_SELECTPLACEHOLDER').d(`请选择`)} readOnly disabled={true} value={this.state.selected.label} className={`x-select-title ${this.props.disabled?'x-select-disabled':null}`} >{this.state.selected.label}</div>:<div readOnly disabled={true} value={this.state.selected.label} className={`x-select-title ${this.props.disabled?'x-select-disabled':null}`} >{intl.get('KOF_REACT_X_COMPONENT_GLOBAL_SELECTPLACEHOLDER').d(`请选择`)}</div>
-                }
-                <XIcon type='angle-left'></XIcon>
-                {/* {
-                    this.state.showOptions ? <XIcon type='angle-left'></XIcon> : <XIcon type='angle-right'></XIcon>
-                } */}
-                {
-                    this.state.options.length ?
-                        <ul className={`x-select-ul ${this.state.showOptions?'x-select-ul-show':null} x-select-ul-${this.props.size}`}>
-                            {
-                                this.state.options.map((item, index) => {
-                                    return (
-                                        <li key={''+index + item.value} className={`x-select-li ${item.value==this.state.selectedValue?'x-select-li-true':null}`} onClick={(e) => {
-                                            this.setState({
-                                                selected: item,
-                                                selectedValue:item.value,
-                                                showOptions: false
-                                            })
-                                            this.props.onChange(item)
-                                            e.nativeEvent.stopImmediatePropagation();
-                                        }}>{item.label}</li>
-                                    )
-                                })
-                            }
-                        </ul> : null
-                }
-
             </div>
         )
     }
-}
 
-export default XSelect;
+}

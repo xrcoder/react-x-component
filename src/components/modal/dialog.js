@@ -8,7 +8,8 @@ export default (C,opt = {}) => {
         backDrop: opt.backDrop || false, //点击背景是否关闭
         size: opt.size || 'md', //确认框大小
         className: classnames('x-modal-dialog dialog', opt.className),
-        data: opt.data
+        data: opt.data,
+
     };
 
     return Modal(C, _opt)

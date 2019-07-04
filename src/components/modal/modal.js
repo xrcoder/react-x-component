@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect, useRef, Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import intl from 'react-intl-universal';
+import loadLocales from '../locales/loadlocales';
 
 const Modal = (C, opt) => {
+
+    loadLocales(opt.locale || 'zh_CN');
 
     const CONTAINER = document.querySelector('body');
 
@@ -37,12 +41,12 @@ const Modal = (C, opt) => {
                 }, 50);
             }
 
-            confirm(res = 'success') {
+            confirm (res='sucess') {
                 this.close();
                 resolve(res);
             }
 
-            cancel(res = 'cancel') {
+            cancel (res='cancel') {
                 this.close();
                 reject(res);
             }
@@ -73,6 +77,7 @@ const Modal = (C, opt) => {
 
         }
 
+        // ReactDOM.render(<Modal />, _Modal);
         return ReactDOM.createPortal(
             ReactDOM.render(<Modal />, _Modal),
             _Modal,
