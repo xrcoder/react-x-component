@@ -56,6 +56,13 @@
         &-select {
             width: 60px;
             margin:0 10px;
+            .x-select{
+                width: 100%;
+            }
+            .x-select-single .x-select-title{
+                height: 30px;
+                line-height: 30px;
+            }
         }
     }
 

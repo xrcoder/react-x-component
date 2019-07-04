@@ -13,15 +13,22 @@ const Page = (props, state) => {
 
     useEffect(() => {
         if (count !== null && count !== 0) {
-            let currPage = parseInt(currPage);
             let count1 = parseInt(count);
             setCount(count1);
-            setCurrPage(currPage);
         } else {
             setCount(0);
         }
         setPageSize(pageSize)
-    }, [count, currPage, pageSize])
+    }, [count])
+
+    useEffect(() => {
+        let currPage = parseInt(currPage);
+        setCurrPage(currPage);
+    },[currPage])
+
+    useEffect(() => {
+        setPageSize(pageSize)
+    },[pageSize])
 
     let getTotalPage = (pageSize, total) => {
         // 获取分页数

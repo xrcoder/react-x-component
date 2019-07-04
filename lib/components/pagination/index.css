@@ -68,6 +68,15 @@
   margin: 0 10px;
 }
 
+.x-pagination-size-select .x-select {
+  width: 100%;
+}
+
+.x-pagination-size-select .x-select-single .x-select-title {
+  height: 30px;
+  line-height: 30px;
+}
+
 .x-pagination .x-pagination-page {
   flex: 1;
 }

@@ -2,11 +2,13 @@
 
 .x-checkbox {
     display: inline-flex;
+    flex-wrap: wrap;
 
     .item {
         display: inline-flex;
         cursor: pointer;
         margin-right: 10px;
+        margin-bottom: 6px;
 
         &:hover {
             .icon {

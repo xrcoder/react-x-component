@@ -10,15 +10,18 @@ const Size = (props) => {
     const [_pageSize, setPageSize] = useState(pageSize);
     const [_count, setCount] = useState(count);
 
-    React.useEffect(() => {
+    useEffect(() => {
         if (count !== null && count !== 0) {
             let count1 = parseInt(count);
             setCount(count1);
         } else {
             setCount(0);
         }
+    }, [count])
+
+    useEffect(() => {
         setPageSize(pageSize)
-    }, [count, pageSize])
+    }, [pageSize])
 
     let onPageSizeChange = (pageSize) => {
         setPageSize(pageSize);

@@ -1,87 +1,79 @@
-import React, { Component } from 'react';
+// import './index.scss'
+import React, {useState, useEffect} from 'react';
+import classnames from 'classnames';
 import PropTypes from 'prop-types';
-import XIcon from '../icon';
 
-class XRadio extends Component {
+function useRadioList(initialValue) {
+    let [list, setList] = useState(initialValue);
+    let updateData = (res) => {
+        setList(res);
+    };
+    return {list, updateData};
+}
 
-    static propTypes = {
-        radioList: PropTypes.array
+function useRadioData(initialValue = null) {
+    let [data, setData] = useState(initialValue);
+
+    let onSelected = (res, fn) => {
+        setData(res.value);
+        fn(res);
     };
 
-    constructor(props) {
-        super(props)
-        this.state = {
-            activeRadioValue: props.activeRadioValue || props.radioList[0].value
-        }
+    let updateData = (res) => {
+        setData(res);
     }
 
-    render() {
-        return (
-            <div className="x-radio">
-                {
-                    this.props.radioList.map((item, index) => {
-                        if (this.props.checked === false || this.props.checked === true) {
-                            return (
-                                <div key={item.label + index} className={`x-radio-li ${this.props.checked === true ? 'active-radio' : null} ${item.disable == true ? 'radio-disable' : null}`} onClick={() => {
-                                    if (item.disable == true) {
-                                        return;
-                                    }
-                                    if (this.props.cancel == true) {
-                                        if (this.props.checked === false) {
-                                            this.props.onChange(item)
-                                        } else {
-                                            this.props.onChange({ value: -1, label: item.label })
-                                        }
-                                    } else {
-                                        this.props.onChange(item)
-                                    }
-                                }}>
-                                    {
-                                        this.props.checked === true ?
-                                            <XIcon type='radio-selected'></XIcon> : <XIcon type='radio'></XIcon>
-                                    }
-                                    {item.label}
+    return {data, onSelected, updateData};
+}
 
-                                </div>
-                            )
-                        } else {
-                            return (
-                                <div key={item.label + index} className={`x-radio-li ${item.value == this.state.activeRadioValue ? 'active-radio' : null} ${item.disable == true ? 'radio-disable' : null}`} onClick={() => {
-                                    if (item.disable == true) {
-                                        return;
-                                    }
-                                    if (this.props.cancel == true) {
-                                        if (item.value == this.state.activeRadioValue) {
-                                            this.setState({
-                                                activeRadioValue: -1
-                                            })
-                                        } else {
-                                            this.setState({
-                                                activeRadioValue: item.value
-                                            })
-                                        }
-                                    } else {
-                                        this.setState({
-                                            activeRadioValue: item.value
-                                        })
-                                    }
+function Item({data, selected, onSelected}) {
+    return (
+        <div className={classnames('item', {selected: selected === data.value})} onClick={() => {
+            onSelected(data);
+        }}>
+            <span className="icon"></span>
+            <span className="name">{data.label}</span>
+        </div>
+    )
+}
 
-                                    this.props.onChange(item)
-                                }}>
-                                    {
-                                        this.state.activeRadioValue == item.value ?
-                                            <XIcon type='radio-selected'></XIcon> : <XIcon type='radio'></XIcon>
-                                    }
-                                    {item.label}
+function Radio(props) {
+    const {className, style, data, selected, onChange} = props;
 
-                                </div>
-                            )
-                        }
-                    })
-                }
-            </div>
-        )
+    const oList = useRadioList(data.slice(0));
+    const oData = useRadioData(selected);
+
+    useEffect(() => {
+        oList.updateData(data);
+        oData.updateData(selected);
+    }, [data, selected]);
+
+    return (
+        <div className={classnames('x-radio', className)} style={style}>
+            {
+                oList.list.map((item) => {
+                    return <Item key={item.value} data={item} selected={oData.data} onSelected={(res) => {
+                        oData.onSelected(res, onChange)
+                    }}/>
+                })
+            }
+        </div>
+    )
+}
+
+Radio.propTypes = {
+    classnames: PropTypes.string,
+    data: PropTypes.array,
+    style: PropTypes.object,
+    onChange: PropTypes.func
+}
+
+Radio.defaultProps = {
+    classnames: '',
+    data: [],
+    style: null,
+    onChange: function () {
     }
 }
 
-export default XRadio;
+export default Radio;
