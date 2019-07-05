@@ -107,7 +107,8 @@ class XUpload extends React.Component {
         })
 
         // 更新state
-        console.log('文件总数：', totalNum, '符合格式的文件：', fileNum)
+        // console.log('文件总数：', totalNum, '符合格式的文件：', fileNum)
+        onSyncProgress(0, null, totalNum, fileNum, this.state.successNum)
         this.setState({
             totalNum: totalNum,
             fileNum: fileNum
