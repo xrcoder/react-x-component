@@ -15,6 +15,7 @@
 
     &.x-input-error {
         border-color: $input-error-border-color;
+
         &:focus {
             border-color: $input-error-border-color;
         }
@@ -28,6 +29,10 @@
         background-color: $input-disabled-bg-color;
         color: $input-disabled-font-color;
         cursor: not-allowed;
+    }
+
+    &:disabled + .clear-btn {
+        display: none;
     }
 
     &:focus {
@@ -59,12 +64,19 @@
 
     .clear-btn {
         position: absolute;
+        opacity: 0;
+        transition: opacity 0.1s;
         top: 50%;
         margin-top: -6px;
         right: 10px;
         height: 12px;
         line-height: 12px;
-        cursor: pointer;
+        cursor: text;
         color: rgba(145, 143, 151, 1);
+
+        &.show {
+            cursor: pointer;
+            opacity: 1;
+        }
     }
 }

@@ -30,6 +30,10 @@
   cursor: not-allowed;
 }
 
+.x-input:disabled + .clear-btn {
+  display: none;
+}
+
 .x-input:focus {
   border-color: #645A82;
 }
@@ -59,11 +63,18 @@
 
 .x-input-group .clear-btn {
   position: absolute;
+  opacity: 0;
+  transition: opacity 0.1s;
   top: 50%;
   margin-top: -6px;
   right: 10px;
   height: 12px;
   line-height: 12px;
-  cursor: pointer;
+  cursor: text;
   color: #918f97;
+}
+
+.x-input-group .clear-btn.show {
+  cursor: pointer;
+  opacity: 1;
 }

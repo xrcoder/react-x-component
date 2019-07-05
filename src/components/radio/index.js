@@ -28,8 +28,8 @@ function useRadioData(initialValue = null) {
 
 function Item({data, selected, onSelected}) {
     return (
-        <div className={classnames('item', {selected: selected === data.value})} onClick={() => {
-            onSelected(data);
+        <div className={classnames('item', {selected: selected === data.value}, {disabled: data.disabled})} onClick={() => {
+            !data.disabled && onSelected(data);
         }}>
             <span className="icon"></span>
             <span className="name">{data.label}</span>

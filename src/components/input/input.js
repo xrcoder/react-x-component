@@ -16,7 +16,7 @@ function useInputValue(initialValue) {
     return {value, onChange, updateValue};
 }
 
-function Input({placeholder, value = '', className, style, onChange, onEnter, onFocus, onBlur, disabled, maxLength}) {
+function Input({placeholder, value = '', className, style, onChange, onEnter, onFocus, onBlur, disabled, maxLength, minLength, type}) {
 
     const oInput = useInputValue(value);
     const [isBan, setIsBan] = useState(disabled);
@@ -33,9 +33,11 @@ function Input({placeholder, value = '', className, style, onChange, onEnter, on
         <input
             value={oInput.value}
             style={style}
+            type={type}
             className={classnames('x-input', className)}
             disabled={isBan}
             placeholder={placeholder}
+            minLength={minLength}
             maxLength={maxLength}
             onChange={(e) => {
                 oInput.onChange(e);
@@ -60,7 +62,10 @@ Input.propTypes = {
     classnames: PropTypes.string,
     style: PropTypes.object,
     disabled: PropTypes.bool,
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
+    maxLength: PropTypes.number,
+    minLength: PropTypes.number,
+    type: PropTypes.string
 }
 
 Input.defaultProps = {

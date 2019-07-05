@@ -38,10 +38,13 @@ function Item({selected, data, onSelected}) {
     let isSelected = selected.indexOf(data.value) > -1;
 
     return (
-        <div className={classnames('item', {selected: isSelected})} onClick={() => {
+        <div className={classnames('item', {selected: isSelected}, {'disabled': data.disabled})} onClick={() => {
+            if (data.disabled) {
+                return;
+            }
             onSelected(data);
         }}>
-            <span className="icon">{isSelected ? <Icon name="check"></Icon> : null}</span>
+            <span className="icon"></span>
             <span className="name">{data.label}</span>
         </div>
     )
