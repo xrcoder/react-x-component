@@ -89,6 +89,10 @@ class XUpload extends React.Component {
             onSyncProgress(0, null, totalNum, fileNum, this.state.successNum)
             return
         }
+        if (fileNum <= 0) {
+            onSyncProgress(0, null, totalNum, fileNum, this.state.successNum)
+            return
+        }
 
         postList.map((item, index) => {
             let file = item
@@ -108,7 +112,6 @@ class XUpload extends React.Component {
 
         // 更新state
         // console.log('文件总数：', totalNum, '符合格式的文件：', fileNum)
-        onSyncProgress(0, null, totalNum, fileNum, this.state.successNum)
         this.setState({
             totalNum: totalNum,
             fileNum: fileNum
