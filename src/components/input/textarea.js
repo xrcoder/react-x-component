@@ -35,11 +35,11 @@ function Input({placeholder, error, value = '', className, style, onChange, onEn
     }, [isError]);
 
     return (
-        <input
+        <textarea
             value={oInput.value}
             style={style}
             type={type}
-            className={classnames('x-input', className, {'x-input-error': isError})}
+            className={classnames('x-input x-textarea', className, {'x-input-error': isError})}
             disabled={isBan}
             placeholder={placeholder}
             minLength={minLength}

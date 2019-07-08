@@ -4,12 +4,14 @@
     position: relative;
     display: inline-block;
     font-size: 14px;
+    height: 34px;
+    line-height: 1.432;
     background-color: #fff;
     border: 1px solid $input-border-color;
     color: $input-font-color;
     border-radius: 2px;
     box-sizing: border-box;
-    transition: all .2s;
+    transition: border-color .2s;
     outline: none;
     padding: 8px 10px;
 
@@ -40,6 +42,13 @@
     }
 }
 
+.x-textarea {
+    min-height: 100px;
+    height: auto;
+    resize: vertical;
+    font-family: inherit;
+}
+
 .x-input-group {
     position: relative;
     display: inline-flex;
@@ -47,8 +56,6 @@
 
     .x-input {
         flex: 1;
-        border-bottom-right-radius: 0;
-        border-top-right-radius: 0;
     }
 
     .group-addon-right .x-btn {
@@ -78,5 +85,16 @@
             cursor: pointer;
             opacity: 1;
         }
+    }
+}
+
+.x-input-group-addon {
+    .x-input {
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+    .x-btn {
+        border-color: $input-border-color;
     }
 }

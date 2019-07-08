@@ -1,6 +1,7 @@
 .x-btn {
   box-sizing: border-box;
   padding: 9px 25px;
+  height: 34px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -121,11 +122,13 @@
 }
 
 .x-btn.x-btn-lg {
+  height: 58px;
   font-size: 20px;
   line-height: 20px;
   padding: 18px 85px;
 }
 
 .x-btn.x-btn-sm {
+  height: 28px;
   padding: 6px 14px;
 }

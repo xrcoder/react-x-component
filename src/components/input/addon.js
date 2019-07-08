@@ -1,16 +1,23 @@
 import React from 'react';
 import classnames from 'classnames';
-import Button from '../button';
 
 import Input from './input';
 import Group from './group';
 
-export default (props) => {
-    const {placeholder, value, className, size} = props;
+function Inner(props) {
     return (
-        <Group className={classnames(className)}>
-            <Input size={size} placeholder={placeholder} value={value}/>
+        <React.Fragment>
+            <Input {...props}/>
             <div className="group-addon-right">{props.render()}</div>
+        </React.Fragment>
+    )
+}
+
+export default (props) => {
+    const {className, style} = props;
+    return (
+        <Group className={classnames('x-input-group-addon', className)} style={style}>
+            <Inner {...props} className={null} style={null}/>
         </Group>
     )
 };

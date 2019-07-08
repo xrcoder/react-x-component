@@ -34,8 +34,8 @@ function useInputValue(initialValue) {
     return {value, onChange, updateValue};
 }
 
-export default function (props) {
-    const {style, className, value, placeholder, type, maxLength, minLength, disabled, onChange, onEnter, onFocus, onBlur, onClear} = props;
+function Clear(props) {
+    const {style, className, value = '', placeholder, type, maxLength, minLength, disabled, onChange, onEnter, onFocus, onBlur, onClear} = props;
     const {status, changeStatus, updateStatus} = useClearBtn(false);
     const oInput = useInputValue(value);
 
@@ -59,7 +59,7 @@ export default function (props) {
                 }}
                 onFocus={(e) => {
                     onFocus && onFocus(e);
-                    updateStatus(value);
+                    updateStatus(value || oInput.value);
                 }}
                 onBlur={(e) => {
                     changeStatus(false);
@@ -67,7 +67,7 @@ export default function (props) {
                 }}
                 onEnter={onEnter}
             />
-            <Icon className={classnames('clear-btn', {'show': status && value.length > 0})}
+            <Icon className={classnames('clear-btn', {'show': status})}
                   name={'times-circle'}
                   onClick={(e) => {
                       oInput.updateValue('');
@@ -78,3 +78,5 @@ export default function (props) {
         </Group>
     )
 }
+
+export default Clear;
