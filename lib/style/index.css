@@ -1928,3 +1928,45 @@
     background-color: #7297FF;
   }
 }
+
+.x-switch {
+  position: relative;
+  display: inline-block;
+  width: 38px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: #2A1166;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.x-switch .switch-btn {
+  position: absolute;
+  left: 19px;
+  top: 1px;
+  width: 18px;
+  height: 18px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+
+.x-switch-off {
+  background-color: #dcdde0;
+  right: auto;
+}
+
+.x-switch-off .switch-btn {
+  left: 1px;
+  right: auto;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+}
+
+.x-switch-disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.x-switch-disabled.x-switch-off {
+  background-color: #efefef;
+}
