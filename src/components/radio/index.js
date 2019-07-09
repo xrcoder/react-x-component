@@ -65,14 +65,14 @@ function Radio(props) {
 }
 
 Radio.propTypes = {
-    classnames: PropTypes.string,
+    className: PropTypes.string,
     data: PropTypes.array,
     style: PropTypes.object,
     onChange: PropTypes.func
 }
 
 Radio.defaultProps = {
-    classnames: '',
+    className: '',
     data: [],
     style: null,
     onChange: function () {

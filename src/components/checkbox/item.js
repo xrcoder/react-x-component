@@ -58,7 +58,7 @@ function Item({className, style, disabled, label, value, onChange}) {
 }
 
 Item.propTypes = {
-    classnames: PropTypes.string,
+    className: PropTypes.string,
     style: PropTypes.object,
     label: PropTypes.string,
     value: PropTypes.bool,
@@ -67,7 +67,7 @@ Item.propTypes = {
 }
 
 Item.defaultProps = {
-    classnames: '',
+    className: '',
     style: null,
     label: '',
     value: false,

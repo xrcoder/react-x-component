@@ -67,7 +67,7 @@ function CheckBox(props) {
 }
 
 CheckBox.propTypes = {
-    classnames: PropTypes.string,
+    className: PropTypes.string,
     data: PropTypes.array,
     selected: PropTypes.array,
     style: PropTypes.object,
@@ -75,7 +75,7 @@ CheckBox.propTypes = {
 }
 
 CheckBox.defaultProps = {
-    classnames: '',
+    className: '',
     data: [],
     selected: [],
     style: null,

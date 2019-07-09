@@ -2,47 +2,50 @@
  * Created by Rayr Lee on 2019-06-25.
  * 左右方案布局(A)
  */
- @import '../../style/variable';
+@import '../../style/variable';
 
- .x-b-layout {
-     position: relative;
-     display: flex;
-     flex-direction: column;
-     height: 100vh;
-     background-color: #ecf0f5;
- }
- 
- .x-b-header {
-     position: relative;
-     height: 2.5rem;
-     flex: none;
-     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
- }
- 
- .x-b-container {
-     position: relative;
-     display: flex;
-     flex: 1;
-     height: 0;
- }
- 
- .x-b-sidebar {
-     position: relative;
-     width: 11.5rem;
-     flex: none;
- }
- 
- .x-b-content {
-     position: relative;
-     flex: 1;
-     overflow-y: auto;
-     overflow-x: hidden;
- }
- 
- .x-b-footer {
-     background: #fff;
-     padding: 0.75rem;
-     color: #444;
-     font-size: .7rem;
-     border-top: .5px solid $input-border-color;
- }
+.x-b-layout {
+    position: relative;
+    min-height: 100vh;
+    background-color: #ecf0f5;
+}
+
+.x-b-header {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 50px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    z-index: 10001;
+}
+
+.x-b-container {
+    position: relative;
+    padding-top: 50px;
+}
+
+.x-b-sidebar {
+    position: fixed;
+    left: 0;
+    top: 50px;
+    bottom: 0;
+    width: 230px;
+    flex: none;
+    overflow-y: auto;
+}
+
+.x-b-content {
+    position: relative;
+    margin-left: 230px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.x-b-footer {
+    background: #fff;
+    padding: 15px;
+    color: #444;
+    font-size: 14px;
+    border-top: .5px solid $input-border-color;
+}

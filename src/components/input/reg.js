@@ -13,7 +13,7 @@ const RegInput = (props) => {
     useEffect(() => {
         setValue(value);
         setValid(reg.test(value))
-    }, [value]);
+    });
 
     return (
         <Input

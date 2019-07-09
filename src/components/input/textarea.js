@@ -60,7 +60,8 @@ function Input({placeholder, error, value = '', className, style, onChange, onEn
 }
 
 Input.propTypes = {
-    classnames: PropTypes.string,
+    className: PropTypes.string,
+    propTypes: PropTypes.string,
     style: PropTypes.object,
     disabled: PropTypes.bool,
     error: PropTypes.bool,
@@ -74,7 +75,7 @@ Input.propTypes = {
 }
 
 Input.defaultProps = {
-    classnames: '',
+    className: '',
     disabled: false,
     error: false,
     style: null,

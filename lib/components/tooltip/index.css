@@ -1,99 +1,16 @@
+.x-tooltip-portal {
+  width: 0;
+  height: 0;
+}
+
 .x-tooltip {
-  position: relative;
-}
-
-.x-tooltip .top {
-  cursor: pointer;
-}
-
-.x-tooltip .top:hover + .box {
-  display: inline-flex;
-}
-
-.x-tooltip .box {
-  position: absolute;
-  padding: .1rem;
-  width: max-content;
-  background-color: rgba(0, 0, 0, 0.647);
-  color: #ffffff;
-  padding: .5rem 1rem;
-  border-radius: 4px;
-  max-width: 10rem;
-  word-break: break-word;
+  position: fixed;
+  background: #333;
+  color: white;
+  font-size: 14px;
   z-index: 1000;
-  line-height: .7rem;
-  display: none;
-  transition: display 1s;
 }
 
-.x-tooltip .box-top {
-  bottom: calc(100% + 6px);
-  transform: translate(-50%, 0);
-  margin-left: -50%;
-}
-
-.x-tooltip .box-top::before {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  border-top: 6px solid rgba(0, 0, 0, 0.6);
-  top: 100%;
-  left: calc(50% - 3px);
-}
-
-.x-tooltip .box-right {
-  transform: translate(0, -50%);
-  top: 50%;
-  margin-left: 6px;
-}
-
-.x-tooltip .box-right::before {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-top: 6px solid transparent;
-  border-bottom: 6px solid transparent;
-  border-right: 6px solid rgba(0, 0, 0, 0.6);
-  top: calc(50% - 3px);
-  left: -6px;
-}
-
-.x-tooltip .box-bottom {
-  top: calc(100% + 6px);
-  transform: translate(-50%, 0);
-  margin-left: -50%;
-}
-
-.x-tooltip .box-bottom::before {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  border-bottom: 6px solid rgba(0, 0, 0, 0.6);
-  top: -6px;
-  left: calc(50% - 3px);
-}
-
-.x-tooltip .box-left {
-  transform: translate(-100%, -50%);
-  top: 50%;
-  margin-left: calc(-100% - 6px);
-}
-
-.x-tooltip .box-left::before {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-top: 6px solid transparent;
-  border-bottom: 6px solid transparent;
-  border-left: 6px solid rgba(0, 0, 0, 0.6);
-  left: 100%;
-  top: calc(50% - 3px);
+.x-tooltip-arrow {
+  border-color: #333;
 }

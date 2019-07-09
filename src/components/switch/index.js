@@ -32,7 +32,7 @@ function Switch(props) {
 }
 
 Switch.propTypes = {
-    classnames: PropTypes.string,
+    className: PropTypes.string,
     value: PropTypes.bool,
     disabled: PropTypes.bool,
     style: PropTypes.object,
@@ -40,7 +40,7 @@ Switch.propTypes = {
 }
 
 Switch.defaultProps = {
-    classnames: '',
+    className: '',
     value: false,
     style: null,
     disabled: false,

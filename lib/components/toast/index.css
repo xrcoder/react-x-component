@@ -1,72 +1,72 @@
-.x-toast-notification {
-  position: fixed;
-  top: .5rem;
-  left: 50%;
-  display: inline-block;
-  transform: translate(-50%, 0);
-  z-index: 1000;
+/**
+ * Created by Rayr Lee on 2019/7/1.
+ */
+.Toastify__toast {
+  padding: 13px;
+  min-height: 48px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  border-radius: 2px;
+  border-width: 1px;
+  border-style: solid;
 }
 
-.x-toast-notification .x-toast-notice {
-  height: .5rem;
-  background-color: #ffffff;
-  border-radius: 4px;
+.Toastify__toast-container {
+  max-width: 520px;
+  min-width: 300px;
+  width: auto;
+}
+
+.Toastify__toast-body {
   font-size: 14px;
-  margin-bottom: .1rem;
-  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.15);
-  display: flex;
-  position: relative;
-  cursor: pointer;
+  line-height: 20px;
+  font-weight: lighter;
 }
 
-.x-toast-notification .x-toast-notice .x-toast-icon-box {
-  width: .5rem;
-  height: .5rem;
-  text-align: center;
-  line-height: .5rem;
-  color: #ffffff;
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
+.Toastify__toast-notify {
+  width: 300px;
 }
 
-.x-toast-notification .x-toast-notice .x-toast-icon-box.success {
-  background-color: #41B580;
-}
-
-.x-toast-notification .x-toast-notice .x-toast-icon-box.info {
-  background-color: #5B86FD;
-}
-
-.x-toast-notification .x-toast-notice .x-toast-icon-box.error {
-  background-color: #FF4D4F;
-}
-
-.x-toast-notification .x-toast-notice .x-toast-icon-box.warning {
-  background-color: #E96900;
-}
-
-.x-toast-notification .x-toast-notice .x-toast-notice-content {
-  padding: .14rem .2rem;
-}
-
-.x-toast-notification .toast-notice-enter {
-  opacity: 0.01;
-  transform: translateY(-40%);
-}
-
-.x-toast-notification .toast-notice-enter-active {
+.Toastify__close-button {
   opacity: 1;
-  transform: translateY(0);
-  transition: all 300ms ease-out;
+  margin-left: 10px;
 }
 
-.x-toast-notification .toast-notice-exit {
-  opacity: 1;
-  transform: translateY(0);
+.Toastify__toast--warning {
+  background-color: #fef8eb;
+  border-color: #f7d89b;
+  color: #ea9d05;
 }
 
-.x-toast-notification .toast-notice-exit-active {
-  opacity: 0.01;
-  transform: translateY(-40%);
-  transition: all 300ms ease-out;
+.Toastify__close-button--warning {
+  color: #ea9d05;
+}
+
+.Toastify__toast--success {
+  background-color: #f1f8f2;
+  border-color: #b5dbba;
+  color: #46a653;
+}
+
+.Toastify__close-button--success {
+  color: #46a653;
+}
+
+.Toastify__toast--info {
+  background-color: #F4F4F6;
+  border-color: #b4b6c3;
+  color: #555a77;
+}
+
+.Toastify__close-button--info {
+  color: #555a77;
+}
+
+.Toastify__toast--error {
+  background-color: #fef2f2;
+  border-color: #f9baba;
+  color: #f05353;
+}
+
+.Toastify__close-button--error {
+  color: #f05353;
 }

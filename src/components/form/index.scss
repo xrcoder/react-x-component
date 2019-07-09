@@ -1,0 +1,22 @@
+.x-form-name {
+    display: inline-block;
+    max-width: 100%;
+    color: #484852;
+    font-size: 14px;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.x-form-group {
+    margin-bottom: 15px;
+
+    > .x-input {
+        display: block;
+        width: 100%;
+    }
+
+    > .x-input-group {
+        display: flex;
+        width: 100%;
+    }
+}

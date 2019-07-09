@@ -7,7 +7,7 @@ import Content from './content';
 import Container from './container';
 import Footer from './footer';
 
-class LayoutA extends Component {
+export default class extends Component {
 
     static Header = Header;
 
@@ -23,5 +23,3 @@ class LayoutA extends Component {
         return <section className={classnames('x-a-layout', this.props.className)}>{this.props.children}</section>;
     }
 }
-
-export default LayoutA;
