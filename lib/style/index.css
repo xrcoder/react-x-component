@@ -1528,6 +1528,7 @@
 .x-b-container {
   position: relative;
   padding-top: 50px;
+  padding-left: 230px;
 }
 
 .x-b-sidebar {
@@ -1542,9 +1543,10 @@
 
 .x-b-content {
   position: relative;
-  margin-left: 230px;
   overflow-y: auto;
   overflow-x: hidden;
+  box-sizing: border-box;
+  min-height: calc(100vh - 50px);
 }
 
 .x-b-footer {
