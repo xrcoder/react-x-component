@@ -1223,21 +1223,29 @@
   color: #f05353;
 }
 
-.x-tooltip-portal {
-  width: 0;
-  height: 0;
-}
-
 .x-tooltip {
-  position: fixed;
-  background: #333;
+  position: absolute;
+  display: inline-block;
+  max-width: 400px;
+  background: rgba(51, 51, 51, 0.75);
   color: white;
-  font-size: 14px;
+  font-size: 12px;
   z-index: 1000;
+  boxSizing: border-box;
+  padding: 5px;
+  border-radius: 2px;
+  box-shadow: 0 0 4px rgba(51, 51, 51, 0.4);
 }
 
 .x-tooltip-arrow {
-  border-color: #333;
+  position: absolute;
+  width: 0;
+  height: 0;
+  zIndex: 1001;
+}
+
+.x-tooltip-up-arrow, .x-tooltip-right-arrow, x-tooltip-left-arrow, .x-tooltip-down-arrow {
+  border-color: rgba(51, 51, 51, 0.75);
 }
 
 .x-select-single {
@@ -1831,31 +1839,32 @@
 }
 
 .x-modal-content.x-modal-sm {
-  width: 360px;
-}
-
-.x-modal-content.x-modal-md {
   width: 400px;
 }
 
-.x-modal-content.x-modal-lg {
+.x-modal-content.x-modal-md {
   width: 640px;
 }
 
-.x-modal-content.x-modal-sg {
+.x-modal-content.x-modal-lg {
   width: 1100px;
 }
 
 .x-modal-header {
   position: relative;
+  display: flex;
   padding: 0 30px;
   height: 56px;
   line-height: 56px;
   color: #484852;
   font-weight: bold;
+  border-bottom: 1px solid #F3F3F3;
+  box-sizing: border-box;
+  align-items: center;
 }
 
 .x-modal-header .title {
+  font-size: 16px;
   flex: 1;
   width: 0;
   overflow: hidden;
@@ -1863,8 +1872,7 @@
   white-space: nowrap;
 }
 
-.x-modal-header i {
-  position: absolute;
+.x-modal-header .close {
   width: 18px;
   height: 18px;
   right: 30px;
@@ -1876,50 +1884,22 @@
 }
 
 .x-modal-body {
-  padding: 20px;
+  padding: 15px 30px;
   font-size: 14px;
 }
 
 .x-modal-footer {
   padding: 16px 30px;
   text-align: right;
+  border-top: 1px solid #F3F3F3;
 }
 
 .x-modal-footer button {
   margin-left: 10px;
 }
 
-.x-modal-dialog .x-modal-body {
-  border-top: 1px solid #D0D2DA;
-  border-bottom: 1px solid #D0D2DA;
-}
-
-.x-modal-confirm .x-modal-header, .x-modal-alert .x-modal-header {
-  padding-bottom: 6px;
-  margin-bottom: 0;
-}
-
-.x-modal-confirm .x-modal-body, .x-modal-alert .x-modal-body {
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-.x-modal-confirm .title, .x-modal-alert .title {
-  line-height: .2rem;
-  margin-bottom: .1rem;
-  font-size: .16rem;
-}
-
-.x-modal-confirm .title .xicon, .x-modal-confirm .title .iconfont, .x-modal-alert .title .xicon, .x-modal-alert .title .iconfont {
-  margin-right: .08rem;
-  font-size: .2rem;
-}
-
-.x-modal-confirm .content, .x-modal-alert .content {
-  font-size: .12rem;
-  line-height: .12rem;
-  margin-left: .28rem;
-  color: #515666;
+.x-modal-confirm .x-modal-body {
+  padding: 53px 30px;
 }
 
 .x-modal-fade .x-modal-bg {

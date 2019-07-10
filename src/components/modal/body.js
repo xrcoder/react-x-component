@@ -4,11 +4,13 @@ import classnames from 'classnames';
 
 export default class extends React.Component {
     static propTypes = {
-        propTypes: PropTypes.string
+        className: PropTypes.string,
+        style: PropTypes.object
     };
 
     static defaultProps = {
-        className: ''
+        className: '',
+        style: null
     };
 
     render() {

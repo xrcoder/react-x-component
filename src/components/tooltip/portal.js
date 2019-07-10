@@ -1,21 +1,46 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import ReactDOM from 'react-dom';
+import ReactDom from 'react-dom';
 
-function Portal({children}) {
+const useCreatePortal = typeof ReactDom.createPortal === 'function';
+export const isBrowser = typeof window !== 'undefined';
 
-    const container = document.createElement('div');
-    container.className = 'x-tooltip-portal';
-    document.body.appendChild(container);
+class Portal extends React.Component {
+    constructor(props) {
+        super(props);
 
-    useEffect(() => {
-        return () => {
-            ReactDOM.unmountComponentAtNode(container);
-            document.body.removeChild(container);
+        if (isBrowser) {
+            this.container = document.createElement('div');
+            document.body.appendChild(this.container);
+
+            this.renderLayer();
         }
-    });
+    }
 
-    return ReactDOM.createPortal(children, container);
+    componentDidUpdate() {
+        this.renderLayer();
+    }
+
+    componentWillUnmount() {
+        if (!useCreatePortal) {
+            ReactDom.unmountComponentAtNode(this.container);
+        }
+
+        document.body.removeChild(this.container);
+    }
+
+    renderLayer() {
+        if (!useCreatePortal) {
+            ReactDom.unstable_renderSubtreeIntoContainer(this, this.props.children, this.container);
+        }
+    }
+
+    render() {
+        if (useCreatePortal) {
+            return ReactDom.createPortal(this.props.children, this.container);
+        }
+        return null;
+    }
 }
 
 Portal.propTypes = {

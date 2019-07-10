@@ -1,27 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import Icon from '../icon';
 
 export default class extends React.Component {
     static propTypes = {
         className: PropTypes.string,
-        msg: PropTypes.string
+        style: PropTypes.object
     };
 
     static defaultProps = {
         className: '',
-        msg: ''
+        style: null
     };
 
     render() {
-        console.log(this.props)
         return (
-            <div className={classnames('x-modal-header', this.props.className)}>
-                <span className="title">{this.props.children}</span>
-                <Icon type="close-a" className="close-btn" onClick={()=>{
-                    this.props.cancel(this.props.msg)
-                }}/>
+            <div className={classnames('x-modal-header', this.props.className)} style={this.props.style}>
+                <div className="title">{this.props.children}</div>
+                <div className="close" onClick={this.props.cancel}></div>
             </div>
         );
     }

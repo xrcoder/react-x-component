@@ -1,17 +1,14 @@
-import React, { useState, useEffect, useRef, Fragment } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import intl from 'react-intl-universal';
-import loadLocales from '../locales/loadlocales';
 
 const Modal = (C, opt) => {
-
-    loadLocales(opt.locale || 'zh_CN');
 
     const CONTAINER = document.querySelector('body');
 
     let _Modal = document.createElement('div');
+
     let _opt = {
         backDrop: false,
         size: 'md',
@@ -41,48 +38,40 @@ const Modal = (C, opt) => {
                 }, 50);
             }
 
-            confirm (res='sucess') {
+            confirm(res = 'sucess') {
                 this.close();
                 resolve(res);
             }
 
-            cancel (res='cancel') {
+            cancel(res = 'cancel') {
                 this.close();
                 reject(res);
             }
 
-            close () {
+            close() {
                 ReactDOM.unmountComponentAtNode(_Modal);
                 CONTAINER.removeChild(_Modal);
                 clearTimeout(this.timer);
                 this.timer = null;
             }
 
-            render () {
-                const { className } = this.state;
-                const { data, size, backDrop } = _opt;
+            render() {
+                const {className} = this.state;
+                const {data, size, backDrop} = _opt;
                 return (
                     <div className={classnames('x-modal', _opt.className, className)}>
                         <div className="x-modal-bg" onClick={() => {
                             backDrop && this.cancel();
                         }}></div>
                         <div className={`x-modal-content x-modal-${size}`}>
-                            <C confirm={this.confirm.bind(this)} cancel={this.cancel.bind(this)} data={_opt.data} />
+                            <C confirm={this.confirm.bind(this)} cancel={this.cancel.bind(this)} data={data}/>
                         </div>
                     </div>
                 )
             }
-
-
-
         }
 
-        // ReactDOM.render(<Modal />, _Modal);
-        return ReactDOM.createPortal(
-            ReactDOM.render(<Modal />, _Modal),
-            _Modal,
-          )
-        
+        return ReactDOM.createPortal(ReactDOM.render(<Modal/>, _Modal), _Modal)
     });
 }
 

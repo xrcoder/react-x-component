@@ -1,16 +1,24 @@
-.x-tooltip-portal {
-    width: 0;
-    height: 0;
-}
-
 .x-tooltip {
-    position: fixed;
-    background: #333;
+    position: absolute;
+    display: inline-block;
+    max-width: 400px;
+    background: rgba(51, 51, 51, .75);
     color: white;
-    font-size: 14px;
+    font-size: 12px;
     z-index: 1000;
+    boxSizing: border-box;
+    padding: 5px;
+    border-radius: 2px;
+    box-shadow: 0 0 4px rgba(51, 51, 51, .4);
 }
 
 .x-tooltip-arrow {
-    border-color: #333;
+    position: absolute;
+    width: 0;
+    height: 0;
+    zIndex: 1001;
+}
+
+.x-tooltip-up-arrow, .x-tooltip-right-arrow, x-tooltip-left-arrow, .x-tooltip-down-arrow {
+    border-color: rgba(51, 51, 51, .75);
 }

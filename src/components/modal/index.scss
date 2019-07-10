@@ -1,4 +1,5 @@
 @import '../../style/variable.scss';
+
 .x-modal {
     position: fixed;
     top: 0;
@@ -37,45 +38,48 @@
     opacity: 0;
     transition: all .4s;
     margin-bottom: 100px;
-    .border{
-        padding:20px;
+
+    .border {
+        padding: 20px;
         border-bottom: .5px solid #E3E6F0;
-        border-top:.5px solid #E3E6F0;
+        border-top: .5px solid #E3E6F0;
     }
 }
 
 .x-modal-content.x-modal-sm {
-    width: 360px;
-}
-
-.x-modal-content.x-modal-md {
     width: 400px;
 }
 
-.x-modal-content.x-modal-lg {
+.x-modal-content.x-modal-md {
     width: 640px;
 }
 
-.x-modal-content.x-modal-sg {
+.x-modal-content.x-modal-lg {
     width: 1100px;
 }
 
 .x-modal-header {
     position: relative;
+    display: flex;
     padding: 0 30px;
     height: 56px;
     line-height: 56px;
     color: #484852;
     font-weight: bold;
+    border-bottom: 1px solid #F3F3F3;
+    box-sizing: border-box;
+    align-items: center;
+
     .title {
+        font-size: 16px;
         flex: 1;
         width: 0;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
     }
-    i {
-        position: absolute;
+
+    .close {
         width: 18px;
         height: 18px;
         right: 30px;
@@ -88,47 +92,21 @@
 }
 
 .x-modal-body {
-    padding: 20px;
+    padding: 15px 30px;
     font-size: 14px;
 }
 
 .x-modal-footer {
     padding: 16px 30px;
     text-align: right;
+    border-top: 1px solid #F3F3F3;
     button {
         margin-left: 10px;
     }
 }
 
-.x-modal-dialog .x-modal-body {
-    border-top: 1px solid $input-border-color;
-    border-bottom: 1px solid $input-border-color;
-}
-
-.x-modal-confirm,.x-modal-alert{
-    .x-modal-header{
-        padding-bottom: 6px;
-        margin-bottom: 0;
-    }
-    .x-modal-body{
-        padding-top: 0;
-        padding-bottom: 0;
-    }
-    .title{
-        line-height: .2rem;
-        margin-bottom: .1rem;
-        font-size: .16rem;
-        .xicon,.iconfont{
-            margin-right: .08rem;
-            font-size: .2rem;
-        }
-    }
-    .content{
-        font-size: .12rem;
-        line-height: .12rem;
-        margin-left: .28rem;
-        color: #515666;
-    }
+.x-modal-confirm .x-modal-body {
+    padding: 53px 30px;
 }
 
 //动画
@@ -136,6 +114,7 @@
     .x-modal-bg {
         opacity: 1;
     }
+
     .x-modal-content {
         opacity: 1;
         top: 100px;
