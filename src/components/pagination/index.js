@@ -69,7 +69,8 @@ class XPagination extends Component {
             let count = parseInt(nextProps.count);
             this.setState({
                 count: count,
-                currPage: currPage
+                currPage: currPage,
+                jumpPage: jumpPage
             }, () => {
                 // this.onCurrPageChange(this.state.currPage);
             });
