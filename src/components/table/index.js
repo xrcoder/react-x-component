@@ -135,7 +135,7 @@ const XTable = (props) => {
                         count={count}
                         pageSize={pageSize}
                         currPage={currPage}
-                        showJumpPage={true}
+                        showJumpPage={showJumpPage}
                         jumpPage={currPage}
                         onPageChange={(res) => {
                             props.onPageChange(res)
