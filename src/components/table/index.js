@@ -49,7 +49,7 @@ const OrderArea = (props) => {
 
 const XTable = (props) => {
 
-    const { tableConf, dataList, noBorder, count, currPage, pageSize, size, noPagination, isLoading, onOrderChange, onPageChange } = props;
+    const { tableConf, dataList, noBorder, count, currPage, pageSize, size, noPagination, isLoading, onOrderChange, onPageChange,showJumpPage, jumpPage } = props;
     const [orderName, setOrderName] = useState('');
     const [orderType, setOrderType] = useState('');
     const [initDone, setInitDone] = useState(false);
@@ -135,6 +135,8 @@ const XTable = (props) => {
                         count={count}
                         pageSize={pageSize}
                         currPage={currPage}
+                        showJumpPage={true}
+                        jumpPage={currPage}
                         onPageChange={(res) => {
                             props.onPageChange(res)
                         }}
