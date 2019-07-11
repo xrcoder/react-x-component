@@ -89,10 +89,6 @@ class XUpload extends React.Component {
             onSyncProgress(0, null, totalNum, fileNum, this.state.successNum)
             return
         }
-        if (fileNum <= 0) {
-            onSyncProgress(0, null, totalNum, fileNum, this.state.successNum)
-            return
-        }
 
         postList.map((item, index) => {
             let file = item
