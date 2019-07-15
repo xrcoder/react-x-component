@@ -18,7 +18,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rayrlee2013/react-rayr-component.git"
+    "url": "git+https://github.com/xrcoder/react-x-component.git"
   },
   "keywords": [
     "React"
@@ -26,7 +26,7 @@
   "author": "Rayr Lee",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rayrlee2013/react-rayr-component/issues"
+    "url": "https://github.com/xrcoder/react-x-component/issues"
   },
   "dependencies": {
     "classnames": "^2.2.6",
