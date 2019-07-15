@@ -1,7 +1,7 @@
 //结构布局方案A
-export LayoutA from './layoutA';
+export LayoutA from './layout/a';
 //结构布局方案B
-export LayoutB from './layoutB';
+export LayoutB from './layout/b';
 //栅格化
 export * from './grid';
 
