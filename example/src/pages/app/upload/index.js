@@ -16,26 +16,11 @@ export default () => {
     return (
         <Fragment>
             <Box>
-                <Box.Header>Upload单张</Box.Header>
+                <Box.Header>Upload头像上传</Box.Header>
                 <Box.Body>
                     <Row>
                         <Col md={12}>
-                            <Upload.Head
-                                url="http://10.199.0.216:3000/api/upload"
-                                onChange={(imgList) => {
-                                    console.log('single',imgList)
-                                }}
-                            />
-                        </Col>
-                    </Row>
-                </Box.Body>
-            </Box>
-            <Box>
-                <Box.Header>Upload上传达到限制后，上传按钮消失</Box.Header>
-                <Box.Body>
-                    <Row>
-                        <Col md={12}>
-                            <Upload.Head
+                            <Upload.Avatar
                                 url="http://10.199.0.216:3000/api/upload"
                                 maxLength={2}
                                 imgList={thirdImgList}
