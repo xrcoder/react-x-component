@@ -7,11 +7,11 @@
 }
 
 .app-sider-menu {
-    padding: 0rem 2rem;
+    padding: 0 40px;
 
     li {
-        padding: 0.5rem 0;
-        font-size: .7rem;
+        padding: 10px 0;
+        font-size: 14px;
 
         a {
             color: #666;
@@ -44,19 +44,19 @@
     display: flex;
 
     .logo {
-        width: 11.5rem;
-        background: url("../assets/logo.png") 2rem center no-repeat;
-        background-size: 5.95rem 1.4rem;
+        width: 230px;
+        background: url("../assets/logo.png") 40px center no-repeat;
+        background-size: 119px 28px;
     }
 
     .nav {
         display: flex;
-        height: 2.5rem;
-        line-height: 2.5rem;
+        height: 50px;
+        line-height: 50px;
         color: #003C79;
 
         li {
-            padding: 0 1.8rem;
+            padding: 0 16px;
             cursor: pointer;
             transition: all 0.5s;
 
@@ -67,11 +67,11 @@
 
         li.active {
             color: #007AFF;
-            border-bottom: 0.15rem solid #007AFF;
+            border-bottom: 3px solid #007AFF;
         }
     }
 }
 
 .app-content {
-    padding: 0.75rem;
+    padding: 15px;
 }

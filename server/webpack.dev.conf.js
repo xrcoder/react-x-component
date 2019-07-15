@@ -18,7 +18,7 @@ export default {
     resolve: {
         modules: ['node_modules'],
         alias: {
-            'react-x-component' : path.resolve(__dirname, '../src'),
+            'react-x-component': path.resolve(__dirname, '../src'),
             'services': path.resolve(__dirname, '../example/src/services')
         }
     },
