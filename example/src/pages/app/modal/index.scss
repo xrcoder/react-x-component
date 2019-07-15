@@ -1,0 +1,14 @@
+.modal .box-content{
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+    .content-header{
+        &>button{
+            margin-right: 0.1rem;
+            margin-bottom: 0.1rem;
+        }
+    }
+    .box-left,.box-right{
+        width: 48%;
+    }
+}

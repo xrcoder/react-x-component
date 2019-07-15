@@ -8,7 +8,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 export default {
     mode: 'development',
-    entry: ['webpack-hot-middleware/client?reload=true', './example/index.js'],
+    entry: ['webpack-hot-middleware/client?reload=true', './example/src/app.js'],
     output: {
         path: path.resolve(__dirname, '../example/dev'),
         filename: 'js/[name].js',
@@ -18,7 +18,8 @@ export default {
     resolve: {
         modules: ['node_modules'],
         alias: {
-            'react-rayr-component': path.resolve(__dirname, '../src'),
+            'react-x-component' : path.resolve(__dirname, '../src'),
+            'services': path.resolve(__dirname, '../example/src/services')
         }
     },
     module: {

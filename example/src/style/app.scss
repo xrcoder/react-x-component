@@ -1,0 +1,77 @@
+/**
+ * Created by Rayr Lee on 2019-06-25.
+ */
+
+.app-sider {
+    background-color: #fff;
+}
+
+.app-sider-menu {
+    padding: 0rem 2rem;
+
+    li {
+        padding: 0.5rem 0;
+        font-size: .7rem;
+
+        a {
+            color: #666;
+        }
+
+        &:hover {
+            a {
+                color: #007AFF;
+            }
+        }
+    }
+
+    .header {
+        color: #000;
+        font-weight: bold;
+    }
+
+    li.active {
+        font-weight: bold;
+        color: #007AFF;
+
+        a {
+            color: #007AFF;
+        }
+    }
+}
+
+.app-header {
+    background-color: #fff;
+    display: flex;
+
+    .logo {
+        width: 11.5rem;
+        background: url("../assets/logo.png") 2rem center no-repeat;
+        background-size: 5.95rem 1.4rem;
+    }
+
+    .nav {
+        display: flex;
+        height: 2.5rem;
+        line-height: 2.5rem;
+        color: #003C79;
+
+        li {
+            padding: 0 1.8rem;
+            cursor: pointer;
+            transition: all 0.5s;
+
+            &:hover {
+                color: #007AFF;
+            }
+        }
+
+        li.active {
+            color: #007AFF;
+            border-bottom: 0.15rem solid #007AFF;
+        }
+    }
+}
+
+.app-content {
+    padding: 0.75rem;
+}
