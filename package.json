@@ -1,7 +1,7 @@
 {
-  "name": "react-rayr-component",
+  "name": "react-x-component",
   "version": "0.0.31",
-  "description": "react-rayr-component",
+  "description": "react-x-component",
   "main": "dist/index.js",
   "scripts": {
     "start": "npm run dev",
