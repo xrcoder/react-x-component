@@ -1,31 +1,67 @@
 {
+    "extends": "eslint-config-airbnb",
     "parser": "babel-eslint",
-    "env": {
-        "browser": true,
-        "node": true
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "experimentalObjectRestSpread": true
+        }
     },
+    "plugins": [
+        "prefer-object-spread"
+    ],
     "rules": {
-        "comma-dangle": "off",
-        "global-require": "off",
-        "import/no-extraneous-dependencies": "off",
-        "import/no-unresolved": "off",
-        "import/extensions": "off",
-        "react/jsx-filename-extension": "off",
-        "react/prefer-stateless-function": [
-            "error",
+        "indent": [
+            1,
+            2,
             {
-                "ignorePureComponents": true
+                "SwitchCase": 1
             }
         ],
-        "react/jsx-tag-spacing": "off",
-        "react/forbid-prop-types": "off",
-        "react/no-array-index-key": "off",
-        "jsx-a11y/no-static-element-interactions": "off",
-        "no-alert": "off",
-        "no-bitwise": "off"
+        "keyword-spacing": [1],
+        "linebreak-style": [
+            2,
+            "unix"
+        ],
+        "new-cap": [1],
+        "padded-blocks": [0],
+        "space-before-blocks": [
+            1,
+            "always"
+        ],
+        "space-before-function-paren": [
+            2,
+            {
+                "anonymous": "always",
+                "named": "never"
+            }
+        ],
+        "react/jsx-indent": [
+            2,
+            2
+        ],
+        "react/destructuring-assignment": [0],
+        "max-len": [
+            1,
+            150
+        ],
+        // warns when trying to use Object.assign()
+        "prefer-object-spread/prefer-object-spread": 2,
+        // TODO: remove after refactor
+        "import/no-cycle": [0],
+        "react/forbid-prop-types": [0],
+        "consistent-return": [0],
+        "no-unused-expressions": [0],
+        "import/no-extraneous-dependencies": [0],
+        "object-curly-newline": [0]
     },
     "globals": {
-        "jQuery": false,
-        "$": false
+        "__CLIENT__": true
+    },
+    "env": {
+        "browser": true,
+        "node": true,
+        "jest": true
     }
 }

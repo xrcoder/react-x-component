@@ -1,0 +1,65 @@
+.x-radio {
+    display: inline-flex;
+    flex-wrap: wrap;
+    .item {
+        display: inline-flex;
+        margin-right: 10px;
+        margin-bottom: 6px;
+        cursor: pointer;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        &:hover {
+            .icon {
+                border-color: #645A82;
+            }
+        }
+    }
+
+    .selected {
+        .icon {
+            border-color: #2A1166;
+            border-width: 4px;
+        }
+
+        &:hover {
+            .icon {
+                border-color: #2A1166;
+            }
+        }
+    }
+
+    .disabled {
+        cursor: not-allowed;
+        .icon {
+            border-color: #d2d4de;
+            background-color: #F4F4F6;
+        }
+        .name {
+            opacity: 0.3;
+        }
+        &:hover {
+            .icon {
+                border-color: #d2d4de;
+            }
+        }
+    }
+
+    .icon {
+        display: block;
+        width: 14px;
+        height: 14px;
+        border: 1px solid #D0D2DA;
+        margin-right: 6px;
+        border-radius: 50%;
+        transition: all 0.2s;
+    }
+
+    .name {
+        font-size: 14px;
+        line-height: 14px;
+        color: #484852;
+    }
+}

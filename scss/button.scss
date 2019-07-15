@@ -1,0 +1,135 @@
+.x-btn {
+    box-sizing: border-box;
+    padding: 9px 25px;
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 14px;
+    outline: none;
+    border: 1px solid #ddd;
+    color: #444;
+    background: #f4f4f4;
+    transition: all 0.1s;
+    font-weight: 400;
+    white-space: nowrap;
+
+    & > .fa {
+        margin-right: 6px;
+    }
+
+    &:hover {
+        background-color: #e7e7e7;
+        border-color: #adadad;
+        color: #333;
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+        background-color: #fff;
+        border-color: #ccc;
+        opacity: 0.75;
+    }
+
+    &.x-btn-primary {
+        border-color: $theme-color;
+        color: #ffffff;
+        background: $theme-color;
+
+        &:hover {
+            background-color: #52398E;
+        }
+
+        &:active {
+            background-color: #3e257e;
+        }
+
+        &.x-btn-inverse {
+            background-color: #fff;
+            color: #2A1166;
+            border-color: #645a82;
+
+            &:hover {
+                background-color: rgba($theme-color, 0.1);
+            }
+
+            &:active {
+                background-color: rgba($theme-color, 0.2);
+            }
+        }
+
+        &:disabled {
+            cursor: not-allowed;
+            background-color: darken($theme-color, 5%);
+            border-color: darken($theme-color, 5%);
+            color: rgba(127, 111, 163, 1);
+            opacity: 0.75;
+        }
+
+        &.x-btn-inverse:disabled {
+            cursor: not-allowed;
+            background-color: #fff;
+            border-color: lighten($theme-color, 55%);
+            opacity: 0.75;
+        }
+    }
+
+    &.x-btn-danger {
+        border-color: #f05353;
+        color: #fff;
+        background: #f05353;
+
+        &:hover {
+            background: darken(#f05353, 10%);
+        }
+
+        &:active {
+            background-color: darken(#f05353, 15%);
+        }
+
+        &.x-btn-inverse {
+            background-color: #fff;
+            color: #f05353;
+            border-color: #f05353;
+
+            &:hover {
+                background-color: rgba(#f05353, 0.1);
+            }
+
+            &:active {
+                background-color: rgba(#f05353, 0.2);
+            }
+        }
+
+        &:disabled {
+            cursor: not-allowed;
+            background-color: darken(#f05353, 5%);
+            border-color: darken(#f05353, 5%);
+            color: #fff;
+            opacity: 0.75;
+        }
+
+        &.x-btn-inverse:disabled {
+            cursor: not-allowed;
+            background-color: #fff;
+            border-color: lighten(#f05353, 20%);
+            opacity: 0.75;
+            color: #f05353;
+        }
+    }
+
+    &.x-btn-lg {
+        height: 58px;
+        font-size: 20px;
+        line-height: 20px;
+        padding: 18px 85px;
+    }
+
+    &.x-btn-sm {
+        height: 28px;
+        padding: 6px 14px;
+    }
+}

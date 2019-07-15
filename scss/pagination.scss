@@ -1,0 +1,69 @@
+.x-pagination {
+    display: inline-flex;
+    align-items: center;
+        &-page{
+            display: inline-flex;
+            font-size: 14px;
+            line-height: 26px;
+            justify-content: center;
+            color: $theme-color;
+            & > li {
+                display: inline-block;
+                padding: 0 8px;
+                webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                i {
+                    vertical-align: middle;
+                }
+            }
+            & > .page-item {
+                display: inline-block;
+                text-align: center;
+                transition: all .3s;
+                cursor: pointer;
+                background-color: #fff;
+                &.active {
+                    font-weight: bold;
+                    color: $pagination-page-regular-color;
+                }
+                &:hover {
+                    font-weight: bold;
+                    color: $pagination-page-regular-color;
+                }
+            }
+            .prev, .next {
+                color: $pagination-page-color;
+                cursor: pointer;
+                &:hover {
+                    color: $theme-color;
+                }
+                &.disabled {
+                    color: $input-disabled-font-color;
+                    cursor: not-allowed;
+                }
+            }
+        }
+    &-size {
+        font-size: 14px;
+        color: $pagination-page-color;
+        display: inline-flex;
+        align-items: center;
+        &-select {
+            width: 60px;
+            margin:0 10px;
+            .x-select{
+                width: 100%;
+            }
+            .x-select-single .x-select-title{
+                height: 28px;
+                line-height: 28px;
+            }
+        }
+    }
+
+    & &-page{
+        flex: 1;
+    }
+}

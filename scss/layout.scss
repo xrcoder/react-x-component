@@ -1,0 +1,109 @@
+/**
+ * Created by Rayr Lee on 2019-06-25.
+ * 左右方案布局(A)
+ */
+.x-a-layout {
+    position: relative;
+    display: flex;
+    height: 100vh;
+    background-color: #ecf0f5;
+}
+
+.x-a-sidebar {
+    position: relative;
+    width: 11.5rem;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.x-a-logo {
+    position: relative;
+    height: 2.5rem;
+}
+
+.x-a-sidebar-content {
+    position: relative;
+    height: 0;
+    flex: 1;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.x-a-header {
+    position: relative;
+    height: 2.5rem;
+    flex: none;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.x-a-container {
+    position: relative;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.x-a-content {
+    position: relative;
+    flex: 1;
+    height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.x-a-footer {
+    background: #fff;
+    padding: 0.75rem;
+    color: #444;
+    font-size: .7rem;
+    border-top: .5px solid $input-border-color;
+}
+
+.x-b-layout {
+    position: relative;
+    min-height: 100vh;
+    background-color: #ecf0f5;
+}
+
+.x-b-header {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 50px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    z-index: 100;
+}
+
+.x-b-container {
+    position: relative;
+    padding-top: 50px;
+    padding-left: 230px;
+}
+
+.x-b-sidebar {
+    position: fixed;
+    left: 0;
+    top: 50px;
+    bottom: 0;
+    width: 230px;
+    flex: none;
+    overflow-y: auto;
+}
+
+.x-b-content {
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    min-height: calc(100vh - 50px);
+}
+
+.x-b-footer {
+    background: #fff;
+    padding: 15px;
+    color: #444;
+    font-size: 14px;
+    border-top: .5px solid $input-border-color;
+}

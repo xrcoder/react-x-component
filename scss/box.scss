@@ -1,0 +1,26 @@
+.x-box {
+    background-color: #fff;
+    margin-bottom: 1rem;
+    border-radius: 0.2rem;
+    box-shadow: 0 0.1rem 0.2rem 0 rgba(239, 242, 247, 1);
+}
+
+.x-box-header {
+    color: #444;
+    display: block;
+    padding: .5rem;
+    position: relative;
+    font-size: 0.8rem;
+    border-bottom: 1px solid #f4f4f4;
+}
+
+.x-box-body {
+    padding: .5rem;
+    position: relative;
+}
+
+.x-box-footer {
+    border-top: 1px solid #f4f4f4;
+    padding: .5rem;
+    position: relative;
+}
