@@ -1,14 +1,15 @@
 .x-toggle {
     position: relative;
     display: inline-block;
-    &.open{
-        .x-toggle-box{
+
+    &.open {
+        .x-toggle-box {
             display: block;
         }
     }
 }
 
-.x-toggle-top{
+.x-toggle-top {
     cursor: pointer;
 }
 
@@ -19,28 +20,34 @@
     // margin-top: 5px;
     border-radius: 4px;
     background-color: #fff;
-    box-shadow: 0 2px 8px 0px rgba(0,0,0,0.15);
-    &.bottomLeft{
+    box-shadow: 0 2px 8px 0px rgba(0, 0, 0, 0.15);
+
+    &.bottomLeft {
         top: 100%;
         left: 0;
     }
-    &.bottomRight{
+
+    &.bottomRight {
         top: 100%;
         right: 0;
     }
-    &.topRight{
+
+    &.topRight {
         bottom: 100%;
         right: 0;
     }
-    &.topLeft{
+
+    &.topLeft {
         bottom: 100%;
         left: 0;
     }
-    &.bottomCenter{
+
+    &.bottomCenter {
         left: 50%;
         transform: translate(-50%);
     }
-    &.topCenter{
+
+    &.topCenter {
         left: 50%;
         bottom: 100%;
         transform: translate(-50%);
