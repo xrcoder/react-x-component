@@ -1,4 +1,4 @@
-.x-select-single{
+.x-select-single {
     position: relative;
     width: 270px;
     font-size: 14px;
@@ -6,19 +6,22 @@
     border-radius: 2px;
     transition: border 0.5s;
     background-color: #FFF;
-    .x-select-title{
+
+    .x-select-title {
         cursor: pointer;
         padding: 0 12px;
         height: 34px;
         line-height: 34px;
         overflow: hidden;
-        text-overflow:ellipsis;
+        text-overflow: ellipsis;
         white-space: nowrap;
         user-select: none;
+
         .placeholder {
             color: #B0B2B8;
         }
     }
+
     .arrow {
         position: absolute;
         width: 10px;
@@ -31,11 +34,13 @@
         background-position: center;
         transition: border 0.5s;
     }
-    .x-select-disabled{
+
+    .x-select-disabled {
         cursor: not-allowed;
         background-color: $input-disabled-bg-color;
     }
-    .x-select-ul-list{
+
+    .x-select-ul-list {
         position: absolute;
         display: none;
         top: 36px;
@@ -48,31 +53,38 @@
         overflow-y: scroll;
         z-index: 1;
         box-shadow: 0 6px 8px rgba(0, 0, 0, .15);
-        .x-select-li{
+
+        .x-select-li {
             line-height: 34px;
             padding: 0 12px;
             overflow: hidden;
-            text-overflow:ellipsis;
+            text-overflow: ellipsis;
             white-space: nowrap;
             cursor: pointer;
-            &:hover{
+
+            &:hover {
                 background-color: #F0F1F9;
             }
         }
-        .x-select-li-true{
+
+        .x-select-li-true {
             background-color: #F0F1F9;
         }
-        .x-select-li-disable{
+
+        .x-select-li-disable {
             cursor: not-allowed;
             pointer-events: none;
         }
     }
-    &.x-select-clicked{
+
+    &.x-select-clicked {
         border: 1px solid $theme-color;
-        .x-select-ul-list{
+
+        .x-select-ul-list {
             display: block;
         }
     }
+
     &.x-select-disabled {
         .x-select-title {
             background-color: #F4F4F6;
@@ -89,20 +101,23 @@
     border-radius: 2px;
     transition: border 0.5s;
     background-color: #FFF;
-    .x-select-title{
+
+    .x-select-title {
         cursor: pointer;
         padding: 0 12px;
         height: 34px;
         line-height: 34px;
         overflow: hidden;
-        text-overflow:ellipsis;
+        text-overflow: ellipsis;
         white-space: nowrap;
         user-select: none;
+
         .placeholder {
             color: #B0B2B8;
         }
     }
-    .x-select-ul-list{
+
+    .x-select-ul-list {
         display: none;
         position: absolute;
         top: 36px;
@@ -115,32 +130,39 @@
         overflow-y: scroll;
         z-index: 1;
         box-shadow: 0 6px 8px rgba(0, 0, 0, .15);
-        .x-select-li{
+
+        .x-select-li {
             line-height: 34px;
             padding: 0 12px;
             overflow: hidden;
-            text-overflow:ellipsis;
+            text-overflow: ellipsis;
             white-space: nowrap;
             cursor: pointer;
-            &:hover{
+
+            &:hover {
                 background-color: #F0F1F9;
             }
         }
-        .x-select-li-true{
+
+        .x-select-li-true {
             background-color: #F0F1F9;
         }
-        .x-select-li-disable{
+
+        .x-select-li-disable {
             cursor: not-allowed;
             pointer-events: none;
         }
     }
+
     &.x-select-hasvalue {
         height: auto;
         border: none;
+
         .placeholder {
             display: none;
         }
     }
+
     .arrow {
         position: absolute;
         width: 10px;
@@ -153,29 +175,34 @@
         background-position: center;
         z-index: 2;
     }
+
     .placeholder {
         padding-left: 12px;
     }
+
     .x-select-title {
         padding: 0;
     }
+
     .x-select-ul-value {
         position: relative;
         top: 0;
         padding: 6px 6px 0 6px;
         display: flex;
         flex-wrap: wrap;
-        .x-select-li{
+
+        .x-select-li {
             position: relative;
             line-height: 30px;
             padding: 0 24px 0 8px;
             margin: 0 6px 6px 0;
             overflow: hidden;
-            text-overflow:ellipsis;
+            text-overflow: ellipsis;
             white-space: nowrap;
             background-color: #F9F9F9;
             font-size: 12px;
             color: #484852;
+
             .cls-icon {
                 position: absolute;
                 right: 5px;
@@ -187,17 +214,20 @@
                 background-repeat: no-repeat;
                 background-position: center;
             }
+
             .cls-icon:hover {
                 background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAAAXNSR0IArs4c6QAAASFJREFUKBWdkrFKA0EQhmeWaMBc0ESsDcTiCKSysBfr+A4+Qx7DZ8hDpBZbCSRVQK5IkdSiUXIRNOI4/+Icuyc2N8Xd7Mx8/LM7wxRYlj01X/OXIQkNhOUMKRZeENP4KGnfpunJxsrZnMksu/wWGil0arHoz7RyTDcX5+k94h4EJMJ3op+ouHRgVn2WK8CM9tb58xxKrcMGfe6+aPv+ESGNgzrt79Vo/baF1KqVHPfd7518e4D6vQ6h0Aw+Ysh5UwEwTg/XVgSl+eOygA1CLOpCH48fptlG20wMxt8A+H8gBJlyKFYy5+cUoKYGpbDtoMTP1mG4Fgwh3Kl8Z6sDU3kclRfAP47fBN0IDLdop+xozrYGqWjFiiXX2QpJ1xf8s+Q/eSymdYadK+MAAAAASUVORK5CYII=');
                 background-size: 14px 14px;
             }
         }
     }
-    &.x-select-clicked{
-        .x-select-ul-list{
+
+    &.x-select-clicked {
+        .x-select-ul-list {
             display: block;
         }
     }
+
     &.x-select-hasvalue {
         .x-select-title {
             height: auto;
@@ -209,6 +239,7 @@
 
 .x-select-clicked {
     border-color: #645A82;
+
     .arrow {
         transform: rotate(180deg);
     }

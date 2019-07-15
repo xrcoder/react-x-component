@@ -1,6 +1,7 @@
 .x-radio {
     display: inline-flex;
     flex-wrap: wrap;
+
     .item {
         display: inline-flex;
         margin-right: 10px;
@@ -33,13 +34,16 @@
 
     .disabled {
         cursor: not-allowed;
+
         .icon {
             border-color: #d2d4de;
             background-color: #F4F4F6;
         }
+
         .name {
             opacity: 0.3;
         }
+
         &:hover {
             .icon {
                 border-color: #d2d4de;
