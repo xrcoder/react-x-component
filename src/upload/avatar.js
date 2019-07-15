@@ -5,7 +5,7 @@ import UploadList from './upload-list';
 
 const Avatar = (props) => {
 
-    let {url, maxLength, onChange, imgList} = props; 
+    let {url, onChange, imgList} = props; 
 
     let [_imgList, setImgList] = useState(imgList);
     let [length, setLength] = useState(-1);
@@ -57,12 +57,10 @@ const Avatar = (props) => {
                     }, 600);
                 }}
             >
-                {
-                    _imgList.length < maxLength ? <div className="x-upload-box">
+                <div className="x-upload-box">
                     <div className="bg-img"></div>
                     <div>拖拽或点击上传人像</div>
-                </div> : null
-                }
+                </div>
             </Upload>
         </div>
     )
@@ -71,13 +69,11 @@ const Avatar = (props) => {
 export default Avatar;
 
 Avatar.propTypes = {
-    maxLength: PropTypes.number,
     onChange: PropTypes.func,
     imgList: PropTypes.array
 };
 
 Avatar.defaultProps = {
-    maxLength: 1,
     onChange: ()=>{},
     imgList: []
 };
