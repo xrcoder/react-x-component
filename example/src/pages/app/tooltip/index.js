@@ -39,7 +39,7 @@ export default () => {
                 </Box>
                 <Box>
                     <Box.Header>符合使用</Box.Header>
-                    <Box.Body style={{height: 1000}}>
+                    <Box.Body>
                         <Row>
                             <Col md={3}>
                                 <Tooltip useStyle={{display: 'inline-block'}} eventToggle="onClick"
@@ -68,6 +68,19 @@ export default () => {
                                         console.log('hello world')
                                     }}>我是按钮</Button>
                                 </Popper>
+                            </Col>
+                        </Row>
+                    </Box.Body>
+                </Box>
+                <Box>
+                    <Box.Header>Popper使用</Box.Header>
+                    <Box.Body>
+                        <Row>
+                            <Col md={2}>
+                                <Popper placement="right" content={'right'}><span>right</span></Popper>
+                            </Col>
+                            <Col md={2}>
+                                <Popper placement="left" content={'Left'}><span>Left</span></Popper>
                             </Col>
                         </Row>
                     </Box.Body>
