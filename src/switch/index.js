@@ -7,12 +7,13 @@ function Switch(props) {
     const [isOn, setIsOn] = useState(status);
     const [isDisabled, setIsDisabled] = useState(disabled);
 
+    console.log(status);
+
     useEffect(() => {
         setIsOn(status);
     }, [status]);
 
     useEffect(() => {
-        console.log(1);
         setIsDisabled(disabled);
     }, [disabled]);
 
@@ -32,7 +33,7 @@ function Switch(props) {
 
 Switch.propTypes = {
     className: PropTypes.string,
-    value: PropTypes.bool,
+    status: PropTypes.bool,
     disabled: PropTypes.bool,
     style: PropTypes.object,
     onChange: PropTypes.func
@@ -40,7 +41,7 @@ Switch.propTypes = {
 
 Switch.defaultProps = {
     className: '',
-    value: false,
+    status: false,
     style: null,
     disabled: false,
     onChange: function () {
