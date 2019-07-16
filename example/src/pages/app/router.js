@@ -22,7 +22,8 @@ export default ({match}) => {
             <Route path={`${match.url}/collapse`} component={require('./collapse')}/>
             <Route path={`${match.url}/upload`} component={require('./upload')}/>
             <Route path={`${match.url}/modal`} component={require('./modal')}/>
+            <Route path={`${match.url}/remind`} component={require('./remind')}/>
             <Route component={() => <div>404</div>}/>
         </Switch>
     );
-}; 
+};

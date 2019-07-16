@@ -77,6 +77,10 @@ export default class extends React.Component {
                 {
                     name: 'Modal 模态框',
                     pathname: `/${prefix}/modal`
+                },
+                {
+                    name: 'Remind 提醒',
+                    pathname: `/${prefix}/remind`
                 }
             ]
         }

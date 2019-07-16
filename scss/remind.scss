@@ -1,0 +1,23 @@
+/**
+ * Created by Rayr Lee on 2019/7/16.
+ */
+
+@keyframes remind-rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.remind-loading {
+    display: inline-flex;
+    box-sizing: border-box;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 2px solid #2A1166;
+    border-top-color: transparent;
+    animation: remind-rotate 0.6s linear infinite;
+}

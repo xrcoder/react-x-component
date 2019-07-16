@@ -1,4 +1,6 @@
 //结构布局方案A
+import Remind from "./remind";
+
 export LayoutA from './layout/a';
 //结构布局方案B
 export LayoutB from './layout/b';
@@ -22,4 +24,5 @@ export Form from './form';
 export Table from './table';
 export Select from './select';
 export Switch from './switch';
-export Collapse from './collapse'
+export Collapse from './collapse';
+export Remind from './remind';

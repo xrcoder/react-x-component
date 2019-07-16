@@ -8,7 +8,7 @@
       exports: {}
     };
     factory(mod.exports, global.slicedToArray, global.react, global.classnames, global.propTypes);
-    global.index = mod.exports;
+    global.loading = mod.exports;
   }
 })(this, function (_exports, _slicedToArray2, _react, _classnames, _propTypes) {
   "use strict";
@@ -26,66 +26,34 @@
   _classnames = _interopRequireDefault(_classnames);
   _propTypes = _interopRequireDefault(_propTypes);
 
-  function Switch(props) {
-    var style = props.style,
-        className = props.className,
-        status = props.status,
-        onChange = props.onChange,
-        disabled = props.disabled;
+  function Loading(_ref) {
+    var className = _ref.className,
+        status = _ref.status;
 
     var _useState = (0, _react.useState)(status),
         _useState2 = (0, _slicedToArray2["default"])(_useState, 2),
-        isOn = _useState2[0],
-        setIsOn = _useState2[1];
+        value = _useState2[0],
+        setValue = _useState2[1];
 
-    var _useState3 = (0, _react.useState)(disabled),
-        _useState4 = (0, _slicedToArray2["default"])(_useState3, 2),
-        isDisabled = _useState4[0],
-        setIsDisabled = _useState4[1];
-
-    console.log(status);
     (0, _react.useEffect)(function () {
-      setIsOn(status);
+      setValue(status);
     }, [status]);
-    (0, _react.useEffect)(function () {
-      setIsDisabled(disabled);
-    }, [disabled]);
-    var cls = (0, _classnames["default"])('x-switch', {
-      'x-switch-off': !isOn
-    }, {
-      'x-switch-disabled': isDisabled
-    }, className);
-    return _react["default"].createElement("div", {
-      style: style,
-      className: cls,
-      onClick: function onClick(e) {
-        if (isDisabled) {
-          return;
-        }
-
-        setIsOn(!isOn);
-        onChange(e, !isOn);
-      }
-    }, _react["default"].createElement("span", {
-      className: "switch-btn"
-    }));
+    return value ? _react["default"].createElement("div", {
+      className: (0, _classnames["default"])('remind-loading', className)
+    }) : null;
   }
 
-  Switch.propTypes = {
+  Loading.propTypes = {
     className: _propTypes["default"].string,
-    status: _propTypes["default"].bool,
-    disabled: _propTypes["default"].bool,
     style: _propTypes["default"].object,
-    onChange: _propTypes["default"].func
+    status: _propTypes["default"].bool
   };
-  Switch.defaultProps = {
+  Loading.defaultProps = {
     className: '',
-    status: false,
-    style: null,
-    disabled: false,
-    onChange: function onChange() {}
+    status: true,
+    style: {}
   };
-  var _default = Switch;
+  var _default = Loading;
   _exports["default"] = _default;
   module.exports = exports.default;
 });
