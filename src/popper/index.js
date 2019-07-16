@@ -24,7 +24,7 @@ function Popper(props) {
             overlayStyle={overlayStyle}
             onVisibleChange={onVisibleChange}
             prefixCls={'x-popper'}
-        >{prop.children}
+        >{props.children}
         </RcTooltip>
     )
 }

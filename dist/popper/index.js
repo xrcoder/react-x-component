@@ -23,24 +23,25 @@
   _rcTooltip = _interopRequireDefault(_rcTooltip);
 
   function Popper(props) {
-    var children = props.children,
-        placement = props.placement,
+    var placement = props.placement,
         content = props.content,
         trigger = props.trigger,
         overlayClassName = props.overlayClassName,
         mouseEnterDelay = props.mouseEnterDelay,
         mouseLeaveDelay = props.mouseLeaveDelay,
-        overlayStyle = props.overlayStyle;
+        overlayStyle = props.overlayStyle,
+        onVisibleChange = props.onVisibleChange;
     return _react["default"].createElement(_rcTooltip["default"], {
       overlayClassName: overlayClassName,
       placement: placement,
       trigger: trigger,
-      prefixCls: 'x-popper',
+      overlay: content,
       mouseLeaveDelay: mouseLeaveDelay,
       mouseEnterDelay: mouseEnterDelay,
       overlayStyle: overlayStyle,
-      overlay: content
-    }, children);
+      onVisibleChange: onVisibleChange,
+      prefixCls: 'x-popper'
+    }, props.children);
   }
 
   var _default = Popper;

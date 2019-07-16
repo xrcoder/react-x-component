@@ -62,7 +62,6 @@
     display: block;
     visibility: visible;
     font-size: 12px;
-    opacity: 0.9;
 }
 
 .x-popper-hidden {
@@ -98,7 +97,7 @@
     color: #fff;
     text-align: left;
     text-decoration: none;
-    background-color: #373737;
+    background: rgba(51, 51, 51, .75);
     border-radius: 2px;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.17);
     max-width: 400px;
@@ -118,7 +117,7 @@
     bottom: 4px;
     margin-left: -5px;
     border-width: 5px 5px 0;
-    border-top-color: #373737;
+    border-top-color: rgba(51, 51, 51, .75);
 }
 
 .x-popper-placement-top .x-popper-arrow {
@@ -139,7 +138,7 @@
     left: 4px;
     margin-top: -5px;
     border-width: 5px 5px 5px 0;
-    border-right-color: #373737;
+    border-right-color: rgba(51, 51, 51, .75);
 }
 
 .x-popper-placement-right .x-popper-arrow {
@@ -161,7 +160,7 @@
     right: 4px;
     margin-top: -5px;
     border-width: 5px 0 5px 5px;
-    border-left-color: #373737;
+    border-left-color: rgba(51, 51, 51, .75);
 }
 
 .x-popper-placement-left .x-popper-arrow {
@@ -183,7 +182,7 @@
     top: 4px;
     margin-left: -5px;
     border-width: 0 5px 5px;
-    border-bottom-color: #373737;
+    border-bottom-color: rgba(51, 51, 51, .75);
 }
 
 .x-popper-placement-bottom .x-popper-arrow {
