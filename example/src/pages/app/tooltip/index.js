@@ -1,6 +1,6 @@
 import './index.scss';
 import * as React from 'react';
-import {Box, Tooltip, Row, Col, Button, Input} from 'react-x-component';
+import {Box, Tooltip, Row, Col, Button, Input, Popper} from 'react-x-component';
 
 export default () => {
 
@@ -39,7 +39,7 @@ export default () => {
                 </Box>
                 <Box>
                     <Box.Header>符合使用</Box.Header>
-                    <Box.Body>
+                    <Box.Body style={{height: 1000}}>
                         <Row>
                             <Col md={3}>
                                 <Tooltip useStyle={{display: 'inline-block'}} eventToggle="onClick"
@@ -62,10 +62,12 @@ export default () => {
                                 </Tooltip>
                             </Col>
                             <Col md={3}>
-                                <Tooltip hoverDelay={1000} useStyle={{display: 'inline-block'}}
-                                         content={'框的内容这是提示框的内容这是提示框的内容'}>
-                                    延迟打开
-                                </Tooltip>
+                                <Popper placement="left" trigger="click" content={
+                                    <span>框的内容这是提示框的内容这是提示框的内容框的内容这是提示框的内容这是提示框的内容框的内容这是提示框的内容这是提示框的内容框的内容这是提示框的内容这是提示框的内容框的内容这是提示框的内容这是提示框的内容框的内容这是提示框的内容这是提示框的内容</span>}>
+                                    <Button onClick={() => {
+                                        console.log('hello world')
+                                    }}>我是按钮</Button>
+                                </Popper>
                             </Col>
                         </Row>
                     </Box.Body>

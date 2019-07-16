@@ -1,0 +1,199 @@
+.x-popper.x-popper-zoom-enter,
+.x-popper.x-popper-zoom-leave {
+    display: block;
+}
+
+.x-popper-zoom-enter,
+.x-popper-zoom-appear {
+    opacity: 0;
+    animation-duration: 0.3s;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    animation-play-state: paused;
+}
+
+.x-popper-zoom-leave {
+    animation-duration: 0.3s;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.6, -0.3, 0.74, 0.05);
+    animation-play-state: paused;
+}
+
+.x-popper-zoom-enter.x-popper-zoom-enter-active,
+.x-popper-zoom-appear.x-popper-zoom-appear-active {
+    animation-name: rcToolTipZoomIn;
+    animation-play-state: running;
+}
+
+.x-popper-zoom-leave.x-popper-zoom-leave-active {
+    animation-name: rcToolTipZoomOut;
+    animation-play-state: running;
+}
+
+@keyframes rcToolTipZoomIn {
+    0% {
+        opacity: 0;
+        transform-origin: 50% 50%;
+        transform: scale(0, 0);
+    }
+    100% {
+        opacity: 1;
+        transform-origin: 50% 50%;
+        transform: scale(1, 1);
+    }
+}
+
+@keyframes rcToolTipZoomOut {
+    0% {
+        opacity: 1;
+        transform-origin: 50% 50%;
+        transform: scale(1, 1);
+    }
+    100% {
+        opacity: 0;
+        transform-origin: 50% 50%;
+        transform: scale(0, 0);
+    }
+}
+
+.x-popper {
+    position: absolute;
+    z-index: 99;
+    display: block;
+    visibility: visible;
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+.x-popper-hidden {
+    display: none;
+}
+
+.x-popper-placement-top,
+.x-popper-placement-topLeft,
+.x-popper-placement-topRight {
+    padding: 5px 0 9px 0;
+}
+
+.x-popper-placement-right,
+.x-popper-placement-rightTop,
+.x-popper-placement-rightBottom {
+    padding: 0 5px 0 9px;
+}
+
+.x-popper-placement-bottom,
+.x-popper-placement-bottomLeft,
+.x-popper-placement-bottomRight {
+    padding: 9px 0 5px 0;
+}
+
+.x-popper-placement-left,
+.x-popper-placement-leftTop,
+.x-popper-placement-leftBottom {
+    padding: 0 9px 0 5px;
+}
+
+.x-popper-inner {
+    padding: 5px;
+    color: #fff;
+    text-align: left;
+    text-decoration: none;
+    background-color: #373737;
+    border-radius: 2px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.17);
+    max-width: 400px;
+}
+
+.x-popper-arrow {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+}
+
+.x-popper-placement-top .x-popper-arrow,
+.x-popper-placement-topLeft .x-popper-arrow,
+.x-popper-placement-topRight .x-popper-arrow {
+    bottom: 4px;
+    margin-left: -5px;
+    border-width: 5px 5px 0;
+    border-top-color: #373737;
+}
+
+.x-popper-placement-top .x-popper-arrow {
+    left: 50%;
+}
+
+.x-popper-placement-topLeft .x-popper-arrow {
+    left: 15%;
+}
+
+.x-popper-placement-topRight .x-popper-arrow {
+    right: 15%;
+}
+
+.x-popper-placement-right .x-popper-arrow,
+.x-popper-placement-rightTop .x-popper-arrow,
+.x-popper-placement-rightBottom .x-popper-arrow {
+    left: 4px;
+    margin-top: -5px;
+    border-width: 5px 5px 5px 0;
+    border-right-color: #373737;
+}
+
+.x-popper-placement-right .x-popper-arrow {
+    top: 50%;
+}
+
+.x-popper-placement-rightTop .x-popper-arrow {
+    top: 15%;
+    margin-top: 0;
+}
+
+.x-popper-placement-rightBottom .x-popper-arrow {
+    bottom: 15%;
+}
+
+.x-popper-placement-left .x-popper-arrow,
+.x-popper-placement-leftTop .x-popper-arrow,
+.x-popper-placement-leftBottom .x-popper-arrow {
+    right: 4px;
+    margin-top: -5px;
+    border-width: 5px 0 5px 5px;
+    border-left-color: #373737;
+}
+
+.x-popper-placement-left .x-popper-arrow {
+    top: 50%;
+}
+
+.x-popper-placement-leftTop .x-popper-arrow {
+    top: 15%;
+    margin-top: 0;
+}
+
+.x-popper-placement-leftBottom .x-popper-arrow {
+    bottom: 15%;
+}
+
+.x-popper-placement-bottom .x-popper-arrow,
+.x-popper-placement-bottomLeft .x-popper-arrow,
+.x-popper-placement-bottomRight .x-popper-arrow {
+    top: 4px;
+    margin-left: -5px;
+    border-width: 0 5px 5px;
+    border-bottom-color: #373737;
+}
+
+.x-popper-placement-bottom .x-popper-arrow {
+    left: 50%;
+}
+
+.x-popper-placement-bottomLeft .x-popper-arrow {
+    left: 15%;
+}
+
+.x-popper-placement-bottomRight .x-popper-arrow {
+    right: 15%;
+}

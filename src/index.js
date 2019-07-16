@@ -15,6 +15,7 @@ export Toggle from './toggle';
 export Pagination from './pagination';
 export Modal from './modal';
 export Tooltip from './tooltip';
+export Popper from './popper';
 export Radio from './radio';
 export Checkbox from './checkbox';
 export Upload from './upload';
