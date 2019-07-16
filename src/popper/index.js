@@ -3,26 +3,28 @@ import RcTooltip from 'rc-tooltip';
 
 function Popper(props) {
     const {
-        children,
         placement,
         content,
         trigger,
         overlayClassName,
         mouseEnterDelay,
         mouseLeaveDelay,
-        overlayStyle
+        overlayStyle,
+        onVisibleChange
     } = props;
+
     return (
         <RcTooltip
             overlayClassName={overlayClassName}
             placement={placement}
             trigger={trigger}
-            prefixCls={'x-popper'}
+            overlay={content}
             mouseLeaveDelay={mouseLeaveDelay}
             mouseEnterDelay={mouseEnterDelay}
             overlayStyle={overlayStyle}
-            overlay={content}>
-            {children}
+            onVisibleChange={onVisibleChange}
+            prefixCls={'x-popper'}
+        >{prop.children}
         </RcTooltip>
     )
 }
