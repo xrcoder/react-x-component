@@ -43,7 +43,6 @@
         isDisabled = _useState4[0],
         setIsDisabled = _useState4[1];
 
-    console.log(status);
     (0, _react.useEffect)(function () {
       setIsOn(status);
     }, [status]);

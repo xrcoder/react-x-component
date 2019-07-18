@@ -7,8 +7,6 @@ function Switch(props) {
     const [isOn, setIsOn] = useState(status);
     const [isDisabled, setIsDisabled] = useState(disabled);
 
-    console.log(status);
-
     useEffect(() => {
         setIsOn(status);
     }, [status]);

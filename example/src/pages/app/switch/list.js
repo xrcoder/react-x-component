@@ -28,7 +28,7 @@ export default class extends React.Component {
                             }}/>
                         </Col>
                         <Col lg={12} md={12} className="icon-item">
-                            <Switch status={this.state.status} disabled={this.state.disbaled} onChange={(e, res) => {
+                            <Switch status={this.state.status} disabled={true} onChange={(e, res) => {
                                 this.setState({
                                     status: res
                                 })
