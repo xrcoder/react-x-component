@@ -27,3 +27,4 @@ export Select from './select';
 export Switch from './switch';
 export Collapse from './collapse';
 export Remind from './remind';
+export Dropdown from './dropdown';

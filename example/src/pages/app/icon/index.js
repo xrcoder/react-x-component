@@ -1,6 +1,6 @@
 import './index.scss';
 import React from 'react';
-import {Icon, Row, Col, Box} from 'react-x-component';
+import {Icon, Row, Col, Box, Dropdown} from 'react-x-component';
 
 import List from './list';
 
@@ -17,6 +17,12 @@ export default () => {
                             alert('archive');
                         }}/>
                         <span className="icon-name">archive</span>
+                    </Box.Body>
+                </Box>
+                <Box>
+                    <Box.Header>点击图标</Box.Header>
+                    <Box.Body>
+                        <Dropdown></Dropdown>
                     </Box.Body>
                 </Box>
             </Col>
