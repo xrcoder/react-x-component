@@ -21,7 +21,7 @@ export default class extends React.Component {
                         <Row>
                             <Col md={12}>
                                 <Form.Group>
-                                    <Form.Name>邮件</Form.Name>
+                                    <Form.Name required>邮件</Form.Name>
                                     <Input/>
                                 </Form.Group>
                                 <Form.Group>
@@ -56,7 +56,7 @@ export default class extends React.Component {
                         <Row>
                             <Col md={12}>
                                 <Form.Group horizontal>
-                                    <Form.Name>访客姓名</Form.Name>
+                                    <Form.Name required>访客姓名</Form.Name>
                                     <Input/>
                                 </Form.Group>
                                 <Form.Group horizontal>
