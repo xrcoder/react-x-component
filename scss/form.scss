@@ -10,7 +10,7 @@
 .x-form-group {
     margin-bottom: 10px;
 
-    > .x-input {
+    > .x-input, > .x-dropdown {
         display: block;
         width: 100%;
     }

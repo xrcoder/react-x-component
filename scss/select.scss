@@ -1,246 +1,38 @@
-.x-select-single {
-    position: relative;
-    width: 270px;
-    font-size: 14px;
-    border: 1px solid #D0D2DA;
-    border-radius: 2px;
-    transition: border 0.5s;
-    background-color: #FFF;
+.x-select  {
 
-    .x-select-title {
-        cursor: pointer;
-        padding: 0 12px;
-        height: 34px;
-        line-height: 34px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        user-select: none;
-
-        .placeholder {
-            color: #B0B2B8;
-        }
-    }
-
-    .arrow {
-        position: absolute;
-        width: 10px;
-        height: 100%;
-        right: 12px;
-        top: 0;
-        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAAAXNSR0IArs4c6QAAAJxJREFUGBljPHPmtvJfhr9GDPgAK8MZlt8Mf/cx/GeQw6eO8RfjEyYGBsaN+BSB5P4zMqxn/P//P/PJs7c2AWkvbBoYGRm3mRur+TEBGX95OQXDGRgZzmEoBIqB5EBqgFYzMGhri31h5mT3Bip+CFcMZIPEQHIgMbBCEMNMW/EFIxOzF1D3ByD3HYgNEgPJYQWXLj0UvHr1sRC6JAC7iC0aV+LgPAAAAABJRU5ErkJggg==');
-        background-size: 10px 7px;
-        background-repeat: no-repeat;
-        background-position: center;
-        transition: border 0.5s;
-    }
-
-    .x-select-disabled {
-        cursor: not-allowed;
-        background-color: $input-disabled-bg-color;
-    }
-
-    .x-select-ul-list {
-        position: absolute;
-        display: none;
-        top: 36px;
-        left: 0;
-        right: 0;
-        margin: 0;
-        max-height: 178px;
-        background-color: #fff;
+    .x-select__control {
+        font-size: 14px;
+        border: 1px solid $input-border-color;
+        color: $input-font-color;
+        border-radius: 2px;
         box-sizing: border-box;
-        overflow-y: scroll;
-        z-index: 1;
-        box-shadow: 0 6px 8px rgba(0, 0, 0, .15);
-
-        .x-select-li {
-            line-height: 34px;
-            padding: 0 12px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            cursor: pointer;
-
-            &:hover {
-                background-color: #F0F1F9;
-            }
-        }
-
-        .x-select-li-true {
-            background-color: #F0F1F9;
-        }
-
-        .x-select-li-disable {
-            cursor: not-allowed;
-            pointer-events: none;
+        transition: border-color .2s;
+        cursor: pointer;
+        min-height: 34px !important;
+        &:hover {
+            border-color: $input-border-color !important;
         }
     }
-
-    &.x-select-clicked {
-        border: 1px solid $theme-color;
-
-        .x-select-ul-list {
-            display: block;
-        }
+    .x-select__control--is-focused {
+        box-shadow: none !important;
     }
-
-    &.x-select-disabled {
-        .x-select-title {
-            background-color: #F4F4F6;
-        }
+    .x-select__control--menu-is-open {
+        border-color: $input-active-border-color !important;
+    }
+    .x-select__menu {
+        margin-top: 2px !important;
+    }
+    .x-select__indicator-separator {
+        display: none;
+    }
+    .x-select__indicator {
+        padding: 6px !important;
+    }
+    .x-select__placeholder {
+        cursor: text;
     }
 }
 
-// 多选
-.x-select-multiple {
-    position: relative;
-    width: 270px;
-    font-size: 14px;
-    border: 1px solid #D0D2DA;
-    border-radius: 2px;
-    transition: border 0.5s;
-    background-color: #FFF;
-
-    .x-select-title {
-        cursor: pointer;
-        padding: 0 12px;
-        height: 34px;
-        line-height: 34px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        user-select: none;
-
-        .placeholder {
-            color: #B0B2B8;
-        }
-    }
-
-    .x-select-ul-list {
-        display: none;
-        position: absolute;
-        top: 36px;
-        left: 0;
-        right: 0;
-        margin: 0;
-        max-height: 178px;
-        background-color: #fff;
-        box-sizing: border-box;
-        overflow-y: scroll;
-        z-index: 1;
-        box-shadow: 0 6px 8px rgba(0, 0, 0, .15);
-
-        .x-select-li {
-            line-height: 34px;
-            padding: 0 12px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            cursor: pointer;
-
-            &:hover {
-                background-color: #F0F1F9;
-            }
-        }
-
-        .x-select-li-true {
-            background-color: #F0F1F9;
-        }
-
-        .x-select-li-disable {
-            cursor: not-allowed;
-            pointer-events: none;
-        }
-    }
-
-    &.x-select-hasvalue {
-        height: auto;
-        border: none;
-
-        .placeholder {
-            display: none;
-        }
-    }
-
-    .arrow {
-        position: absolute;
-        width: 10px;
-        right: 12px;
-        top: 12px;
-        height: 10px;
-        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0IArs4c6QAAABpJREFUGBljPH76xn8GIgATEWpopIRxRLoRAMPgCkWiR+umAAAAAElFTkSuQmCC');
-        background-size: 10px 10px;
-        background-repeat: no-repeat;
-        background-position: center;
-        z-index: 2;
-    }
-
-    .placeholder {
-        padding-left: 12px;
-    }
-
-    .x-select-title {
-        padding: 0;
-    }
-
-    .x-select-ul-value {
-        position: relative;
-        top: 0;
-        padding: 6px 6px 0 6px;
-        display: flex;
-        flex-wrap: wrap;
-
-        .x-select-li {
-            position: relative;
-            line-height: 30px;
-            padding: 0 24px 0 8px;
-            margin: 0 6px 6px 0;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            background-color: #F9F9F9;
-            font-size: 12px;
-            color: #484852;
-
-            .cls-icon {
-                position: absolute;
-                right: 5px;
-                top: 8px;
-                width: 14px;
-                height: 14px;
-                background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAAXNSR0IArs4c6QAAAGZJREFUGBljnDlxZT0bJ9vDxLTABQxIYP6s9Qm/vv+SZwJJvnrxbj5IACYPYoPEQHKMIEGYgJiEUCKID5IEsUGmghUgKwKxYZIgNhOIwAcIW4FsP8wnyGJMIK8g2wmyDqQQJAaSAwCIuVCm+bQpTgAAAABJRU5ErkJggg==');
-                background-size: 8px 8px;
-                background-repeat: no-repeat;
-                background-position: center;
-            }
-
-            .cls-icon:hover {
-                background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAAAXNSR0IArs4c6QAAASFJREFUKBWdkrFKA0EQhmeWaMBc0ESsDcTiCKSysBfr+A4+Qx7DZ8hDpBZbCSRVQK5IkdSiUXIRNOI4/+Icuyc2N8Xd7Mx8/LM7wxRYlj01X/OXIQkNhOUMKRZeENP4KGnfpunJxsrZnMksu/wWGil0arHoz7RyTDcX5+k94h4EJMJ3op+ouHRgVn2WK8CM9tb58xxKrcMGfe6+aPv+ESGNgzrt79Vo/baF1KqVHPfd7518e4D6vQ6h0Aw+Ysh5UwEwTg/XVgSl+eOygA1CLOpCH48fptlG20wMxt8A+H8gBJlyKFYy5+cUoKYGpbDtoMTP1mG4Fgwh3Kl8Z6sDU3kclRfAP47fBN0IDLdop+xozrYGqWjFiiXX2QpJ1xf8s+Q/eSymdYadK+MAAAAASUVORK5CYII=');
-                background-size: 14px 14px;
-            }
-        }
-    }
-
-    &.x-select-clicked {
-        .x-select-ul-list {
-            display: block;
-        }
-    }
-
-    &.x-select-hasvalue {
-        .x-select-title {
-            height: auto;
-            border: 1px solid #D0D2DA;
-        }
-    }
-}
-
-
-.x-select-clicked {
-    border-color: #645A82;
-
-    .arrow {
-        transform: rotate(180deg);
-    }
+.x-select--is-disabled {
+    cursor: not-allowed;
 }

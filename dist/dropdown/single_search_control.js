@@ -8,7 +8,7 @@
       exports: {}
     };
     factory(mod.exports, global._extends, global.react, global.single);
-    global.index = mod.exports;
+    global.single_search_control = mod.exports;
   }
 })(this, function (_exports, _extends2, _react, _single) {
   "use strict";
@@ -18,30 +18,17 @@
   Object.defineProperty(_exports, "__esModule", {
     value: true
   });
-  _exports["default"] = void 0;
+  _exports["default"] = _default;
   _extends2 = _interopRequireDefault(_extends2);
   _react = _interopRequireDefault(_react);
   _single = _interopRequireDefault(_single);
 
-  function Select() {
-    return null;
+  function _default(props) {
+    return _react["default"].createElement(_single["default"], (0, _extends2["default"])({}, props, {
+      searchControl: true
+    }));
   }
 
-  Select.Single = function (props) {
-    return _react["default"].createElement(_single["default"], (0, _extends2["default"])({}, props, {
-      isSearchable: false
-    }));
-  };
-
-  Select.Multi = function (props) {
-    return _react["default"].createElement(_single["default"], (0, _extends2["default"])({}, props, {
-      isMulti: true,
-      isSearchable: true,
-      isClearable: false
-    }));
-  };
-
-  var _default = Select;
-  _exports["default"] = _default;
+  ;
   module.exports = exports.default;
 });
