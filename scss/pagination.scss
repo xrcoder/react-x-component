@@ -62,7 +62,7 @@
         align-items: center;
 
         &-select {
-            width: 60px;
+            min-width: 100px;
             margin: 0 10px;
 
             .x-select {

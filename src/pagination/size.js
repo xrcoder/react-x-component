@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Select from '../select';
 
 const Size = (props) => {
 
-    const { pageSize, count, className, pageSizeOpt } = props;
+    const {pageSize, count, className, pageSizeOpt} = props;
 
     const [_pageSize, setPageSize] = useState(pageSize);
     const [_count, setCount] = useState(count);
 
-   useEffect(() => {
+    useEffect(() => {
         if (count !== null && count !== 0) {
             let count1 = parseInt(count);
             setCount(count1);
@@ -25,7 +25,6 @@ const Size = (props) => {
     }, [pageSize])
 
 
-
     let onPageSizeChange = (pageSize) => {
         setPageSize(pageSize);
         props.onPageSizeChange && props.onPageSizeChange(pageSize);
@@ -35,17 +34,17 @@ const Size = (props) => {
         <div className={classnames('x-pagination-size', className)}>
             <div className="x-pagination-size-count">
                 共 {count} 条
-                    </div>
-            <div className={"x-pagination-size-select"}>
-                <Select
-                    selectedValue={_pageSize}
-                    options={pageSizeOpt}
-                    size={"md"}
-                    onChange={(res) => {
-                        onPageSizeChange(res.value);
-                    }}></Select>
             </div>
-            <span>条/页</span>
+            <Select.Single
+                className={"x-pagination-size-select"}
+                value={{
+                    value: _pageSize,
+                    label: `${_pageSize}条/页`
+                }}
+                options={pageSizeOpt}
+                onChange={(res) => {
+                    onPageSizeChange(res.value);
+                }}/>
         </div>
     )
 };
@@ -63,9 +62,9 @@ Size.defaultProps = {
     pageSize: 10,
     className: '',
     pageSizeOpt: [
-        { value: 5, label: 5 },
-        { value: 10, label: 10 },
-        { value: 30, label: 30 },
-        { value: 50, label: 50 },
+        {value: 5, label: '5条/页'},
+        {value: 10, label: '10条/页'},
+        {value: 30, label: '30条/页'},
+        {value: 50, label: '50条/页'},
     ]
 }
