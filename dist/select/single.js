@@ -31,6 +31,7 @@
         size = props.size,
         isSearchable = props.isSearchable,
         isClearable = props.isClearable,
+        isRtl = props.isRtl,
         options = props.options,
         value = props.value,
         noOptionsMessage = props.noOptionsMessage,
@@ -47,7 +48,8 @@
       placeholder: placeholder,
       noOptionsMessage: noOptionsMessage,
       options: options,
-      onChange: onChange
+      onChange: onChange,
+      isRtl: isRtl
     });
   }
 

@@ -30,8 +30,8 @@ export default class extends React.Component {
                             }}/>
                     </Form.Group>
                 </Box.Body>
-                <Box.Footer>
-                    <Button onClick={() => {
+                <Box.Footer className={'clearfix'}>
+                    <Button style={{float: 'right'}} onClick={() => {
                         this.setState({
                             value: null
                         });

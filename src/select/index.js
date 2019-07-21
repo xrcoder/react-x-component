@@ -1,4 +1,5 @@
 import React from 'react';
+import classnames from 'classnames';
 import Single from './single';
 
 function Select() {
@@ -13,7 +14,13 @@ Select.Single = function (props) {
 
 Select.Multi = function (props) {
     return (
-        <Single {...props} isMulti isSearchable isClearable={false}/>
+        <Single
+            {...props}
+            className={classnames('x-select-multi', props.className)}
+            isMulti
+            isSearchable
+            isClearable={false}
+        />
     )
 }
 
