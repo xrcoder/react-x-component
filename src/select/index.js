@@ -25,5 +25,3 @@ Select.Multi = function (props) {
 }
 
 export default Select;
-
-
