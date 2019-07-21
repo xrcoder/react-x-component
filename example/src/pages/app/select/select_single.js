@@ -29,8 +29,6 @@ export default class extends React.Component {
                                 })
                             }}/>
                     </Form.Group>
-                    <div>{this.state.value && this.state.value.label}</div>
-                    <div>{JSON.stringify(this.state.value)}</div>
                 </Box.Body>
                 <Box.Footer>
                     <Button onClick={() => {

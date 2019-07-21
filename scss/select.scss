@@ -1,4 +1,4 @@
-.x-select  {
+.x-select {
 
     .x-select__control {
         font-size: 14px;
@@ -9,25 +9,36 @@
         transition: border-color .2s;
         cursor: pointer;
         min-height: 34px !important;
+
         &:hover {
             border-color: $input-border-color !important;
         }
     }
+
     .x-select__control--is-focused {
         box-shadow: none !important;
     }
+
     .x-select__control--menu-is-open {
         border-color: $input-active-border-color !important;
+
+        &:hover {
+            border-color: inherit !important;
+        }
     }
+
     .x-select__menu {
         margin-top: 2px !important;
     }
+
     .x-select__indicator-separator {
         display: none;
     }
+
     .x-select__indicator {
         padding: 6px !important;
     }
+
     .x-select__placeholder {
         cursor: text;
     }
