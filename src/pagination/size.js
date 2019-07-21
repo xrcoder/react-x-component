@@ -37,6 +37,7 @@ const Size = (props) => {
             </div>
             <Select.Single
                 className={"x-pagination-size-select"}
+                size={'sm'}
                 value={{
                     value: _pageSize,
                     label: `${_pageSize}条/页`
@@ -66,5 +67,6 @@ Size.defaultProps = {
         {value: 10, label: '10条/页'},
         {value: 30, label: '30条/页'},
         {value: 50, label: '50条/页'},
+        {value: 100, label: '100条/页'}
     ]
 }

@@ -56,14 +56,16 @@
     }
 
     &-size {
+        min-width: 175px;
         font-size: 14px;
         color: $pagination-page-color;
         display: inline-flex;
         align-items: center;
 
         &-select {
-            min-width: 100px;
-            margin: 0 10px;
+            margin-left: 10px;
+            min-width: 105px;
+            flex: 1;
 
             .x-select {
                 width: 100%;

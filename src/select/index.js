@@ -10,6 +10,7 @@ Select.Single = function (props) {
         <Single {...props} isSearchable={false}/>
     )
 };
+
 Select.Multi = function (props) {
     return (
         <Single {...props} isMulti isSearchable isClearable={false}/>

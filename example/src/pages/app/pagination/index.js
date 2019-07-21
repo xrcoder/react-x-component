@@ -45,10 +45,6 @@ export default class extends React.Component {
                                                      onPageChange={::this.onPageChange}/>
                                     <Pagination.Size className="pagination-size" count={this.state.count}
                                                      pageSize={this.state.pageSize}
-                                                     pageSizeOpt={[{value: 10, label: 10}, {
-                                                         value: 30,
-                                                         label: 30
-                                                     }, {value: 50, label: 50}]}
                                                      onPageSizeChange={::this.onPageSizeChange}/>
                                 </Col>
                                 <Col md={12}>
