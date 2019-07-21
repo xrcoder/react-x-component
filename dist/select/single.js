@@ -24,18 +24,18 @@
   _classnames = _interopRequireDefault(_classnames);
   _reactSelect = _interopRequireDefault(_reactSelect);
 
-  function Select(_ref) {
-    var className = _ref.className,
-        disabled = _ref.disabled,
-        isMulti = _ref.isMulti,
-        size = _ref.size,
-        isSearchable = _ref.isSearchable,
-        isClearable = _ref.isClearable,
-        options = _ref.options,
-        value = _ref.value,
-        noOptionsMessage = _ref.noOptionsMessage,
-        placeholder = _ref.placeholder,
-        onChange = _ref.onChange;
+  function Select(props) {
+    var className = props.className,
+        disabled = props.disabled,
+        isMulti = props.isMulti,
+        size = props.size,
+        isSearchable = props.isSearchable,
+        isClearable = props.isClearable,
+        options = props.options,
+        value = props.value,
+        noOptionsMessage = props.noOptionsMessage,
+        placeholder = props.placeholder,
+        onChange = props.onChange;
     return _react["default"].createElement(_reactSelect["default"], {
       className: (0, _classnames["default"])('x-select', size ? "x-select-".concat(size) : null, className),
       classNamePrefix: "x-select",
