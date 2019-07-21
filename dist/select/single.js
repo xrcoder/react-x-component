@@ -28,6 +28,7 @@
     var className = _ref.className,
         disabled = _ref.disabled,
         isMulti = _ref.isMulti,
+        size = _ref.size,
         isSearchable = _ref.isSearchable,
         isClearable = _ref.isClearable,
         options = _ref.options,
@@ -36,7 +37,7 @@
         placeholder = _ref.placeholder,
         onChange = _ref.onChange;
     return _react["default"].createElement(_reactSelect["default"], {
-      className: (0, _classnames["default"])('x-select', className),
+      className: (0, _classnames["default"])('x-select', size ? "x-select-".concat(size) : null, className),
       classNamePrefix: "x-select",
       isSearchable: isSearchable,
       isDisabled: disabled,
@@ -53,14 +54,16 @@
   Select.propTypes = {
     className: _propTypes["default"].string,
     noOptionsMessage: _propTypes["default"].func,
-    placeholder: _propTypes["default"].string
+    placeholder: _propTypes["default"].string,
+    size: _propTypes["default"].string
   };
   Select.defaultProps = {
     className: '',
     noOptionsMessage: function noOptionsMessage() {
       return '结果不存在';
     },
-    placeholder: '请选择要输入的内容'
+    placeholder: '请选择要输入的内容',
+    size: ''
   };
   var _default = Select;
   _exports["default"] = _default;

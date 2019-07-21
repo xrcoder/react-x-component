@@ -64,16 +64,18 @@
       className: (0, _classnames["default"])('x-pagination-size', className)
     }, _react["default"].createElement("div", {
       className: "x-pagination-size-count"
-    }, "\u5171 ", count, " \u6761"), _react["default"].createElement("div", {
-      className: "x-pagination-size-select"
-    }, _react["default"].createElement(_select["default"], {
-      selectedValue: _pageSize,
+    }, "\u5171 ", count, " \u6761"), _react["default"].createElement(_select["default"].Single, {
+      className: "x-pagination-size-select",
+      size: 'sm',
+      value: {
+        value: _pageSize,
+        label: "".concat(_pageSize, "\u6761/\u9875")
+      },
       options: pageSizeOpt,
-      size: "md",
       onChange: function onChange(res) {
         onPageSizeChange(res.value);
       }
-    })), _react["default"].createElement("span", null, "\u6761/\u9875"));
+    }));
   };
 
   var _default = Size;
@@ -89,16 +91,19 @@
     className: '',
     pageSizeOpt: [{
       value: 5,
-      label: 5
+      label: '5条/页'
     }, {
       value: 10,
-      label: 10
+      label: '10条/页'
     }, {
       value: 30,
-      label: 30
+      label: '30条/页'
     }, {
       value: 50,
-      label: 50
+      label: '50条/页'
+    }, {
+      value: 100,
+      label: '100条/页'
     }]
   };
   module.exports = exports.default;
