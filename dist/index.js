@@ -22,7 +22,6 @@
     Remind: true,
     LayoutA: true,
     LayoutB: true,
-    Button: true,
     Icon: true,
     Input: true,
     Toggle: true,
@@ -58,12 +57,6 @@
     enumerable: true,
     get: function get() {
       return _b["default"];
-    }
-  });
-  Object.defineProperty(_exports, "Button", {
-    enumerable: true,
-    get: function get() {
-      return _button["default"];
     }
   });
   Object.defineProperty(_exports, "Icon", {
@@ -197,7 +190,16 @@
       }
     });
   });
-  _button = _interopRequireDefault(_button);
+  Object.keys(_button).forEach(function (key) {
+    if (key === "default" || key === "__esModule") return;
+    if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
+    Object.defineProperty(_exports, key, {
+      enumerable: true,
+      get: function get() {
+        return _button[key];
+      }
+    });
+  });
   _icon = _interopRequireDefault(_icon);
   _input = _interopRequireDefault(_input);
   _toggle = _interopRequireDefault(_toggle);

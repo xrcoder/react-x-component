@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Row, Col, Box, Icon} from 'react-x-component';
+import {Button, Row, Col, Box, Icon, ButtonGroup} from 'react-x-component';
 import './index.scss';
 
 export default class extends React.Component {
@@ -233,6 +233,32 @@ export default class extends React.Component {
                                     <Button size={'sm'} type="danger" inverse={true} disabled={true}>危险按钮</Button>
                                 </Col>
                             </Row>
+                        </Box.Body>
+                    </Box>
+                    <Box>
+                        <Box.Header>静态按钮组</Box.Header>
+                        <Box.Body>
+                            <ButtonGroup>
+                                <Button type="primary" inverse={true} onClick={() => {
+                                    console.log('按钮点击');
+                                }}>常态按钮</Button>
+                                <Button type="primary" onClick={() => {
+                                    console.log('按钮点击');
+                                }}>常态按钮</Button>
+                                <Button type="primary" onClick={() => {
+                                    console.log('按钮点击');
+                                }}>常态按钮</Button>
+                            </ButtonGroup>
+                        </Box.Body>
+                    </Box>
+                    <Box>
+                        <Box.Header>文字按钮</Box.Header>
+                        <Box.Body>
+                            <ButtonGroup>
+                                <Button type="text" inverse={true} onClick={() => {
+                                    console.log('按钮点击');
+                                }}>常态按钮</Button>
+                            </ButtonGroup>
                         </Box.Body>
                     </Box>
                 </Col>

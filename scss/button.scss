@@ -132,4 +132,27 @@
         height: 28px;
         padding: 6px 14px;
     }
+
+    &.x-btn-text {
+        border: none;
+        background-color: transparent;
+        color: $theme-color;
+        font-weight: bold;
+    }
+}
+
+.x-button-group {
+    display: inline-flex;
+
+    .x-btn:not(:last-of-type) {
+        border-right: none;
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+    .x-btn:not(:first-of-type) {
+        border-left: none;
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+    }
 }
