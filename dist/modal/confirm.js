@@ -22,7 +22,6 @@
   _react = _interopRequireDefault(_react);
   _classnames = _interopRequireDefault(_classnames);
   _modal = _interopRequireDefault(_modal);
-  _button = _interopRequireDefault(_button);
   _header = _interopRequireDefault(_header);
   _body = _interopRequireDefault(_body);
   _footer = _interopRequireDefault(_footer);
@@ -35,10 +34,10 @@
       cancel: cancel
     }, data.title), _react["default"].createElement(_body["default"], null, _react["default"].createElement("div", {
       className: "content"
-    }, data.content)), _react["default"].createElement(_footer["default"], null, _react["default"].createElement(_button["default"], {
+    }, data.content)), _react["default"].createElement(_footer["default"], null, _react["default"].createElement(_button.Button, {
       type: "primary",
       onClick: confirm
-    }, data.confirmText), _react["default"].createElement(_button["default"], {
+    }, data.confirmText), _react["default"].createElement(_button.Button, {
       type: "primary",
       inverse: true,
       onClick: cancel

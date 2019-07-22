@@ -30,8 +30,8 @@ function Button(props) {
 Button.propTypes = {
     className: PropTypes.string,
     style: PropTypes.object,
-    type: PropTypes.oneOf(['primary', 'danger', 'text', '']),
-    size: PropTypes.oneOf(['lg', 'sm', '']),
+    type: PropTypes.oneOf(['primary', 'danger', 'text', null]),
+    size: PropTypes.oneOf(['lg', 'sm', null]),
     inverse: PropTypes.bool,
     disabled: PropTypes.bool,
     onClick: PropTypes.func
@@ -40,8 +40,8 @@ Button.propTypes = {
 Button.defaultProps = {
     className: '',
     style: null,
-    type: '',
-    size: '',
+    type: null,
+    size: null,
     inverse: false,
     disabled: false,
     onClick: function () {

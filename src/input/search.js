@@ -1,6 +1,6 @@
 import React from 'react';
 import Addon from './addon';
-import Button from '../button';
+import {Button} from '../button';
 
 export default (props) => {
     const {children, onSearch, btnType, disabled} = props;

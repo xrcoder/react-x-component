@@ -65,8 +65,8 @@
   Button.propTypes = {
     className: _propTypes["default"].string,
     style: _propTypes["default"].object,
-    type: _propTypes["default"].oneOf(['primary', 'danger', 'text', '']),
-    size: _propTypes["default"].oneOf(['lg', 'sm', '']),
+    type: _propTypes["default"].oneOf(['primary', 'danger', 'text', null]),
+    size: _propTypes["default"].oneOf(['lg', 'sm', null]),
     inverse: _propTypes["default"].bool,
     disabled: _propTypes["default"].bool,
     onClick: _propTypes["default"].func
@@ -74,8 +74,8 @@
   Button.defaultProps = {
     className: '',
     style: null,
-    type: '',
-    size: '',
+    type: null,
+    size: null,
     inverse: false,
     disabled: false,
     onClick: function onClick() {}
