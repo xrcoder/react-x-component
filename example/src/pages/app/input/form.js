@@ -57,7 +57,7 @@ export default class extends React.Component {
                     <Box.Body>
                         <Row>
                             <Col md={12}>
-                                <Form.Group horizontal errorMsg={this.state.errMsg}>
+                                <Form.Group horizontal required errorMsg={this.state.errMsg}>
                                     <Form.Name required>访客姓名</Form.Name>
                                     <Input value={this.state.name} onChange={(res) => {
                                         this.setState({
@@ -95,14 +95,14 @@ export default class extends React.Component {
                             </Col>
                         </Row>
                     </Box.Body>
-                    <Box.Footer className={'clearfix'}>
-                        <Button style={{float: 'right', marginLeft: '10px'}} type={'primary'} onClick={() => {
+                    <Box.Footer align="right">
+                        <Button type={'primary'} onClick={() => {
                             console.log(this.state);
                             this.setState({
                                 errMsg: '请输入姓名'
                             })
                         }}>确认</Button>
-                        <Button style={{float: 'right'}} onClick={() => {
+                        <Button onClick={() => {
                             this.setState({
                                 errMsg: '',
                                 name: ''

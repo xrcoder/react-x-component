@@ -41,9 +41,15 @@
     (0, _createClass2["default"])(_default, [{
       key: "render",
       value: function render() {
+        var _this$props = this.props,
+            align = _this$props.align,
+            style = _this$props.style,
+            className = _this$props.className,
+            children = _this$props.children;
         return _react["default"].createElement("div", {
-          className: (0, _classnames["default"])('x-modal-footer', this.props.className)
-        }, this.props.children);
+          style: style,
+          className: (0, _classnames["default"])('x-modal-footer', "x-modal-footer-".concat(align), className)
+        }, children);
       }
     }]);
     return _default;
@@ -52,11 +58,13 @@
   _exports["default"] = _default;
   _default.propTypes = {
     className: _propTypes["default"].string,
-    style: _propTypes["default"].object
+    style: _propTypes["default"].object,
+    align: _propTypes["default"].oneOf(['left', 'center', 'right'])
   };
   _default.defaultProps = {
     className: '',
-    style: null
+    style: null,
+    align: 'right'
   };
   module.exports = exports.default;
 });

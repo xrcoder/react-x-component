@@ -22,10 +22,24 @@ class Body extends React.Component {
 }
 
 class Footer extends React.Component {
+
+    static propTypes = {
+        className: PropTypes.string,
+        style: PropTypes.object,
+        align: PropTypes.oneOf(['left', 'center', 'right'])
+    };
+
+    static defaultProps = {
+        className: '',
+        style: null,
+        align: 'right'
+    };
+
     render() {
+        const {align, style, className, children} = this.props;
         return (
-            <div className={classnames('x-box-footer', this.props.className)} style={this.props.style}>
-                {this.props.children}
+            <div className={classnames('x-box-footer', `x-box-footer-${align}`, className)} style={style}>
+                {children}
             </div>
         )
     }

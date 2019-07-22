@@ -24,3 +24,15 @@
     padding: 10px;
     position: relative;
 }
+
+.x-box-footer-left {
+    @include boxFooterBtnAlignLeft;
+}
+
+.x-box-footer-right {
+    @include boxFooterBtnAlignRight;
+}
+
+.x-box-footer-center {
+    @include boxFooterBtnAlignCenter;
+}

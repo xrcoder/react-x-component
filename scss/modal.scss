@@ -96,13 +96,21 @@
 
 .x-modal-footer {
     padding: 16px 30px;
-    text-align: right;
     border-top: 1px solid #F3F3F3;
-
-    button {
-        margin-left: 10px;
-    }
 }
+
+.x-modal-footer-left {
+    @include boxFooterBtnAlignLeft;
+}
+
+.x-modal-footer-right {
+    @include boxFooterBtnAlignRight;
+}
+
+.x-modal-footer-center {
+    @include boxFooterBtnAlignCenter;
+}
+
 
 .x-modal-confirm .x-modal-body {
     padding: 53px 30px;

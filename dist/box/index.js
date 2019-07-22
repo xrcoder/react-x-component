@@ -85,14 +85,30 @@
     (0, _createClass2["default"])(Footer, [{
       key: "render",
       value: function render() {
+        var _this$props = this.props,
+            align = _this$props.align,
+            style = _this$props.style,
+            className = _this$props.className,
+            children = _this$props.children;
         return _react["default"].createElement("div", {
-          className: (0, _classnames["default"])('x-box-footer', this.props.className),
-          style: this.props.style
-        }, this.props.children);
+          className: (0, _classnames["default"])('x-box-footer', "x-box-footer-".concat(align), className),
+          style: style
+        }, children);
       }
     }]);
     return Footer;
   }(_react["default"].Component);
+
+  Footer.propTypes = {
+    className: _propTypes["default"].string,
+    style: _propTypes["default"].object,
+    align: _propTypes["default"].oneOf(['left', 'center', 'right'])
+  };
+  Footer.defaultProps = {
+    className: '',
+    style: null,
+    align: 'right'
+  };
 
   var _default =
   /*#__PURE__*/
