@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "./remind", "./layout/a", "./layout/b", "./grid", "./use", "./button", "./icon", "./input", "./toggle", "./pagination", "./modal", "./tooltip", "./popper", "./radio", "./checkbox", "./upload", "./box", "./toast", "./form", "./table", "./select", "./switch", "./collapse", "./dropdown"], factory);
+    define(["exports", "./remind", "./layout/a", "./layout/b", "./grid", "./use", "./button", "./icon", "./close", "./input", "./toggle", "./pagination", "./modal", "./tooltip", "./popper", "./radio", "./checkbox", "./upload", "./box", "./toast", "./form", "./table", "./select", "./switch", "./collapse", "./dropdown"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("./remind"), require("./layout/a"), require("./layout/b"), require("./grid"), require("./use"), require("./button"), require("./icon"), require("./input"), require("./toggle"), require("./pagination"), require("./modal"), require("./tooltip"), require("./popper"), require("./radio"), require("./checkbox"), require("./upload"), require("./box"), require("./toast"), require("./form"), require("./table"), require("./select"), require("./switch"), require("./collapse"), require("./dropdown"));
+    factory(exports, require("./remind"), require("./layout/a"), require("./layout/b"), require("./grid"), require("./use"), require("./button"), require("./icon"), require("./close"), require("./input"), require("./toggle"), require("./pagination"), require("./modal"), require("./tooltip"), require("./popper"), require("./radio"), require("./checkbox"), require("./upload"), require("./box"), require("./toast"), require("./form"), require("./table"), require("./select"), require("./switch"), require("./collapse"), require("./dropdown"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.remind, global.a, global.b, global.grid, global.use, global.button, global.icon, global.input, global.toggle, global.pagination, global.modal, global.tooltip, global.popper, global.radio, global.checkbox, global.upload, global.box, global.toast, global.form, global.table, global.select, global._switch, global.collapse, global.dropdown);
+    factory(mod.exports, global.remind, global.a, global.b, global.grid, global.use, global.button, global.icon, global.close, global.input, global.toggle, global.pagination, global.modal, global.tooltip, global.popper, global.radio, global.checkbox, global.upload, global.box, global.toast, global.form, global.table, global.select, global._switch, global.collapse, global.dropdown);
     global.index = mod.exports;
   }
-})(this, function (_exports, _remind, _a, _b, _grid, _use, _button, _icon, _input, _toggle, _pagination, _modal, _tooltip, _popper, _radio, _checkbox, _upload, _box, _toast, _form, _table, _select, _switch, _collapse, _dropdown) {
+})(this, function (_exports, _remind, _a, _b, _grid, _use, _button, _icon, _close, _input, _toggle, _pagination, _modal, _tooltip, _popper, _radio, _checkbox, _upload, _box, _toast, _form, _table, _select, _switch, _collapse, _dropdown) {
   "use strict";
 
   var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -23,6 +23,7 @@
     LayoutA: true,
     LayoutB: true,
     Icon: true,
+    Close: true,
     Input: true,
     Toggle: true,
     Pagination: true,
@@ -63,6 +64,12 @@
     enumerable: true,
     get: function get() {
       return _icon["default"];
+    }
+  });
+  Object.defineProperty(_exports, "Close", {
+    enumerable: true,
+    get: function get() {
+      return _close["default"];
     }
   });
   Object.defineProperty(_exports, "Input", {
@@ -201,6 +208,7 @@
     });
   });
   _icon = _interopRequireDefault(_icon);
+  _close = _interopRequireDefault(_close);
   _input = _interopRequireDefault(_input);
   _toggle = _interopRequireDefault(_toggle);
   _pagination = _interopRequireDefault(_pagination);
