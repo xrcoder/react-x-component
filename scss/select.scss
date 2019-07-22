@@ -108,7 +108,7 @@
     }
 
     &-select__control {
-        border: 1px solid $input-border-color;
+        border-color:$input-border-color !important;
         color: $input-font-color;
         border-radius: 2px !important;
         cursor: pointer !important;
@@ -127,7 +127,7 @@
         border-color: $input-active-border-color !important;
 
         &:hover {
-            border-color: inherit !important;
+            border-color: $input-active-border-color !important;
         }
     }
 

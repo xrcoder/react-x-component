@@ -32,7 +32,7 @@ function Input({placeholder, error, value = '', className, style, onChange, onEn
 
     useEffect(() => {
         setIsError(error);
-    }, [isError]);
+    }, [error]);
 
     return (
         <input

@@ -2,13 +2,15 @@
  * Created by Rayr Lee on 2019/7/4.
  */
 import React from 'react';
-import {Box, Row, Col, Input, Form, Checkbox} from 'react-x-component';
+import {Box, Row, Col, Input, Form, Checkbox, Button} from 'react-x-component';
 
 export default class extends React.Component {
     constructor() {
         super()
         this.state = {
-            isMark: false
+            isMark: false,
+            errMsg: '',
+            name: ''
         }
     }
 
@@ -20,8 +22,8 @@ export default class extends React.Component {
                     <Box.Body>
                         <Row>
                             <Col md={12}>
-                                <Form.Group>
-                                    <Form.Name required>邮件</Form.Name>
+                                <Form.Group errorMsg={'密码格式有误'}>
+                                    <Form.Name>邮件</Form.Name>
                                     <Input/>
                                 </Form.Group>
                                 <Form.Group>
@@ -55,9 +57,13 @@ export default class extends React.Component {
                     <Box.Body>
                         <Row>
                             <Col md={12}>
-                                <Form.Group horizontal>
+                                <Form.Group horizontal errorMsg={this.state.errMsg}>
                                     <Form.Name required>访客姓名</Form.Name>
-                                    <Input/>
+                                    <Input value={this.state.name} onChange={(res) => {
+                                        this.setState({
+                                            name: res
+                                        })
+                                    }}/>
                                 </Form.Group>
                                 <Form.Group horizontal>
                                     <Form.Name>证件号码</Form.Name>
@@ -85,6 +91,20 @@ export default class extends React.Component {
                             </Col>
                         </Row>
                     </Box.Body>
+                    <Box.Footer className={'clearfix'}>
+                        <Button style={{float: 'right', marginLeft: '10px'}} type={'primary'} onClick={() => {
+                            console.log(this.state);
+                            this.setState({
+                                errMsg: '请输入姓名'
+                            })
+                        }}>确认</Button>
+                        <Button style={{float: 'right'}} onClick={() => {
+                            this.setState({
+                                errMsg: '',
+                                name: ''
+                            })
+                        }}>重置</Button>
+                    </Box.Footer>
                 </Box>
             </>
         )

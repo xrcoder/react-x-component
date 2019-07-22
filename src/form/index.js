@@ -6,7 +6,7 @@ import Group from './group';
 function Name(props) {
     return (
         <label {...props} className={classnames('x-form-name', props.className)}>
-            {props.required &&  <span className="x-form-name-star">⁎</span>}
+            {props.required &&  <span className="x-form-name-star">*</span>}
             {props.children}
         </label>
     );
