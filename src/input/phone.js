@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import RegInput from './reg';
 
 const filterValue = (val) => {
@@ -15,7 +15,7 @@ const filterValue = (val) => {
 
 const Phone = (props) => {
 
-    const { value } = props;
+    const {value} = props;
 
     const [_value, setValue] = useState(props.value);
 
@@ -24,8 +24,7 @@ const Phone = (props) => {
     }, [value]);
 
     return (
-        <RegInput {...props} type={'text'} reg={/^[1]([3-9])[0-9]{9}$/} value={_value}
-        />
+        <RegInput {...props} type={'text'} reg={/^[1]([3-9])[0-9]{9}$/} value={_value}/>
     )
 };
 

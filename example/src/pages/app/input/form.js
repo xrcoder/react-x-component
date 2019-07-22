@@ -62,7 +62,11 @@ export default class extends React.Component {
                                     <Input value={this.state.name} onChange={(res) => {
                                         this.setState({
                                             name: res
-                                        })
+                                        });
+                                    }} onFocus={() => {
+                                        this.setState({
+                                            errMsg: ''
+                                        });
                                     }}/>
                                 </Form.Group>
                                 <Form.Group horizontal>

@@ -7,6 +7,8 @@ export LayoutB from './layout/b';
 //栅格化
 export * from './grid';
 
+export * from './use';
+
 //UI组件
 export Button from './button';
 export Icon from './icon';

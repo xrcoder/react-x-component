@@ -1,32 +1,29 @@
 import React, {useState, useEffect} from 'react';
-import classnames from 'classnames';
-
 import Input from './input';
 
-const RegInput = (props) => {
+function RegInput(props) {
+    const {className, value, reg, onChange} = props;
 
-    const {value, className, reg, onChange} = props;
-
-    let [_value, setValue] = useState(value);
-    let [_isValid, setValid] = useState(true); //默认合法
+    let [regValue, setRegValue] = useState(value);
+    let [resRule, setResRule] = useState(true);
 
     useEffect(() => {
-        setValue(value);
-        setValid(reg.test(value))
-    });
+        setRegValue(value);
+        setResRule(reg.test(value))
+    }, [value]);
 
     return (
-        <Input
-            {...props}
-            value={_value}
-            className={classnames(className, {'x-input-error': !_isValid && _value})}
-            onChange={(res, e) => {
-                setValue(res);
-                onChange(res, _isValid, e);
-            }}
+        <Input{...props}
+              value={regValue}
+              className={className}
+              error={Boolean(!resRule && regValue)}
+              onChange={(res, e) => {
+                  setRegValue(res);
+                  onChange(res, resRule, e);
+              }}
         />
     )
-};
+}
 
 RegInput.defaultProps = {
     reg: /[\s\S]*/
