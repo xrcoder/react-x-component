@@ -11,8 +11,8 @@
     opacity: 1;
 }
 
-.x-close:before,
-.x-close:after {
+.x-close .x-close-a,
+.x-close .x-close-b {
     position: absolute;
     left: 9px;
     top: 0;
@@ -22,10 +22,10 @@
     background-color: #979797;
 }
 
-.x-close:before {
+.x-close .x-close-a {
     transform: rotate(45deg);
 }
 
-.x-close:after {
+.x-close .x-close-b {
     transform: rotate(-45deg);
 }
