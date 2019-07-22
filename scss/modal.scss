@@ -59,9 +59,7 @@
 .x-modal-header {
     position: relative;
     display: flex;
-    padding: 0 30px;
-    height: 56px;
-    line-height: 56px;
+    padding: 19px 30px 17px;
     color: #484852;
     font-weight: bold;
     border-bottom: 1px solid #F3F3F3;
@@ -70,6 +68,7 @@
 
     .title {
         font-size: 16px;
+        line-height: 20px;
         flex: 1;
         width: 0;
         overflow: hidden;
@@ -77,15 +76,8 @@
         white-space: nowrap;
     }
 
-    .close {
-        width: 18px;
-        height: 18px;
-        right: 30px;
-        top: 19px;
-        cursor: pointer;
-        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAAXNSR0IArs4c6QAAARdJREFUOBGtlL0KwjAURpviICgiLi6CDyGOvo2ztDjpA+gktc/k6FMILi4iouBWc0pvsD9JHHqHtsn97smX27RBoGO13M82URJlWaYY/xNoqaEWveJhMh2fSTzuz/UuiRKlVOaCod3Gx3g4GhzQXi+3edjrdxfihAQCGTfBfiHkGcMItYMUJ1LkglUh1BS7SPOeOARmmz6Naa5LyMrSE56Jaj8NiKQNRo4tcyeqEOZKICaaYMxLNEHI1UBM2mA2CDUhlzai5sjmRhazuSqBmiAUAvE1uyMr2SB8Mmj06zew4tDSS3POckcuiHx3Po3yCcQxd6eWX4G2mttHbGsmOcICi8P363MS+z4IILT0TV4CYxjkWvmxfQEw4DJduAPd1wAAAABJRU5ErkJggg==');
-        background-repeat: no-repeat;
-        background-size: 18px 18px;
+    .x-modal-close {
+        flex: none;
     }
 }
 

@@ -1,0 +1,31 @@
+.x-close {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: all 0.1s;
+}
+
+.x-close:hover {
+    opacity: 1;
+}
+
+.x-close:before,
+.x-close:after {
+    position: absolute;
+    left: 9px;
+    top: 0;
+    content: ' ';
+    height: 20px;
+    width: 2px;
+    background-color: #979797;
+}
+
+.x-close:before {
+    transform: rotate(45deg);
+}
+
+.x-close:after {
+    transform: rotate(-45deg);
+}
