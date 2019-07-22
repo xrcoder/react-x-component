@@ -8,8 +8,7 @@ export default () => {
 
     return (
         <Row className="x-switch-demo">
-            <Col md={12}><List></List></Col>
+            <Col md={6}><List></List></Col>
         </Row>
     );
 }
-

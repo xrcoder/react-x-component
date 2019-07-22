@@ -28,7 +28,7 @@ export default class extends React.Component {
                             }}/>
                         </Col>
                         <Col lg={12} md={12} className="icon-item">
-                            <Switch status={this.state.status} disabled={true} onChange={(e, res) => {
+                            <Switch status={this.state.status} disabled={this.state.disbaled} onChange={(e, res) => {
                                 this.setState({
                                     status: res
                                 })
@@ -37,20 +37,20 @@ export default class extends React.Component {
                         <Col lg={12} md={12} className="icon-item">
                             当前状态: {this.state.status.toString()}
                         </Col>
-                        <Col lg={12} md={12} className="icon-item">
-                            <Button onClick={() => {
-                                this.setState({
-                                    status: !this.state.status
-                                })
-                            }}>切换按钮</Button>
-                            <Button onClick={() => {
-                                this.setState({
-                                    disbaled: !this.state.disbaled
-                                })
-                            }}>禁用切换</Button>
-                        </Col>
                     </Row>
                 </Box.Body>
+                <Box.Footer>
+                    <Button onClick={() => {
+                        this.setState({
+                            status: !this.state.status
+                        })
+                    }}>切换按钮</Button>
+                    <Button onClick={() => {
+                        this.setState({
+                            disbaled: !this.state.disbaled
+                        })
+                    }}>禁用切换</Button>
+                </Box.Footer>
             </Box>
         )
     }
