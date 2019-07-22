@@ -30,7 +30,7 @@
       className: (0, _classnames["default"])('x-form-name', props.className)
     }), props.required && _react["default"].createElement("span", {
       className: "x-form-name-star"
-    }, "\u204E"), props.children);
+    }, "*"), props.children);
   }
 
   Name.propTypes = {

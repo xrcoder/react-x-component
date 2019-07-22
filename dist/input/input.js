@@ -82,7 +82,7 @@
     }, [disabled]);
     (0, _react.useEffect)(function () {
       setIsError(error);
-    }, [isError]);
+    }, [error]);
     return _react["default"].createElement("input", {
       value: oInput.value,
       style: style,
