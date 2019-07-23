@@ -69,12 +69,12 @@ export default class extends React.Component {
                                         });
                                     }}/>
                                 </Form.Group>
-                                <Form.Group horizontal>
+                                <Form.Group horizontal required>
                                     <Form.Name>证件号码</Form.Name>
                                     <Input/>
                                 </Form.Group>
-                                <Form.Group horizontal>
-                                    <Form.Name>身份证号码</Form.Name>
+                                <Form.Group horizontal required>
+                                    <Form.Name>身份证号</Form.Name>
                                     <Input.Clear type={'password'} onChange={(res) => {
                                         console.log(res);
                                     }} onEnter={(res) => {

@@ -20,118 +20,109 @@ export default class extends React.Component {
                 <Box>
                     <Box.Header>输入框</Box.Header>
                     <Box.Body>
-                        <Row>
-                            <Col md={12}>
-                                <Form.Name>基本：{this.state.phone}</Form.Name>
-                                <Input className="input-1"
-                                       maxLength={11}
-                                       value={this.state.phone}
-                                       disabled={this.state.disabled}
-                                       onChange={(value) => {
-                                           this.setState({
-                                               phone: value
-                                           });
-                                       }}/>
-                            </Col>
-                            <Col md={12}>
-                                <Button onClick={() => {
+                        <Form.Group>
+                            <Form.Name>基本：{this.state.phone}</Form.Name>
+                            <Input
+                                maxLength={11}
+                                value={this.state.phone}
+                                disabled={this.state.disabled}
+                                onChange={(value) => {
                                     this.setState({
-                                        phone: ''
-                                    });
-                                }}>清空</Button>
-                                <Button onClick={() => {
-                                    this.setState({
-                                        disabled: !this.state.disabled
-                                    });
-                                }}>禁用</Button>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col md={12}>
-                                <Form.Name>基本：</Form.Name>
-                                <Input placeholder={'请输入姓名'} className="input-1" onChange={(value) => {
-                                    console.log(value);
-                                }}/>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col md={12}>
-                                <Form.Name>禁用：</Form.Name>
-                                <Input className="input-1" disabled={true} value={'密码'}/>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col md={12}>
-                                <Form.Name>清空：</Form.Name>
-                                <Input.Clear disabled={this.state.disabled} className="input-1"
-                                             value={this.state.phone} onClear={(e) => {
-                                    console.log('clear');
-                                }} onChange={(res) => {
-                                    this.setState({
-                                        phone: res
+                                        phone: value
                                     });
                                 }}/>
-                            </Col>
-                        </Row>
+                        </Form.Group>
+                        <Form.Group>
+                            <Button onClick={() => {
+                                this.setState({
+                                    phone: ''
+                                });
+                            }}>清空</Button>
+                            <Button onClick={() => {
+                                this.setState({
+                                    disabled: !this.state.disabled
+                                });
+                            }}>禁用</Button>
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Name>基本：</Form.Name>
+                            <Input placeholder={'请输入姓名'} onChange={(value) => {
+                                console.log(value);
+                            }}/>
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Name>禁用：</Form.Name>
+                            <Input disabled={true}/>
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Name>清空：</Form.Name>
+                            <Input.Clear disabled={this.state.disabled}
+                                         value={this.state.phone} onClear={(e) => {
+                                console.log('clear');
+                            }} onChange={(res) => {
+                                this.setState({
+                                    phone: res
+                                });
+                            }}/>
+                        </Form.Group>
                     </Box.Body>
                 </Box>
                 <Box>
                     <Box.Header>扩展输入框</Box.Header>
                     <Box.Body>
-                        <Row>
-                            <Col md={12}>
-                                <Form.Name>搜索(组合)：</Form.Name>
-                                <Input.Addon
-                                    className="input-1"
-                                    value='测试'
-                                    maxLength={11}
-                                    onEnter={(res) => {
-                                        console.log(res);
-                                    }}
-                                    onChange={(res, e) => {
-                                        console.log(res);
-                                    }}
-                                    render={() => {
-                                        return (
-                                            <Button onClick={() => {
+                        <Form.Group>
+                            <Form.Name>搜索(组合)：</Form.Name>
+                            <Input.Addon
+                                value='测试'
+                                maxLength={11}
+                                onEnter={(res) => {
+                                    console.log(res);
+                                }}
+                                onChange={(res, e) => {
+                                    console.log(res);
+                                }}
+                                render={() => {
+                                    return (
+                                        <Button onClick={() => {
 
-                                            }}>搜索</Button>
-                                        )
-                                    }}/>
-                            </Col>
-                            <Col md={12}>
-                                <Input.Addon className="input-1" render={() => {
-                                    return <Button><Icon name={'search'}/></Button>
+                                        }}>搜索</Button>
+                                    )
                                 }}/>
-                            </Col>
-                            <Col md={12}>
-                                <Form.Name>搜索(单例)：</Form.Name>
-                                <Input.Search className="input-1" onEnter={(res) => {
-                                    console.log(res);
-                                }} onChange={(res) => {
-                                    console.log(res);
-                                }} onSearch={(e) => {
-                                    console.log(e);
-                                }}>搜索</Input.Search>
-                            </Col>
-                            <Col md={12}>
-                                <Input.Search className="input-1" onEnter={(res) => {
-                                    console.log(res);
-                                }} onChange={(res) => {
-                                    console.log(res);
-                                }} onSearch={(e) => {
-                                    console.log(e);
-                                }}><Icon name={'search'}/></Input.Search>
-                            </Col>
-                        </Row>
+                        </Form.Group>
+                        <Form.Group>
+                            <Input.Addon render={() => {
+                                return <Button>确认</Button>
+                            }}/>
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Name>搜索(单例)：</Form.Name>
+                            <Input.Search onEnter={(res) => {
+                                console.log(res);
+                            }} onChange={(res) => {
+                                console.log(res);
+                            }} onSearch={(e) => {
+                                console.log(e);
+                            }}><Icon name={'rss'}/></Input.Search>
+                        </Form.Group>
+                        <Form.Group>
+                            <Input.Search onEnter={(res) => {
+                                console.log(res);
+                            }} onChange={(res) => {
+                                console.log(res);
+                            }} onSearch={(e) => {
+                                console.log(e);
+                            }}><Icon name={'search'}/></Input.Search>
+                        </Form.Group>
                     </Box.Body>
                 </Box>
                 <Box>
                     <Box.Header>文本域</Box.Header>
                     <Box.Body>
-                        <Input.Textarea className="input-1" onChange={(res) => {
-                            console.log(res);
-                        }}/>
+                        <Form.Group>
+                            <Input.Textarea onChange={(res) => {
+                                console.log(res);
+                            }}/>
+                        </Form.Group>
                     </Box.Body>
                 </Box>
             </>
