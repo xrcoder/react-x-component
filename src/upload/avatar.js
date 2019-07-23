@@ -15,16 +15,11 @@ const Avatar = (props) => {
                 {...props}
                 url={url}
                 onBeforeStart={(file, e) => {
-                    let _obj = {
-                        name: file.name,
-                        uid: file.uid
-                    }
-                    ImgObj = _obj;
-                    props.onBeforeStart(_obj, e)
+                    props.onBeforeStart(file, e)
                 }}
                 onFinished={(file, e) => {
                     setTimeout(() => {
-                        props.onChange(ImgObj, e);
+                        props.onChange(file, e);
                     }, 600);
                 }}
                 onProgress={(file, e) => {

@@ -10,6 +10,7 @@ const UploadList = ({ imgList, onDeleteItem }) => {
     let [styleType, setStyleType] = useState('');
 
     useEffect(() => {
+        console.log(imgList)
         if (imgList.length >= 0) {
             setImgList(imgList)
         }
