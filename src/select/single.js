@@ -4,12 +4,13 @@ import classnames from 'classnames';
 import ReactSelect from 'react-select'
 
 function Select(props) {
-    const {className, disabled, isMulti, size, isSearchable, isClearable, isRtl, options, value, noOptionsMessage, placeholder, onChange} = props;
+    const {className, disabled, isMulti, size, isSearchable, isClearable, isRtl, options, value, noOptionsMessage, placeholder, components, onChange} = props;
     return (
         <ReactSelect
             className={classnames('x-select', size ? `x-select-${size}` : null, className)}
             classNamePrefix="x-select"
             isSearchable={isSearchable}
+            components={components}
             isDisabled={disabled}
             isMulti={isMulti}
             isClearable={isClearable}

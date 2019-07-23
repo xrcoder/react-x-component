@@ -50,6 +50,21 @@ export default class extends React.Component {
                 <Col lg={6} md={6}>
                     <SelectSingle/>
                 </Col>
+                <Col lg={6} md={6}>
+                    <Box>
+                        <Box.Header>搜索</Box.Header>
+                        <Box.Body>
+                            <Select.Search
+                                value={this.state.singleValue}
+                                options={stateOptions}
+                                onChange={(value) => {
+                                    this.setState({
+                                        singleValue: value
+                                    });
+                                }}/>
+                        </Box.Body>
+                    </Box>
+                </Col>
             </Row>
         )
     }

@@ -36,11 +36,13 @@
         value = props.value,
         noOptionsMessage = props.noOptionsMessage,
         placeholder = props.placeholder,
+        components = props.components,
         onChange = props.onChange;
     return _react["default"].createElement(_reactSelect["default"], {
       className: (0, _classnames["default"])('x-select', size ? "x-select-".concat(size) : null, className),
       classNamePrefix: "x-select",
       isSearchable: isSearchable,
+      components: components,
       isDisabled: disabled,
       isMulti: isMulti,
       isClearable: isClearable,

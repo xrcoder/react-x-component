@@ -108,7 +108,7 @@
     }
 
     &-select__control {
-        border-color:$input-border-color !important;
+        border-color: $input-border-color !important;
         color: $input-font-color;
         border-radius: 2px !important;
         cursor: pointer !important;
@@ -145,6 +145,18 @@
 
     &-select__placeholder {
         cursor: text;
+    }
+
+    &-select-search {
+        .x-select__dropdown-indicator {
+            display: none;
+        }
+        .x-select__control {
+            cursor: text !important;
+        }
+        .x-select__indicators {
+            cursor: pointer !important;
+        }
     }
 }
 
