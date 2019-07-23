@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "@babel/runtime/helpers/extends", "react", "classnames", "./single"], factory);
+    define(["exports", "@babel/runtime/helpers/extends", "react", "classnames", "./single", "./search"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("@babel/runtime/helpers/extends"), require("react"), require("classnames"), require("./single"));
+    factory(exports, require("@babel/runtime/helpers/extends"), require("react"), require("classnames"), require("./single"), require("./search"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global._extends, global.react, global.classnames, global.single);
+    factory(mod.exports, global._extends, global.react, global.classnames, global.single, global.search);
     global.index = mod.exports;
   }
-})(this, function (_exports, _extends2, _react, _classnames, _single) {
+})(this, function (_exports, _extends2, _react, _classnames, _single, _search) {
   "use strict";
 
   var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -23,6 +23,7 @@
   _react = _interopRequireDefault(_react);
   _classnames = _interopRequireDefault(_classnames);
   _single = _interopRequireDefault(_single);
+  _search = _interopRequireDefault(_search);
 
   function Select() {
     return null;
@@ -33,6 +34,8 @@
       isSearchable: false
     }));
   };
+
+  Select.Search = _search["default"];
 
   Select.Multi = function (props) {
     return _react["default"].createElement(_single["default"], (0, _extends2["default"])({}, props, {
