@@ -10,7 +10,7 @@ const UploadList = ({ imgList, onDeleteItem }) => {
     let [styleType, setStyleType] = useState('');
 
     useEffect(() => {
-        if (imgList.length > 0) {
+        if (imgList.length >= 0) {
             setImgList(imgList)
         }
     },[imgList])
@@ -23,7 +23,7 @@ const UploadList = ({ imgList, onDeleteItem }) => {
                     status === 0 ?
                      <div className="x-upload-loading-box x-upload-box">
                         <div className="bg-img"></div>
-                        <div>拖拽或点击上传人像</div>
+                        {/* <div>拖拽或点击上传人像</div> */}
                         <div className="x-upload-loading">
                             <Icon name={'spinner'} className="x-upload-loading-icon"/>
                         </div>

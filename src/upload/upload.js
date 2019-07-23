@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Request from './request';
@@ -10,30 +10,33 @@ function getUid() {
     return `upload-${now}-${++index}`
 }
 
-const Upload = ({className, multiple, timeout, name, children, fileType, url, onBeforeStart, onProgress, onFinished,onError,data, headers}) => {
+const Upload = ({ className, multiple, timeout, name, children, fileType, url, onBeforeStart, onProgress, onFinished, onError, data, headers }) => {
 
     const [uid, setUid] = useState(getUid());
-    const [uploadList,setUploadList] = useState({});
+    const [uploadList, setUploadList] = useState({});
 
     const uploadInput = useRef(null);
+    const dragEl = useRef(null);
 
     let selectFile = (e) => {
         let files = e.target.files || e.dataTransfer.files
         if (!files.length) {
             return
         } else {
-            uploadFiles(files,e);
+            uploadFiles(files, e);
         }
         e.target.setAttribute('type', 'text');
     }
 
-    let uploadFiles = (files,e) => {
+    let uploadFiles = (files, e) => {
         const postList = Array.prototype.slice.call(files)
         postList.map((item) => {
             let file = item
             file.uid = getUid()
-            onBeforeStart(e,files[0]);
-            upload(file, files)
+            let isBeforeStart = onBeforeStart(files[0], e) || true;
+            if(isBeforeStart){
+                upload(file, files)
+            }
         })
     }
 
@@ -50,13 +53,20 @@ const Upload = ({className, multiple, timeout, name, children, fileType, url, on
                 headers,
                 timeout
             });
-            uploadList[uid].onProgress((e)=>{
-                onProgress(e, file);
-            }).onSuccess((e)=>{
-                onFinished(e, file);
+            uploadList[uid].onProgress((e) => {
+                onProgress(file,e);
+            }).onSuccess((e) => {
+                let _reader = new FileReader();
+                    _reader.readAsDataURL(file);
+                    _reader.onload = (e) => {
+                        file.imgData = _reader.result;
+                        onFinished(file,e);
+
+                    }
+                
             })
-            uploadList[uid].onError((e)=>{
-                onError(e, file);
+            uploadList[uid].onError((e) => {
+                onError(file,e);
             })
         })
     }
@@ -72,14 +82,14 @@ const Upload = ({className, multiple, timeout, name, children, fileType, url, on
     }
 
     return (
-        <div className={classnames('x-upload',className)} onClick={()=>{handleClick()}}>
-            <div className="x-upload-trigger">
+        <div className={classnames('x-upload', className)} ref={dragEl} onClick={() => { handleClick() }}>
+            <div className="x-upload-trigger" >
                 {children}
             </div>
             <input
                 type="file"
                 accept={fileType}
-                onChange={(e)=>{selectFile(e)}}
+                onChange={(e) => { selectFile(e) }}
                 ref={uploadInput}
                 className="x-upload-input"
                 multiple={multiple}
@@ -108,8 +118,8 @@ Upload.defaultProps = {
     fileType: '*',
     timeout: 3000,
     name: 'file',
-    onBeforeStart: ()=>{},
-    onProgress: ()=>{},
-    onError: ()=>{},
-    onFinished:()=>{}
+    onBeforeStart: () => { },
+    onProgress: () => { },
+    onError: () => { },
+    onFinished: () => { }
 }
