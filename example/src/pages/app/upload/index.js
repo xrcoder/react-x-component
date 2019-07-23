@@ -75,7 +75,7 @@ export default () => {
                                     })
                                     setDiyImgList(_arr);
                                 }}
-                                onFinished={(file, e) => {
+                                onFinished={(r,file, e) => {
                                     let _arr = [];
                                     let index = diyImgList.findIndex(item => item.uid === file.uid)
                                     diyImgList[index].status = 1;
