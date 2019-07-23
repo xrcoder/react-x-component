@@ -272,22 +272,27 @@ export default class extends React.Component {
                     <Box>
                         <Box.Header>纯文字按钮</Box.Header>
                         <Box.Body>
-                            <ButtonGroup>
+                            <Button.Box align={'left'}>
                                 <Button type="text" inverse={true} onClick={() => {
                                     console.log('按钮点击');
                                 }}>常态按钮</Button>
-                            </ButtonGroup>
+                                <Button type="text" inverse={true} onClick={() => {
+                                    console.log('按钮点击');
+                                }}>常态按钮</Button>
+                            </Button.Box>
                         </Box.Body>
                     </Box>
                     <Box>
                         <Box.Header>带图标按钮</Box.Header>
                         <Box.Body>
-                            <ButtonIcon icon={'plus'} type="primary" inverse={true} onClick={() => {
-                                console.log('按钮点击');
-                            }}>加号</ButtonIcon>
-                            <ButtonIcon icon={'user'} type="primary" inverse={true} onClick={() => {
-                                console.log('按钮点击');
-                            }}>用户</ButtonIcon>
+                            <Button.Box align={'left'}>
+                                <ButtonIcon icon={'plus'} type="primary" inverse={true} onClick={() => {
+                                    console.log('按钮点击');
+                                }}>加号</ButtonIcon>
+                                <ButtonIcon icon={'user'} type="primary" inverse={true} onClick={() => {
+                                    console.log('按钮点击');
+                                }}>用户</ButtonIcon>
+                            </Button.Box>
                         </Box.Body>
                     </Box>
                 </Col>
