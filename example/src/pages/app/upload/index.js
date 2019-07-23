@@ -32,7 +32,6 @@ export default () => {
                                 style={{}}
                                 imgList={thirdImgList}
                                 onChange={(imgList, e) => {
-                                    console.log(111,imgList)
                                     let _arr = [];
                                     imgList.map(item=>{
                                         _arr.push(item)

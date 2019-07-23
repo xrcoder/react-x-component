@@ -5,7 +5,7 @@ import Upload from './upload';
 
 const Avatar = (props) => {
 
-    let { url, onChange, className, style } = props;
+    let { url, onChange, className, style, onError } = props;
 
     let ImgObj = {};
 
@@ -25,6 +25,10 @@ const Avatar = (props) => {
                 onProgress={(file, e) => {
                     props.onProgress(file, e)
                 }}
+                onError={(file,e)=>{
+                    props.onError(file,e);
+                }}
+
             >
                 <div className={classnames('x-upload-box', className)} style={style}>
                     <div className="bg-img"></div>
@@ -40,12 +44,14 @@ export default Avatar;
 Avatar.propTypes = {
     onChange: PropTypes.func,
     imgList: PropTypes.array,
-    onProgress: PropTypes.func
+    onProgress: PropTypes.func,
+    onError: PropTypes.func
 };
 
 Avatar.defaultProps = {
     onChange: () => { },
     imgList: [],
-    onProgress: () => { }
+    onProgress: () => { },
+    onError: ()=>{}
 };
 

@@ -5,7 +5,7 @@ import Avatar from './avatar';
 
 const AvatarList = (props) => {
 
-    let { url, onChange, imgList, maxLength } = props;
+    let { url, onChange, imgList, maxLength, onError } = props;
 
     let [_imgList, setImgList] = useState(imgList);
 
@@ -51,6 +51,9 @@ const AvatarList = (props) => {
                                 onChange(uploadList, e);
                             }, 600);
                         }}
+                        onError={(file,e)=>{
+                            props.onError(file,e);
+                        }}
                     >
                     </Avatar> : null
             }
@@ -63,12 +66,14 @@ export default AvatarList;
 AvatarList.propTypes = {
     onChange: PropTypes.func,
     imgList: PropTypes.array,
-    maxLength: PropTypes.number
+    maxLength: PropTypes.number,
+    onError: PropTypes.func,
 };
 
 AvatarList.defaultProps = {
     onChange: () => { },
     imgList: [],
-    maxLength: 1
+    maxLength: 1,
+    onError: () => { },
 };
 
