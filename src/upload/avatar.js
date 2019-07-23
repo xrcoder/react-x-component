@@ -17,9 +17,9 @@ const Avatar = (props) => {
                 onBeforeStart={(file, e) => {
                     props.onBeforeStart(file, e)
                 }}
-                onFinished={(file, e) => {
+                onFinished={(r,file, e) => {
                     setTimeout(() => {
-                        props.onChange(file, e);
+                        props.onChange(r,file, e);
                     }, 600);
                 }}
                 onProgress={(file, e) => {

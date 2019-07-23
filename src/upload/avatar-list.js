@@ -5,7 +5,7 @@ import Avatar from './avatar';
 
 const AvatarList = (props) => {
 
-    let { url, onChange, imgList, maxLength, onError } = props;
+    let { url, onChange, imgList, maxLength, onError, onDeleteItem } = props;
 
     let [_imgList, setImgList] = useState(imgList);
 
@@ -25,7 +25,7 @@ const AvatarList = (props) => {
                     let _list = _imgList;
                     _list.splice(index, 1);
                     setImgList(_list);
-                    onChange(_list);
+                    onDeleteItem(_list);
                 }}       
             />
             {
@@ -38,17 +38,16 @@ const AvatarList = (props) => {
                             file.status = 0;
                             list = _imgList;
                             _imgList.push(file);
-                            onChange(_imgList, e);
                             setImgList(_imgList);
                         }}
-                        onChange={(file, e) => {
+                        onChange={(r,file, e) => {
                             let uploadList = _imgList;
                             let index = uploadList.findIndex(item => item.uid === file.uid)
                             uploadList[index].status = 1;
                             setTimeout(() => {
                                 list = _imgList;
                                 setImgList(uploadList);
-                                onChange(uploadList, e);
+                                onChange(r,uploadList, e);
                             }, 600);
                         }}
                         onError={(file,e)=>{
@@ -68,6 +67,7 @@ AvatarList.propTypes = {
     imgList: PropTypes.array,
     maxLength: PropTypes.number,
     onError: PropTypes.func,
+    onDeleteItem: PropTypes.func
 };
 
 AvatarList.defaultProps = {
@@ -75,5 +75,6 @@ AvatarList.defaultProps = {
     imgList: [],
     maxLength: 1,
     onError: () => { },
+    onDeleteItem: ()=>{}
 };
 

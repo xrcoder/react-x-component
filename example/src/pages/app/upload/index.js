@@ -31,12 +31,15 @@ export default () => {
                                 className=""
                                 style={{}}
                                 imgList={thirdImgList}
-                                onChange={(imgList, e) => {
+                                onChange={(res,imgList, e) => {
                                     let _arr = [];
                                     imgList.map(item=>{
                                         _arr.push(item)
                                     })
                                     setThirdImg(_arr)
+                                }}
+                                onDeleteItem={()=>{
+                                    setThirdImg([])
                                 }}
                             />
                         </Col>

@@ -58,10 +58,10 @@ const Upload = ({ className, multiple, timeout, name, children, fileType, url, o
             }).onSuccess((e) => {
                 let _reader = new FileReader();
                     _reader.readAsDataURL(file);
-                    _reader.onload = (e) => {
+                    _reader.onload = (res) => {
                         file.imgData = _reader.result;
-                        onFinished(file,e);
-
+                        let _r = JSON.parse(e.target.response)
+                        onFinished(_r,file,e);
                     }
                 
             })
