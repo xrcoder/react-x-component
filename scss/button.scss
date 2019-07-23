@@ -18,7 +18,6 @@
     white-space: nowrap;
 
     & > .fa {
-        margin-right: 6px;
     }
 
     &:hover {
@@ -34,8 +33,12 @@
         opacity: 0.75;
     }
 
+    &-icon {
+        margin-right: 6px;
+    }
+
     &.x-btn-primary {
-        border-color: $theme-color;
+        border-color: darken($theme-color, 20%);
         color: #ffffff;
         background: $theme-color;
 
@@ -78,7 +81,7 @@
     }
 
     &.x-btn-danger {
-        border-color: #f05353;
+        border-color: darken(#f05353, 15%);
         color: #fff;
         background: #f05353;
 
@@ -131,5 +134,31 @@
     &.x-btn-sm {
         height: 28px;
         padding: 6px 14px;
+    }
+
+    &.x-btn-text {
+        border: none;
+        background-color: transparent;
+        color: $theme-color;
+        font-weight: bold;
+    }
+}
+
+.x-button-group {
+    display: inline-flex;
+
+    .x-btn:not(:last-of-type) {
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+
+        &:hover {
+            z-index: 1;
+        }
+    }
+
+    .x-btn:not(:first-of-type) {
+        margin-left: -1px;
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
     }
 }

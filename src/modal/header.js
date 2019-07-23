@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import Close from '../close';
 
 export default class extends React.Component {
     static propTypes = {
@@ -17,7 +18,7 @@ export default class extends React.Component {
         return (
             <div className={classnames('x-modal-header', this.props.className)} style={this.props.style}>
                 <div className="title">{this.props.children}</div>
-                <div className="close" onClick={this.props.cancel}></div>
+                <Close className="x-modal-close" onClick={this.props.cancel}/>
             </div>
         );
     }

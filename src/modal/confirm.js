@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import Modal from './modal';
-import Button from '../button';
+import {Button} from '../button';
 
 import Header from './header';
 import Body from './body';

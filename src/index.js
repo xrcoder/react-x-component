@@ -10,8 +10,9 @@ export * from './grid';
 export * from './use';
 
 //UI组件
-export Button from './button';
+export * from './button';
 export Icon from './icon';
+export Close from './close';
 export Input from './input';
 export Toggle from './toggle';
 export Pagination from './pagination';

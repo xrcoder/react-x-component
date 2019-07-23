@@ -22,7 +22,6 @@
   _extends2 = _interopRequireDefault(_extends2);
   _react = _interopRequireDefault(_react);
   _addon = _interopRequireDefault(_addon);
-  _button = _interopRequireDefault(_button);
 
   var _default = function _default(props) {
     var children = props.children,
@@ -34,7 +33,7 @@
       onSearch: null,
       btnType: null,
       render: function render() {
-        return _react["default"].createElement(_button["default"], {
+        return _react["default"].createElement(_button.Button, {
           type: btnType,
           disabled: disabled,
           onClick: onSearch
