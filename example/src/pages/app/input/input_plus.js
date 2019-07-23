@@ -19,35 +19,31 @@ export default class extends React.Component {
             <Box>
                 <Box.Header>高级输入框</Box.Header>
                 <Box.Body>
-                    <Row>
-                        <Col md={12}>
-                            <Form.Name>密码类型输入框带报警提示：</Form.Name>
-                            <Input.Passwd
-                                className="input-1"
-                                placeholder="请输入1-20位的数字"
-                                value={this.state.passwd} reg={/^[0-9]{0,20}$/}
-                                maxLength={20}
-                                onChange={(res) => {
-                                    this.setState({
-                                        passwd: res
-                                    });
-                                }}/>
-                        </Col>
-                        <Col md={12}>
-                            <Form.Name>手机号输入框：</Form.Name>
-                            <Input.Phone
-                                className="input-1"
-                                placeholder="请输入手机号"
-                                value={this.state.phone}
-                                maxLength={11}
-                                onChange={(res) => {
-                                    console.log(res)
-                                    this.setState({
-                                        phone: res
-                                    });
-                                }}/>
-                        </Col>
-                    </Row>
+                    <Form.Group>
+                        <Form.Name>密码类型输入框带报警提示：</Form.Name>
+                        <Input.Passwd
+                            placeholder="请输入1-20位的数字"
+                            value={this.state.passwd} reg={/^[0-9]{0,20}$/}
+                            maxLength={20}
+                            onChange={(res) => {
+                                this.setState({
+                                    passwd: res
+                                });
+                            }}/>
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Name>手机号输入框：</Form.Name>
+                        <Input.Phone
+                            placeholder="请输入手机号"
+                            value={this.state.phone}
+                            maxLength={11}
+                            onChange={(res) => {
+                                console.log(res)
+                                this.setState({
+                                    phone: res
+                                });
+                            }}/>
+                    </Form.Group>
                 </Box.Body>
             </Box>
         )
