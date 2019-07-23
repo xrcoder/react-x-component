@@ -79,6 +79,7 @@
         className = props.className,
         _props$value = props.value,
         value = _props$value === void 0 ? '' : _props$value,
+        error = props.error,
         placeholder = props.placeholder,
         type = props.type,
         maxLength = props.maxLength,
@@ -105,6 +106,7 @@
     }, _react["default"].createElement(_input["default"], {
       placeholder: placeholder,
       type: type,
+      error: error,
       maxLength: maxLength,
       minLength: minLength,
       disabled: disabled,

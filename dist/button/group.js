@@ -23,9 +23,12 @@
   _classnames = _interopRequireDefault(_classnames);
 
   var _default = function _default(props) {
-    var children = props.children;
+    var children = props.children,
+        style = props.style,
+        className = props.className;
     return _react["default"].createElement("div", {
-      className: (0, _classnames["default"])('x-button-group', props.className)
+      style: style,
+      className: (0, _classnames["default"])('x-button-group', className)
     }, children);
   };
 

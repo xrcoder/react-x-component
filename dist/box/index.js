@@ -91,7 +91,7 @@
             className = _this$props.className,
             children = _this$props.children;
         return _react["default"].createElement("div", {
-          className: (0, _classnames["default"])('x-box-footer', "x-box-footer-".concat(align), className),
+          className: (0, _classnames["default"])('x-box-footer', className),
           style: style
         }, children);
       }
@@ -101,13 +101,11 @@
 
   Footer.propTypes = {
     className: _propTypes["default"].string,
-    style: _propTypes["default"].object,
-    align: _propTypes["default"].oneOf(['left', 'center', 'right'])
+    style: _propTypes["default"].object
   };
   Footer.defaultProps = {
     className: '',
-    style: null,
-    align: 'right'
+    style: null
   };
 
   var _default =

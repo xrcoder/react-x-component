@@ -34,14 +34,14 @@
       cancel: cancel
     }, data.title), _react["default"].createElement(_body["default"], null, _react["default"].createElement("div", {
       className: "content"
-    }, data.content)), _react["default"].createElement(_footer["default"], null, _react["default"].createElement(_button.Button, {
+    }, data.content)), _react["default"].createElement(_footer["default"], null, _react["default"].createElement(_button.Button.Box, null, _react["default"].createElement(_button.Button, {
       type: "primary",
       onClick: confirm
     }, data.confirmText), _react["default"].createElement(_button.Button, {
       type: "primary",
       inverse: true,
       onClick: cancel
-    }, data.cancelText)));
+    }, data.cancelText))));
   }
 
   var _default = function _default() {

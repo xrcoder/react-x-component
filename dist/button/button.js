@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "@babel/runtime/helpers/slicedToArray", "react", "classnames", "prop-types"], factory);
+    define(["exports", "@babel/runtime/helpers/slicedToArray", "react", "classnames", "prop-types", "./button_box"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("@babel/runtime/helpers/slicedToArray"), require("react"), require("classnames"), require("prop-types"));
+    factory(exports, require("@babel/runtime/helpers/slicedToArray"), require("react"), require("classnames"), require("prop-types"), require("./button_box"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.slicedToArray, global.react, global.classnames, global.propTypes);
+    factory(mod.exports, global.slicedToArray, global.react, global.classnames, global.propTypes, global.button_box);
     global.button = mod.exports;
   }
-})(this, function (_exports, _slicedToArray2, _react, _classnames, _propTypes) {
+})(this, function (_exports, _slicedToArray2, _react, _classnames, _propTypes, _button_box) {
   "use strict";
 
   var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
@@ -25,6 +25,7 @@
   _react = _interopRequireWildcard(_react);
   _classnames = _interopRequireDefault(_classnames);
   _propTypes = _interopRequireDefault(_propTypes);
+  _button_box = _interopRequireDefault(_button_box);
 
   function Button(props) {
     var className = props.className,
@@ -41,13 +42,21 @@
         btnInverse = _useState2[0],
         setBtnInverse = _useState2[1];
 
+    var _useState3 = (0, _react.useState)(type),
+        _useState4 = (0, _slicedToArray2["default"])(_useState3, 2),
+        btnType = _useState4[0],
+        setBtnType = _useState4[1];
+
     (0, _react.useEffect)(function () {
       setBtnInverse(inverse);
     }, [inverse]);
+    (0, _react.useEffect)(function () {
+      setBtnType(type);
+    }, [type]);
     var btnClass = (0, _classnames["default"])('x-btn', {
-      'x-btn-primary': type === 'primary',
-      'x-btn-danger': type === 'danger',
-      'x-btn-text': type === 'text',
+      'x-btn-primary': btnType === 'primary',
+      'x-btn-danger': btnType === 'danger',
+      'x-btn-text': btnType === 'text',
       'x-btn-lg': size === 'lg',
       'x-btn-sm': size === 'sm',
       'x-btn-inverse': btnInverse
@@ -62,6 +71,7 @@
     }, children);
   }
 
+  Button.Box = _button_box["default"];
   Button.propTypes = {
     className: _propTypes["default"].string,
     style: _propTypes["default"].object,

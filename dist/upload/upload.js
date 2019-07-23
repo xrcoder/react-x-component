@@ -60,6 +60,7 @@
         setUploadList = _useState4[1];
 
     var uploadInput = (0, _react.useRef)(null);
+    var dragEl = (0, _react.useRef)(null);
 
     var selectFile = function selectFile(e) {
       var files = e.target.files || e.dataTransfer.files;
@@ -78,8 +79,11 @@
       postList.map(function (item) {
         var file = item;
         file.uid = getUid();
-        onBeforeStart(e, files[0]);
-        upload(file, files);
+        var isBeforeStart = onBeforeStart(files[0], e) || true;
+
+        if (isBeforeStart) {
+          upload(file, files);
+        }
       });
     };
 
@@ -97,12 +101,19 @@
           timeout: timeout
         });
         uploadList[uid].onProgress(function (e) {
-          onProgress(e, file);
+          onProgress(file, e);
         }).onSuccess(function (e) {
-          onFinished(e, file);
+          var _reader = new FileReader();
+
+          _reader.readAsDataURL(file);
+
+          _reader.onload = function (e) {
+            file.imgData = _reader.result;
+            onFinished(file, e);
+          };
         });
         uploadList[uid].onError(function (e) {
-          onError(e, file);
+          onError(file, e);
         });
       });
     };
@@ -119,6 +130,7 @@
 
     return _react["default"].createElement("div", {
       className: (0, _classnames["default"])('x-upload', className),
+      ref: dragEl,
       onClick: function onClick() {
         handleClick();
       }

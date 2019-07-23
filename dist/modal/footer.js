@@ -42,13 +42,12 @@
       key: "render",
       value: function render() {
         var _this$props = this.props,
-            align = _this$props.align,
             style = _this$props.style,
             className = _this$props.className,
             children = _this$props.children;
         return _react["default"].createElement("div", {
           style: style,
-          className: (0, _classnames["default"])('x-modal-footer', "x-modal-footer-".concat(align), className)
+          className: (0, _classnames["default"])('x-modal-footer', className)
         }, children);
       }
     }]);
@@ -58,13 +57,11 @@
   _exports["default"] = _default;
   _default.propTypes = {
     className: _propTypes["default"].string,
-    style: _propTypes["default"].object,
-    align: _propTypes["default"].oneOf(['left', 'center', 'right'])
+    style: _propTypes["default"].object
   };
   _default.defaultProps = {
     className: '',
-    style: null,
-    align: 'right'
+    style: null
   };
   module.exports = exports.default;
 });

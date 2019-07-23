@@ -42,7 +42,9 @@
         setStyleType = _useState4[1];
 
     (0, _react.useEffect)(function () {
-      if (imgList.length > 0) {
+      console.log(imgList);
+
+      if (imgList.length >= 0) {
         setImgList(imgList);
       }
     }, [imgList]);
@@ -58,7 +60,7 @@
         className: "x-upload-loading-box x-upload-box"
       }, _react["default"].createElement("div", {
         className: "bg-img"
-      }), _react["default"].createElement("div", null, "\u62D6\u62FD\u6216\u70B9\u51FB\u4E0A\u4F20\u4EBA\u50CF"), _react["default"].createElement("div", {
+      }), _react["default"].createElement("div", {
         className: "x-upload-loading"
       }, _react["default"].createElement(_icon["default"], {
         name: 'spinner',
