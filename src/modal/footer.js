@@ -6,20 +6,18 @@ export default class extends React.Component {
     static propTypes = {
         className: PropTypes.string,
         style: PropTypes.object,
-        align: PropTypes.oneOf(['left', 'center', 'right'])
     };
 
     static defaultProps = {
         className: '',
-        style: null,
-        align: 'right'
+        style: null
     };
 
     render() {
-        const {align, style, className, children} = this.props;
+        const {style, className, children} = this.props;
         return (
             <div style={style}
-                 className={classnames('x-modal-footer', `x-modal-footer-${align}`, className)}
+                 className={classnames('x-modal-footer', className)}
             >{children}</div>
         );
     }

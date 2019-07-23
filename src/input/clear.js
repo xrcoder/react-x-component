@@ -35,7 +35,7 @@ function useInputValue(initialValue) {
 }
 
 function Clear(props) {
-    const {style, className, value = '', placeholder, type, maxLength, minLength, disabled, onChange, onEnter, onFocus, onBlur, onClear} = props;
+    const {style, className, value = '', error, placeholder, type, maxLength, minLength, disabled, onChange, onEnter, onFocus, onBlur, onClear} = props;
     const {status, changeStatus, updateStatus} = useClearBtn(false);
     const oInput = useInputValue(value);
 
@@ -48,6 +48,7 @@ function Clear(props) {
             <Input
                 placeholder={placeholder}
                 type={type}
+                error={error}
                 maxLength={maxLength}
                 minLength={minLength}
                 disabled={disabled}

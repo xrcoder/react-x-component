@@ -32,7 +32,7 @@ export default class extends React.Component {
                                     });
                                 }}/>
                         </Form.Group>
-                        <Form.Group>
+                        <Button.Box>
                             <Button onClick={() => {
                                 this.setState({
                                     phone: ''
@@ -43,9 +43,9 @@ export default class extends React.Component {
                                     disabled: !this.state.disabled
                                 });
                             }}>禁用</Button>
-                        </Form.Group>
-                        <Form.Group>
-                            <Form.Name>基本：</Form.Name>
+                        </Button.Box>
+                        <Form.Group errorMsg={'信息有误'}>
+                            <Form.Name>警告：</Form.Name>
                             <Input placeholder={'请输入姓名'} onChange={(value) => {
                                 console.log(value);
                             }}/>
@@ -56,14 +56,17 @@ export default class extends React.Component {
                         </Form.Group>
                         <Form.Group>
                             <Form.Name>清空：</Form.Name>
-                            <Input.Clear disabled={this.state.disabled}
-                                         value={this.state.phone} onClear={(e) => {
-                                console.log('clear');
-                            }} onChange={(res) => {
-                                this.setState({
-                                    phone: res
-                                });
-                            }}/>
+                            <Input.Clear
+                                disabled={this.state.disabled}
+                                value={this.state.phone}
+                                onClear={(e) => {
+                                    console.log('clear');
+                                }}
+                                onChange={(res) => {
+                                    this.setState({
+                                        phone: res
+                                    });
+                                }}/>
                         </Form.Group>
                     </Box.Body>
                 </Box>

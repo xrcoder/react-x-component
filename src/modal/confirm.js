@@ -18,8 +18,10 @@ function Alert(props) {
                 <div className="content">{data.content}</div>
             </Body>
             <Footer>
-                <Button type="primary" onClick={confirm}>{data.confirmText}</Button>
-                <Button type="primary" inverse={true} onClick={cancel}>{data.cancelText}</Button>
+                <Button.Box>
+                    <Button type="primary" onClick={confirm}>{data.confirmText}</Button>
+                    <Button type="primary" inverse={true} onClick={cancel}>{data.cancelText}</Button>
+                </Button.Box>
             </Footer>
         </>
     );

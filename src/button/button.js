@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
+import ButtonBox from './button_box';
 
 function Button(props) {
 
@@ -31,6 +32,8 @@ function Button(props) {
         }}>{children}</button>
     );
 }
+
+Button.Box = ButtonBox;
 
 Button.propTypes = {
     className: PropTypes.string,

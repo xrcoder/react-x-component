@@ -95,19 +95,21 @@ export default class extends React.Component {
                             </Col>
                         </Row>
                     </Box.Body>
-                    <Box.Footer align="right">
-                        <Button type={'primary'} onClick={() => {
-                            console.log(this.state);
-                            this.setState({
-                                errMsg: '请输入姓名'
-                            })
-                        }}>确认</Button>
-                        <Button onClick={() => {
-                            this.setState({
-                                errMsg: '',
-                                name: ''
-                            })
-                        }}>重置</Button>
+                    <Box.Footer>
+                        <Button.Box>
+                            <Button type={'primary'} onClick={() => {
+                                console.log(this.state);
+                                this.setState({
+                                    errMsg: '请输入姓名'
+                                })
+                            }}>确认</Button>
+                            <Button onClick={() => {
+                                this.setState({
+                                    errMsg: '',
+                                    name: ''
+                                })
+                            }}>重置</Button>
+                        </Button.Box>
                     </Box.Footer>
                 </Box>
             </>

@@ -18,7 +18,9 @@ function Alert(props) {
                 <div className="content">{data.content}</div>
             </Body>
             <Footer>
-                <Button type="primary" onClick={confirm}>{data.confirmText}</Button>
+                <Button.Box>
+                    <Button type="primary" onClick={confirm}>{data.confirmText}</Button>
+                </Button.Box>
             </Footer>
         </>
     );

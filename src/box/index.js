@@ -25,20 +25,18 @@ class Footer extends React.Component {
 
     static propTypes = {
         className: PropTypes.string,
-        style: PropTypes.object,
-        align: PropTypes.oneOf(['left', 'center', 'right'])
+        style: PropTypes.object
     };
 
     static defaultProps = {
         className: '',
-        style: null,
-        align: 'right'
+        style: null
     };
 
     render() {
         const {align, style, className, children} = this.props;
         return (
-            <div className={classnames('x-box-footer', `x-box-footer-${align}`, className)} style={style}>
+            <div className={classnames('x-box-footer', className)} style={style}>
                 {children}
             </div>
         )

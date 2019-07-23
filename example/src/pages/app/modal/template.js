@@ -27,9 +27,11 @@ export default class extends React.Component {
                     <p>ceshidemo4</p>
                     <p>{data.name}</p>
                 </Body>
-                <Footer align="center">
-                    <Button onClick={cancel}>取消</Button>
-                    <Button type='primary' onClick={confirm}>确认</Button>
+                <Footer>
+                    <Button.Box>
+                        <Button onClick={cancel}>取消</Button>
+                        <Button type='primary' onClick={confirm}>确认</Button>
+                    </Button.Box>
                 </Footer>
             </Fragment>
         )

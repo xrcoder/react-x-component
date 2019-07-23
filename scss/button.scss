@@ -162,3 +162,17 @@
         border-top-left-radius: 0;
     }
 }
+
+.x-btn-box {
+    &-left {
+        @include boxFooterBtnAlignLeft;
+    }
+
+    &-right {
+        @include boxFooterBtnAlignRight;
+    }
+
+    &-center {
+        @include boxFooterBtnAlignCenter;
+    }
+}
