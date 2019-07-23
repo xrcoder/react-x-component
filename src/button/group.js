@@ -2,9 +2,9 @@ import React from 'react';
 import classnames from 'classnames';
 
 export default (props) => {
-    const {children} = props;
+    const {children, style, className} = props;
     return (
-        <div className={classnames('x-button-group', props.className)}>
+        <div style={style} className={classnames('x-button-group', className)}>
             {children}
         </div>
     )

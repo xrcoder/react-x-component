@@ -6,15 +6,20 @@ function Button(props) {
 
     const {className, style, disabled, size, type, inverse, children, onClick} = props;
     const [btnInverse, setBtnInverse] = useState(inverse);
+    const [btnType, setBtnType] = useState(type);
 
     useEffect(() => {
         setBtnInverse(inverse);
     }, [inverse]);
 
+    useEffect(() => {
+        setBtnType(type);
+    }, [type]);
+
     let btnClass = classnames('x-btn', {
-        'x-btn-primary': type === 'primary',
-        'x-btn-danger': type === 'danger',
-        'x-btn-text': type === 'text',
+        'x-btn-primary': btnType === 'primary',
+        'x-btn-danger': btnType === 'danger',
+        'x-btn-text': btnType === 'text',
         'x-btn-lg': size === 'lg',
         'x-btn-sm': size === 'sm',
         'x-btn-inverse': btnInverse

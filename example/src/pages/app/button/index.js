@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Row, Col, Box, Icon, ButtonGroup} from 'react-x-component';
+import {Button, Row, Col, Box, Icon, ButtonGroup, ButtonIcon} from 'react-x-component';
 import './index.scss';
 
 export default class extends React.Component {
@@ -23,9 +23,7 @@ export default class extends React.Component {
                                     }}>默认按钮</Button>
                                 </Col>
                                 <Col lg={3} md={3}>
-                                    <Button onClick={() => {
-                                        console.log('按钮点击');
-                                    }}><Icon name={'plus'}/>默认按钮</Button>
+                                    <ButtonIcon icon={'plus'}>常态按钮</ButtonIcon>
                                 </Col>
                                 <Col lg={3} md={3}>
                                     <Button onClick={() => {
@@ -43,9 +41,9 @@ export default class extends React.Component {
                                     }}>常态按钮</Button>
                                 </Col>
                                 <Col lg={3} md={3}>
-                                    <Button type="primary" onClick={() => {
+                                    <ButtonIcon icon={'plus'} type="primary" onClick={() => {
                                         console.log('按钮点击');
-                                    }}><Icon name={'plus'}/>常态按钮</Button>
+                                    }}>常态按钮</ButtonIcon>
                                 </Col>
                                 <Col lg={3} md={3}>
                                     <Button type="primary" onClick={() => {
@@ -63,9 +61,9 @@ export default class extends React.Component {
                                     }}>常态按钮</Button>
                                 </Col>
                                 <Col lg={3} md={3}>
-                                    <Button type="primary" inverse={true} onClick={() => {
+                                    <ButtonIcon icon={'plus'} type="primary" inverse={true} onClick={() => {
                                         console.log('按钮点击');
-                                    }}><Icon name={'plus'}/>常态按钮</Button>
+                                    }}>常态按钮</ButtonIcon>
                                 </Col>
                                 <Col lg={3} md={3}>
                                     <Button type="primary" inverse={true} onClick={() => {
@@ -85,9 +83,7 @@ export default class extends React.Component {
                                     }}>危险按钮</Button>
                                 </Col>
                                 <Col lg={3} md={3}>
-                                    <Button type="danger" onClick={() => {
-                                        console.log('按钮点击');
-                                    }}><Icon name={'plus'}/>危险按钮</Button>
+                                    <ButtonIcon icon={'plus'} type="danger">常态按钮</ButtonIcon>
                                 </Col>
                                 <Col lg={3} md={3}>
                                     <Button type="danger" onClick={() => {
@@ -107,9 +103,7 @@ export default class extends React.Component {
                                     }}>危险按钮</Button>
                                 </Col>
                                 <Col lg={3} md={3}>
-                                    <Button type="danger" inverse={true} onClick={() => {
-                                        console.log('按钮点击');
-                                    }}><Icon name={'plus'}/>危险按钮</Button>
+                                    <ButtonIcon icon={'plus'} type="danger" inverse={true}>常态按钮</ButtonIcon>
                                 </Col>
                                 <Col lg={3} md={3}>
                                     <Button type="danger" inverse={true} onClick={() => {
@@ -138,9 +132,9 @@ export default class extends React.Component {
                                     }}>默认按钮</Button>
                                 </Col>
                                 <Col lg={3} md={3}>
-                                    <Button size={'lg'} onClick={() => {
+                                    <ButtonIcon size={'lg'} icon={'plus'} onClick={() => {
                                         console.log('按钮点击');
-                                    }}><Icon name={'plus'}/>默认按钮</Button>
+                                    }}>默认按钮</ButtonIcon>
                                 </Col>
                                 <Col lg={3} md={3}>
                                     <Button size={'sm'} onClick={() => {
@@ -158,9 +152,9 @@ export default class extends React.Component {
                                     }}>常态按钮</Button>
                                 </Col>
                                 <Col lg={3} md={3}>
-                                    <Button size={'lg'} type="primary" onClick={() => {
+                                    <ButtonIcon icon={'plus'} size={'lg'} type="primary" onClick={() => {
                                         console.log('按钮点击');
-                                    }}><Icon name={'plus'}/>常态按钮</Button>
+                                    }}>常态按钮</ButtonIcon>
                                 </Col>
                                 <Col lg={3} md={3}>
                                     <Button size={'sm'} type="primary" onClick={() => {
@@ -178,9 +172,9 @@ export default class extends React.Component {
                                     }}>常态按钮</Button>
                                 </Col>
                                 <Col lg={3} md={3}>
-                                    <Button size={'lg'} type="primary" inverse={true} onClick={() => {
+                                    <ButtonIcon icon={'plus'} size={'lg'} type="primary" inverse={true} onClick={() => {
                                         console.log('按钮点击');
-                                    }}><Icon name={'plus'}/>常态按钮</Button>
+                                    }}>常态按钮</ButtonIcon>
                                 </Col>
                                 <Col lg={3} md={3}>
                                     <Button size={'sm'} type="primary" inverse={true} onClick={() => {
@@ -198,9 +192,9 @@ export default class extends React.Component {
                                     }}>危险按钮</Button>
                                 </Col>
                                 <Col lg={3} md={3}>
-                                    <Button size={'lg'} type="danger" onClick={() => {
+                                    <ButtonIcon icon={'plus'} size={'lg'} type="danger" onClick={() => {
                                         console.log('按钮点击');
-                                    }}><Icon name={'plus'}/>危险按钮</Button>
+                                    }}>危险按钮</ButtonIcon>
                                 </Col>
                                 <Col lg={3} md={3}>
                                     <Button size={'sm'} type="danger" onClick={() => {
@@ -220,9 +214,9 @@ export default class extends React.Component {
                                     }}>危险按钮</Button>
                                 </Col>
                                 <Col lg={3} md={3}>
-                                    <Button size={'lg'} type="danger" inverse={true} onClick={() => {
+                                    <ButtonIcon icon={'plus'} size={'lg'} type="danger" inverse={true} onClick={() => {
                                         console.log('按钮点击');
-                                    }}><Icon name={'plus'}/>危险按钮</Button>
+                                    }}>危险按钮</ButtonIcon>
                                 </Col>
                                 <Col lg={3} md={3}>
                                     <Button size={'sm'} type="danger" inverse={true} onClick={() => {
@@ -249,16 +243,51 @@ export default class extends React.Component {
                                     console.log('按钮点击');
                                 }}>常态按钮</Button>
                             </ButtonGroup>
+                            <ButtonGroup style={{marginLeft: '10px'}}>
+                                <Button type="primary"><Icon name={'align-center'}/></Button>
+                                <Button type="primary"><Icon name={'align-justify'}/></Button>
+                                <Button type="primary"><Icon name={'align-left'}/></Button>
+                                <Button type="primary"><Icon name={'align-right'}/></Button>
+                            </ButtonGroup>
+                            <ButtonGroup style={{marginLeft: '10px'}}>
+                                <Button><Icon name={'align-center'}/></Button>
+                                <Button><Icon name={'align-justify'}/></Button>
+                                <Button><Icon name={'align-left'}/></Button>
+                                <Button><Icon name={'align-right'}/></Button>
+                            </ButtonGroup>
+                            <ButtonGroup style={{marginLeft: '10px'}}>
+                                <Button type="danger"><Icon name={'align-center'}/></Button>
+                                <Button type="danger"><Icon name={'align-justify'}/></Button>
+                                <Button type="danger"><Icon name={'align-left'}/></Button>
+                                <Button type="danger"><Icon name={'align-right'}/></Button>
+                            </ButtonGroup>
+                            <ButtonGroup style={{marginLeft: '10px'}}>
+                                <Button type="danger" inverse><Icon name={'align-center'}/></Button>
+                                <Button type="danger"><Icon name={'align-justify'}/></Button>
+                                <Button type="danger" inverse><Icon name={'align-left'}/></Button>
+                                <Button type="danger" inverse><Icon name={'align-right'}/></Button>
+                            </ButtonGroup>
                         </Box.Body>
                     </Box>
                     <Box>
-                        <Box.Header>文字按钮</Box.Header>
+                        <Box.Header>纯文字按钮</Box.Header>
                         <Box.Body>
                             <ButtonGroup>
                                 <Button type="text" inverse={true} onClick={() => {
                                     console.log('按钮点击');
                                 }}>常态按钮</Button>
                             </ButtonGroup>
+                        </Box.Body>
+                    </Box>
+                    <Box>
+                        <Box.Header>带图标按钮</Box.Header>
+                        <Box.Body>
+                            <ButtonIcon icon={'plus'} type="primary" inverse={true} onClick={() => {
+                                console.log('按钮点击');
+                            }}>加号</ButtonIcon>
+                            <ButtonIcon icon={'user'} type="primary" inverse={true} onClick={() => {
+                                console.log('按钮点击');
+                            }}>用户</ButtonIcon>
                         </Box.Body>
                     </Box>
                 </Col>
