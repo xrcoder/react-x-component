@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Row, Col, Box, Icon, ButtonGroup, ButtonIcon} from 'react-x-component';
+import {Button, Row, Col, Box, Icon, ButtonGroup, ButtonIcon, Input} from 'react-x-component';
 import './index.scss';
 
 export default class extends React.Component {
@@ -232,41 +232,43 @@ export default class extends React.Component {
                     <Box>
                         <Box.Header>静态按钮组</Box.Header>
                         <Box.Body>
-                            <ButtonGroup>
-                                <Button type="primary" inverse={true} onClick={() => {
-                                    console.log('按钮点击');
-                                }}>常态按钮</Button>
-                                <Button type="primary" onClick={() => {
-                                    console.log('按钮点击');
-                                }}>常态按钮</Button>
-                                <Button type="primary" onClick={() => {
-                                    console.log('按钮点击');
-                                }}>常态按钮</Button>
-                            </ButtonGroup>
-                            <ButtonGroup style={{marginLeft: '10px'}}>
-                                <Button type="primary"><Icon name={'align-center'}/></Button>
-                                <Button type="primary"><Icon name={'align-justify'}/></Button>
-                                <Button type="primary"><Icon name={'align-left'}/></Button>
-                                <Button type="primary"><Icon name={'align-right'}/></Button>
-                            </ButtonGroup>
-                            <ButtonGroup style={{marginLeft: '10px'}}>
-                                <Button><Icon name={'align-center'}/></Button>
-                                <Button><Icon name={'align-justify'}/></Button>
-                                <Button><Icon name={'align-left'}/></Button>
-                                <Button><Icon name={'align-right'}/></Button>
-                            </ButtonGroup>
-                            <ButtonGroup style={{marginLeft: '10px'}}>
-                                <Button type="danger"><Icon name={'align-center'}/></Button>
-                                <Button type="danger"><Icon name={'align-justify'}/></Button>
-                                <Button type="danger"><Icon name={'align-left'}/></Button>
-                                <Button type="danger"><Icon name={'align-right'}/></Button>
-                            </ButtonGroup>
-                            <ButtonGroup style={{marginLeft: '10px'}}>
-                                <Button type="danger" inverse><Icon name={'align-center'}/></Button>
-                                <Button type="danger"><Icon name={'align-justify'}/></Button>
-                                <Button type="danger" inverse><Icon name={'align-left'}/></Button>
-                                <Button type="danger" inverse><Icon name={'align-right'}/></Button>
-                            </ButtonGroup>
+                            <Button.Box align={'left'}>
+                                <ButtonGroup>
+                                    <Button type="primary" inverse={true} onClick={() => {
+                                        console.log('按钮点击');
+                                    }}>常态按钮</Button>
+                                    <Button type="primary" onClick={() => {
+                                        console.log('按钮点击');
+                                    }}>常态按钮</Button>
+                                    <Button type="primary" onClick={() => {
+                                        console.log('按钮点击');
+                                    }}>常态按钮</Button>
+                                </ButtonGroup>
+                                <ButtonGroup>
+                                    <Button type="primary"><Icon name={'align-center'}/></Button>
+                                    <Button type="primary"><Icon name={'align-justify'}/></Button>
+                                    <Button type="primary"><Icon name={'align-left'}/></Button>
+                                    <Button type="primary"><Icon name={'align-right'}/></Button>
+                                </ButtonGroup>
+                                <ButtonGroup>
+                                    <Button><Icon name={'align-center'}/></Button>
+                                    <Button><Icon name={'align-justify'}/></Button>
+                                    <Button><Icon name={'align-left'}/></Button>
+                                    <Button><Icon name={'align-right'}/></Button>
+                                </ButtonGroup>
+                                <ButtonGroup>
+                                    <Button type="danger"><Icon name={'align-center'}/></Button>
+                                    <Button type="danger"><Icon name={'align-justify'}/></Button>
+                                    <Button type="danger"><Icon name={'align-left'}/></Button>
+                                    <Button type="danger"><Icon name={'align-right'}/></Button>
+                                </ButtonGroup>
+                                <ButtonGroup>
+                                    <Button type="danger" inverse><Icon name={'align-center'}/></Button>
+                                    <Button type="danger"><Icon name={'align-justify'}/></Button>
+                                    <Button type="danger" inverse><Icon name={'align-left'}/></Button>
+                                    <Button type="danger" inverse><Icon name={'align-right'}/></Button>
+                                </ButtonGroup>
+                            </Button.Box>
                         </Box.Body>
                     </Box>
                     <Box>
@@ -292,6 +294,46 @@ export default class extends React.Component {
                                 <ButtonIcon icon={'user'} type="primary" inverse={true} onClick={() => {
                                     console.log('按钮点击');
                                 }}>用户</ButtonIcon>
+                            </Button.Box>
+                        </Box.Body>
+                    </Box>
+                    <Box>
+                        <Box.Header>按钮定位器（左对齐）</Box.Header>
+                        <Box.Body>
+                            <Button.Box align={'left'}>
+                                <ButtonIcon icon={'plus'} type="primary" inverse={true} onClick={() => {
+                                    console.log('按钮点击');
+                                }}>左对齐</ButtonIcon>
+                                <ButtonIcon icon={'user'} type="primary" inverse={true} onClick={() => {
+                                    console.log('按钮点击');
+                                }}>左对齐</ButtonIcon>
+                            </Button.Box>
+                        </Box.Body>
+                    </Box>
+                    <Box>
+                        <Box.Header>按钮定位器（居中）</Box.Header>
+                        <Box.Body>
+                            <Button.Box align={'center'}>
+                                <ButtonIcon icon={'plus'} type="primary" inverse={true} onClick={() => {
+                                    console.log('按钮点击');
+                                }}>居中</ButtonIcon>
+                                <ButtonIcon icon={'user'} type="primary" inverse={true} onClick={() => {
+                                    console.log('按钮点击');
+                                }}>居中</ButtonIcon>
+                            </Button.Box>
+                        </Box.Body>
+                    </Box>
+                    <Box>
+                        <Box.Header>按钮定位器（默认）</Box.Header>
+                        <Box.Body>
+                            <Button.Box>
+                                <Input.Search><Icon name={'search'}/></Input.Search>
+                                <Button type="primary" inverse={true} onClick={() => {
+                                    console.log('按钮点击');
+                                }}>重置</Button>
+                                <Button type="primary" inverse={true} onClick={() => {
+                                    console.log('按钮点击');
+                                }}>查询</Button>
                             </Button.Box>
                         </Box.Body>
                     </Box>

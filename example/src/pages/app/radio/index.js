@@ -30,31 +30,37 @@ export default class extends React.Component {
                     label: '香蕉'
                 }
             ],
-            selected: 5
+            selected: {
+                value: 5,
+                label: '香蕉'
+            }
         }
     }
 
     render() {
         return (
             <div>
-                <Row className="x-pagination-demo">
+                <Row>
                     <Col lg={6} md={12}>
                         <Box>
                             <Box.Header>基本使用</Box.Header>
                             <Box.Body>
-                                <Radio data={this.state.data} selected={this.state.selected} onChange={(res) => {
+                                <Radio options={this.state.data} value={this.state.selected} onChange={(res) => {
                                     this.setState({
-                                        selected: res.value
+                                        selected: res
                                     })
                                 }}></Radio>
                             </Box.Body>
                             <Box.Body>
-                                <span>当前选中：{this.state.selected}</span>
+                                <span>当前选中：{JSON.stringify(this.state.selected)}</span>
                             </Box.Body>
                             <Box.Footer>
                                 <Button onClick={() => {
                                     this.setState({
-                                        selected: 2
+                                        selected: {
+                                            value: 2,
+                                            label: '桃子'
+                                        }
                                     })
                                 }}>重置</Button>
                                 <Button onClick={() => {
