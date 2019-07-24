@@ -1,21 +1,24 @@
 @mixin boxFooterBtnAlignLeft() {
     text-align: left;
-    >.x-btn {
+    >.x-btn, >.x-btn-group {
         margin-right: 10px;
+        margin-bottom: 10px
     }
 }
 
 @mixin boxFooterBtnAlignRight() {
     text-align: right;
-    >.x-btn {
+    >.x-btn, >.x-btn-group {
         margin-left: 10px;
+        margin-bottom: 10px
     }
 }
 
 @mixin boxFooterBtnAlignCenter() {
     text-align: center;
-    >.x-btn {
+    >.x-btn, >.x-btn-group {
         margin-left: 5px;
         margin-right: 5px;
+        margin-bottom: 10px
     }
 }

@@ -232,41 +232,43 @@ export default class extends React.Component {
                     <Box>
                         <Box.Header>静态按钮组</Box.Header>
                         <Box.Body>
-                            <ButtonGroup>
-                                <Button type="primary" inverse={true} onClick={() => {
-                                    console.log('按钮点击');
-                                }}>常态按钮</Button>
-                                <Button type="primary" onClick={() => {
-                                    console.log('按钮点击');
-                                }}>常态按钮</Button>
-                                <Button type="primary" onClick={() => {
-                                    console.log('按钮点击');
-                                }}>常态按钮</Button>
-                            </ButtonGroup>
-                            <ButtonGroup style={{marginLeft: '10px'}}>
-                                <Button type="primary"><Icon name={'align-center'}/></Button>
-                                <Button type="primary"><Icon name={'align-justify'}/></Button>
-                                <Button type="primary"><Icon name={'align-left'}/></Button>
-                                <Button type="primary"><Icon name={'align-right'}/></Button>
-                            </ButtonGroup>
-                            <ButtonGroup style={{marginLeft: '10px'}}>
-                                <Button><Icon name={'align-center'}/></Button>
-                                <Button><Icon name={'align-justify'}/></Button>
-                                <Button><Icon name={'align-left'}/></Button>
-                                <Button><Icon name={'align-right'}/></Button>
-                            </ButtonGroup>
-                            <ButtonGroup style={{marginLeft: '10px'}}>
-                                <Button type="danger"><Icon name={'align-center'}/></Button>
-                                <Button type="danger"><Icon name={'align-justify'}/></Button>
-                                <Button type="danger"><Icon name={'align-left'}/></Button>
-                                <Button type="danger"><Icon name={'align-right'}/></Button>
-                            </ButtonGroup>
-                            <ButtonGroup style={{marginLeft: '10px'}}>
-                                <Button type="danger" inverse><Icon name={'align-center'}/></Button>
-                                <Button type="danger"><Icon name={'align-justify'}/></Button>
-                                <Button type="danger" inverse><Icon name={'align-left'}/></Button>
-                                <Button type="danger" inverse><Icon name={'align-right'}/></Button>
-                            </ButtonGroup>
+                            <Button.Box align={'left'}>
+                                <ButtonGroup>
+                                    <Button type="primary" inverse={true} onClick={() => {
+                                        console.log('按钮点击');
+                                    }}>常态按钮</Button>
+                                    <Button type="primary" onClick={() => {
+                                        console.log('按钮点击');
+                                    }}>常态按钮</Button>
+                                    <Button type="primary" onClick={() => {
+                                        console.log('按钮点击');
+                                    }}>常态按钮</Button>
+                                </ButtonGroup>
+                                <ButtonGroup>
+                                    <Button type="primary"><Icon name={'align-center'}/></Button>
+                                    <Button type="primary"><Icon name={'align-justify'}/></Button>
+                                    <Button type="primary"><Icon name={'align-left'}/></Button>
+                                    <Button type="primary"><Icon name={'align-right'}/></Button>
+                                </ButtonGroup>
+                                <ButtonGroup>
+                                    <Button><Icon name={'align-center'}/></Button>
+                                    <Button><Icon name={'align-justify'}/></Button>
+                                    <Button><Icon name={'align-left'}/></Button>
+                                    <Button><Icon name={'align-right'}/></Button>
+                                </ButtonGroup>
+                                <ButtonGroup>
+                                    <Button type="danger"><Icon name={'align-center'}/></Button>
+                                    <Button type="danger"><Icon name={'align-justify'}/></Button>
+                                    <Button type="danger"><Icon name={'align-left'}/></Button>
+                                    <Button type="danger"><Icon name={'align-right'}/></Button>
+                                </ButtonGroup>
+                                <ButtonGroup>
+                                    <Button type="danger" inverse><Icon name={'align-center'}/></Button>
+                                    <Button type="danger"><Icon name={'align-justify'}/></Button>
+                                    <Button type="danger" inverse><Icon name={'align-left'}/></Button>
+                                    <Button type="danger" inverse><Icon name={'align-right'}/></Button>
+                                </ButtonGroup>
+                            </Button.Box>
                         </Box.Body>
                     </Box>
                     <Box>
