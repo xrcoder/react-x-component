@@ -1,26 +1,27 @@
 .x-box {
     background-color: #fff;
-    margin-bottom: 20px;
-    border-radius: 4px;
+    margin-bottom: 10px;
+    border-radius: 1px;
     box-shadow: 0 2px 4px 0 rgba(239, 242, 247, 1);
 }
 
 .x-box-header {
     color: #444;
     display: block;
-    padding: 10px;
+    padding: 10px 30px;
     position: relative;
-    font-size: 16px;
-    border-bottom: 1px solid #f4f4f4;
+    font-size: 14px;
+    border-bottom: 1px solid #EAEAEA;
+    font-weight: bold;
 }
 
 .x-box-body {
-    padding: 10px;
+    padding: 20px 30px;
     position: relative;
 }
 
 .x-box-footer {
-    border-top: 1px solid #f4f4f4;
-    padding: 10px;
+    border-top: 1px solid #EAEAEA;
+    padding: 10px 30px;
     position: relative;
 }
