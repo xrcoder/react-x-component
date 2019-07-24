@@ -2,7 +2,7 @@
     display: inline-flex;
     flex-wrap: wrap;
 
-    .item {
+    &-item {
         display: inline-flex;
         margin-right: 10px;
         margin-bottom: 6px;
@@ -20,7 +20,7 @@
         }
     }
 
-    .selected {
+    .x-radio-item-selected {
         .icon {
             border-color: #2A1166;
             border-width: 4px;
@@ -33,7 +33,7 @@
         }
     }
 
-    .disabled {
+    .x-radio-item-disabled {
         cursor: not-allowed;
 
         .icon {

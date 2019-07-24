@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import PropTypes from 'prop-types';
 
-function useCheckValue(initialValue) {
+function useValue(initialValue) {
     let [value, setValue] = useState(initialValue);
     let updateValue = (res) => {
         setValue(res);
@@ -10,7 +10,7 @@ function useCheckValue(initialValue) {
     return {value, updateValue};
 }
 
-function useCheckDisabled(initialValue) {
+function useDisabled(initialValue) {
     let [value, setValue] = useState(initialValue);
     let updateValue = (res) => {
         setValue(res);
@@ -18,14 +18,11 @@ function useCheckDisabled(initialValue) {
     return {value, updateValue};
 }
 
-function Item({className, style, disabled, label, value, onChange}) {
+function Item(props) {
+    const {className, style, label, value, disabled, onChange} = props;
 
-    const oValue = useCheckValue(value);
-    const oDisabled = useCheckValue(disabled);
-    const cls = classnames('x-checkbox-item', className, {
-        'x-checkbox-selected': oValue.value,
-        'x-checkbox-disabled': oDisabled.value
-    });
+    const oValue = useValue(value);
+    const oDisabled = useDisabled(disabled);
 
     useEffect(() => {
         oValue.updateValue(value);
@@ -35,17 +32,20 @@ function Item({className, style, disabled, label, value, onChange}) {
         oDisabled.updateValue(disabled);
     }, [disabled]);
 
+    const cls = classnames('x-radio-item', className, {
+        'x-radio-item-selected': oValue.value,
+        'x-radio-item-disabled': oDisabled.value
+    });
+
     return (
-        <div className={cls}
-             style={style}
-             onClick={(e) => {
-                 if (disabled) {
-                     return;
-                 }
-                 let v = !oValue.value;
-                 oValue.updateValue(v);
-                 onChange(e, v);
-             }}>
+        <div style={style} className={cls} onClick={(e) => {
+            if (disabled || oValue.value) {
+                return;
+            }
+            let v = !oValue.value;
+            oValue.updateValue(v);
+            onChange(e, v);
+        }}>
             <span className="icon"></span>
             <span className="name">{label}</span>
         </div>

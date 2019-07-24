@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
+import Item from './item';
 
 function useRadioList(initialValue) {
     let [list, setList] = useState(initialValue);
@@ -13,9 +14,9 @@ function useRadioList(initialValue) {
 function useRadioData(initialValue = null) {
     let [data, setData] = useState(initialValue);
 
-    let onSelected = (res, fn) => {
-        setData(res.value);
-        fn(res);
+    let onSelected = (item, fn, e) => {
+        setData(item);
+        fn(item, e);
     };
 
     let updateData = (res) => {
@@ -25,38 +26,40 @@ function useRadioData(initialValue = null) {
     return {data, onSelected, updateData};
 }
 
-function Item({data, selected, onSelected}) {
-    return (
-        <div className={classnames('item', {selected: selected === data.value}, {disabled: data.disabled})} onClick={() => {
-            !data.disabled && onSelected(data);
-        }}>
-            <span className="icon"></span>
-            <span className="name">{data.label}</span>
-        </div>
-    )
-}
-
 function Radio(props) {
-    const {className, style, data, selected, onChange} = props;
+    const {className, style, options, value, onChange} = props;
 
-    const oList = useRadioList(data.slice(0));
-    const oData = useRadioData(selected);
-
-    useEffect(() => {
-        oList.updateData(data);
-    }, [data]);
+    const oList = useRadioList(options.slice(0));
+    const oValue = useRadioData(value);
 
     useEffect(() => {
-        oData.updateData(selected);
-    }, [selected]);
+        oList.updateData(options.slice(0));
+    }, [options]);
+
+    useEffect(() => {
+        if (!value) {
+            oValue.updateData({});
+        } else {
+            oValue.updateData(value);
+        }
+    }, [value]);
 
     return (
         <div className={classnames('x-radio', className)} style={style}>
             {
                 oList.list.map((item) => {
-                    return <Item key={item.value} data={item} selected={oData.data} onSelected={(res) => {
-                        oData.onSelected(res, onChange)
-                    }}/>
+
+                    return (
+                        <Item
+                            key={item.value}
+                            label={item.label}
+                            disabled={item.disabled}
+                            value={item.value === oValue.data.value}
+                            onChange={(e) => {
+                                oValue.onSelected(item, onChange, e);
+                            }}
+                        />
+                    )
                 })
             }
         </div>
@@ -65,15 +68,17 @@ function Radio(props) {
 
 Radio.propTypes = {
     className: PropTypes.string,
-    data: PropTypes.array,
     style: PropTypes.object,
+    options: PropTypes.array,
+    value: PropTypes.object,
     onChange: PropTypes.func
 }
 
 Radio.defaultProps = {
     className: '',
-    data: [],
     style: null,
+    options: [],
+    value: null,
     onChange: function () {
     }
 }
