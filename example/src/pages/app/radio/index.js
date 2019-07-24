@@ -40,7 +40,7 @@ export default class extends React.Component {
     render() {
         return (
             <div>
-                <Row className="x-pagination-demo">
+                <Row>
                     <Col lg={6} md={12}>
                         <Box>
                             <Box.Header>基本使用</Box.Header>
@@ -59,8 +59,7 @@ export default class extends React.Component {
                                     this.setState({
                                         selected: {
                                             value: 2,
-                                            label: '桃子',
-                                            disabled: true
+                                            label: '桃子'
                                         }
                                     })
                                 }}>重置</Button>
