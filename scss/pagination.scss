@@ -16,7 +16,6 @@
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
-
             i {
                 vertical-align: middle;
             }
@@ -27,8 +26,6 @@
             text-align: center;
             transition: all .3s;
             cursor: pointer;
-            background-color: #fff;
-
             &.active {
                 font-weight: bold;
                 color: $pagination-page-regular-color;
