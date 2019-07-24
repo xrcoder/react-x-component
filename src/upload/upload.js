@@ -33,8 +33,8 @@ const Upload = ({ className, multiple, timeout, name, children, fileType, url, o
         postList.map((item) => {
             let file = item
             file.uid = getUid()
-            let isBeforeStart = onBeforeStart(files[0], e) || true;
-            if(isBeforeStart){
+            let isBeforeStart = onBeforeStart(files[0], e);
+            if(isBeforeStart || isBeforeStart == undefined){
                 upload(file, files)
             }
         })
@@ -116,9 +116,9 @@ Upload.propTypes = {
 
 Upload.defaultProps = {
     fileType: '*',
-    timeout: 3000,
+    timeout: 10000,
     name: 'file',
-    onBeforeStart: () => { },
+    onBeforeStart: () => { return true },
     onProgress: () => { },
     onError: () => { },
     onFinished: () => { }

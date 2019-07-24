@@ -5,7 +5,7 @@ import Upload from './upload';
 
 const Avatar = (props) => {
 
-    let { url, onChange, className, style, onError } = props;
+    let { url, onChange, className, style, onError, onBeforeStart } = props;
 
     let ImgObj = {};
 
@@ -15,7 +15,7 @@ const Avatar = (props) => {
                 {...props}
                 url={url}
                 onBeforeStart={(file, e) => {
-                    props.onBeforeStart(file, e)
+                    return onBeforeStart(file, e)
                 }}
                 onFinished={(r,file, e) => {
                     setTimeout(() => {
@@ -45,13 +45,15 @@ Avatar.propTypes = {
     onChange: PropTypes.func,
     imgList: PropTypes.array,
     onProgress: PropTypes.func,
-    onError: PropTypes.func
+    onError: PropTypes.func,
+    onBeforeStart: PropTypes.func
 };
 
 Avatar.defaultProps = {
     onChange: () => { },
     imgList: [],
     onProgress: () => { },
-    onError: ()=>{}
+    onError: ()=>{},
+    onBeforeStart: ()=>{return true}
 };
 

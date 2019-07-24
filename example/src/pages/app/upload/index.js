@@ -31,6 +31,10 @@ export default () => {
                                 className=""
                                 style={{}}
                                 imgList={thirdImgList}
+                                onBeforeStart = {(file, e)=>{
+                                    //返回false会拦截上传
+                                    return true
+                                }}
                                 onChange={(res,imgList, e) => {
                                     let _arr = [];
                                     imgList.map(item=>{
@@ -74,6 +78,8 @@ export default () => {
                                         _arr.push(item)
                                     })
                                     setDiyImgList(_arr);
+                                    
+                                    return true
                                 }}
                                 onFinished={(r,file, e) => {
                                     let _arr = [];
