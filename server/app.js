@@ -13,7 +13,7 @@ import chalk from 'chalk';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 
-import webpackConfig from './webpack.dev.conf';
+import webpackConfig from './webpack.example.dev';
 
 const helper = require('./helper');
 const {log} = console;
