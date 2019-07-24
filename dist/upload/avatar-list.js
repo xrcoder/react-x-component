@@ -32,7 +32,9 @@
     var url = props.url,
         _onChange = props.onChange,
         imgList = props.imgList,
-        maxLength = props.maxLength;
+        maxLength = props.maxLength,
+        onError = props.onError,
+        _onDeleteItem = props.onDeleteItem;
 
     var _useState = (0, _react.useState)(imgList),
         _useState2 = (0, _slicedToArray2["default"])(_useState, 2),
@@ -56,7 +58,7 @@
 
         setImgList(_list);
 
-        _onChange(_list);
+        _onDeleteItem(_list);
       }
     }), _imgList.length < maxLength ? _react["default"].createElement(_avatar["default"], (0, _extends2["default"])({}, props, {
       url: url,
@@ -67,11 +69,9 @@
 
         _imgList.push(file);
 
-        _onChange(_imgList, e);
-
         setImgList(_imgList);
       },
-      onChange: function onChange(file, e) {
+      onChange: function onChange(r, file, e) {
         var uploadList = _imgList;
         var index = uploadList.findIndex(function (item) {
           return item.uid === file.uid;
@@ -81,8 +81,11 @@
           list = _imgList;
           setImgList(uploadList);
 
-          _onChange(uploadList, e);
+          _onChange(r, uploadList, e);
         }, 600);
+      },
+      onError: function onError(file, e) {
+        props.onError(file, e);
       }
     })) : null);
   };
@@ -92,12 +95,16 @@
   AvatarList.propTypes = {
     onChange: _propTypes["default"].func,
     imgList: _propTypes["default"].array,
-    maxLength: _propTypes["default"].number
+    maxLength: _propTypes["default"].number,
+    onError: _propTypes["default"].func,
+    onDeleteItem: _propTypes["default"].func
   };
   AvatarList.defaultProps = {
     onChange: function onChange() {},
     imgList: [],
-    maxLength: 1
+    maxLength: 1,
+    onError: function onError() {},
+    onDeleteItem: function onDeleteItem() {}
   };
   module.exports = exports.default;
 });

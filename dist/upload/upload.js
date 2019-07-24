@@ -107,9 +107,12 @@
 
           _reader.readAsDataURL(file);
 
-          _reader.onload = function (e) {
+          _reader.onload = function (res) {
             file.imgData = _reader.result;
-            onFinished(file, e);
+
+            var _r = JSON.parse(e.target.response);
+
+            onFinished(_r, file, e);
           };
         });
         uploadList[uid].onError(function (e) {

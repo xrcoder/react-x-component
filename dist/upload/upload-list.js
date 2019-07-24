@@ -42,8 +42,6 @@
         setStyleType = _useState4[1];
 
     (0, _react.useEffect)(function () {
-      console.log(imgList);
-
       if (imgList.length >= 0) {
         setImgList(imgList);
       }
