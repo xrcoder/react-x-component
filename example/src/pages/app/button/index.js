@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Row, Col, Box, Icon, ButtonGroup, ButtonIcon} from 'react-x-component';
+import {Button, Row, Col, Box, Icon, ButtonGroup, ButtonIcon, Input} from 'react-x-component';
 import './index.scss';
 
 export default class extends React.Component {
@@ -292,6 +292,46 @@ export default class extends React.Component {
                                 <ButtonIcon icon={'user'} type="primary" inverse={true} onClick={() => {
                                     console.log('按钮点击');
                                 }}>用户</ButtonIcon>
+                            </Button.Box>
+                        </Box.Body>
+                    </Box>
+                    <Box>
+                        <Box.Header>按钮定位器（左对齐）</Box.Header>
+                        <Box.Body>
+                            <Button.Box align={'left'}>
+                                <ButtonIcon icon={'plus'} type="primary" inverse={true} onClick={() => {
+                                    console.log('按钮点击');
+                                }}>左对齐</ButtonIcon>
+                                <ButtonIcon icon={'user'} type="primary" inverse={true} onClick={() => {
+                                    console.log('按钮点击');
+                                }}>左对齐</ButtonIcon>
+                            </Button.Box>
+                        </Box.Body>
+                    </Box>
+                    <Box>
+                        <Box.Header>按钮定位器（居中）</Box.Header>
+                        <Box.Body>
+                            <Button.Box align={'center'}>
+                                <ButtonIcon icon={'plus'} type="primary" inverse={true} onClick={() => {
+                                    console.log('按钮点击');
+                                }}>居中</ButtonIcon>
+                                <ButtonIcon icon={'user'} type="primary" inverse={true} onClick={() => {
+                                    console.log('按钮点击');
+                                }}>居中</ButtonIcon>
+                            </Button.Box>
+                        </Box.Body>
+                    </Box>
+                    <Box>
+                        <Box.Header>按钮定位器（默认）</Box.Header>
+                        <Box.Body>
+                            <Button.Box>
+                                <Input.Search><Icon name={'search'}/></Input.Search>
+                                <Button type="primary" inverse={true} onClick={() => {
+                                    console.log('按钮点击');
+                                }}>重置</Button>
+                                <Button type="primary" inverse={true} onClick={() => {
+                                    console.log('按钮点击');
+                                }}>查询</Button>
                             </Button.Box>
                         </Box.Body>
                     </Box>
