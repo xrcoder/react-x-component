@@ -2,55 +2,16 @@
     display: inline-flex;
     flex-wrap: wrap;
 
-    &-item {
-        display: inline-flex;
-        margin-right: 10px;
+    .x-radio-item {
         margin-bottom: 6px;
-        cursor: pointer;
-        align-items: center;
-
-        &:last-child {
-            margin-right: 0;
-        }
-
-        &:hover {
-            .icon {
-                border-color: #645A82;
-            }
-        }
     }
+}
 
-    .x-radio-item-selected {
-        .icon {
-            border-color: #2A1166;
-            border-width: 4px;
-        }
-
-        &:hover {
-            .icon {
-                border-color: #2A1166;
-            }
-        }
-    }
-
-    .x-radio-item-disabled {
-        cursor: not-allowed;
-
-        .icon {
-            border-color: #d2d4de;
-            background-color: #F4F4F6;
-        }
-
-        .name {
-            opacity: 0.3;
-        }
-
-        &:hover {
-            .icon {
-                border-color: #d2d4de;
-            }
-        }
-    }
+.x-radio-item {
+    display: inline-flex;
+    margin-right: 10px;
+    cursor: pointer;
+    align-items: center;
 
     .icon {
         display: block;
@@ -67,5 +28,47 @@
         font-size: 14px;
         line-height: 14px;
         color: #484852;
+    }
+
+    &:last-child {
+        margin-right: 0;
+    }
+
+    &:hover {
+        .icon {
+            border-color: #645A82;
+        }
+    }
+}
+
+.x-radio-item-selected {
+    .icon {
+        border-color: #2A1166;
+        border-width: 4px;
+    }
+
+    &:hover {
+        .icon {
+            border-color: #2A1166;
+        }
+    }
+}
+
+.x-radio-item-disabled {
+    cursor: not-allowed;
+
+    .icon {
+        border-color: #d2d4de;
+        background-color: #F4F4F6;
+    }
+
+    .name {
+        opacity: 0.3;
+    }
+
+    &:hover {
+        .icon {
+            border-color: #d2d4de;
+        }
     }
 }

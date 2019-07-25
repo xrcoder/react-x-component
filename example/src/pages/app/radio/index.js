@@ -33,7 +33,9 @@ export default class extends React.Component {
             selected: {
                 value: 5,
                 label: '香蕉'
-            }
+            },
+            status: false,
+            disabled: true
         }
     }
 
@@ -55,50 +57,85 @@ export default class extends React.Component {
                                 <span>当前选中：{JSON.stringify(this.state.selected)}</span>
                             </Box.Body>
                             <Box.Footer>
-                                <Button onClick={() => {
-                                    this.setState({
-                                        selected: {
-                                            value: 2,
-                                            label: '桃子'
-                                        }
-                                    })
-                                }}>重置</Button>
-                                <Button onClick={() => {
-                                    this.setState({
-                                        data: [
-                                            {
-                                                value: 1,
-                                                label: '苹果'
-                                            },
-                                            {
+                                <Button.Box align={'left'}>
+                                    <Button onClick={() => {
+                                        this.setState({
+                                            selected: {
                                                 value: 2,
-                                                label: '桃子',
-                                                disabled: true
-                                            },
-                                            {
-                                                value: 3,
-                                                label: '猕猴桃'
-                                            },
-                                            {
-                                                value: 4,
-                                                label: '牛油果'
-                                            },
-                                            {
-                                                value: 5,
-                                                label: '香蕉'
-                                            },
-                                            {
-                                                value: 6,
-                                                label: '荔枝'
+                                                label: '桃子'
                                             }
-                                        ]
-                                    })
-                                }}>添加</Button>
-                                <Button onClick={() => {
-                                    this.setState({
-                                        selected: null
-                                    })
-                                }}>清空</Button>
+                                        })
+                                    }}>重置</Button>
+                                    <Button onClick={() => {
+                                        this.setState({
+                                            data: [
+                                                {
+                                                    value: 1,
+                                                    label: '苹果'
+                                                },
+                                                {
+                                                    value: 2,
+                                                    label: '桃子',
+                                                    disabled: true
+                                                },
+                                                {
+                                                    value: 3,
+                                                    label: '猕猴桃'
+                                                },
+                                                {
+                                                    value: 4,
+                                                    label: '牛油果'
+                                                },
+                                                {
+                                                    value: 5,
+                                                    label: '香蕉'
+                                                },
+                                                {
+                                                    value: 6,
+                                                    label: '荔枝'
+                                                }
+                                            ]
+                                        })
+                                    }}>添加</Button>
+                                    <Button onClick={() => {
+                                        this.setState({
+                                            selected: null
+                                        })
+                                    }}>清空</Button>
+                                </Button.Box>
+                            </Box.Footer>
+                        </Box>
+                    </Col>
+                    <Col lg={6} md={12}>
+                        <Box>
+                            <Box.Header>单独使用</Box.Header>
+                            <Box.Body>
+                                <Radio.Item
+                                    value={this.state.status}
+                                    label={'男性'}
+                                    disabled={this.state.disabled}
+                                    onChange={(e, res) => {
+                                        this.setState({
+                                            status: res
+                                        })
+                                    }}/>
+                            </Box.Body>
+                            <Box.Body>
+                                <span>当前状态：{JSON.stringify(this.state.status)}</span>
+                            </Box.Body>
+                            <Box.Footer>
+                                <Button.Box align={'left'}>
+                                    <Button onClick={() => {
+                                        this.setState({
+                                            status: false
+                                        })
+                                    }}>重置</Button>
+                                    <Button onClick={() => {
+                                        this.setState({
+                                            disabled: !this.state.disabled
+                                        })
+                                    }}>禁用</Button>
+                                </Button.Box>
                             </Box.Footer>
                         </Box>
                     </Col>
