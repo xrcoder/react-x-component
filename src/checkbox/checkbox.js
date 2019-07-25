@@ -33,18 +33,23 @@ function useCheckData(initialValue) {
 }
 
 function CheckBox(props) {
-    const {className, style, data, selected, onChange} = props;
+    const {className, style, options, value, onChange} = props;
 
-    const oList = useCheckList(data.slice(0));
-    const oData = useCheckData(selected.slice(0));
-
-    useEffect(() => {
-        oList.updateData(data);
-    }, [data]);
+    const oList = useCheckList(options);
+    const oData = useCheckData(value);
 
     useEffect(() => {
-        oData.updateData(selected);
-    }, [selected]);
+        oList.updateData(options);
+    }, [options]);
+
+    useEffect(() => {
+        console.log(value);
+        if (value === null) {
+            oData.updateData([]);
+        } else {
+            oData.updateData(value);
+        }
+    }, [value]);
 
     return (
         <div className={classnames('x-checkbox-group', className)} style={style}>
@@ -68,16 +73,16 @@ function CheckBox(props) {
 
 CheckBox.propTypes = {
     className: PropTypes.string,
-    data: PropTypes.array,
-    selected: PropTypes.array,
+    options: PropTypes.array,
+    value: PropTypes.array,
     style: PropTypes.object,
     onChange: PropTypes.func
 }
 
 CheckBox.defaultProps = {
     className: '',
-    data: [],
-    selected: [],
+    options: [],
+    value: [],
     style: null,
     onChange: function () {
     }

@@ -46,49 +46,58 @@ export default class extends React.Component {
                         <Box.Header>基本使用</Box.Header>
                         <Box.Body>
                             <Checkbox
-                                data={this.state.data}
-                                selected={this.state.selected}
+                                options={this.state.data}
+                                value={this.state.selected}
                                 onChange={(res) => {
-                                    console.log(res);
+                                    this.setState({
+                                        selected: res
+                                    })
                                 }}
                             />
                         </Box.Body>
                         <Box.Footer>
-                            <Button onClick={() => {
-                                this.setState({
-                                    selected: [1, 2, 3]
-                                })
-                            }}><Icon name={'plus'}/>添加选中项</Button>
-                            <Button onClick={() => {
-                                this.setState({
-                                    data: [
-                                        {
-                                            value: 1,
-                                            label: '苹果'
-                                        },
-                                        {
-                                            value: 2,
-                                            label: '桃子'
-                                        },
-                                        {
-                                            value: 3,
-                                            label: '猕猴桃'
-                                        },
-                                        {
-                                            value: 4,
-                                            label: '牛油果'
-                                        },
-                                        {
-                                            value: 5,
-                                            label: '香蕉'
-                                        },
-                                        {
-                                            value: 6,
-                                            label: '励志'
-                                        }
-                                    ]
-                                })
-                            }}><Icon name={'plus'}/>添加列表项</Button>
+                            <Button.Box align={'left'}>
+                                <Button onClick={() => {
+                                    this.setState({
+                                        selected: [1, 2, 3]
+                                    })
+                                }}>修改</Button>
+                                <Button onClick={() => {
+                                    this.setState({
+                                        data: [
+                                            {
+                                                value: 1,
+                                                label: '苹果'
+                                            },
+                                            {
+                                                value: 2,
+                                                label: '桃子'
+                                            },
+                                            {
+                                                value: 3,
+                                                label: '猕猴桃'
+                                            },
+                                            {
+                                                value: 4,
+                                                label: '牛油果'
+                                            },
+                                            {
+                                                value: 5,
+                                                label: '香蕉'
+                                            },
+                                            {
+                                                value: 6,
+                                                label: '励志'
+                                            }
+                                        ]
+                                    })
+                                }}>添加</Button>
+                                <Button onClick={() => {
+                                    this.setState({
+                                        selected: null
+                                    })
+                                }}>清空</Button>
+                            </Button.Box>
                         </Box.Footer>
                     </Box>
                 </Col>
@@ -107,16 +116,18 @@ export default class extends React.Component {
                                 }}/>
                         </Box.Body>
                         <Box.Footer>
-                            <Button onClick={() => {
-                                this.setState({
-                                    isMark: !this.state.isMark
-                                })
-                            }}><Icon name={'plus'}/>切换状态</Button>
-                            <Button onClick={() => {
-                                this.setState({
-                                    isDisabled: !this.state.isDisabled
-                                })
-                            }}><Icon name={'ban'}/>切换禁用</Button>
+                            <Button.Box align={'left'}>
+                                <Button onClick={() => {
+                                    this.setState({
+                                        isMark: !this.state.isMark
+                                    })
+                                }}><Icon name={'plus'}/>切换状态</Button>
+                                <Button onClick={() => {
+                                    this.setState({
+                                        isDisabled: !this.state.isDisabled
+                                    })
+                                }}><Icon name={'ban'}/>切换禁用</Button>
+                            </Button.Box>
                         </Box.Footer>
                     </Box>
                 </Col>
