@@ -34,7 +34,8 @@
         imgList = props.imgList,
         maxLength = props.maxLength,
         onError = props.onError,
-        _onDeleteItem = props.onDeleteItem;
+        _onDeleteItem = props.onDeleteItem,
+        _onBeforeStart = props.onBeforeStart;
 
     var _useState = (0, _react.useState)(imgList),
         _useState2 = (0, _slicedToArray2["default"])(_useState, 2),
@@ -70,6 +71,7 @@
         _imgList.push(file);
 
         setImgList(_imgList);
+        return _onBeforeStart(file, e);
       },
       onChange: function onChange(r, file, e) {
         var uploadList = _imgList;
@@ -97,14 +99,18 @@
     imgList: _propTypes["default"].array,
     maxLength: _propTypes["default"].number,
     onError: _propTypes["default"].func,
-    onDeleteItem: _propTypes["default"].func
+    onDeleteItem: _propTypes["default"].func,
+    onBeforeStart: _propTypes["default"].func
   };
   AvatarList.defaultProps = {
     onChange: function onChange() {},
     imgList: [],
     maxLength: 1,
     onError: function onError() {},
-    onDeleteItem: function onDeleteItem() {}
+    onDeleteItem: function onDeleteItem() {},
+    onBeforeStart: function onBeforeStart() {
+      return true;
+    }
   };
   module.exports = exports.default;
 });

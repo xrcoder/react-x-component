@@ -79,9 +79,9 @@
       postList.map(function (item) {
         var file = item;
         file.uid = getUid();
-        var isBeforeStart = onBeforeStart(files[0], e) || true;
+        var isBeforeStart = onBeforeStart(files[0], e);
 
-        if (isBeforeStart) {
+        if (isBeforeStart || isBeforeStart == undefined) {
           upload(file, files);
         }
       });
@@ -167,9 +167,11 @@
   };
   Upload.defaultProps = {
     fileType: '*',
-    timeout: 3000,
+    timeout: 10000,
     name: 'file',
-    onBeforeStart: function onBeforeStart() {},
+    onBeforeStart: function onBeforeStart() {
+      return true;
+    },
     onProgress: function onProgress() {},
     onError: function onError() {},
     onFinished: function onFinished() {}

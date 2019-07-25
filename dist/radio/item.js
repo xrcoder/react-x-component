@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "@babel/runtime/helpers/slicedToArray", "react", "prop-types", "classnames"], factory);
+    define(["exports", "@babel/runtime/helpers/slicedToArray", "react", "classnames", "prop-types"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("@babel/runtime/helpers/slicedToArray"), require("react"), require("prop-types"), require("classnames"));
+    factory(exports, require("@babel/runtime/helpers/slicedToArray"), require("react"), require("classnames"), require("prop-types"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.slicedToArray, global.react, global.propTypes, global.classnames);
+    factory(mod.exports, global.slicedToArray, global.react, global.classnames, global.propTypes);
     global.item = mod.exports;
   }
-})(this, function (_exports, _slicedToArray2, _react, _propTypes, _classnames) {
+})(this, function (_exports, _slicedToArray2, _react, _classnames, _propTypes) {
   "use strict";
 
   var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
@@ -23,10 +23,10 @@
   _exports["default"] = void 0;
   _slicedToArray2 = _interopRequireDefault(_slicedToArray2);
   _react = _interopRequireWildcard(_react);
-  _propTypes = _interopRequireDefault(_propTypes);
   _classnames = _interopRequireDefault(_classnames);
+  _propTypes = _interopRequireDefault(_propTypes);
 
-  function useCheckValue(initialValue) {
+  function useValue(initialValue) {
     var _useState = (0, _react.useState)(initialValue),
         _useState2 = (0, _slicedToArray2["default"])(_useState, 2),
         value = _useState2[0],
@@ -42,7 +42,7 @@
     };
   }
 
-  function useCheckDisabled(initialValue) {
+  function useDisabled(initialValue) {
     var _useState3 = (0, _react.useState)(initialValue),
         _useState4 = (0, _slicedToArray2["default"])(_useState3, 2),
         value = _useState4[0],
@@ -58,30 +58,30 @@
     };
   }
 
-  function Item(_ref) {
-    var className = _ref.className,
-        style = _ref.style,
-        disabled = _ref.disabled,
-        label = _ref.label,
-        value = _ref.value,
-        onChange = _ref.onChange;
-    var oValue = useCheckValue(value);
-    var oDisabled = useCheckValue(disabled);
-    var cls = (0, _classnames["default"])('x-checkbox-item', className, {
-      'x-checkbox-selected': oValue.value,
-      'x-checkbox-disabled': oDisabled.value
-    });
+  function Item(props) {
+    var className = props.className,
+        style = props.style,
+        label = props.label,
+        value = props.value,
+        disabled = props.disabled,
+        onChange = props.onChange;
+    var oValue = useValue(value);
+    var oDisabled = useDisabled(disabled);
     (0, _react.useEffect)(function () {
       oValue.updateValue(value);
     }, [value]);
     (0, _react.useEffect)(function () {
       oDisabled.updateValue(disabled);
     }, [disabled]);
+    var cls = (0, _classnames["default"])('x-radio-item', className, {
+      'x-radio-item-selected': oValue.value,
+      'x-radio-item-disabled': oDisabled.value
+    });
     return _react["default"].createElement("div", {
-      className: cls,
       style: style,
+      className: cls,
       onClick: function onClick(e) {
-        if (disabled) {
+        if (disabled || oValue.value) {
           return;
         }
 

@@ -28,7 +28,7 @@
         className = props.className;
     return _react["default"].createElement("div", {
       style: style,
-      className: (0, _classnames["default"])('x-button-group', className)
+      className: (0, _classnames["default"])('x-btn-group', className)
     }, children);
   };
 

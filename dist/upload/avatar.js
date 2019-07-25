@@ -32,14 +32,15 @@
         onChange = props.onChange,
         className = props.className,
         style = props.style,
-        onError = props.onError;
+        onError = props.onError,
+        _onBeforeStart = props.onBeforeStart;
     var ImgObj = {};
     return _react["default"].createElement("div", {
       className: "x-upload-list"
     }, _react["default"].createElement(_upload["default"], (0, _extends2["default"])({}, props, {
       url: url,
       onBeforeStart: function onBeforeStart(file, e) {
-        props.onBeforeStart(file, e);
+        return _onBeforeStart(file, e);
       },
       onFinished: function onFinished(r, file, e) {
         setTimeout(function () {
@@ -66,13 +67,17 @@
     onChange: _propTypes["default"].func,
     imgList: _propTypes["default"].array,
     onProgress: _propTypes["default"].func,
-    onError: _propTypes["default"].func
+    onError: _propTypes["default"].func,
+    onBeforeStart: _propTypes["default"].func
   };
   Avatar.defaultProps = {
     onChange: function onChange() {},
     imgList: [],
     onProgress: function onProgress() {},
-    onError: function onError() {}
+    onError: function onError() {},
+    onBeforeStart: function onBeforeStart() {
+      return true;
+    }
   };
   module.exports = exports.default;
 });
