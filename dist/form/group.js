@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "@babel/runtime/helpers/extends", "@babel/runtime/helpers/slicedToArray", "react", "classnames", "prop-types"], factory);
+    define(["exports", "@babel/runtime/helpers/extends", "@babel/runtime/helpers/toArray", "@babel/runtime/helpers/slicedToArray", "react", "classnames", "prop-types"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("@babel/runtime/helpers/extends"), require("@babel/runtime/helpers/slicedToArray"), require("react"), require("classnames"), require("prop-types"));
+    factory(exports, require("@babel/runtime/helpers/extends"), require("@babel/runtime/helpers/toArray"), require("@babel/runtime/helpers/slicedToArray"), require("react"), require("classnames"), require("prop-types"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global._extends, global.slicedToArray, global.react, global.classnames, global.propTypes);
+    factory(mod.exports, global._extends, global.toArray, global.slicedToArray, global.react, global.classnames, global.propTypes);
     global.group = mod.exports;
   }
-})(this, function (_exports, _extends2, _slicedToArray2, _react, _classnames, _propTypes) {
+})(this, function (_exports, _extends2, _toArray2, _slicedToArray2, _react, _classnames, _propTypes) {
   "use strict";
 
   var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
@@ -22,6 +22,7 @@
   });
   _exports["default"] = void 0;
   _extends2 = _interopRequireDefault(_extends2);
+  _toArray2 = _interopRequireDefault(_toArray2);
   _slicedToArray2 = _interopRequireDefault(_slicedToArray2);
   _react = _interopRequireWildcard(_react);
   _classnames = _interopRequireDefault(_classnames);
@@ -50,15 +51,17 @@
     var horizontal = props.horizontal,
         className = props.className,
         errorMsg = props.errorMsg,
+        info = props.info,
         children = props.children,
         required = props.required;
 
     var _React$Children$map = _react["default"].Children.map(children, function (child) {
       return child;
     }),
-        _React$Children$map2 = (0, _slicedToArray2["default"])(_React$Children$map, 2),
+        _React$Children$map2 = (0, _toArray2["default"])(_React$Children$map),
         Name = _React$Children$map2[0],
-        Input = _React$Children$map2[1];
+        Input = _React$Children$map2[1],
+        Child = _React$Children$map2.slice(2);
 
     var oMsg = useErrorMsg(errorMsg);
     (0, _react.useEffect)(function () {
@@ -72,7 +75,7 @@
       required: required
     })), Input && _react["default"].createElement(Input.type, (0, _extends2["default"])({}, Input.props, {
       error: Boolean(oMsg.msg)
-    })), oMsg.msg && _react["default"].createElement("span", {
+    })), Child, oMsg.msg && _react["default"].createElement("span", {
       className: "x-form-group-tips"
     }, oMsg.msg));
   }

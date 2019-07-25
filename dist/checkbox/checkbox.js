@@ -77,17 +77,23 @@
   function CheckBox(props) {
     var className = props.className,
         style = props.style,
-        data = props.data,
-        selected = props.selected,
+        options = props.options,
+        value = props.value,
         _onChange = props.onChange;
-    var oList = useCheckList(data.slice(0));
-    var oData = useCheckData(selected.slice(0));
+    var oList = useCheckList(options);
+    var oData = useCheckData(value);
     (0, _react.useEffect)(function () {
-      oList.updateData(data);
-    }, [data]);
+      oList.updateData(options);
+    }, [options]);
     (0, _react.useEffect)(function () {
-      oData.updateData(selected);
-    }, [selected]);
+      console.log(value);
+
+      if (value === null) {
+        oData.updateData([]);
+      } else {
+        oData.updateData(value);
+      }
+    }, [value]);
     return _react["default"].createElement("div", {
       className: (0, _classnames["default"])('x-checkbox-group', className),
       style: style
@@ -107,15 +113,15 @@
 
   CheckBox.propTypes = {
     className: _propTypes["default"].string,
-    data: _propTypes["default"].array,
-    selected: _propTypes["default"].array,
+    options: _propTypes["default"].array,
+    value: _propTypes["default"].array,
     style: _propTypes["default"].object,
     onChange: _propTypes["default"].func
   };
   CheckBox.defaultProps = {
     className: '',
-    data: [],
-    selected: [],
+    options: [],
+    value: [],
     style: null,
     onChange: function onChange() {}
   };
