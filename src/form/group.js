@@ -17,8 +17,8 @@ function useErrorMsg(initialValue) {
 }
 
 function Group(props) {
-    const {horizontal, className, errorMsg, children, required} = props;
-    const [Name, Input] = React.Children.map(children, (child) => child);
+    const {horizontal, className, errorMsg, info, children, required} = props;
+    const [Name, Input, ...Child] = React.Children.map(children, (child) => child);
     const oMsg = useErrorMsg(errorMsg);
 
     useEffect(() => {
@@ -29,6 +29,7 @@ function Group(props) {
         <div className={classnames('x-form-group', {'x-form-group-horizontal': horizontal}, className)}>
             {Name && <Name.type {...Name.props} required={required}/>}
             {Input && <Input.type {...Input.props} error={Boolean(oMsg.msg)}/>}
+            {Child}
             {oMsg.msg && <span className="x-form-group-tips">{oMsg.msg}</span>}
         </div>
     );

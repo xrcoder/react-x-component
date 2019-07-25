@@ -298,15 +298,15 @@ export default class extends React.Component {
                         </Box.Body>
                     </Box>
                     <Box>
-                        <Box.Header>按钮定位器（左对齐）</Box.Header>
+                        <Box.Header>按钮定位器（靠左）</Box.Header>
                         <Box.Body>
                             <Button.Box align={'left'}>
                                 <ButtonIcon icon={'plus'} type="primary" inverse={true} onClick={() => {
                                     console.log('按钮点击');
-                                }}>左对齐</ButtonIcon>
+                                }}>加号</ButtonIcon>
                                 <ButtonIcon icon={'user'} type="primary" inverse={true} onClick={() => {
                                     console.log('按钮点击');
-                                }}>左对齐</ButtonIcon>
+                                }}>用户</ButtonIcon>
                             </Button.Box>
                         </Box.Body>
                     </Box>
