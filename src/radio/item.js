@@ -1,22 +1,7 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
-
-function useValue(initialValue) {
-    let [value, setValue] = useState(initialValue);
-    let updateValue = (res) => {
-        setValue(res);
-    };
-    return {value, updateValue};
-}
-
-function useDisabled(initialValue) {
-    let [value, setValue] = useState(initialValue);
-    let updateValue = (res) => {
-        setValue(res);
-    };
-    return {value, updateValue};
-}
+import {useValue, useDisabled} from './use';
 
 function Item(props) {
     const {className, style, label, value, disabled, onChange} = props;
