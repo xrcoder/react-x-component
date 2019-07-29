@@ -27,7 +27,7 @@ function ButtonLink(props) {
     }, className);
 
     return (
-        <Link {...props} className={btnClass}>{children}</Link>
+        <Link {...props} className={btnClass} inverse={null} type={null} size={null}>{children}</Link>
     );
 }
 
