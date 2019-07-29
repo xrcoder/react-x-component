@@ -1,70 +1,29 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "@babel/runtime/helpers/slicedToArray", "react", "prop-types", "./btn", "../button"], factory);
+    define(["exports", "react", "prop-types", "./btn", "../button", "./use"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("@babel/runtime/helpers/slicedToArray"), require("react"), require("prop-types"), require("./btn"), require("../button"));
+    factory(exports, require("react"), require("prop-types"), require("./btn"), require("../button"), require("./use"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.slicedToArray, global.react, global.propTypes, global.btn, global.button);
+    factory(mod.exports, global.react, global.propTypes, global.btn, global.button, global.use);
     global.radio_btn = mod.exports;
   }
-})(this, function (_exports, _slicedToArray2, _react, _propTypes, _btn, _button) {
+})(this, function (_exports, _react, _propTypes, _btn, _button, _use) {
   "use strict";
 
-  var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
-
   var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+  var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
 
   Object.defineProperty(_exports, "__esModule", {
     value: true
   });
   _exports["default"] = void 0;
-  _slicedToArray2 = _interopRequireDefault(_slicedToArray2);
   _react = _interopRequireWildcard(_react);
   _propTypes = _interopRequireDefault(_propTypes);
   _btn = _interopRequireDefault(_btn);
-
-  function useRadioList(initialValue) {
-    var _useState = (0, _react.useState)(initialValue),
-        _useState2 = (0, _slicedToArray2["default"])(_useState, 2),
-        list = _useState2[0],
-        setList = _useState2[1];
-
-    var updateData = function updateData(res) {
-      setList(res);
-    };
-
-    return {
-      list: list,
-      updateData: updateData
-    };
-  }
-
-  function useRadioData() {
-    var initialValue = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
-
-    var _useState3 = (0, _react.useState)(initialValue),
-        _useState4 = (0, _slicedToArray2["default"])(_useState3, 2),
-        data = _useState4[0],
-        setData = _useState4[1];
-
-    var onSelected = function onSelected(item, fn, e) {
-      setData(item);
-      fn(item, e);
-    };
-
-    var updateData = function updateData(res) {
-      setData(res);
-    };
-
-    return {
-      data: data,
-      onSelected: onSelected,
-      updateData: updateData
-    };
-  }
 
   function Radio(props) {
     var className = props.className,
@@ -74,8 +33,8 @@
         type = props.type,
         value = props.value,
         _onChange = props.onChange;
-    var oList = useRadioList(options.slice(0));
-    var oValue = useRadioData(value);
+    var oList = (0, _use.useRadioList)(options.slice(0));
+    var oValue = (0, _use.useRadioData)(value);
     (0, _react.useEffect)(function () {
       oList.updateData(options.slice(0));
     }, [options]);
