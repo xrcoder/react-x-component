@@ -46,7 +46,7 @@
       style: style,
       type: type,
       disabled: oDisabled.value,
-      inverse: !oValue.value,
+      inverse: oValue.value,
       size: size,
       className: className,
       onClick: function onClick(e) {

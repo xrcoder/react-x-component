@@ -22,7 +22,7 @@ function Btn(props) {
             style={style}
             type={type}
             disabled={oDisabled.value}
-            inverse={!oValue.value}
+            inverse={oValue.value}
             size={size}
             className={className}
             onClick={(e) => {
