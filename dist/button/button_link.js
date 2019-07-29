@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "@babel/runtime/helpers/slicedToArray", "react", "classnames", "prop-types", "./button_box", "./button_link"], factory);
+    define(["exports", "@babel/runtime/helpers/extends", "@babel/runtime/helpers/slicedToArray", "react", "classnames", "react-router-dom", "prop-types"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("@babel/runtime/helpers/slicedToArray"), require("react"), require("classnames"), require("prop-types"), require("./button_box"), require("./button_link"));
+    factory(exports, require("@babel/runtime/helpers/extends"), require("@babel/runtime/helpers/slicedToArray"), require("react"), require("classnames"), require("react-router-dom"), require("prop-types"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.slicedToArray, global.react, global.classnames, global.propTypes, global.button_box, global.button_link);
-    global.button = mod.exports;
+    factory(mod.exports, global._extends, global.slicedToArray, global.react, global.classnames, global.reactRouterDom, global.propTypes);
+    global.button_link = mod.exports;
   }
-})(this, function (_exports, _slicedToArray2, _react, _classnames, _propTypes, _button_box, _button_link) {
+})(this, function (_exports, _extends2, _slicedToArray2, _react, _classnames, _reactRouterDom, _propTypes) {
   "use strict";
 
   var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
@@ -21,22 +21,18 @@
     value: true
   });
   _exports["default"] = void 0;
+  _extends2 = _interopRequireDefault(_extends2);
   _slicedToArray2 = _interopRequireDefault(_slicedToArray2);
   _react = _interopRequireWildcard(_react);
   _classnames = _interopRequireDefault(_classnames);
   _propTypes = _interopRequireDefault(_propTypes);
-  _button_box = _interopRequireDefault(_button_box);
-  _button_link = _interopRequireDefault(_button_link);
 
-  function Button(props) {
+  function ButtonLink(props) {
     var className = props.className,
-        style = props.style,
-        disabled = props.disabled,
         size = props.size,
         type = props.type,
         inverse = props.inverse,
-        children = props.children,
-        _onClick = props.onClick;
+        children = props.children;
 
     var _useState = (0, _react.useState)(inverse),
         _useState2 = (0, _slicedToArray2["default"])(_useState, 2),
@@ -62,37 +58,24 @@
       'x-btn-sm': size === 'sm',
       'x-btn-inverse': btnInverse
     }, className);
-    return _react["default"].createElement("button", {
-      style: style,
-      className: btnClass,
-      disabled: disabled,
-      onClick: function onClick(e) {
-        _onClick && _onClick(e);
-      }
-    }, children);
+    return _react["default"].createElement(_reactRouterDom.Link, (0, _extends2["default"])({}, props, {
+      className: btnClass
+    }), children);
   }
 
-  Button.Box = _button_box["default"];
-  Button.Link = _button_link["default"];
-  Button.propTypes = {
+  ButtonLink.propTypes = {
     className: _propTypes["default"].string,
-    style: _propTypes["default"].object,
     type: _propTypes["default"].oneOf(['primary', 'danger', 'text', null]),
     size: _propTypes["default"].oneOf(['lg', 'sm', null]),
-    inverse: _propTypes["default"].bool,
-    disabled: _propTypes["default"].bool,
-    onClick: _propTypes["default"].func
+    inverse: _propTypes["default"].bool
   };
-  Button.defaultProps = {
+  ButtonLink.defaultProps = {
     className: '',
-    style: null,
     type: null,
     size: null,
-    inverse: false,
-    disabled: false,
-    onClick: function onClick() {}
+    inverse: false
   };
-  var _default = Button;
+  var _default = ButtonLink;
   _exports["default"] = _default;
   module.exports = exports.default;
 });
