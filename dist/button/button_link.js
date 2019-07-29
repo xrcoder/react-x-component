@@ -59,7 +59,10 @@
       'x-btn-inverse': btnInverse
     }, className);
     return _react["default"].createElement(_reactRouterDom.Link, (0, _extends2["default"])({}, props, {
-      className: btnClass
+      className: btnClass,
+      inverse: null,
+      type: null,
+      size: null
     }), children);
   }
 
