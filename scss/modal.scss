@@ -49,7 +49,7 @@
 }
 
 .x-modal-content.x-modal-md {
-    width: 640px;
+    width: 646px;
 }
 
 .x-modal-content.x-modal-lg {
@@ -90,6 +90,9 @@
 .x-modal-footer {
     padding: 16px 30px;
     border-top: 1px solid #F3F3F3;
+    .x-btn-box {
+        margin-bottom: -10px;
+    }
 }
 
 .x-modal-confirm .x-modal-body {
