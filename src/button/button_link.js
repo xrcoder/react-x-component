@@ -1,12 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import classnames from 'classnames';
+import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
-import ButtonBox from './button_box';
-import ButtonLink from './button_link';
 
-function Button(props) {
+function ButtonLink(props) {
 
-    const {className, style, disabled, size, type, inverse, children, onClick} = props;
+    const {className, size, type, inverse, children} = props;
     const [btnInverse, setBtnInverse] = useState(inverse);
     const [btnType, setBtnType] = useState(type);
 
@@ -28,34 +27,22 @@ function Button(props) {
     }, className);
 
     return (
-        <button style={style} className={btnClass} disabled={disabled} onClick={(e) => {
-            onClick && onClick(e);
-        }}>{children}</button>
+        <Link {...props} className={btnClass}>{children}</Link>
     );
 }
 
-Button.Box = ButtonBox;
-Button.Link = ButtonLink;
-
-Button.propTypes = {
+ButtonLink.propTypes = {
     className: PropTypes.string,
-    style: PropTypes.object,
     type: PropTypes.oneOf(['primary', 'danger', 'text', null]),
     size: PropTypes.oneOf(['lg', 'sm', null]),
-    inverse: PropTypes.bool,
-    disabled: PropTypes.bool,
-    onClick: PropTypes.func
+    inverse: PropTypes.bool
 }
 
-Button.defaultProps = {
+ButtonLink.defaultProps = {
     className: '',
-    style: null,
     type: null,
     size: null,
-    inverse: false,
-    disabled: false,
-    onClick: function () {
-    }
+    inverse: false
 }
 
-export default Button;
+export default ButtonLink;

@@ -337,6 +337,14 @@ export default class extends React.Component {
                             </Button.Box>
                         </Box.Body>
                     </Box>
+                    <Box>
+                        <Box.Header>链接按钮</Box.Header>
+                        <Box.Body>
+                            <Button.Box align={'left'}>
+                                <Button.Link type="primary" inverse={true}>重置</Button.Link>
+                            </Button.Box>
+                        </Box.Body>
+                    </Box>
                 </Col>
             </Row>
         );
