@@ -341,7 +341,8 @@ export default class extends React.Component {
                         <Box.Header>链接按钮</Box.Header>
                         <Box.Body>
                             <Button.Box align={'left'}>
-                                <Button.Link type="primary" inverse={true}>重置</Button.Link>
+                                <Button.Link type="primary" inverse={true} to="/b/grid">栅格化</Button.Link>
+                                <Button.Link type="primary" to="/b/icon">图标</Button.Link>
                             </Button.Box>
                         </Box.Body>
                     </Box>
