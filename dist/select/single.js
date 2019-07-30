@@ -36,6 +36,7 @@
         value = props.value,
         noOptionsMessage = props.noOptionsMessage,
         placeholder = props.placeholder,
+        menuPlacement = props.menuPlacement,
         components = props.components,
         onChange = props.onChange;
     return _react["default"].createElement(_reactSelect["default"], {
@@ -51,7 +52,8 @@
       noOptionsMessage: noOptionsMessage,
       options: options,
       onChange: onChange,
-      isRtl: isRtl
+      isRtl: isRtl,
+      menuPlacement: menuPlacement
     });
   }
 
