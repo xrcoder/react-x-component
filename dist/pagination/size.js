@@ -31,6 +31,7 @@
     var pageSize = props.pageSize,
         count = props.count,
         className = props.className,
+        menuPlacement = props.menuPlacement,
         pageSizeOpt = props.pageSizeOpt;
 
     var _useState = (0, _react.useState)(pageSize),
@@ -66,6 +67,7 @@
       className: "x-pagination-size-count"
     }, "\u5171 ", count, " \u6761"), _react["default"].createElement(_select["default"].Single, {
       className: "x-pagination-size-select",
+      menuPlacement: menuPlacement,
       size: 'sm',
       value: {
         value: _pageSize,

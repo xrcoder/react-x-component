@@ -37,6 +37,7 @@
         props.onPageChange && props.onPageChange(res);
       }
     }), _react["default"].createElement(_size["default"], {
+      menuPlacement: props.menuPlacement,
       pageSize: props.pageSize,
       count: props.count,
       onPageSizeChange: function onPageSizeChange(res) {

@@ -43,9 +43,12 @@ export default class extends React.Component {
                                     <Pagination.Page className="pagination-page" count={this.state.count}
                                                      currPage={this.state.currentPage} pageSize={this.state.pageSize}
                                                      onPageChange={::this.onPageChange}/>
-                                    <Pagination.Size className="pagination-size" count={this.state.count}
+                                    <Pagination.Size className="pagination-size"
+                                                     count={this.state.count}
                                                      pageSize={this.state.pageSize}
-                                                     onPageSizeChange={::this.onPageSizeChange}/>
+                                                     menuPlacement={'top'}
+                                                     onPageSizeChange={::this.onPageSizeChange}
+                                    />
                                 </Col>
                                 <Col md={12}>
                                     <Pagination style={{width:'100%'}} className="combination-pagination" count={this.state.count}

@@ -11,10 +11,14 @@ const Pagination = (props) => {
         <div className={classnames('x-pagination', props.className)} style={props.style}>
             <Page count={props.count} currPage={props.currPage} pageSize={props.pageSize} onPageChange={(res) => {
                 props.onPageChange && props.onPageChange(res);
-            }} />
-            <Size pageSize={props.pageSize} count={props.count} onPageSizeChange={(res) => {
-                props.onPageSizeChange && props.onPageSizeChange(res)
-            }} />
+            }}/>
+            <Size
+                menuPlacement={props.menuPlacement}
+                pageSize={props.pageSize}
+                count={props.count}
+                onPageSizeChange={(res) => {
+                    props.onPageSizeChange && props.onPageSizeChange(res)
+                }}/>
         </div>
     )
 

@@ -5,7 +5,7 @@ import Select from '../select';
 
 const Size = (props) => {
 
-    const {pageSize, count, className, pageSizeOpt} = props;
+    const {pageSize, count, className, menuPlacement, pageSizeOpt} = props;
 
     const [_pageSize, setPageSize] = useState(pageSize);
     const [_count, setCount] = useState(count);
@@ -37,6 +37,7 @@ const Size = (props) => {
             </div>
             <Select.Single
                 className={"x-pagination-size-select"}
+                menuPlacement={menuPlacement}
                 size={'sm'}
                 value={{
                     value: _pageSize,
