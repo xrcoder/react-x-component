@@ -81,6 +81,10 @@ export default class extends React.Component {
                 {
                     name: 'Remind 提醒',
                     pathname: `/${prefix}/remind`
+                },
+                {
+                    name: 'Table 组件',
+                    pathname: `/${prefix}/table`
                 }
             ]
         }

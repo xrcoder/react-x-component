@@ -1,7 +1,59 @@
-/**
- * Created by Rayr Lee on 2019/7/2.
- */
+.x-table-container {
+    background-color: #fff;
+
+    thead > tr > th,
+    tbody > tr > th,
+    tfoot > tr > th,
+    thead > tr > td,
+    tbody > tr > td,
+    tfoot > tr > td {
+        border: 1px solid #f4f4f4;
+        border-right: none;
+        border-left: none;
+        line-height: 22px;
+        padding: 13px 32px;
+        text-align: left;
+        font-size: 14px;
+        color: #676560;
+    }
+
+    thead > tr > th,
+    thead > tr > td {
+        border-bottom-width: 2px;
+        border-top: none;
+        color: $theme-font-color;;
+    }
+
+    tbody tr {
+        transition: all 0.1s;
+
+        &:nth-child(2n) {
+            background-color: #FBFBFC;
+        }
+    }
+
+    tbody tr:hover {
+        background-color: #f3F4fb;
+    }
+
+    tbody tr:last-child td {
+        border-bottom: none;
+    }
+}
 
 .x-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
 
+.x-table-label {
+    font-weight: bold;
+    color: #2A1166;
+    margin-right: 12px;
+    cursor: pointer;
+
+    &:last-child {
+        margin: 0;
+    }
 }

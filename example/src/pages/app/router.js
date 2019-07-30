@@ -23,6 +23,7 @@ export default ({match}) => {
             <Route path={`${match.url}/upload`} component={require('./upload')}/>
             <Route path={`${match.url}/modal`} component={require('./modal')}/>
             <Route path={`${match.url}/remind`} component={require('./remind')}/>
+            <Route path={`${match.url}/table`} component={require('./table')}/>
             <Route component={() => <div>404</div>}/>
         </Switch>
     );
