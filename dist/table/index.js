@@ -1,37 +1,38 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "react", "prop-types"], factory);
+    define(["exports", "./table", "./head", "./body", "./tr", "./td", "./th", "./label"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("react"), require("prop-types"));
+    factory(exports, require("./table"), require("./head"), require("./body"), require("./tr"), require("./td"), require("./th"), require("./label"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.react, global.propTypes);
+    factory(mod.exports, global.table, global.head, global.body, global.tr, global.td, global.th, global.label);
     global.index = mod.exports;
   }
-})(this, function (_exports, _react, _propTypes) {
+})(this, function (_exports, _table, _head, _body, _tr, _td, _th, _label) {
   "use strict";
 
   var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
-  var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
 
   Object.defineProperty(_exports, "__esModule", {
     value: true
   });
   _exports["default"] = void 0;
-  _react = _interopRequireWildcard(_react);
-  _propTypes = _interopRequireDefault(_propTypes);
-
-  /**
-   * Created by Rayr Lee on 2019/7/2.
-   */
-  var XTable = function XTable(props) {
-    return null;
-  };
-
-  var _default = XTable;
+  _table = _interopRequireDefault(_table);
+  _head = _interopRequireDefault(_head);
+  _body = _interopRequireDefault(_body);
+  _tr = _interopRequireDefault(_tr);
+  _td = _interopRequireDefault(_td);
+  _th = _interopRequireDefault(_th);
+  _label = _interopRequireDefault(_label);
+  _table["default"].Head = _head["default"];
+  _table["default"].Body = _body["default"];
+  _table["default"].Tr = _tr["default"];
+  _table["default"].Td = _td["default"];
+  _table["default"].Th = _th["default"];
+  _table["default"].Label = _label["default"];
+  var _default = _table["default"];
   _exports["default"] = _default;
   module.exports = exports.default;
 });

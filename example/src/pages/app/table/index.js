@@ -23,7 +23,7 @@ export default function () {
                                 <Td>183</Td>
                                 <Td>John Doe</Td>
                                 <Td>11-7-2014</Td>
-                                <Td><span className="label label-success">Approved</span></Td>
+                                <Td>Approved</Td>
                                 <Td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</Td>
                                 <Td align={'center'}>
                                     <Table.Label>详情</Table.Label>
@@ -34,7 +34,7 @@ export default function () {
                                 <Td>219</Td>
                                 <Td>Alexander Pierce</Td>
                                 <Td>11-7-2014</Td>
-                                <Td><span className="label label-warning">Pending</span></Td>
+                                <Td>Pending</Td>
                                 <Td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</Td>
                                 <Td align={'center'}>
                                     <Table.Label>详情</Table.Label>
@@ -45,7 +45,7 @@ export default function () {
                                 <Td>657</Td>
                                 <Td>Bob Doe</Td>
                                 <Td>11-7-2014</Td>
-                                <Td><span className="label label-primary">Approved</span></Td>
+                                <Td>Approved</Td>
                                 <Td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</Td>
                                 <Td align={'center'}>
                                     <Table.Label>详情</Table.Label>
@@ -56,7 +56,7 @@ export default function () {
                                 <Td>175</Td>
                                 <Td>Mike Doe</Td>
                                 <Td>11-7-2014</Td>
-                                <Td><span className="label label-danger">Denied</span></Td>
+                                <Td>Denied</Td>
                                 <Td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</Td>
                                 <Td align={'center'}>
                                     <Table.Label>详情</Table.Label>
@@ -81,7 +81,40 @@ export default function () {
                         <Td>183</Td>
                         <Td>John Doe</Td>
                         <Td>11-7-2014</Td>
-                        <Td><span className="label label-success">Approved</span></Td>
+                        <Td>Approved</Td>
+                        <Td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</Td>
+                        <Td align={'center'}>
+                            <Table.Label>详情</Table.Label>
+                            <Table.Label>编辑</Table.Label>
+                        </Td>
+                    </Tr>
+                    <Tr>
+                        <Td>219</Td>
+                        <Td>Alexander Pierce</Td>
+                        <Td>11-7-2014</Td>
+                        <Td>Pending</Td>
+                        <Td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</Td>
+                        <Td align={'center'}>
+                            <Table.Label>详情</Table.Label>
+                            <Table.Label>编辑</Table.Label>
+                        </Td>
+                    </Tr>
+                    <Tr>
+                        <Td>657</Td>
+                        <Td>Bob Doe</Td>
+                        <Td>11-7-2014</Td>
+                        <Td>Approved</Td>
+                        <Td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</Td>
+                        <Td align={'center'}>
+                            <Table.Label>详情</Table.Label>
+                            <Table.Label>编辑</Table.Label>
+                        </Td>
+                    </Tr>
+                    <Tr>
+                        <Td>175</Td>
+                        <Td>Mike Doe</Td>
+                        <Td>11-7-2014</Td>
+                        <Td>Denied</Td>
                         <Td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</Td>
                         <Td align={'center'}>
                             <Table.Label>详情</Table.Label>

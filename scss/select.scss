@@ -93,18 +93,19 @@
     }
 
     &-select__option--is-selected {
-        color: #fff !important;
-        background-color: $input-active-border-color !important;
+        color: #3E257A !important;
+        font-weight: bold;
+        background-color: transparent !important;
     }
 
     &-select__option--is-focused {
-        background-color: $input-disabled-bg-color !important;
+        background-color: #F0F1F9 !important;
     }
 
     &-select__option--is-disabled {
         opacity: 0.5;
         cursor: not-allowed !important;
-        background-color: $input-disabled-bg-color !important;
+        background-color: transparent !important;
     }
 
     &-select__control {
@@ -161,7 +162,7 @@
 }
 
 .x-select__option--is-focused.x-select__option--is-selected {
-    background-color: $input-active-border-color !important;
+    background-color: transparent !important;
 }
 
 .x-select-sm {
