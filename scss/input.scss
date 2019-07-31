@@ -57,6 +57,19 @@
         flex: 1;
     }
 
+    .x-select {
+        flex: none;
+        min-width: 90px;
+        margin-right: -1px;
+        .x-select__control--menu-is-open {
+            z-index: 2;
+        }
+    }
+
+    .x-select__control {
+        background-color: #F7F8F9 !important;
+    }
+
     .group-addon-right .x-btn {
         border-bottom-left-radius: 0;
         border-top-left-radius: 0;

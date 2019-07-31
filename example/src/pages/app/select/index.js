@@ -55,7 +55,6 @@ export default class extends React.Component {
                         <Box.Header>搜索</Box.Header>
                         <Box.Body>
                             <Select.Search
-                                menuPlacement={'top'}
                                 value={this.state.singleValue}
                                 options={stateOptions}
                                 onChange={(value) => {

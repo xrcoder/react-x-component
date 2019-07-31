@@ -28,9 +28,6 @@
   _classnames = _interopRequireDefault(_classnames);
   _propTypes = _interopRequireDefault(_propTypes);
 
-  /**
-   * Created by Rayr Lee on 2019/7/5.
-   */
   function useErrorMsg(initialValue) {
     var _useState = (0, _react.useState)(initialValue),
         _useState2 = (0, _slicedToArray2["default"])(_useState, 2),
@@ -51,7 +48,6 @@
     var horizontal = props.horizontal,
         className = props.className,
         errorMsg = props.errorMsg,
-        info = props.info,
         children = props.children,
         required = props.required;
 
