@@ -23,7 +23,7 @@ export default class extends React.Component {
             <Box>
                 <Box.Header>选择输入框</Box.Header>
                 <Box.Body>
-                    <Form.Group horizontal>
+                    <Form.Group>
                         <Form.Name>证件号码</Form.Name>
                         <Input.Group>
                             <Select.Single
