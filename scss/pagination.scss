@@ -1,7 +1,7 @@
 .x-pagination {
     display: inline-flex;
     align-items: center;
-
+    box-sizing: border-box;
     &-page {
         display: inline-flex;
         font-size: 14px;
@@ -53,7 +53,7 @@
     }
 
     &-size {
-        min-width: 175px;
+        min-width: 95px;
         font-size: 14px;
         color: $pagination-page-color;
         display: inline-flex;
