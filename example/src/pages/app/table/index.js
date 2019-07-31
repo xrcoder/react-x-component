@@ -1,5 +1,5 @@
 import React from 'react';
-import {Table, Box} from 'react-x-component';
+import {Table, Box, Remind} from 'react-x-component';
 
 const {Tr, Td, Th} = Table;
 
@@ -78,7 +78,9 @@ export default function () {
                 </Table.Head>
                 <Table.Body>
                     <Tr>
-                        <Td>183</Td>
+                        <Td>
+                            <Remind.Avatar source={"http://img2.imgtn.bdimg.com/it/u=1988242408,885963340&fm=26&gp=0.jpg"}/>
+                        </Td>
                         <Td>John Doe</Td>
                         <Td>11-7-2014</Td>
                         <Td>Approved</Td>
@@ -89,7 +91,9 @@ export default function () {
                         </Td>
                     </Tr>
                     <Tr>
-                        <Td>219</Td>
+                        <Td>
+                            <Remind.Avatar source={"http://img2.imgtn.bdimg.com/it/u=1988242408,885963340&fm=26&gp=0.jpg"}/>
+                        </Td>
                         <Td>Alexander Pierce</Td>
                         <Td>11-7-2014</Td>
                         <Td>Pending</Td>
@@ -100,7 +104,9 @@ export default function () {
                         </Td>
                     </Tr>
                     <Tr>
-                        <Td>657</Td>
+                        <Td>
+                            <Remind.Avatar source={"http://img2.imgtn.bdimg.com/it/u=1988242408,885963340&fm=26&gp=0.jpg"}/>
+                        </Td>
                         <Td>Bob Doe</Td>
                         <Td>11-7-2014</Td>
                         <Td>Approved</Td>
@@ -111,7 +117,9 @@ export default function () {
                         </Td>
                     </Tr>
                     <Tr>
-                        <Td>175</Td>
+                        <Td>
+                            <Remind.Avatar source={"http://img2.imgtn.bdimg.com/it/u=1988242408,885963340&fm=26&gp=0.jpg"}/>
+                        </Td>
                         <Td>Mike Doe</Td>
                         <Td>11-7-2014</Td>
                         <Td>Denied</Td>
