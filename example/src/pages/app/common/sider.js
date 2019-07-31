@@ -35,7 +35,7 @@ export default class extends React.Component {
                     pathname: `/${prefix}/form`
                 },
                 {
-                    name: 'Pagination 分页组件',
+                    name: 'Pagination 分页',
                     pathname: `/${prefix}/pagination`
                 },
                 {

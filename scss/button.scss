@@ -164,6 +164,7 @@
 }
 
 .x-btn-box {
+    margin-bottom: -10px;
     &-left {
         @include boxFooterBtnAlignLeft;
     }
