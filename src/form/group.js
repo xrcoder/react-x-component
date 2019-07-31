@@ -1,7 +1,3 @@
-/**
- * Created by Rayr Lee on 2019/7/5.
- */
-
 import React, {useState, useEffect} from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
@@ -17,7 +13,7 @@ function useErrorMsg(initialValue) {
 }
 
 function Group(props) {
-    const {horizontal, className, errorMsg, info, children, required} = props;
+    const {horizontal, className, errorMsg, children, required} = props;
     const [Name, Input, ...Child] = React.Children.map(children, (child) => child);
     const oMsg = useErrorMsg(errorMsg);
 
