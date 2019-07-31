@@ -292,7 +292,7 @@
          cursor: pointer;
          transition: transform 0.5s;
      }
-     .x-select-clicked{
+     &-clicked{
          border: 1px solid $theme-active;
          .x-select-ul{
              opacity: 1!important;
@@ -311,7 +311,7 @@
              transform: translate(-50%,-50%) rotate(90deg);
          }
      }
-     .x-select-clicked-multiple{
+    &-clicked-multiple{
          flex-direction: column;
          line-height: unset;
          justify-content: center;

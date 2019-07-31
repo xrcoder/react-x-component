@@ -128,7 +128,7 @@ class XSelect extends Component {
         return (
             this.state.initDone !== false && 
             this.state.mode=='multiple'?
-            <div className={`${localStorage.getItem('direction')=='right'?'x-select-i18n':'x-select'} ${this.state.showOptions ? 'x-select-clicked' : null}  x-select-clicked-multiple`} ref={this.xSelect} onClick={(e) => {
+            <div className={`${localStorage.getItem('direction')=='right'?'x-select-i18n x-select-i18n-clicked-multiple':'x-select x-select-clicked-multiple'} ${this.state.showOptions ? `${localStorage.getItem('direction')=='right'?'x-select-i18n-clicked':'x-select-clicked'}` : null}`} ref={this.xSelect} onClick={(e) => {
                 if(this.props.disabled){
                     return
                 }else{
