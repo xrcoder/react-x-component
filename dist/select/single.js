@@ -31,6 +31,7 @@
         size = props.size,
         isSearchable = props.isSearchable,
         isClearable = props.isClearable,
+        menuIsOpen = props.menuIsOpen,
         isRtl = props.isRtl,
         options = props.options,
         value = props.value,
@@ -53,6 +54,7 @@
       options: options,
       onChange: onChange,
       isRtl: isRtl,
+      menuIsOpen: menuIsOpen,
       menuPlacement: menuPlacement
     });
   }
