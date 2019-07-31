@@ -79,7 +79,8 @@ export default function () {
                 <Table.Body>
                     <Tr>
                         <Td>
-                            <Remind.Avatar source={"http://img2.imgtn.bdimg.com/it/u=1988242408,885963340&fm=26&gp=0.jpg"}/>
+                            <Remind.Avatar
+                                source={"http://img2.imgtn.bdimg.com/it/u=1988242408,885963340&fm=26&gp=0.jpg"}/>
                         </Td>
                         <Td>John Doe</Td>
                         <Td>11-7-2014</Td>
@@ -92,7 +93,9 @@ export default function () {
                     </Tr>
                     <Tr>
                         <Td>
-                            <Remind.Avatar source={"http://img2.imgtn.bdimg.com/it/u=1988242408,885963340&fm=26&gp=0.jpg"}/>
+                            <Remind.Avatar onClick={() => {
+                                alert('success')
+                            }} source={"http://img2.imgtn.bdimg.com/it/u=1988242408,885963340&fm=26&gp=0.jpg"}/>
                         </Td>
                         <Td>Alexander Pierce</Td>
                         <Td>11-7-2014</Td>
@@ -105,7 +108,7 @@ export default function () {
                     </Tr>
                     <Tr>
                         <Td>
-                            <Remind.Avatar source={"http://img2.imgtn.bdimg.com/it/u=1988242408,885963340&fm=26&gp=0.jpg"}/>
+                            <Remind.Avatar/>
                         </Td>
                         <Td>Bob Doe</Td>
                         <Td>11-7-2014</Td>
@@ -118,7 +121,8 @@ export default function () {
                     </Tr>
                     <Tr>
                         <Td>
-                            <Remind.Avatar source={"http://img2.imgtn.bdimg.com/it/u=1988242408,885963340&fm=26&gp=0.jpg"}/>
+                            <Remind.Avatar
+                                source={"http://img2.imgtn.bdimg.com/it/u=1988242408,885963340&fm=26&gp=0.jpg"}/>
                         </Td>
                         <Td>Mike Doe</Td>
                         <Td>11-7-2014</Td>

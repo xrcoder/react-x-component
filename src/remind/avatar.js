@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 function Avatar(props) {
 
-    const {className, source, alt} = props;
+    const {className, source, size, alt} = props;
     const [value, setValue] = useState(source);
 
     useEffect(() => {
@@ -12,7 +12,10 @@ function Avatar(props) {
     }, [source]);
 
     return (
-        <div {...props} className={classnames('x-remind-avatar', {'x-remind-avatar-bg': !Boolean(value)}, className)}>
+        <div
+            {...props}
+            style={{width: size, height: size}}
+            className={classnames('x-remind-avatar', {'x-remind-avatar-bg': !Boolean(value)}, className)}>
             {
                 value && <img src={source} alt={alt}/>
             }
@@ -23,13 +26,15 @@ function Avatar(props) {
 Avatar.propTypes = {
     className: PropTypes.string,
     style: PropTypes.object,
-    source: PropTypes.string
+    source: PropTypes.string,
+    size: PropTypes.number
 }
 
 Avatar.defaultProps = {
     className: '',
     status: true,
-    source: ''
+    source: '',
+    size: 70
 }
 
 export default Avatar;
