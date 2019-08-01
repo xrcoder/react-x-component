@@ -4,7 +4,7 @@ import {Button} from '../button';
 import {useValue, useDisabled} from './use';
 
 function Btn(props) {
-    const {className, style, type = 'primary', size, label, value, disabled, onChange} = props;
+    const {className, style, type = 'primary', inverse, size, label, value, disabled, onChange} = props;
 
     const oValue = useValue(value);
     const oDisabled = useDisabled(disabled);
@@ -22,7 +22,7 @@ function Btn(props) {
             style={style}
             type={type}
             disabled={oDisabled.value}
-            inverse={oValue.value}
+            inverse={inverse ? oValue.value : !oValue.value}
             size={size}
             className={className}
             onClick={(e) => {
@@ -40,6 +40,7 @@ Btn.propTypes = {
     className: PropTypes.string,
     style: PropTypes.object,
     label: PropTypes.string,
+    inverse: PropTypes.bool,
     value: PropTypes.bool,
     disabled: PropTypes.bool,
     onChange: PropTypes.func
@@ -50,6 +51,7 @@ Btn.defaultProps = {
     style: null,
     label: '',
     value: false,
+    inverse: true,
     disabled: false,
     onChange: function () {
     }

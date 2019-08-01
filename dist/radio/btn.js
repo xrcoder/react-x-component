@@ -29,6 +29,7 @@
         style = props.style,
         _props$type = props.type,
         type = _props$type === void 0 ? 'primary' : _props$type,
+        inverse = props.inverse,
         size = props.size,
         label = props.label,
         value = props.value,
@@ -46,7 +47,7 @@
       style: style,
       type: type,
       disabled: oDisabled.value,
-      inverse: oValue.value,
+      inverse: inverse ? oValue.value : !oValue.value,
       size: size,
       className: className,
       onClick: function onClick(e) {
@@ -65,6 +66,7 @@
     className: _propTypes["default"].string,
     style: _propTypes["default"].object,
     label: _propTypes["default"].string,
+    inverse: _propTypes["default"].bool,
     value: _propTypes["default"].bool,
     disabled: _propTypes["default"].bool,
     onChange: _propTypes["default"].func
@@ -74,6 +76,7 @@
     style: null,
     label: '',
     value: false,
+    inverse: true,
     disabled: false,
     onChange: function onChange() {}
   };

@@ -51,6 +51,7 @@ export default class extends React.Component {
                         style={{marginTop: '10px'}}
                         options={this.state.data}
                         value={this.state.selected}
+                        inverse={false}
                         type={'danger'}
                         onChange={(res) => {
                             this.setState({

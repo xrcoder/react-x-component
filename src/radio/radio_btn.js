@@ -5,7 +5,7 @@ import {ButtonGroup} from '../button';
 import {useRadioData, useRadioList} from './use';
 
 function Radio(props) {
-    const {className, style, options, size, type, value, onChange} = props;
+    const {className, style, options, inverse, size, type, value, onChange} = props;
 
     const oList = useRadioList(options.slice(0));
     const oValue = useRadioData(value);
@@ -30,6 +30,7 @@ function Radio(props) {
                         <Btn
                             key={item.value}
                             label={item.label}
+                            inverse={inverse}
                             size={size}
                             type={type}
                             disabled={item.disabled}

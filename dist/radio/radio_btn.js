@@ -29,6 +29,7 @@
     var className = props.className,
         style = props.style,
         options = props.options,
+        inverse = props.inverse,
         size = props.size,
         type = props.type,
         value = props.value,
@@ -52,6 +53,7 @@
       return _react["default"].createElement(_btn["default"], {
         key: item.value,
         label: item.label,
+        inverse: inverse,
         size: size,
         type: type,
         disabled: item.disabled,
