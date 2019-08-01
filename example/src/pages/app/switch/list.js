@@ -40,16 +40,18 @@ export default class extends React.Component {
                     </Row>
                 </Box.Body>
                 <Box.Footer>
-                    <Button onClick={() => {
-                        this.setState({
-                            status: !this.state.status
-                        })
-                    }}>切换按钮</Button>
-                    <Button onClick={() => {
-                        this.setState({
-                            disbaled: !this.state.disbaled
-                        })
-                    }}>禁用切换</Button>
+                    <Button.Box align={"left"}>
+                        <Button onClick={() => {
+                            this.setState({
+                                status: !this.state.status
+                            })
+                        }}>切换按钮</Button>
+                        <Button onClick={() => {
+                            this.setState({
+                                disbaled: !this.state.disbaled
+                            })
+                        }}>禁用切换</Button>
+                    </Button.Box>
                 </Box.Footer>
             </Box>
         )

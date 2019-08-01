@@ -10,11 +10,12 @@
         border: 1px solid #f4f4f4;
         border-right: none;
         border-left: none;
-        line-height: 22px;
-        padding: 13px 32px;
+        line-height: 14px;
+        padding: 18px 32px 17px;
         text-align: left;
         font-size: 14px;
         color: #676560;
+        box-sizing: border-box;
     }
 
     thead > tr > th,
@@ -34,10 +35,6 @@
 
     tbody tr:hover {
         background-color: #f3F4fb;
-    }
-
-    tbody tr:last-child td {
-        border-bottom: none;
     }
 }
 
