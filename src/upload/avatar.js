@@ -32,7 +32,7 @@ const Avatar = (props) => {
             >
                 <div className={classnames('x-upload-box', className)} style={style}>
                     <div className="bg-img"></div>
-                    <div>拖拽或点击上传人像</div>
+                    <div className="tips">点击上传人像</div>
                 </div>
             </Upload>
         </div>
