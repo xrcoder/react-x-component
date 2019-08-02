@@ -16,7 +16,7 @@ function useInputValue(initialValue) {
     return {value, onChange, updateValue};
 }
 
-function Input({placeholder, error, value = '', className, style, onChange, onEnter, onFocus, onBlur, disabled, maxLength, minLength, type}) {
+function Input({placeholder, error, value = '', className, style, disabled, maxLength, minLength, type, onChange, onEnter, onFocus, onBlur, onClick}) {
 
     const oInput = useInputValue(value);
     const [isBan, setIsBan] = useState(disabled);
@@ -50,6 +50,7 @@ function Input({placeholder, error, value = '', className, style, onChange, onEn
             }}
             onFocus={onFocus}
             onBlur={onBlur}
+            onClick={onClick}
             onKeyDown={(e) => {
                 if (e.keyCode === 13 && onEnter) {
                     onEnter(e.target.value, e);
@@ -70,7 +71,8 @@ Input.propTypes = {
     onFocus: PropTypes.func,
     onBlur: PropTypes.func,
     onChange: PropTypes.func,
-    onEnter: PropTypes.func
+    onEnter: PropTypes.func,
+    onClick: PropTypes.func
 }
 
 Input.defaultProps = {
@@ -85,6 +87,8 @@ Input.defaultProps = {
     onBlur: function () {
     },
     onEnter: function () {
+    },
+    onClick: function () {
     }
 }
 

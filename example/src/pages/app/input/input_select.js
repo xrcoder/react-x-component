@@ -13,38 +13,52 @@ export default class extends React.Component {
         super()
         this.state = {
             passwd: '',
-            phone: '',
+            value: '',
             singleValue: {value: '1', label: '身份证'}
         }
     }
 
     render() {
         return (
-            <Box>
-                <Box.Header>选择输入框</Box.Header>
-                <Box.Body>
-                    <Form.Group>
-                        <Form.Name>证件号码</Form.Name>
-                        <Input.Group>
-                            <Select.Single
-                                value={this.state.singleValue}
-                                options={stateOptions}
-                                onChange={(value) => {
-                                    this.setState({
-                                        singleValue: value
-                                    });
-                                }}/>
-                            <Input
-                                value={this.state.passwd}
-                                onChange={(res) => {
-                                    this.setState({
-                                        passwd: res
-                                    });
-                                }}/>
-                        </Input.Group>
-                    </Form.Group>
-                </Box.Body>
-            </Box>
+            <>
+                <Box>
+                    <Box.Header>选择输入框</Box.Header>
+                    <Box.Body>
+                        <Form.Group>
+                            <Form.Name>证件号码</Form.Name>
+                            <Input.Group>
+                                <Select.Single
+                                    value={this.state.singleValue}
+                                    options={stateOptions}
+                                    onChange={(value) => {
+                                        this.setState({
+                                            singleValue: value
+                                        });
+                                    }}/>
+                                <Input
+                                    value={this.state.passwd}
+                                    onChange={(res) => {
+                                        this.setState({
+                                            passwd: res
+                                        });
+                                    }}/>
+                            </Input.Group>
+                        </Form.Group>
+                    </Box.Body>
+                </Box>
+                <Box>
+                    <Box.Header>输入框</Box.Header>
+                    <Box.Body>
+                        <Input
+                            value={this.state.value}
+                            onChange={(res) => {
+                                this.setState({
+                                    value: res
+                                });
+                            }}/>
+                    </Box.Body>
+                </Box>
+            </>
         )
     }
 }

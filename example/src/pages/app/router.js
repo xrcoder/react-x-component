@@ -1,9 +1,7 @@
 import React from 'react';
-import {Route, Switch} from 'react-router-dom';
+import {Route, Switch, withRouter} from 'react-router-dom';
 
-// 加lazy| 模块划分，实现路由懒加载
-
-export default ({match}) => {
+export default withRouter(({match}) => {
     return (
         <Switch>
             <Route path={`${match.url}/button`} component={require('./button')}/>
@@ -27,4 +25,4 @@ export default ({match}) => {
             <Route component={() => <div>404</div>}/>
         </Switch>
     );
-};
+});

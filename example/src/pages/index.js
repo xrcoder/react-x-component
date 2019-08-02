@@ -13,9 +13,7 @@ export default class extends React.Component {
             <>
                 <Switch>
                     <Route path="/home" component={require('./home')}/>
-                    <Route path="/a" component={require('./app/layout_a')}/>
-                    <Route path="/b" component={require('./app/layout_b')}/>
-                    <Route path="/doc" component={require('./doc')}/>
+                    <Route path="/app" component={require('./app/layout_b')}/>
                     <Route component={withRouter(RedirectTo)}/>
                 </Switch>
                 <Toast.Container/>
