@@ -1,0 +1,280 @@
+@import "~element-theme-default/lib/time-picker.css";
+@import "~element-theme-default/lib/time-select.css";
+
+.timepicker-sm {
+    width: 100px;
+}
+
+.el-time-panel {
+    .el-time-panel__content::after,
+    .el-time-panel__content::before {
+        margin-top: -19px;
+        background-color: transparent;
+        content: '';
+        border-top: 1px solid #EFEFEF;
+        border-bottom: 1px solid #EFEFEF;
+    }
+
+    .el-time-spinner__item.active:not(.disabled) {
+        color: #000;
+    }
+}
+
+.el-date-editor {
+    .el-input__inner:focus {
+        border-color: #645a82;
+    }
+
+    .el-date-editor--daterange {
+        position: relative;
+
+        &:after {
+            position: absolute;
+            left: 116px;
+            top: 7px;
+            content: '至';
+            color: #484852;
+            font-size: 12px;
+        }
+    }
+
+    &.is-filled {
+        .el-date-editor--daterange:after {
+            display: none;
+        }
+    }
+}
+
+.el-date-editor--time {
+    .el-icon-time:before,
+    .el-icon-close:before {
+        content: '';
+    }
+}
+
+.el-date-editor.is-filled {
+    .el-icon-time:before,
+    .el-icon-close:before {
+        content: '';
+    }
+}
+
+.el-date-editor.is-filled:hover {
+    .el-icon-time:before,
+    .el-icon-close:before {
+        content: '\e62a';
+        width: 16px;
+        font-family: inconfont;
+        font-family: "iconfont" !important;
+        font-size: 16px;
+        font-style: normal;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        line-height: 32px;
+    }
+}
+
+.el-date-editor .el-icon-date:after {
+    width: 10px;
+    height: 10px;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0IArs4c6QAAABpJREFUGBljPH76xn8GIgATEWpopIRxRLoRAMPgCkWiR+umAAAAAElFTkSuQmCC);
+    background-size: 10px 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.timepicker-sm {
+    .el-date-editor.el-input {
+        width: 100px;
+    }
+}
+
+.el-picker-panel__body-wrapper {
+    padding-top: 50px;
+
+    .el-date-range-picker__header {
+        .el-icon-d-arrow-left:after {
+            content: '\e64c';
+            font-family: inconfont;
+            font-family: "iconfont" !important;
+            font-style: normal;
+            color: #2A1166;
+        }
+
+        .el-icon-d-arrow-right:after {
+            content: '\e66e';
+            font-family: inconfont;
+            font-family: "iconfont" !important;
+            font-style: normal;
+            color: #2A1166;
+        }
+
+        .el-icon-arrow-left:after {
+            content: '\e66d';
+            font-family: inconfont;
+            font-family: "iconfont" !important;
+            font-style: normal;
+            color: #2A1166;
+        }
+
+        .el-icon-arrow-right:after {
+            content: '\e649';
+            font-family: inconfont;
+            font-family: "iconfont" !important;
+            font-style: normal;
+            color: #2A1166;
+        }
+    }
+
+    .el-picker-panel__sidebar {
+        display: flex;
+        padding: 10px 0 0 20px;
+        left: 0;
+        top: 0;
+        bottom: auto;
+        width: 200px;
+        height: 50px;
+        border-right: none;
+
+        .el-picker-panel__shortcut {
+            width: 50px;
+            font-size: 12px;
+            padding: 0;
+            text-align: center;
+            box-sizing: border-box;
+            border: 1px solid #CCC;
+            line-height: 30px;
+            height: 30px;
+            white-space: nowrap;
+        }
+    }
+
+    .el-picker-panel [slot=sidebar] + .el-picker-panel__body,
+    .el-picker-panel__sidebar + .el-picker-panel__body {
+        margin-left: 0;
+
+        .el-date-range-picker__time-header {
+            .el-icon-arrow-right {
+                &:before {
+                    content: '至';
+                    font-size: 12px;
+                    color: #435068;
+                }
+            }
+        }
+
+        .el-date-table td.current:not(.disabled),
+        .el-date-table td.end-date,
+        .el-date-table td.start-date {
+            border-radius: 50px;
+        }
+
+        tbody {
+            display: block;
+        }
+
+        tr {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2px;
+
+            td,
+            th {
+                display: block;
+                line-height: 32px;
+            }
+
+            td.in-range {
+                position: relative;
+
+                &:after {
+                    position: absolute;
+                    content: ' ';
+                    left: 32px;
+                    width: 14px;
+                    height: 100%;
+                    background-color: #F0F1F9;
+                }
+            }
+
+            td.in-range.start-date {
+                &:before {
+                    position: absolute;
+                    content: ' ';
+                    left: 16px;
+                    width: 16px;
+                    height: 100%;
+                    background-color: #F0F1F9;
+                    z-index: -1;
+                    border: none;
+                }
+            }
+
+            td.in-range.end-date {
+                &:after {
+                    display: none;
+                }
+
+                &:before {
+                    position: absolute;
+                    content: ' ';
+                    left: 0;
+                    width: 13px;
+                    height: 100%;
+                    background-color: #F0F1F9;
+                    z-index: -1;
+                    border: none;
+                }
+            }
+
+            td.in-range.start-date.end-date {
+                &:before {
+                    display: none;
+                }
+
+                &::after {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .el-picker-panel__footer {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+}
+
+.el-date-range-picker.has-sidebar.has-time {
+    min-width: 660px !important;
+}
+
+.el-date-range-picker {
+    .el-date-table td.current:not(.disabled),
+    .el-date-table td.end-date,
+    .el-date-table td.start-date {
+        background-color: #2A1166 !important;
+    }
+
+    .el-date-table td.today {
+        color: #2A1166;
+
+        &.end-date,
+        &.start-date {
+            color: #FFF;
+        }
+
+        &::before {
+            border-top-color: #2A1166;
+        }
+    }
+
+    .el-date-table td.in-range {
+        background-color: #F0F1F9;
+    }
+}
+
+.el-time-panel__btn.confirm {
+    color: #2A1166 !important;
+}

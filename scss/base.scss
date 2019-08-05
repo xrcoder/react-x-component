@@ -9,3 +9,18 @@
 .clearfix {
     *zoom: 1;
 }
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 1px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: $input-border-color;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 5px;
+    background: #EDEDED;
+}

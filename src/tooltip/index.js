@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Portal, {isBrowser} from './Portal';
+import Portal, {isBrowser} from './portal';
 import positions from './position';
 
 const resizeThrottle = 100;

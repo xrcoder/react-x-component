@@ -3,7 +3,7 @@ import {Route, Switch, withRouter} from 'react-router-dom';
 import {Toast} from 'react-x-component';
 
 function RedirectTo(props) {
-    props.history.$push('/b');
+    props.history.$push('/app/component');
     return null;
 }
 
