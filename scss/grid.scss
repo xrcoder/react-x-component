@@ -7,8 +7,6 @@ $gridColumns: 12 !default;
 }
 
 .x-row {
-    margin-right: -15px;
-    margin-left: -15px;
 
     &:before {
         display: table;
@@ -25,12 +23,10 @@ $gridColumns: 12 !default;
 .x-row [class^=col-] {
     position: relative;
     min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
 }
 
 //计算列展示
-@mixin calc-grid-column($i,$class) {
+@mixin calc-grid-column($i, $class) {
     .col-#{$class}-#{$i} {
         width: percentage(($i/$gridColumns));
         float: left;

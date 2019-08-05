@@ -2,6 +2,8 @@
 @import "~element-theme-default/lib/time-select.css";
 
 .el-time-panel {
+    margin-top: 1px;
+    box-sizing: border-box;
     .el-time-panel__content::after,
     .el-time-panel__content::before {
         margin-top: -20px;
@@ -28,6 +30,7 @@
     }
     .el-input__inner {
         height: 34px;
+        border-radius: 2px;
     }
     &.is-active.is-filled {
         .el-icon-time, .el-icon-close {
