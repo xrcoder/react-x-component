@@ -29,4 +29,12 @@
     .el-input__inner {
         height: 34px;
     }
+    &.is-active.is-filled {
+        .el-icon-time, .el-icon-close {
+            font: normal normal normal 14px/1 FontAwesome;
+            &:before {
+                content: "\f057";
+            }
+        }
+    }
 }
