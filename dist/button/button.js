@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "@babel/runtime/helpers/slicedToArray", "react", "classnames", "prop-types", "./button_box", "./button_link"], factory);
+    define(["exports", "@emotion/core", "@babel/runtime/helpers/slicedToArray", "react", "classnames", "prop-types", "./button_box", "./button_link"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("@babel/runtime/helpers/slicedToArray"), require("react"), require("classnames"), require("prop-types"), require("./button_box"), require("./button_link"));
+    factory(exports, require("@emotion/core"), require("@babel/runtime/helpers/slicedToArray"), require("react"), require("classnames"), require("prop-types"), require("./button_box"), require("./button_link"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.slicedToArray, global.react, global.classnames, global.propTypes, global.button_box, global.button_link);
+    factory(mod.exports, global.core, global.slicedToArray, global.react, global.classnames, global.propTypes, global.button_box, global.button_link);
     global.button = mod.exports;
   }
-})(this, function (_exports, _slicedToArray2, _react, _classnames, _propTypes, _button_box, _button_link) {
+})(this, function (_exports, _core, _slicedToArray2, _react, _classnames, _propTypes, _button_box, _button_link) {
   "use strict";
 
   var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
@@ -62,7 +62,7 @@
       'x-btn-sm': size === 'sm',
       'x-btn-inverse': btnInverse
     }, className);
-    return _react["default"].createElement("button", {
+    return (0, _core.jsx)("button", {
       style: style,
       className: btnClass,
       disabled: disabled,

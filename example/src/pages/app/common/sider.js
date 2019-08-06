@@ -85,6 +85,10 @@ export default class extends React.Component {
                 {
                     name: 'Table 组件',
                     pathname: `/${prefix}/table`
+                },
+                {
+                    name: 'Date 日历时间',
+                    pathname: `/${prefix}/date`
                 }
             ]
         }

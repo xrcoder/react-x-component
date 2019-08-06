@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "@babel/runtime/helpers/classCallCheck", "@babel/runtime/helpers/createClass", "@babel/runtime/helpers/possibleConstructorReturn", "@babel/runtime/helpers/getPrototypeOf", "@babel/runtime/helpers/inherits", "react", "react-dom", "prop-types", "classnames"], factory);
+    define(["exports", "@emotion/core", "@babel/runtime/helpers/classCallCheck", "@babel/runtime/helpers/createClass", "@babel/runtime/helpers/possibleConstructorReturn", "@babel/runtime/helpers/getPrototypeOf", "@babel/runtime/helpers/inherits", "react", "react-dom", "prop-types", "classnames"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("@babel/runtime/helpers/classCallCheck"), require("@babel/runtime/helpers/createClass"), require("@babel/runtime/helpers/possibleConstructorReturn"), require("@babel/runtime/helpers/getPrototypeOf"), require("@babel/runtime/helpers/inherits"), require("react"), require("react-dom"), require("prop-types"), require("classnames"));
+    factory(exports, require("@emotion/core"), require("@babel/runtime/helpers/classCallCheck"), require("@babel/runtime/helpers/createClass"), require("@babel/runtime/helpers/possibleConstructorReturn"), require("@babel/runtime/helpers/getPrototypeOf"), require("@babel/runtime/helpers/inherits"), require("react"), require("react-dom"), require("prop-types"), require("classnames"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.classCallCheck, global.createClass, global.possibleConstructorReturn, global.getPrototypeOf, global.inherits, global.react, global.reactDom, global.propTypes, global.classnames);
+    factory(mod.exports, global.core, global.classCallCheck, global.createClass, global.possibleConstructorReturn, global.getPrototypeOf, global.inherits, global.react, global.reactDom, global.propTypes, global.classnames);
     global.modal = mod.exports;
   }
-})(this, function (_exports, _classCallCheck2, _createClass2, _possibleConstructorReturn2, _getPrototypeOf2, _inherits2, _react, _reactDom, _propTypes, _classnames) {
+})(this, function (_exports, _core, _classCallCheck2, _createClass2, _possibleConstructorReturn2, _getPrototypeOf2, _inherits2, _react, _reactDom, _propTypes, _classnames) {
   "use strict";
 
   var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -103,16 +103,16 @@
             var data = _opt.data,
                 size = _opt.size,
                 backDrop = _opt.backDrop;
-            return _react["default"].createElement("div", {
+            return (0, _core.jsx)("div", {
               className: (0, _classnames["default"])('x-modal', _opt.className, className)
-            }, _react["default"].createElement("div", {
+            }, (0, _core.jsx)("div", {
               className: "x-modal-bg",
               onClick: function onClick() {
                 backDrop && _this3.cancel();
               }
-            }), _react["default"].createElement("div", {
+            }), (0, _core.jsx)("div", {
               className: "x-modal-content x-modal-".concat(size)
-            }, _react["default"].createElement(C, {
+            }, (0, _core.jsx)(C, {
               confirm: this.confirm.bind(this),
               cancel: this.cancel.bind(this),
               data: data
@@ -122,7 +122,7 @@
         return Modal;
       }(_react["default"].Component);
 
-      return _reactDom["default"].createPortal(_reactDom["default"].render(_react["default"].createElement(Modal, null), _Modal), _Modal);
+      return _reactDom["default"].createPortal(_reactDom["default"].render((0, _core.jsx)(Modal, null), _Modal), _Modal);
     });
   };
 

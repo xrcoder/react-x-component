@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "@babel/runtime/helpers/slicedToArray", "react", "classnames", "prop-types"], factory);
+    define(["exports", "@emotion/core", "@babel/runtime/helpers/slicedToArray", "react", "classnames", "prop-types"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("@babel/runtime/helpers/slicedToArray"), require("react"), require("classnames"), require("prop-types"));
+    factory(exports, require("@emotion/core"), require("@babel/runtime/helpers/slicedToArray"), require("react"), require("classnames"), require("prop-types"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.slicedToArray, global.react, global.classnames, global.propTypes);
+    factory(mod.exports, global.core, global.slicedToArray, global.react, global.classnames, global.propTypes);
     global.index = mod.exports;
   }
-})(this, function (_exports, _slicedToArray2, _react, _classnames, _propTypes) {
+})(this, function (_exports, _core, _slicedToArray2, _react, _classnames, _propTypes) {
   "use strict";
 
   var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
@@ -54,7 +54,7 @@
     }, {
       'x-switch-disabled': isDisabled
     }, className);
-    return _react["default"].createElement("div", {
+    return (0, _core.jsx)("div", {
       style: style,
       className: cls,
       onClick: function onClick(e) {
@@ -65,7 +65,7 @@
         setIsOn(!isOn);
         onChange(e, !isOn);
       }
-    }, _react["default"].createElement("span", {
+    }, (0, _core.jsx)("span", {
       className: "switch-btn"
     }));
   }

@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "react", "classnames", "prop-types", "./item", "./use"], factory);
+    define(["exports", "@emotion/core", "react", "classnames", "prop-types", "./item", "./use"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("react"), require("classnames"), require("prop-types"), require("./item"), require("./use"));
+    factory(exports, require("@emotion/core"), require("react"), require("classnames"), require("prop-types"), require("./item"), require("./use"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.react, global.classnames, global.propTypes, global.item, global.use);
+    factory(mod.exports, global.core, global.react, global.classnames, global.propTypes, global.item, global.use);
     global.radio = mod.exports;
   }
-})(this, function (_exports, _react, _classnames, _propTypes, _item, _use) {
+})(this, function (_exports, _core, _react, _classnames, _propTypes, _item, _use) {
   "use strict";
 
   var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -44,11 +44,11 @@
         oValue.updateData(value);
       }
     }, [value]);
-    return _react["default"].createElement("div", {
+    return (0, _core.jsx)("div", {
       className: (0, _classnames["default"])('x-radio', className),
       style: style
     }, oList.list.map(function (item) {
-      return _react["default"].createElement(_item["default"], {
+      return (0, _core.jsx)(_item["default"], {
         key: item.value,
         label: item.label,
         disabled: item.disabled,

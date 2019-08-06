@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "@babel/runtime/helpers/extends", "@babel/runtime/helpers/slicedToArray", "react", "./reg"], factory);
+    define(["exports", "@emotion/core", "@babel/runtime/helpers/extends", "@babel/runtime/helpers/slicedToArray", "react", "./reg"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("@babel/runtime/helpers/extends"), require("@babel/runtime/helpers/slicedToArray"), require("react"), require("./reg"));
+    factory(exports, require("@emotion/core"), require("@babel/runtime/helpers/extends"), require("@babel/runtime/helpers/slicedToArray"), require("react"), require("./reg"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global._extends, global.slicedToArray, global.react, global.reg);
+    factory(mod.exports, global.core, global._extends, global.slicedToArray, global.react, global.reg);
     global.phone = mod.exports;
   }
-})(this, function (_exports, _extends2, _slicedToArray2, _react, _reg2) {
+})(this, function (_exports, _core, _extends2, _slicedToArray2, _react, _reg2) {
   "use strict";
 
   var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
@@ -50,7 +50,7 @@
     (0, _react.useEffect)(function () {
       setValue(filterValue(value));
     }, [value]);
-    return _react["default"].createElement(_reg2["default"], (0, _extends2["default"])({}, props, {
+    return (0, _core.jsx)(_reg2["default"], (0, _extends2["default"])({}, props, {
       type: 'text',
       reg: /^[1]([3-9])[0-9]{9}$/,
       value: _value

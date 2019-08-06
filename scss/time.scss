@@ -4,6 +4,7 @@
 .el-time-panel {
     margin-top: 1px;
     box-sizing: border-box;
+
     .el-time-panel__content::after,
     .el-time-panel__content::before {
         margin-top: -20px;
@@ -16,9 +17,11 @@
     .el-time-spinner__item.active:not(.disabled) {
         color: #000;
     }
+
     .el-time-spinner__item:hover:not(.disabled):not(.active) {
         background: #F0F1F9;
     }
+
     .el-time-panel__btn.confirm {
         color: #2A1166;
     }
@@ -28,16 +31,36 @@
     .el-input__inner:focus {
         border-color: #645a82;
     }
+
     .el-input__inner {
         height: 34px;
         border-radius: 2px;
     }
+
     &.is-active.is-filled {
         .el-icon-time, .el-icon-close {
             font: normal normal normal 14px/1 FontAwesome;
+
             &:before {
                 content: "\f057";
             }
         }
+    }
+}
+
+.el-input__icon {
+    top: 2px;
+}
+
+.el-picker-panel.time-select {
+    margin-top: 1px;
+    box-sizing: border-box;
+
+    .time-select-item {
+        padding: 7px 10px;
+    }
+
+    .time-select-item.selected:not(.disabled) {
+        background-color: $theme-color;
     }
 }

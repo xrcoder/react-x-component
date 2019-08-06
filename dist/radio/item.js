@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "react", "classnames", "prop-types", "./use"], factory);
+    define(["exports", "@emotion/core", "react", "classnames", "prop-types", "./use"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("react"), require("classnames"), require("prop-types"), require("./use"));
+    factory(exports, require("@emotion/core"), require("react"), require("classnames"), require("prop-types"), require("./use"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.react, global.classnames, global.propTypes, global.use);
+    factory(mod.exports, global.core, global.react, global.classnames, global.propTypes, global.use);
     global.item = mod.exports;
   }
-})(this, function (_exports, _react, _classnames, _propTypes, _use) {
+})(this, function (_exports, _core, _react, _classnames, _propTypes, _use) {
   "use strict";
 
   var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -44,7 +44,7 @@
       'x-radio-item-selected': oValue.value,
       'x-radio-item-disabled': oDisabled.value
     });
-    return _react["default"].createElement("div", {
+    return (0, _core.jsx)("div", {
       style: style,
       className: cls,
       onClick: function onClick(e) {
@@ -56,9 +56,9 @@
         oValue.updateValue(v);
         onChange(e, v);
       }
-    }, _react["default"].createElement("span", {
+    }, (0, _core.jsx)("span", {
       className: "icon"
-    }), _react["default"].createElement("span", {
+    }), (0, _core.jsx)("span", {
       className: "name"
     }, label));
   }

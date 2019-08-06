@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "@babel/runtime/helpers/slicedToArray", "react", "prop-types", "../icon"], factory);
+    define(["exports", "@emotion/core", "@babel/runtime/helpers/slicedToArray", "react", "prop-types", "../icon"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("@babel/runtime/helpers/slicedToArray"), require("react"), require("prop-types"), require("../icon"));
+    factory(exports, require("@emotion/core"), require("@babel/runtime/helpers/slicedToArray"), require("react"), require("prop-types"), require("../icon"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.slicedToArray, global.react, global.propTypes, global.icon);
+    factory(mod.exports, global.core, global.slicedToArray, global.react, global.propTypes, global.icon);
     global.uploadList = mod.exports;
   }
-})(this, function (_exports, _slicedToArray2, _react, _propTypes, _icon) {
+})(this, function (_exports, _core, _slicedToArray2, _react, _propTypes, _icon) {
   "use strict";
 
   var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
@@ -51,25 +51,25 @@
       var uid = data.uid,
           imgData = data.imgData,
           status = data.status;
-      return _react["default"].createElement("div", {
+      return (0, _core.jsx)("div", {
         className: "x-upload-item-preview x-upload-box",
         key: "".concat(uid, "_").concat(index)
-      }, status === 0 ? _react["default"].createElement("div", {
+      }, status === 0 ? (0, _core.jsx)("div", {
         className: "x-upload-loading-box x-upload-box"
-      }, _react["default"].createElement("div", {
+      }, (0, _core.jsx)("div", {
         className: "bg-img"
-      }), _react["default"].createElement("div", {
+      }), (0, _core.jsx)("div", {
         className: "x-upload-loading"
-      }, _react["default"].createElement(_icon["default"], {
+      }, (0, _core.jsx)(_icon["default"], {
         name: 'spinner',
         className: "x-upload-loading-icon"
-      }))) : _react["default"].createElement("div", {
+      }))) : (0, _core.jsx)("div", {
         className: "x-upload-img-box"
-      }, _react["default"].createElement("img", {
+      }, (0, _core.jsx)("img", {
         src: imgData
-      }), _react["default"].createElement("div", {
+      }), (0, _core.jsx)("div", {
         className: "x-upload-img-opt"
-      }, _react["default"].createElement(_icon["default"], {
+      }, (0, _core.jsx)(_icon["default"], {
         name: 'trash',
         onClick: function onClick() {
           onDeleteItem(index);
@@ -77,7 +77,7 @@
       }))));
     };
 
-    return _react["default"].createElement("div", {
+    return (0, _core.jsx)("div", {
       className: "x-upload-list"
     }, _imgList.map(function (item, index) {
       return renderPreviewItem(item, index);

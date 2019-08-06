@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "@babel/runtime/helpers/extends", "@babel/runtime/helpers/defineProperty", "@babel/runtime/helpers/classCallCheck", "@babel/runtime/helpers/possibleConstructorReturn", "@babel/runtime/helpers/getPrototypeOf", "@babel/runtime/helpers/assertThisInitialized", "@babel/runtime/helpers/createClass", "@babel/runtime/helpers/inherits", "react", "prop-types", "./Portal", "./position"], factory);
+    define(["exports", "@emotion/core", "@babel/runtime/helpers/extends", "@babel/runtime/helpers/defineProperty", "@babel/runtime/helpers/classCallCheck", "@babel/runtime/helpers/possibleConstructorReturn", "@babel/runtime/helpers/getPrototypeOf", "@babel/runtime/helpers/assertThisInitialized", "@babel/runtime/helpers/createClass", "@babel/runtime/helpers/inherits", "react", "prop-types", "./portal", "./position"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("@babel/runtime/helpers/extends"), require("@babel/runtime/helpers/defineProperty"), require("@babel/runtime/helpers/classCallCheck"), require("@babel/runtime/helpers/possibleConstructorReturn"), require("@babel/runtime/helpers/getPrototypeOf"), require("@babel/runtime/helpers/assertThisInitialized"), require("@babel/runtime/helpers/createClass"), require("@babel/runtime/helpers/inherits"), require("react"), require("prop-types"), require("./Portal"), require("./position"));
+    factory(exports, require("@emotion/core"), require("@babel/runtime/helpers/extends"), require("@babel/runtime/helpers/defineProperty"), require("@babel/runtime/helpers/classCallCheck"), require("@babel/runtime/helpers/possibleConstructorReturn"), require("@babel/runtime/helpers/getPrototypeOf"), require("@babel/runtime/helpers/assertThisInitialized"), require("@babel/runtime/helpers/createClass"), require("@babel/runtime/helpers/inherits"), require("react"), require("prop-types"), require("./portal"), require("./position"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global._extends, global.defineProperty, global.classCallCheck, global.possibleConstructorReturn, global.getPrototypeOf, global.assertThisInitialized, global.createClass, global.inherits, global.react, global.propTypes, global.Portal, global.position);
+    factory(mod.exports, global.core, global._extends, global.defineProperty, global.classCallCheck, global.possibleConstructorReturn, global.getPrototypeOf, global.assertThisInitialized, global.createClass, global.inherits, global.react, global.propTypes, global.portal, global.position);
     global.index = mod.exports;
   }
-})(this, function (_exports, _extends2, _defineProperty2, _classCallCheck2, _possibleConstructorReturn2, _getPrototypeOf2, _assertThisInitialized2, _createClass2, _inherits2, _react, _propTypes, _Portal, _position) {
+})(this, function (_exports, _core, _extends2, _defineProperty2, _classCallCheck2, _possibleConstructorReturn2, _getPrototypeOf2, _assertThisInitialized2, _createClass2, _inherits2, _react, _propTypes, _portal, _position) {
   "use strict";
 
   var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
@@ -31,7 +31,7 @@
   _inherits2 = _interopRequireDefault(_inherits2);
   _react = _interopRequireDefault(_react);
   _propTypes = _interopRequireDefault(_propTypes);
-  _Portal = _interopRequireWildcard(_Portal);
+  _portal = _interopRequireWildcard(_portal);
   _position = _interopRequireDefault(_position);
 
   function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
@@ -52,7 +52,7 @@
     (0, _createClass2["default"])(Tooltip, null, [{
       key: "getDerivedStateFromProps",
       value: function getDerivedStateFromProps(nextProps) {
-        return _Portal.isBrowser && nextProps.isOpen ? {
+        return _portal.isBrowser && nextProps.isOpen ? {
           hasBeenShown: true
         } : null;
       }
@@ -256,21 +256,21 @@
 
           var arrowStyles = _objectSpread({}, currentPositions.arrow);
 
-          tipPortal = _react["default"].createElement(_Portal["default"], null, _react["default"].createElement("div", (0, _extends2["default"])({}, portalProps, {
+          tipPortal = (0, _core.jsx)(_portal["default"], null, (0, _core.jsx)("div", (0, _extends2["default"])({}, portalProps, {
             className: typeof tipContentClassName !== 'undefined' ? tipContentClassName : className
-          }), _react["default"].createElement("div", {
+          }), (0, _core.jsx)("div", {
             className: "x-tooltip",
             style: tipStyles,
             ref: function ref(tip) {
               _this2.tip = tip;
             }
-          }, content), _react["default"].createElement("span", {
+          }, content), (0, _core.jsx)("span", {
             className: "x-tooltip-arrow x-tooltip-".concat(currentPositions.realDirection, "-arrow"),
             style: arrowStyles
           })));
         }
 
-        return _react["default"].createElement(TagName, props, children, tipPortal);
+        return (0, _core.jsx)(TagName, props, children, tipPortal);
       }
     }]);
     return Tooltip;

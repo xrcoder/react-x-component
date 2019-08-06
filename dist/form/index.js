@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "@babel/runtime/helpers/extends", "react", "classnames", "prop-types", "./group"], factory);
+    define(["exports", "@emotion/core", "@babel/runtime/helpers/extends", "react", "classnames", "prop-types", "./group"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("@babel/runtime/helpers/extends"), require("react"), require("classnames"), require("prop-types"), require("./group"));
+    factory(exports, require("@emotion/core"), require("@babel/runtime/helpers/extends"), require("react"), require("classnames"), require("prop-types"), require("./group"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global._extends, global.react, global.classnames, global.propTypes, global.group);
+    factory(mod.exports, global.core, global._extends, global.react, global.classnames, global.propTypes, global.group);
     global.index = mod.exports;
   }
-})(this, function (_exports, _extends2, _react, _classnames, _propTypes, _group) {
+})(this, function (_exports, _core, _extends2, _react, _classnames, _propTypes, _group) {
   "use strict";
 
   var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -26,9 +26,9 @@
   _group = _interopRequireDefault(_group);
 
   function Name(props) {
-    return _react["default"].createElement("label", (0, _extends2["default"])({}, props, {
+    return (0, _core.jsx)("label", (0, _extends2["default"])({}, props, {
       className: (0, _classnames["default"])('x-form-name', props.className)
-    }), props.required && _react["default"].createElement("span", {
+    }), props.required && (0, _core.jsx)("span", {
       className: "x-form-name-star"
     }, "*"), props.children);
   }

@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "@emotion/core", "react", "classnames"], factory);
+    define(["exports", "react", "element-react"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("@emotion/core"), require("react"), require("classnames"));
+    factory(exports, require("react"), require("element-react"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.core, global.react, global.classnames);
+    factory(mod.exports, global.react, global.elementReact);
     global.index = mod.exports;
   }
-})(this, function (_exports, _core, _react, _classnames) {
+})(this, function (_exports, _react, _elementReact) {
   "use strict";
 
   var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -20,13 +20,10 @@
   });
   _exports["default"] = void 0;
   _react = _interopRequireDefault(_react);
-  _classnames = _interopRequireDefault(_classnames);
-
-  function Collapse(props) {
-    return (0, _core.jsx)("div", null, "collapse");
-  }
-
-  var _default = Collapse;
+  var _default = {
+    TimePicker: _elementReact.TimePicker,
+    TimeSelect: _elementReact.TimeSelect
+  };
   _exports["default"] = _default;
   module.exports = exports.default;
 });

@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "react", "prop-types", "../button", "./use"], factory);
+    define(["exports", "@emotion/core", "react", "prop-types", "../button", "./use"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("react"), require("prop-types"), require("../button"), require("./use"));
+    factory(exports, require("@emotion/core"), require("react"), require("prop-types"), require("../button"), require("./use"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.react, global.propTypes, global.button, global.use);
+    factory(mod.exports, global.core, global.react, global.propTypes, global.button, global.use);
     global.btn = mod.exports;
   }
-})(this, function (_exports, _react, _propTypes, _button, _use) {
+})(this, function (_exports, _core, _react, _propTypes, _button, _use) {
   "use strict";
 
   var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -43,7 +43,7 @@
     (0, _react.useEffect)(function () {
       oDisabled.updateValue(disabled);
     }, [disabled]);
-    return _react["default"].createElement(_button.Button, {
+    return (0, _core.jsx)(_button.Button, {
       style: style,
       type: type,
       disabled: oDisabled.value,

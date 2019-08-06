@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "@babel/runtime/helpers/extends", "@babel/runtime/helpers/toArray", "@babel/runtime/helpers/slicedToArray", "react", "classnames", "prop-types"], factory);
+    define(["exports", "@emotion/core", "@babel/runtime/helpers/extends", "@babel/runtime/helpers/toArray", "@babel/runtime/helpers/slicedToArray", "react", "classnames", "prop-types"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("@babel/runtime/helpers/extends"), require("@babel/runtime/helpers/toArray"), require("@babel/runtime/helpers/slicedToArray"), require("react"), require("classnames"), require("prop-types"));
+    factory(exports, require("@emotion/core"), require("@babel/runtime/helpers/extends"), require("@babel/runtime/helpers/toArray"), require("@babel/runtime/helpers/slicedToArray"), require("react"), require("classnames"), require("prop-types"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global._extends, global.toArray, global.slicedToArray, global.react, global.classnames, global.propTypes);
+    factory(mod.exports, global.core, global._extends, global.toArray, global.slicedToArray, global.react, global.classnames, global.propTypes);
     global.group = mod.exports;
   }
-})(this, function (_exports, _extends2, _toArray2, _slicedToArray2, _react, _classnames, _propTypes) {
+})(this, function (_exports, _core, _extends2, _toArray2, _slicedToArray2, _react, _classnames, _propTypes) {
   "use strict";
 
   var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
@@ -63,15 +63,15 @@
     (0, _react.useEffect)(function () {
       oMsg.updateMsg(errorMsg);
     }, [errorMsg]);
-    return _react["default"].createElement("div", {
+    return (0, _core.jsx)("div", {
       className: (0, _classnames["default"])('x-form-group', {
         'x-form-group-horizontal': horizontal
       }, className)
-    }, Name && _react["default"].createElement(Name.type, (0, _extends2["default"])({}, Name.props, {
+    }, Name && (0, _core.jsx)(Name.type, (0, _extends2["default"])({}, Name.props, {
       required: required
-    })), Input && _react["default"].createElement(Input.type, (0, _extends2["default"])({}, Input.props, {
+    })), Input && (0, _core.jsx)(Input.type, (0, _extends2["default"])({}, Input.props, {
       error: Boolean(oMsg.msg)
-    })), Child, oMsg.msg && _react["default"].createElement("span", {
+    })), Child, oMsg.msg && (0, _core.jsx)("span", {
       className: "x-form-group-tips"
     }, oMsg.msg));
   }

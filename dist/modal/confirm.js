@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "react", "classnames", "./modal", "../button", "./header", "./body", "./footer"], factory);
+    define(["exports", "@emotion/core", "react", "classnames", "./modal", "../button", "./header", "./body", "./footer"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("react"), require("classnames"), require("./modal"), require("../button"), require("./header"), require("./body"), require("./footer"));
+    factory(exports, require("@emotion/core"), require("react"), require("classnames"), require("./modal"), require("../button"), require("./header"), require("./body"), require("./footer"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.react, global.classnames, global.modal, global.button, global.header, global.body, global.footer);
+    factory(mod.exports, global.core, global.react, global.classnames, global.modal, global.button, global.header, global.body, global.footer);
     global.confirm = mod.exports;
   }
-})(this, function (_exports, _react, _classnames, _modal, _button, _header, _body, _footer) {
+})(this, function (_exports, _core, _react, _classnames, _modal, _button, _header, _body, _footer) {
   "use strict";
 
   var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -30,14 +30,14 @@
     var data = props.data,
         confirm = props.confirm,
         cancel = props.cancel;
-    return _react["default"].createElement(_react["default"].Fragment, null, _react["default"].createElement(_header["default"], {
+    return (0, _core.jsx)(_react["default"].Fragment, null, (0, _core.jsx)(_header["default"], {
       cancel: cancel
-    }, data.title), _react["default"].createElement(_body["default"], null, _react["default"].createElement("div", {
+    }, data.title), (0, _core.jsx)(_body["default"], null, (0, _core.jsx)("div", {
       className: "content"
-    }, data.content)), _react["default"].createElement(_footer["default"], null, _react["default"].createElement(_button.Button.Box, null, _react["default"].createElement(_button.Button, {
+    }, data.content)), (0, _core.jsx)(_footer["default"], null, (0, _core.jsx)(_button.Button.Box, null, (0, _core.jsx)(_button.Button, {
       type: "primary",
       onClick: confirm
-    }, data.confirmText), _react["default"].createElement(_button.Button, {
+    }, data.confirmText), (0, _core.jsx)(_button.Button, {
       type: "primary",
       inverse: true,
       onClick: cancel

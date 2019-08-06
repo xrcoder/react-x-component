@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "@babel/runtime/helpers/extends", "@babel/runtime/helpers/slicedToArray", "react", "./input"], factory);
+    define(["exports", "@emotion/core", "@babel/runtime/helpers/extends", "@babel/runtime/helpers/slicedToArray", "react", "./input"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("@babel/runtime/helpers/extends"), require("@babel/runtime/helpers/slicedToArray"), require("react"), require("./input"));
+    factory(exports, require("@emotion/core"), require("@babel/runtime/helpers/extends"), require("@babel/runtime/helpers/slicedToArray"), require("react"), require("./input"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global._extends, global.slicedToArray, global.react, global.input);
+    factory(mod.exports, global.core, global._extends, global.slicedToArray, global.react, global.input);
     global.reg = mod.exports;
   }
-})(this, function (_exports, _extends2, _slicedToArray2, _react, _input) {
+})(this, function (_exports, _core, _extends2, _slicedToArray2, _react, _input) {
   "use strict";
 
   var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
@@ -46,7 +46,7 @@
       setRegValue(value);
       setResRule(reg.test(value));
     }, [value]);
-    return _react["default"].createElement(_input["default"], (0, _extends2["default"])({}, props, {
+    return (0, _core.jsx)(_input["default"], (0, _extends2["default"])({}, props, {
       value: regValue,
       className: className,
       error: Boolean(!resRule && regValue),

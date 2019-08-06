@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "@babel/runtime/helpers/slicedToArray", "react", "prop-types", "classnames"], factory);
+    define(["exports", "@emotion/core", "@babel/runtime/helpers/slicedToArray", "react", "prop-types", "classnames"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("@babel/runtime/helpers/slicedToArray"), require("react"), require("prop-types"), require("classnames"));
+    factory(exports, require("@emotion/core"), require("@babel/runtime/helpers/slicedToArray"), require("react"), require("prop-types"), require("classnames"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.slicedToArray, global.react, global.propTypes, global.classnames);
+    factory(mod.exports, global.core, global.slicedToArray, global.react, global.propTypes, global.classnames);
     global.page = mod.exports;
   }
-})(this, function (_exports, _slicedToArray2, _react, _propTypes, _classnames) {
+})(this, function (_exports, _core, _slicedToArray2, _react, _propTypes, _classnames) {
   "use strict";
 
   var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
@@ -142,9 +142,9 @@
       if (count === 0 || count === null) {
         return null;
       } else {
-        return _react["default"].createElement("ul", {
+        return (0, _core.jsx)("ul", {
           className: (0, _classnames["default"])('x-pagination-page', className)
-        }, _react["default"].createElement("li", {
+        }, (0, _core.jsx)("li", {
           className: (0, _classnames["default"])('prev', {
             disabled: currPage == 1
           }),
@@ -156,7 +156,7 @@
             onCurrPageChange(currPage - 1);
           }
         }, "\u4E0A\u4E00\u9875"), pageList.map(function (item, index) {
-          return _react["default"].createElement("li", {
+          return (0, _core.jsx)("li", {
             key: "page_index_".concat(index),
             className: (0, _classnames["default"])('page-item', {
               active: currPage == item
@@ -169,7 +169,7 @@
               }
             }
           }, item);
-        }), _react["default"].createElement("li", {
+        }), (0, _core.jsx)("li", {
           className: (0, _classnames["default"])('next', {
             disabled: currPage == totalPage
           }),

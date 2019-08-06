@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "@babel/runtime/helpers/extends", "react", "prop-types", "classnames", "./upload"], factory);
+    define(["exports", "@emotion/core", "@babel/runtime/helpers/extends", "react", "prop-types", "classnames", "./upload"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("@babel/runtime/helpers/extends"), require("react"), require("prop-types"), require("classnames"), require("./upload"));
+    factory(exports, require("@emotion/core"), require("@babel/runtime/helpers/extends"), require("react"), require("prop-types"), require("classnames"), require("./upload"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global._extends, global.react, global.propTypes, global.classnames, global.upload);
+    factory(mod.exports, global.core, global._extends, global.react, global.propTypes, global.classnames, global.upload);
     global.avatar = mod.exports;
   }
-})(this, function (_exports, _extends2, _react, _propTypes, _classnames, _upload) {
+})(this, function (_exports, _core, _extends2, _react, _propTypes, _classnames, _upload) {
   "use strict";
 
   var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
@@ -35,9 +35,9 @@
         onError = props.onError,
         _onBeforeStart = props.onBeforeStart;
     var ImgObj = {};
-    return _react["default"].createElement("div", {
+    return (0, _core.jsx)("div", {
       className: "x-upload-list"
-    }, _react["default"].createElement(_upload["default"], (0, _extends2["default"])({}, props, {
+    }, (0, _core.jsx)(_upload["default"], (0, _extends2["default"])({}, props, {
       url: url,
       onBeforeStart: function onBeforeStart(file, e) {
         return _onBeforeStart(file, e);
@@ -53,12 +53,14 @@
       onError: function onError(file, e) {
         props.onError(file, e);
       }
-    }), _react["default"].createElement("div", {
+    }), (0, _core.jsx)("div", {
       className: (0, _classnames["default"])('x-upload-box', className),
       style: style
-    }, _react["default"].createElement("div", {
+    }, (0, _core.jsx)("div", {
       className: "bg-img"
-    }), _react["default"].createElement("div", null, "\u62D6\u62FD\u6216\u70B9\u51FB\u4E0A\u4F20\u4EBA\u50CF"))));
+    }), (0, _core.jsx)("div", {
+      className: "tips"
+    }, "\u70B9\u51FB\u4E0A\u4F20\u4EBA\u50CF"))));
   };
 
   var _default = Avatar;

@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "@babel/runtime/helpers/slicedToArray", "react", "prop-types", "classnames", "./request"], factory);
+    define(["exports", "@emotion/core", "@babel/runtime/helpers/slicedToArray", "react", "prop-types", "classnames", "./request"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("@babel/runtime/helpers/slicedToArray"), require("react"), require("prop-types"), require("classnames"), require("./request"));
+    factory(exports, require("@emotion/core"), require("@babel/runtime/helpers/slicedToArray"), require("react"), require("prop-types"), require("classnames"), require("./request"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.slicedToArray, global.react, global.propTypes, global.classnames, global.request);
+    factory(mod.exports, global.core, global.slicedToArray, global.react, global.propTypes, global.classnames, global.request);
     global.upload = mod.exports;
   }
-})(this, function (_exports, _slicedToArray2, _react, _propTypes, _classnames, _request) {
+})(this, function (_exports, _core, _slicedToArray2, _react, _propTypes, _classnames, _request) {
   "use strict";
 
   var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
@@ -131,15 +131,15 @@
       uploadInput.current.click();
     };
 
-    return _react["default"].createElement("div", {
+    return (0, _core.jsx)("div", {
       className: (0, _classnames["default"])('x-upload', className),
       ref: dragEl,
       onClick: function onClick() {
         handleClick();
       }
-    }, _react["default"].createElement("div", {
+    }, (0, _core.jsx)("div", {
       className: "x-upload-trigger"
-    }, children), _react["default"].createElement("input", {
+    }, children), (0, _core.jsx)("input", {
       type: "file",
       accept: fileType,
       onChange: function onChange(e) {

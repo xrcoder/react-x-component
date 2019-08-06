@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "react", "classnames"], factory);
+    define(["exports", "@emotion/core", "react", "classnames"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("react"), require("classnames"));
+    factory(exports, require("@emotion/core"), require("react"), require("classnames"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.react, global.classnames);
+    factory(mod.exports, global.core, global.react, global.classnames);
     global.group = mod.exports;
   }
-})(this, function (_exports, _react, _classnames) {
+})(this, function (_exports, _core, _react, _classnames) {
   "use strict";
 
   var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -26,7 +26,7 @@
     var children = props.children,
         style = props.style,
         className = props.className;
-    return _react["default"].createElement("div", {
+    return (0, _core.jsx)("div", {
       style: style,
       className: (0, _classnames["default"])('x-btn-group', className)
     }, children);

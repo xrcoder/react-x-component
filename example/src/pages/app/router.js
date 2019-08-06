@@ -22,6 +22,7 @@ export default withRouter(({match}) => {
             <Route path={`${match.url}/modal`} component={require('./modal')}/>
             <Route path={`${match.url}/remind`} component={require('./remind')}/>
             <Route path={`${match.url}/table`} component={require('./table')}/>
+            <Route path={`${match.url}/date`} component={require('./date')}/>
             <Route component={() => <div>404</div>}/>
         </Switch>
     );

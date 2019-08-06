@@ -31,4 +31,4 @@ export Switch from './switch';
 export Collapse from './collapse';
 export Remind from './remind';
 export DropdownSelect from './dropdown';
-export TimePicker from './timepicker';
+export * from './timepicker';

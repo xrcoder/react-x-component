@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "react", "prop-types", "classnames", "./page", "./size"], factory);
+    define(["exports", "@emotion/core", "react", "prop-types", "classnames", "./page", "./size"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("react"), require("prop-types"), require("classnames"), require("./page"), require("./size"));
+    factory(exports, require("@emotion/core"), require("react"), require("prop-types"), require("classnames"), require("./page"), require("./size"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.react, global.propTypes, global.classnames, global.page, global.size);
+    factory(mod.exports, global.core, global.react, global.propTypes, global.classnames, global.page, global.size);
     global.pagination = mod.exports;
   }
-})(this, function (_exports, _react, _propTypes, _classnames, _page, _size) {
+})(this, function (_exports, _core, _react, _propTypes, _classnames, _page, _size) {
   "use strict";
 
   var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -26,17 +26,17 @@
   _size = _interopRequireDefault(_size);
 
   var Pagination = function Pagination(props) {
-    return _react["default"].createElement("div", {
+    return (0, _core.jsx)("div", {
       className: (0, _classnames["default"])('x-pagination', props.className),
       style: props.style
-    }, _react["default"].createElement(_page["default"], {
+    }, (0, _core.jsx)(_page["default"], {
       count: props.count,
       currPage: props.currPage,
       pageSize: props.pageSize,
       onPageChange: function onPageChange(res) {
         props.onPageChange && props.onPageChange(res);
       }
-    }), _react["default"].createElement(_size["default"], {
+    }), (0, _core.jsx)(_size["default"], {
       menuPlacement: props.menuPlacement,
       pageSize: props.pageSize,
       count: props.count,

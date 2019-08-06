@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "react", "classnames", "prop-types"], factory);
+    define(["exports", "@emotion/core", "react", "classnames", "prop-types"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("react"), require("classnames"), require("prop-types"));
+    factory(exports, require("@emotion/core"), require("react"), require("classnames"), require("prop-types"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.react, global.classnames, global.propTypes);
+    factory(mod.exports, global.core, global.react, global.classnames, global.propTypes);
     global.button_box = mod.exports;
   }
-})(this, function (_exports, _react, _classnames, _propTypes) {
+})(this, function (_exports, _core, _react, _classnames, _propTypes) {
   "use strict";
 
   var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -24,7 +24,7 @@
   _propTypes = _interopRequireDefault(_propTypes);
 
   function ButtonBox(props) {
-    return _react["default"].createElement("div", {
+    return (0, _core.jsx)("div", {
       style: props.style,
       className: (0, _classnames["default"])('x-btn-box', "x-btn-box-".concat(props.align), props.className)
     }, props.children);

@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "@babel/runtime/helpers/slicedToArray", "react", "prop-types", "classnames", "./item"], factory);
+    define(["exports", "@emotion/core", "@babel/runtime/helpers/slicedToArray", "react", "prop-types", "classnames", "./item"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("@babel/runtime/helpers/slicedToArray"), require("react"), require("prop-types"), require("classnames"), require("./item"));
+    factory(exports, require("@emotion/core"), require("@babel/runtime/helpers/slicedToArray"), require("react"), require("prop-types"), require("classnames"), require("./item"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.slicedToArray, global.react, global.propTypes, global.classnames, global.item);
+    factory(mod.exports, global.core, global.slicedToArray, global.react, global.propTypes, global.classnames, global.item);
     global.checkbox = mod.exports;
   }
-})(this, function (_exports, _slicedToArray2, _react, _propTypes, _classnames, _item) {
+})(this, function (_exports, _core, _slicedToArray2, _react, _propTypes, _classnames, _item) {
   "use strict";
 
   var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
@@ -94,12 +94,12 @@
         oData.updateData(value);
       }
     }, [value]);
-    return _react["default"].createElement("div", {
+    return (0, _core.jsx)("div", {
       className: (0, _classnames["default"])('x-checkbox-group', className),
       style: style
     }, oList.list.map(function (item) {
       var isSelected = oData.data.indexOf(item.value) > -1;
-      return _react["default"].createElement(_item["default"], {
+      return (0, _core.jsx)(_item["default"], {
         key: item.value,
         label: item.label,
         disabled: item.disabled,

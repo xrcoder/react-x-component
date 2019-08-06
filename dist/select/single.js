@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "react", "prop-types", "classnames", "react-select"], factory);
+    define(["exports", "@emotion/core", "react", "prop-types", "classnames", "react-select"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("react"), require("prop-types"), require("classnames"), require("react-select"));
+    factory(exports, require("@emotion/core"), require("react"), require("prop-types"), require("classnames"), require("react-select"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.react, global.propTypes, global.classnames, global.reactSelect);
+    factory(mod.exports, global.core, global.react, global.propTypes, global.classnames, global.reactSelect);
     global.single = mod.exports;
   }
-})(this, function (_exports, _react, _propTypes, _classnames, _reactSelect) {
+})(this, function (_exports, _core, _react, _propTypes, _classnames, _reactSelect) {
   "use strict";
 
   var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -40,7 +40,7 @@
         menuPlacement = props.menuPlacement,
         components = props.components,
         onChange = props.onChange;
-    return _react["default"].createElement(_reactSelect["default"], {
+    return (0, _core.jsx)(_reactSelect["default"], {
       className: (0, _classnames["default"])('x-select', size ? "x-select-".concat(size) : null, className),
       classNamePrefix: "x-select",
       isSearchable: isSearchable,

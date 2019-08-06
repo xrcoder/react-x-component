@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "@babel/runtime/helpers/extends", "@babel/runtime/helpers/slicedToArray", "react", "prop-types", "./upload-list", "./avatar"], factory);
+    define(["exports", "@emotion/core", "@babel/runtime/helpers/extends", "@babel/runtime/helpers/slicedToArray", "react", "prop-types", "./upload-list", "./avatar"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("@babel/runtime/helpers/extends"), require("@babel/runtime/helpers/slicedToArray"), require("react"), require("prop-types"), require("./upload-list"), require("./avatar"));
+    factory(exports, require("@emotion/core"), require("@babel/runtime/helpers/extends"), require("@babel/runtime/helpers/slicedToArray"), require("react"), require("prop-types"), require("./upload-list"), require("./avatar"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global._extends, global.slicedToArray, global.react, global.propTypes, global.uploadList, global.avatar);
+    factory(mod.exports, global.core, global._extends, global.slicedToArray, global.react, global.propTypes, global.uploadList, global.avatar);
     global.avatarList = mod.exports;
   }
-})(this, function (_exports, _extends2, _slicedToArray2, _react, _propTypes, _uploadList, _avatar) {
+})(this, function (_exports, _core, _extends2, _slicedToArray2, _react, _propTypes, _uploadList, _avatar) {
   "use strict";
 
   var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
@@ -48,9 +48,9 @@
         setImgList(imgList);
       }
     }, [imgList]);
-    return _react["default"].createElement("div", {
+    return (0, _core.jsx)("div", {
       className: "x-upload-list"
-    }, _react["default"].createElement(_uploadList["default"], {
+    }, (0, _core.jsx)(_uploadList["default"], {
       imgList: list,
       onDeleteItem: function onDeleteItem(index) {
         var _list = _imgList;
@@ -61,7 +61,7 @@
 
         _onDeleteItem(_list);
       }
-    }), _imgList.length < maxLength ? _react["default"].createElement(_avatar["default"], (0, _extends2["default"])({}, props, {
+    }), _imgList.length < maxLength ? (0, _core.jsx)(_avatar["default"], (0, _extends2["default"])({}, props, {
       url: url,
       onBeforeStart: function onBeforeStart(file, e) {
         var _list = _imgList;

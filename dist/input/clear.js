@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "@babel/runtime/helpers/slicedToArray", "react", "classnames", "../icon", "./input", "./group"], factory);
+    define(["exports", "@emotion/core", "@babel/runtime/helpers/slicedToArray", "react", "classnames", "../icon", "./input", "./group"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("@babel/runtime/helpers/slicedToArray"), require("react"), require("classnames"), require("../icon"), require("./input"), require("./group"));
+    factory(exports, require("@emotion/core"), require("@babel/runtime/helpers/slicedToArray"), require("react"), require("classnames"), require("../icon"), require("./input"), require("./group"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.slicedToArray, global.react, global.classnames, global.icon, global.input, global.group);
+    factory(mod.exports, global.core, global.slicedToArray, global.react, global.classnames, global.icon, global.input, global.group);
     global.clear = mod.exports;
   }
-})(this, function (_exports, _slicedToArray2, _react, _classnames, _icon, _input, _group) {
+})(this, function (_exports, _core, _slicedToArray2, _react, _classnames, _icon, _input, _group) {
   "use strict";
 
   var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
@@ -100,10 +100,10 @@
     (0, _react.useEffect)(function () {
       oInput.updateValue(value);
     }, [value]);
-    return _react["default"].createElement(_group["default"], {
+    return (0, _core.jsx)(_group["default"], {
       className: (0, _classnames["default"])(className),
       style: style
-    }, _react["default"].createElement(_input["default"], {
+    }, (0, _core.jsx)(_input["default"], {
       placeholder: placeholder,
       type: type,
       error: error,
@@ -125,7 +125,7 @@
         _onBlur && _onBlur(e);
       },
       onEnter: onEnter
-    }), _react["default"].createElement(_icon["default"], {
+    }), (0, _core.jsx)(_icon["default"], {
       className: (0, _classnames["default"])('clear-btn', {
         'show': status
       }),

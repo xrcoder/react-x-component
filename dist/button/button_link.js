@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "@babel/runtime/helpers/extends", "@babel/runtime/helpers/slicedToArray", "react", "classnames", "react-router-dom", "prop-types"], factory);
+    define(["exports", "@emotion/core", "@babel/runtime/helpers/extends", "@babel/runtime/helpers/slicedToArray", "react", "classnames", "react-router-dom", "prop-types"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("@babel/runtime/helpers/extends"), require("@babel/runtime/helpers/slicedToArray"), require("react"), require("classnames"), require("react-router-dom"), require("prop-types"));
+    factory(exports, require("@emotion/core"), require("@babel/runtime/helpers/extends"), require("@babel/runtime/helpers/slicedToArray"), require("react"), require("classnames"), require("react-router-dom"), require("prop-types"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global._extends, global.slicedToArray, global.react, global.classnames, global.reactRouterDom, global.propTypes);
+    factory(mod.exports, global.core, global._extends, global.slicedToArray, global.react, global.classnames, global.reactRouterDom, global.propTypes);
     global.button_link = mod.exports;
   }
-})(this, function (_exports, _extends2, _slicedToArray2, _react, _classnames, _reactRouterDom, _propTypes) {
+})(this, function (_exports, _core, _extends2, _slicedToArray2, _react, _classnames, _reactRouterDom, _propTypes) {
   "use strict";
 
   var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
@@ -58,7 +58,7 @@
       'x-btn-sm': size === 'sm',
       'x-btn-inverse': btnInverse
     }, className);
-    return _react["default"].createElement(_reactRouterDom.Link, (0, _extends2["default"])({}, props, {
+    return (0, _core.jsx)(_reactRouterDom.Link, (0, _extends2["default"])({}, props, {
       className: btnClass,
       inverse: null,
       type: null,

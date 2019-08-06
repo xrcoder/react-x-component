@@ -1,6 +1,6 @@
 import React from 'react';
-import {TimePicker} from 'element-react';
+import {TimePicker, TimeSelect} from 'element-react';
 
-export default function (props) {
-    return <TimePicker {...props}/>
+export default {
+    TimePicker, TimeSelect
 }

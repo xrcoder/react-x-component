@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "@babel/runtime/helpers/slicedToArray", "react", "classnames", "prop-types"], factory);
+    define(["exports", "@emotion/core", "@babel/runtime/helpers/slicedToArray", "react", "classnames", "prop-types"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("@babel/runtime/helpers/slicedToArray"), require("react"), require("classnames"), require("prop-types"));
+    factory(exports, require("@emotion/core"), require("@babel/runtime/helpers/slicedToArray"), require("react"), require("classnames"), require("prop-types"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.slicedToArray, global.react, global.classnames, global.propTypes);
+    factory(mod.exports, global.core, global.slicedToArray, global.react, global.classnames, global.propTypes);
     global.textarea = mod.exports;
   }
-})(this, function (_exports, _slicedToArray2, _react, _classnames, _propTypes) {
+})(this, function (_exports, _core, _slicedToArray2, _react, _classnames, _propTypes) {
   "use strict";
 
   var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
@@ -83,7 +83,7 @@
     (0, _react.useEffect)(function () {
       setIsError(error);
     }, [isError]);
-    return _react["default"].createElement("textarea", {
+    return (0, _core.jsx)("textarea", {
       value: oInput.value,
       style: style,
       type: type,

@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "@babel/runtime/helpers/slicedToArray", "react", "prop-types", "classnames", "../select"], factory);
+    define(["exports", "@emotion/core", "@babel/runtime/helpers/slicedToArray", "react", "prop-types", "classnames", "../select"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("@babel/runtime/helpers/slicedToArray"), require("react"), require("prop-types"), require("classnames"), require("../select"));
+    factory(exports, require("@emotion/core"), require("@babel/runtime/helpers/slicedToArray"), require("react"), require("prop-types"), require("classnames"), require("../select"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.slicedToArray, global.react, global.propTypes, global.classnames, global.select);
+    factory(mod.exports, global.core, global.slicedToArray, global.react, global.propTypes, global.classnames, global.select);
     global.size = mod.exports;
   }
-})(this, function (_exports, _slicedToArray2, _react, _propTypes, _classnames, _select) {
+})(this, function (_exports, _core, _slicedToArray2, _react, _propTypes, _classnames, _select) {
   "use strict";
 
   var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
@@ -61,11 +61,11 @@
       props.onPageSizeChange && props.onPageSizeChange(pageSize);
     };
 
-    return _react["default"].createElement("div", {
+    return (0, _core.jsx)("div", {
       className: (0, _classnames["default"])('x-pagination-size', className)
-    }, _react["default"].createElement("div", {
+    }, (0, _core.jsx)("div", {
       className: "x-pagination-size-count"
-    }, "\u5171 ", count, " \u6761"), _react["default"].createElement(_select["default"].Single, {
+    }, "\u5171 ", count, " \u6761"), (0, _core.jsx)(_select["default"].Single, {
       className: "x-pagination-size-select",
       menuPlacement: menuPlacement,
       size: 'sm',

@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "@babel/runtime/helpers/slicedToArray", "react", "classnames", "prop-types"], factory);
+    define(["exports", "@emotion/core", "@babel/runtime/helpers/slicedToArray", "react", "classnames", "prop-types"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("@babel/runtime/helpers/slicedToArray"), require("react"), require("classnames"), require("prop-types"));
+    factory(exports, require("@emotion/core"), require("@babel/runtime/helpers/slicedToArray"), require("react"), require("classnames"), require("prop-types"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.slicedToArray, global.react, global.classnames, global.propTypes);
+    factory(mod.exports, global.core, global.slicedToArray, global.react, global.classnames, global.propTypes);
     global.input = mod.exports;
   }
-})(this, function (_exports, _slicedToArray2, _react, _classnames, _propTypes) {
+})(this, function (_exports, _core, _slicedToArray2, _react, _classnames, _propTypes) {
   "use strict";
 
   var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
@@ -54,14 +54,15 @@
         value = _ref$value === void 0 ? '' : _ref$value,
         className = _ref.className,
         style = _ref.style,
+        disabled = _ref.disabled,
+        maxLength = _ref.maxLength,
+        minLength = _ref.minLength,
+        type = _ref.type,
         _onChange = _ref.onChange,
         onEnter = _ref.onEnter,
         onFocus = _ref.onFocus,
         onBlur = _ref.onBlur,
-        disabled = _ref.disabled,
-        maxLength = _ref.maxLength,
-        minLength = _ref.minLength,
-        type = _ref.type;
+        onClick = _ref.onClick;
     var oInput = useInputValue(value);
 
     var _useState3 = (0, _react.useState)(disabled),
@@ -83,7 +84,7 @@
     (0, _react.useEffect)(function () {
       setIsError(error);
     }, [error]);
-    return _react["default"].createElement("input", {
+    return (0, _core.jsx)("input", {
       value: oInput.value,
       style: style,
       type: type,
@@ -100,6 +101,7 @@
       },
       onFocus: onFocus,
       onBlur: onBlur,
+      onClick: onClick,
       onKeyDown: function onKeyDown(e) {
         if (e.keyCode === 13 && onEnter) {
           onEnter(e.target.value, e);
@@ -119,7 +121,8 @@
     onFocus: _propTypes["default"].func,
     onBlur: _propTypes["default"].func,
     onChange: _propTypes["default"].func,
-    onEnter: _propTypes["default"].func
+    onEnter: _propTypes["default"].func,
+    onClick: _propTypes["default"].func
   };
   Input.defaultProps = {
     className: '',
@@ -129,7 +132,8 @@
     onChange: function onChange() {},
     onFocus: function onFocus() {},
     onBlur: function onBlur() {},
-    onEnter: function onEnter() {}
+    onEnter: function onEnter() {},
+    onClick: function onClick() {}
   };
   var _default = Input;
   _exports["default"] = _default;

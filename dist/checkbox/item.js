@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "@babel/runtime/helpers/slicedToArray", "react", "prop-types", "classnames"], factory);
+    define(["exports", "@emotion/core", "@babel/runtime/helpers/slicedToArray", "react", "prop-types", "classnames"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("@babel/runtime/helpers/slicedToArray"), require("react"), require("prop-types"), require("classnames"));
+    factory(exports, require("@emotion/core"), require("@babel/runtime/helpers/slicedToArray"), require("react"), require("prop-types"), require("classnames"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.slicedToArray, global.react, global.propTypes, global.classnames);
+    factory(mod.exports, global.core, global.slicedToArray, global.react, global.propTypes, global.classnames);
     global.item = mod.exports;
   }
-})(this, function (_exports, _slicedToArray2, _react, _propTypes, _classnames) {
+})(this, function (_exports, _core, _slicedToArray2, _react, _propTypes, _classnames) {
   "use strict";
 
   var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
@@ -77,7 +77,7 @@
     (0, _react.useEffect)(function () {
       oDisabled.updateValue(disabled);
     }, [disabled]);
-    return _react["default"].createElement("div", {
+    return (0, _core.jsx)("div", {
       className: cls,
       style: style,
       onClick: function onClick(e) {
@@ -89,9 +89,9 @@
         oValue.updateValue(v);
         onChange(e, v);
       }
-    }, _react["default"].createElement("span", {
+    }, (0, _core.jsx)("span", {
       className: "icon"
-    }), _react["default"].createElement("span", {
+    }), (0, _core.jsx)("span", {
       className: "name"
     }, label));
   }
