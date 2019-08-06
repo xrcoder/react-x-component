@@ -52,6 +52,14 @@
     top: 2px;
 }
 
+.el-input__inner {
+    border-color: $input-border-color;
+}
+
+.el-picker-panel {
+    box-shadow: none;
+}
+
 .el-picker-panel.time-select {
     margin-top: 1px;
     box-sizing: border-box;
