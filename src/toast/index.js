@@ -5,12 +5,24 @@
 import React from 'react';
 import {ToastContainer as Container, toast} from 'react-toastify';
 
+let toastId = null;
+
 function push(msg, opt) {
     let _opt = {
         hideProgressBar: true,
-        type: 'info'
+        type: 'info',
+        onClose: () => {
+            toastId = null
+        }
     };
-    return toast(msg, Object.assign(_opt, opt));
+    if (toastId) {
+        return toast.update(toastId, {
+            render: msg,
+            ...Object.assign(_opt, opt)
+        })
+    } else {
+        return toastId = toast(msg, Object.assign(_opt, opt));
+    }
 }
 
 function notify(msg, type) {
