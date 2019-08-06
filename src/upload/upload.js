@@ -10,7 +10,7 @@ function getUid() {
     return `upload-${now}-${++index}`
 }
 
-const Upload = ({ className, multiple, timeout, name, children, fileType, url, onBeforeStart, onProgress, onFinished, onError, data, headers }) => {
+const Upload = ({ className, multiple, timeout, name, children, fileType, url, onBeforeStart, onProgress, onFinished, onError, data, headers, method }) => {
 
     const [uid, setUid] = useState(getUid());
     const [uploadList, setUploadList] = useState({});
@@ -51,7 +51,8 @@ const Upload = ({ className, multiple, timeout, name, children, fileType, url, o
                 file,
                 data,
                 headers,
-                timeout
+                timeout,
+                method
             });
             uploadList[uid].onProgress((e) => {
                 onProgress(file,e);
