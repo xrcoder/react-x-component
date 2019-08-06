@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {Toggle, Box} from 'react-x-component';
+import React from 'react';
+import {Toggle, Box, Button} from 'react-x-component';
 
 //显示区域
 function MenuDemo(show, close) {
@@ -11,7 +11,7 @@ function MenuDemo(show, close) {
 //点击区域
 function MenuTab({toggle, show, props}) {
     return (
-        <button {...props} onClick={toggle}>测试</button>
+        <button className="x-btn" {...props} onClick={toggle}>测试</button>
     )
 }
 
@@ -20,6 +20,15 @@ export default function () {
         <Box>
             <Box.Header>简单Toggle</Box.Header>
             <Box.Body>
+                <Toggle.Box drop={'right'} className={'x-toggle-demo'} menu={MenuDemo} onToggle={(res) => {
+                    console.log(res);
+                }}>{MenuTab}</Toggle.Box>
+                <Toggle.Box drop={'up'} className={'x-toggle-demo'} menu={MenuDemo} onToggle={(res) => {
+                    console.log(res);
+                }}>{MenuTab}</Toggle.Box>
+                <Toggle.Box drop={'left'} className={'x-toggle-demo'} menu={MenuDemo} onToggle={(res) => {
+                    console.log(res);
+                }}>{MenuTab}</Toggle.Box>
                 <Toggle.Box className={'x-toggle-demo'} menu={MenuDemo} onToggle={(res) => {
                     console.log(res);
                 }}>{MenuTab}</Toggle.Box>
