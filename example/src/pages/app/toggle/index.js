@@ -1,27 +1,17 @@
 import React, {useState} from 'react';
 import {Toggle, Box} from 'react-x-component';
-import {Dropdown} from 'react-overlays';
 
-function MenuContainer({show, close, props}) {
+//显示区域
+function MenuDemo(show, close) {
     return (
-        <Toggle.MenuContainer parentProps={props} show={show}>
-            测试
-        </Toggle.MenuContainer>
+        <div>测试 <span onClick={close}>关闭</span></div>
     )
 }
 
+//点击区域
 function MenuTab({toggle, show, props}) {
     return (
         <button {...props} onClick={toggle}>测试</button>
-    )
-}
-
-function MenuTarget({props}) {
-    return (
-        <Toggle.MenuTarget {...props}>
-            <Dropdown.Toggle>{MenuTab}</Dropdown.Toggle>
-            <Dropdown.Menu flip>{MenuContainer}</Dropdown.Menu>
-        </Toggle.MenuTarget>
     )
 }
 
@@ -30,7 +20,9 @@ export default function () {
         <Box>
             <Box.Header>简单Toggle</Box.Header>
             <Box.Body>
-                <Dropdown>{MenuTarget}</Dropdown>
+                <Toggle.Box className={'x-toggle-demo'} menu={MenuDemo} onToggle={(res) => {
+                    console.log(res);
+                }}>{MenuTab}</Toggle.Box>
             </Box.Body>
         </Box>
     );
