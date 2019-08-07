@@ -29,7 +29,7 @@
         align = props.align,
         className = props.className,
         children = props.children;
-    var typeArr = ['Button', 'ButtonGroup', 'ButtonIcon', 'ButtonLink'];
+    var typeArr = ['Button', 'ButtonGroup', 'ButtonIcon', 'ButtonLink', 'ButtonUpload'];
     return (0, _core.jsx)("div", {
       style: style,
       className: (0, _classnames["default"])('x-btn-box', "x-btn-box-".concat(align), className)

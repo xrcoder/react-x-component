@@ -5,7 +5,7 @@ import {getFuncName} from '../util';
 
 function ButtonBox(props) {
     const {style, align, className, children} = props;
-    const typeArr = ['Button', 'ButtonGroup', 'ButtonIcon', 'ButtonLink'];
+    const typeArr = ['Button', 'ButtonGroup', 'ButtonIcon', 'ButtonLink', 'ButtonUpload'];
     return (
         <div style={style} className={classnames('x-btn-box', `x-btn-box-${align}`, className)}>
             {

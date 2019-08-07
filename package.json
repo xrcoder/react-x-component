@@ -9,7 +9,8 @@
     "dev": "cross-env NODE_ENV=development babel-node server/app.js",
     "transpile": "babel src --out-dir dist",
     "build": "rm -rf dist && mkdir dist && npm run transpile && npm run bundle",
-    "build:demo": "node node_modules/webpack/bin/webpack.js -p --colors --display-error-details --config server/webpack.example.build.js"
+    "build:demo": "node node_modules/webpack/bin/webpack.js -p --colors --display-error-details --config server/webpack.example.build.js",
+    "online": "npm run build && npm run build:demo"
   },
   "files": [
     "dist",
