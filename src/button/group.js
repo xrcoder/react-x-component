@@ -1,5 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
+import {getFuncName} from "../util";
 
 function ButtonGroup(props) {
     const {children, style, lax, className} = props;
@@ -11,7 +12,7 @@ function ButtonGroup(props) {
                         return <child.type {...child.props}/>;
                     }
 
-                    if (typeof child !== 'object' || child.type.displayName !== 'Button') {
+                    if (typeof child !== 'object' || getFuncName(child.type) !== 'Button') {
                         console.warn('ButtonGroup组件的子组件必须是Button组件！')
                         return null;
                     } else {

@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "@emotion/core", "@babel/runtime/helpers/typeof", "react", "classnames", "prop-types"], factory);
+    define(["exports", "@emotion/core", "@babel/runtime/helpers/typeof", "react", "classnames", "prop-types", "../util"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("@emotion/core"), require("@babel/runtime/helpers/typeof"), require("react"), require("classnames"), require("prop-types"));
+    factory(exports, require("@emotion/core"), require("@babel/runtime/helpers/typeof"), require("react"), require("classnames"), require("prop-types"), require("../util"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.core, global._typeof, global.react, global.classnames, global.propTypes);
+    factory(mod.exports, global.core, global._typeof, global.react, global.classnames, global.propTypes, global.util);
     global.button_box = mod.exports;
   }
-})(this, function (_exports, _core, _typeof2, _react, _classnames, _propTypes) {
+})(this, function (_exports, _core, _typeof2, _react, _classnames, _propTypes, _util) {
   "use strict";
 
   var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -34,7 +34,7 @@
       style: style,
       className: (0, _classnames["default"])('x-btn-box', "x-btn-box-".concat(align), className)
     }, _react["default"].Children.map(children, function (child) {
-      if ((0, _typeof2["default"])(child) !== 'object' || !typeArr.includes(child.type.displayName)) {
+      if ((0, _typeof2["default"])(child) !== 'object' || !typeArr.includes((0, _util.getFuncName)(child.type))) {
         console.warn('Button.Box组件的子组件必须是Button类型组件！');
         return null;
       } else {
