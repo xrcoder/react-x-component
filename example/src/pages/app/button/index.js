@@ -326,6 +326,19 @@ export default class extends React.Component {
                     <Box>
                         <Box.Header>按钮定位器（默认）</Box.Header>
                         <Box.Body>
+                            <Button.Box>
+                                <Button type="primary" inverse={true} onClick={() => {
+                                    console.log('按钮点击');
+                                }}>重置</Button>
+                                <Button type="primary" inverse={true} onClick={() => {
+                                    console.log('按钮点击');
+                                }}>查询</Button>
+                            </Button.Box>
+                        </Box.Body>
+                    </Box>
+                    <Box>
+                        <Box.Header>按钮组合机制</Box.Header>
+                        <Box.Body>
                             <Input.Search><Icon name={'search'}/></Input.Search>
                             <Button.Box style={{display: 'inline-flex', marginLeft: '20px'}}>
                                 <Button type="primary" inverse={true} onClick={() => {
