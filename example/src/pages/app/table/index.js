@@ -80,7 +80,7 @@ export default function () {
                     <Tr>
                         <Td>
                             <Remind.Avatar
-                                source={"http://img2.imgtn.bdimg.com/it/u=1988242408,885963340&fm=26&gp=0.jpg"}/>
+                                source={"https://dummyimage.com/70x70/d992d9/fff"}/>
                         </Td>
                         <Td>John Doe</Td>
                         <Td>11-7-2014</Td>
@@ -95,7 +95,7 @@ export default function () {
                         <Td>
                             <Remind.Avatar onClick={() => {
                                 alert('success')
-                            }} source={"http://img2.imgtn.bdimg.com/it/u=1988242408,885963340&fm=26&gp=0.jpg"}/>
+                            }} source={"https://dummyimage.com/70x70/d992d9/fff"}/>
                         </Td>
                         <Td>Alexander Pierce</Td>
                         <Td>11-7-2014</Td>
@@ -122,7 +122,7 @@ export default function () {
                     <Tr>
                         <Td>
                             <Remind.Avatar
-                                source={"http://img2.imgtn.bdimg.com/it/u=1988242408,885963340&fm=26&gp=0.jpg"}/>
+                                source={"https://dummyimage.com/70x70/d992d9/fff"}/>
                         </Td>
                         <Td>Mike Doe</Td>
                         <Td>11-7-2014</Td>

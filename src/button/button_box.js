@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 function ButtonBox(props) {
     const {style, align, className, children} = props;
     return (
-        <div style={style} className={classnames('x-btn-box', `x-btn-box-${align}`, props.className)}>
+        <div style={style} className={classnames('x-btn-box', `x-btn-box-${align}`, className)}>
             {
                 React.Children.map(children, (child) => {
                     if (typeof child !== 'object' || child.type.displayName.indexOf('Button') < 0) {
