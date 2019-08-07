@@ -26,11 +26,16 @@
   function ButtonGroup(props) {
     var children = props.children,
         style = props.style,
+        lax = props.lax,
         className = props.className;
     return (0, _core.jsx)("div", {
       style: style,
       className: (0, _classnames["default"])('x-btn-group', className)
     }, _react["default"].Children.map(children, function (child) {
+      if (lax) {
+        return (0, _core.jsx)(child.type, child.props);
+      }
+
       if ((0, _typeof2["default"])(child) !== 'object' || child.type.displayName !== 'Button') {
         console.warn('ButtonGroup组件的子组件必须是Button组件！');
         return null;

@@ -48,7 +48,8 @@
     }, [value]);
     return (0, _core.jsx)(_button.ButtonGroup, {
       className: className,
-      style: style
+      style: style,
+      lax: true
     }, oList.list.map(function (item) {
       return (0, _core.jsx)(_btn["default"], {
         key: item.value,

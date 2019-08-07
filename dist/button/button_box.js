@@ -31,7 +31,7 @@
         children = props.children;
     return (0, _core.jsx)("div", {
       style: style,
-      className: (0, _classnames["default"])('x-btn-box', "x-btn-box-".concat(align), props.className)
+      className: (0, _classnames["default"])('x-btn-box', "x-btn-box-".concat(align), className)
     }, _react["default"].Children.map(children, function (child) {
       if ((0, _typeof2["default"])(child) !== 'object' || child.type.displayName.indexOf('Button') < 0) {
         console.warn('Button.Box组件的子组件必须是Button类型组件！');
