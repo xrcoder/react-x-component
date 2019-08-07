@@ -14,6 +14,7 @@ function Avatar(props) {
     return (
         <div
             {...props}
+            status={null}
             style={{width: size, height: size}}
             className={classnames('x-remind-avatar', {'x-remind-avatar-bg': !Boolean(value)}, className)}>
             {

@@ -42,6 +42,7 @@
       setValue(source);
     }, [source]);
     return (0, _core.jsx)("div", (0, _extends2["default"])({}, props, {
+      status: null,
       style: {
         width: size,
         height: size

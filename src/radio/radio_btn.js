@@ -23,7 +23,7 @@ function Radio(props) {
     }, [value]);
 
     return (
-        <ButtonGroup className={className} style={style}>
+        <ButtonGroup className={className} style={style} lax>
             {
                 oList.list.map((item) => {
                     return (

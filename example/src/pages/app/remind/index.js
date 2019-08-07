@@ -16,7 +16,7 @@ export default () => {
                 <Box>
                     <Box.Header>图像</Box.Header>
                     <Box.Body>
-                        <Remind.Avatar source={"http://img2.imgtn.bdimg.com/it/u=1988242408,885963340&fm=26&gp=0.jpg"}/>
+                        <Remind.Avatar source={"https://dummyimage.com/70x70/d992d9/fff"}/>
                     </Box.Body>
                 </Box>
             </Col>

@@ -8,6 +8,7 @@ export LayoutB from './layout/b';
 export * from './grid';
 
 export * from './use';
+export util from './util';
 
 //UI组件
 export * from './button';

@@ -11,6 +11,7 @@ export default class extends React.Component {
                         <Box.Header>按钮类型</Box.Header>
                         <Box.Body>
                             <Row className={"button-row"}>
+                                <p>1</p>
                                 <Col lg={3} md={3}>Btn</Col>
                                 <Col lg={3} md={3}>Icon Btn</Col>
                                 <Col lg={3} md={3}>Small</Col>
@@ -325,6 +326,19 @@ export default class extends React.Component {
                     </Box>
                     <Box>
                         <Box.Header>按钮定位器（默认）</Box.Header>
+                        <Box.Body>
+                            <Button.Box>
+                                <Button type="primary" inverse={true} onClick={() => {
+                                    console.log('按钮点击');
+                                }}>重置</Button>
+                                <Button type="primary" inverse={true} onClick={() => {
+                                    console.log('按钮点击');
+                                }}>查询</Button>
+                            </Button.Box>
+                        </Box.Body>
+                    </Box>
+                    <Box>
+                        <Box.Header>按钮组合机制</Box.Header>
                         <Box.Body>
                             <Input.Search><Icon name={'search'}/></Input.Search>
                             <Button.Box style={{display: 'inline-flex', marginLeft: '20px'}}>

@@ -45,6 +45,25 @@ export default class extends React.Component {
                             </Input.Group>
                         </Form.Group>
                     </Box.Body>
+                    <Box.Body>
+                        <Input.Group>
+                            <Select.Single
+                                value={this.state.singleValue}
+                                options={stateOptions}
+                                onChange={(value) => {
+                                    this.setState({
+                                        singleValue: value
+                                    });
+                                }}/>
+                            <Input
+                                value={this.state.passwd}
+                                onChange={(res) => {
+                                    this.setState({
+                                        passwd: res
+                                    });
+                                }}/>
+                        </Input.Group>
+                    </Box.Body>
                 </Box>
                 <Box>
                     <Box.Header>输入框</Box.Header>

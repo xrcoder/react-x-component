@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "react", "react-toastify"], factory);
+    define(["exports", "@babel/runtime/helpers/defineProperty", "react", "react-toastify"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("react"), require("react-toastify"));
+    factory(exports, require("@babel/runtime/helpers/defineProperty"), require("react"), require("react-toastify"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.react, global.reactToastify);
+    factory(mod.exports, global.defineProperty, global.react, global.reactToastify);
     global.index = mod.exports;
   }
-})(this, function (_exports, _react, _reactToastify) {
+})(this, function (_exports, _defineProperty2, _react, _reactToastify) {
   "use strict";
 
   var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -19,17 +19,31 @@
     value: true
   });
   _exports["default"] = void 0;
+  _defineProperty2 = _interopRequireDefault(_defineProperty2);
   _react = _interopRequireDefault(_react);
 
-  /**
-   * Created by Rayr Lee on 2019/7/1.
-   */
+  function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+  function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { (0, _defineProperty2["default"])(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+  var toastId = null;
+
   function push(msg, opt) {
     var _opt = {
       hideProgressBar: true,
-      type: 'info'
+      type: 'info',
+      onClose: function onClose() {
+        toastId = null;
+      }
     };
-    return (0, _reactToastify.toast)(msg, Object.assign(_opt, opt));
+
+    if (toastId) {
+      return _reactToastify.toast.update(toastId, _objectSpread({
+        render: msg
+      }, Object.assign(_opt, opt)));
+    } else {
+      return toastId = (0, _reactToastify.toast)(msg, Object.assign(_opt, opt));
+    }
   }
 
   function notify(msg, type) {
