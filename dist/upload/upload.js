@@ -47,7 +47,8 @@
         onFinished = _ref.onFinished,
         onError = _ref.onError,
         data = _ref.data,
-        headers = _ref.headers;
+        headers = _ref.headers,
+        method = _ref.method;
 
     var _useState = (0, _react.useState)(getUid()),
         _useState2 = (0, _slicedToArray2["default"])(_useState, 2),
@@ -98,7 +99,8 @@
           file: file,
           data: data,
           headers: headers,
-          timeout: timeout
+          timeout: timeout,
+          method: method
         });
         uploadList[uid].onProgress(function (e) {
           onProgress(file, e);
