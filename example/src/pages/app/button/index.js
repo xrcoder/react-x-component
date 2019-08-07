@@ -11,6 +11,7 @@ export default class extends React.Component {
                         <Box.Header>按钮类型</Box.Header>
                         <Box.Body>
                             <Row className={"button-row"}>
+                                <p>1</p>
                                 <Col lg={3} md={3}>Btn</Col>
                                 <Col lg={3} md={3}>Icon Btn</Col>
                                 <Col lg={3} md={3}>Small</Col>
