@@ -29,11 +29,12 @@
         align = props.align,
         className = props.className,
         children = props.children;
+    var typeArr = ['Button', 'ButtonGroup', 'ButtonIcon', 'ButtonLink'];
     return (0, _core.jsx)("div", {
       style: style,
       className: (0, _classnames["default"])('x-btn-box', "x-btn-box-".concat(align), className)
     }, _react["default"].Children.map(children, function (child) {
-      if ((0, _typeof2["default"])(child) !== 'object' || child.type.displayName.indexOf('Button') < 0) {
+      if ((0, _typeof2["default"])(child) !== 'object' || !typeArr.includes(child.type.displayName)) {
         console.warn('Button.Box组件的子组件必须是Button类型组件！');
         return null;
       } else {
