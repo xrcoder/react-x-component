@@ -3,9 +3,19 @@ import classnames from 'classnames';
 import PropTypes from 'prop-types';
 
 function ButtonBox(props) {
+    const {style, align, className, children} = props;
     return (
-        <div style={props.style} className={classnames('x-btn-box', `x-btn-box-${props.align}`, props.className)}>
-            {props.children}
+        <div style={style} className={classnames('x-btn-box', `x-btn-box-${align}`, props.className)}>
+            {
+                React.Children.map(children, (child) => {
+                    if (typeof child !== 'object' || child.type.displayName.indexOf('Button') < 0) {
+                        console.warn('Button.Box组件的子组件必须是Button类型组件！')
+                        return null;
+                    } else {
+                        return <child.type {...child.props}/>;
+                    }
+                })
+            }
         </div>
     )
 }

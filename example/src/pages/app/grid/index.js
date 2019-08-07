@@ -11,6 +11,7 @@ export default () => {
     return (
         <>
             <Row className="x-grid-demo" space={0}>
+                1
                 <Col lg={3} md={6}>
                     <Show>lg=3, md=6</Show>
                 </Col>

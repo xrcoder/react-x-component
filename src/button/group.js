@@ -1,11 +1,22 @@
 import React from 'react';
 import classnames from 'classnames';
 
-export default (props) => {
+function ButtonGroup(props) {
     const {children, style, className} = props;
     return (
         <div style={style} className={classnames('x-btn-group', className)}>
-            {children}
+            {
+                React.Children.map(children, (child) => {
+                    if (typeof child !== 'object' || child.type.displayName !== 'Button') {
+                        console.warn('ButtonGroup组件的子组件必须是Button组件！')
+                        return null;
+                    } else {
+                        return <child.type {...child.props}/>;
+                    }
+                })
+            }
         </div>
     )
 }
+
+export default ButtonGroup;

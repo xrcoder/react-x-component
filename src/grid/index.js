@@ -12,7 +12,12 @@ export function Row({children, className, space, style}) {
              }}>
             {
                 React.Children.map(children, (child) => {
-                    return <child.type space={space} {...child.props}/>;
+                    if (typeof child !== 'object' || child.type.displayName !== 'Col') {
+                        console.warn('Row组件的子组件必须是Col组件！')
+                        return null;
+                    } else {
+                        return <child.type space={space} {...child.props}/>;
+                    }
                 })
             }
         </div>
