@@ -73,7 +73,8 @@ export default class extends React.Component {
                     React.Children.map(children, (child) => {
                         if (typeof child !== 'object' || !t.childType.includes(getFuncName(child.type))) {
                             console.warn(`Box组件的子组件必须是${t.childType.toString()}组件类型`)
-                            return null;
+                            return <child.type {...child.props}/>;
+                            // return null;
                         } else {
                             return <child.type {...child.props}/>;
                         }

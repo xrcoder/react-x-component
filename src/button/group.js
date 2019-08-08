@@ -14,7 +14,8 @@ function ButtonGroup(props) {
 
                     if (typeof child !== 'object' || getFuncName(child.type) !== 'Button') {
                         console.warn('ButtonGroup组件的子组件必须是Button组件！')
-                        return null;
+                        return <child.type {...child.props}/>;
+                        // return null;
                     } else {
                         return <child.type {...child.props}/>;
                     }

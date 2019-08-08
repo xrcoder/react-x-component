@@ -12,7 +12,8 @@ function ButtonBox(props) {
                 React.Children.map(children, (child) => {
                     if (typeof child !== 'object' || !typeArr.includes(getFuncName(child.type))) {
                         console.warn('Button.Box组件的子组件必须是Button类型组件！')
-                        return null;
+                        return <child.type {...child.props}/>;
+                        // return null;
                     } else {
                         return <child.type {...child.props}/>;
                     }

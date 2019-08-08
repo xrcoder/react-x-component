@@ -15,7 +15,8 @@ export function Row({children, className, space, style}) {
                 React.Children.map(children, (child) => {
                     if (typeof child !== 'object' || getFuncName(child.type) !== 'Col') {
                         console.warn('Row组件的子组件必须是Col组件！')
-                        return null;
+                        return <child.type space={space} {...child.props}/>;
+                        // return null;
                     } else {
                         return <child.type space={space} {...child.props}/>;
                     }
