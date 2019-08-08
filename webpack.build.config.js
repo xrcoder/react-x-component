@@ -16,7 +16,7 @@ module.exports = {
         libraryTarget: 'umd',
     },
     resolve: {
-        extensions: ['.js', '.jsx']
+        extensions: ['.js', '.jsx', 'tsx', 'ts']
     },
     externals: {
         'react': 'React',
@@ -25,7 +25,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.js?$/,
+                test: /\.(js|ts|tsx)?$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader',
             },

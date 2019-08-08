@@ -20,8 +20,8 @@ function init(h) {
     };
 }
 
-const history = createBrowserHistory({basename: '/'});
 
+const history = createBrowserHistory({basename: '/'});
 
 init(history);
 

@@ -22,6 +22,7 @@ module.exports = {
     },
     resolve: {
         modules: ['node_modules'],
+        extensions: ['.js', '.jsx', 'tsx', 'ts'],
         alias: {
             'react-x-component': path.resolve(__dirname, '../src'),
             'services': path.resolve(__dirname, '../example/src/services')
@@ -30,7 +31,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.(js|ts|tsx)?$/,
                 exclude: /node_modules/,
                 use: [
                     {

@@ -18,10 +18,10 @@ function useCheckDisabled(initialValue) {
     return {value, updateValue};
 }
 
-function Item({className, style, disabled, label, value, onChange}) {
+function CheckItem({className, style, disabled, label, value, onChange}) {
 
     const oValue = useCheckValue(value);
-    const oDisabled = useCheckValue(disabled);
+    const oDisabled = useCheckDisabled(disabled);
     const cls = classnames('x-checkbox-item', className, {
         'x-checkbox-selected': oValue.value,
         'x-checkbox-disabled': oDisabled.value
@@ -52,7 +52,7 @@ function Item({className, style, disabled, label, value, onChange}) {
     )
 }
 
-Item.propTypes = {
+CheckItem.propTypes = {
     className: PropTypes.string,
     style: PropTypes.object,
     label: PropTypes.string,
@@ -61,7 +61,7 @@ Item.propTypes = {
     onChange: PropTypes.func
 }
 
-Item.defaultProps = {
+CheckItem.defaultProps = {
     className: '',
     style: null,
     label: '',
@@ -71,4 +71,4 @@ Item.defaultProps = {
     }
 }
 
-export default Item;
+export default CheckItem;
