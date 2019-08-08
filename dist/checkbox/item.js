@@ -58,7 +58,7 @@
     };
   }
 
-  function Item(_ref) {
+  function CheckItem(_ref) {
     var className = _ref.className,
         style = _ref.style,
         disabled = _ref.disabled,
@@ -66,7 +66,7 @@
         value = _ref.value,
         onChange = _ref.onChange;
     var oValue = useCheckValue(value);
-    var oDisabled = useCheckValue(disabled);
+    var oDisabled = useCheckDisabled(disabled);
     var cls = (0, _classnames["default"])('x-checkbox-item', className, {
       'x-checkbox-selected': oValue.value,
       'x-checkbox-disabled': oDisabled.value
@@ -96,7 +96,7 @@
     }, label));
   }
 
-  Item.propTypes = {
+  CheckItem.propTypes = {
     className: _propTypes["default"].string,
     style: _propTypes["default"].object,
     label: _propTypes["default"].string,
@@ -104,7 +104,7 @@
     disabled: _propTypes["default"].bool,
     onChange: _propTypes["default"].func
   };
-  Item.defaultProps = {
+  CheckItem.defaultProps = {
     className: '',
     style: null,
     label: '',
@@ -112,7 +112,7 @@
     disabled: false,
     onChange: function onChange() {}
   };
-  var _default = Item;
+  var _default = CheckItem;
   _exports["default"] = _default;
   module.exports = exports.default;
 });

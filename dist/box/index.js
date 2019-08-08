@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "@emotion/core", "@babel/runtime/helpers/typeof", "@babel/runtime/helpers/classCallCheck", "@babel/runtime/helpers/createClass", "@babel/runtime/helpers/possibleConstructorReturn", "@babel/runtime/helpers/getPrototypeOf", "@babel/runtime/helpers/inherits", "react", "prop-types", "classnames", "../util"], factory);
+    define(["exports", "@emotion/core", "@babel/runtime/helpers/classCallCheck", "@babel/runtime/helpers/createClass", "@babel/runtime/helpers/possibleConstructorReturn", "@babel/runtime/helpers/getPrototypeOf", "@babel/runtime/helpers/inherits", "react", "prop-types", "classnames"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("@emotion/core"), require("@babel/runtime/helpers/typeof"), require("@babel/runtime/helpers/classCallCheck"), require("@babel/runtime/helpers/createClass"), require("@babel/runtime/helpers/possibleConstructorReturn"), require("@babel/runtime/helpers/getPrototypeOf"), require("@babel/runtime/helpers/inherits"), require("react"), require("prop-types"), require("classnames"), require("../util"));
+    factory(exports, require("@emotion/core"), require("@babel/runtime/helpers/classCallCheck"), require("@babel/runtime/helpers/createClass"), require("@babel/runtime/helpers/possibleConstructorReturn"), require("@babel/runtime/helpers/getPrototypeOf"), require("@babel/runtime/helpers/inherits"), require("react"), require("prop-types"), require("classnames"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.core, global._typeof, global.classCallCheck, global.createClass, global.possibleConstructorReturn, global.getPrototypeOf, global.inherits, global.react, global.propTypes, global.classnames, global.util);
+    factory(mod.exports, global.core, global.classCallCheck, global.createClass, global.possibleConstructorReturn, global.getPrototypeOf, global.inherits, global.react, global.propTypes, global.classnames);
     global.index = mod.exports;
   }
-})(this, function (_exports, _core, _typeof2, _classCallCheck2, _createClass2, _possibleConstructorReturn2, _getPrototypeOf3, _inherits2, _react, _propTypes, _classnames, _util) {
+})(this, function (_exports, _core, _classCallCheck2, _createClass2, _possibleConstructorReturn2, _getPrototypeOf3, _inherits2, _react, _propTypes, _classnames) {
   "use strict";
 
   var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -19,7 +19,6 @@
     value: true
   });
   _exports["default"] = void 0;
-  _typeof2 = _interopRequireDefault(_typeof2);
   _classCallCheck2 = _interopRequireDefault(_classCallCheck2);
   _createClass2 = _interopRequireDefault(_createClass2);
   _possibleConstructorReturn2 = _interopRequireDefault(_possibleConstructorReturn2);
@@ -139,14 +138,7 @@
             className = _t$props.className;
         return (0, _core.jsx)("div", {
           className: (0, _classnames["default"])('x-box', className)
-        }, _react["default"].Children.map(children, function (child) {
-          if ((0, _typeof2["default"])(child) !== 'object' || !t.childType.includes((0, _util.getFuncName)(child.type))) {
-            console.warn("Box\u7EC4\u4EF6\u7684\u5B50\u7EC4\u4EF6\u5FC5\u987B\u662F".concat(t.childType.toString(), "\u7EC4\u4EF6\u7C7B\u578B"));
-            return (0, _core.jsx)(child.type, child.props); // return null;
-          } else {
-            return (0, _core.jsx)(child.type, child.props);
-          }
-        }));
+        }, children);
       }
     }]);
     return _default;

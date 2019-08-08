@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "@emotion/core", "@babel/runtime/helpers/typeof", "react", "classnames", "prop-types", "../util"], factory);
+    define(["exports", "@emotion/core", "react", "classnames", "prop-types"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("@emotion/core"), require("@babel/runtime/helpers/typeof"), require("react"), require("classnames"), require("prop-types"), require("../util"));
+    factory(exports, require("@emotion/core"), require("react"), require("classnames"), require("prop-types"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.core, global._typeof, global.react, global.classnames, global.propTypes, global.util);
+    factory(mod.exports, global.core, global.react, global.classnames, global.propTypes);
     global.button_box = mod.exports;
   }
-})(this, function (_exports, _core, _typeof2, _react, _classnames, _propTypes, _util) {
+})(this, function (_exports, _core, _react, _classnames, _propTypes) {
   "use strict";
 
   var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -19,7 +19,6 @@
     value: true
   });
   _exports["default"] = void 0;
-  _typeof2 = _interopRequireDefault(_typeof2);
   _react = _interopRequireDefault(_react);
   _classnames = _interopRequireDefault(_classnames);
   _propTypes = _interopRequireDefault(_propTypes);
@@ -33,14 +32,7 @@
     return (0, _core.jsx)("div", {
       style: style,
       className: (0, _classnames["default"])('x-btn-box', "x-btn-box-".concat(align), className)
-    }, _react["default"].Children.map(children, function (child) {
-      if ((0, _typeof2["default"])(child) !== 'object' || !typeArr.includes((0, _util.getFuncName)(child.type))) {
-        console.warn('Button.Box组件的子组件必须是Button类型组件！');
-        return (0, _core.jsx)(child.type, child.props); // return null;
-      } else {
-        return (0, _core.jsx)(child.type, child.props);
-      }
-    }));
+    }, children);
   }
 
   ButtonBox.propTypes = {
