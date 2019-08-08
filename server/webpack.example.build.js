@@ -22,7 +22,7 @@ module.exports = {
     },
     resolve: {
         modules: ['node_modules'],
-        extensions: ['.js', '.jsx', 'tsx', 'ts'],
+        extensions: ['.js', '.jsx', '.tsx', '.ts'],
         alias: {
             'react-x-component': path.resolve(__dirname, '../src'),
             'services': path.resolve(__dirname, '../example/src/services')
