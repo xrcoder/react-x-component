@@ -9,7 +9,13 @@ export function Row({children, className, space, style}) {
              css={{
                  marginRight: `-${space}px`,
                  marginLeft: `-${space}px`
-             }}>{children}</div>
+             }}>
+            {
+                React.Children.map(children, (child) => {
+                    return <child.type space={space} {...child.props}/>;
+                })
+            }
+        </div>
     );
 }
 
