@@ -1,8 +1,5 @@
 import React from "react";
 import classnames from 'classnames';
-import {C} from './demo';
-
-console.log(C);
 
 export default ({name, onClick = null, className}) => {
 

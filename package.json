@@ -7,9 +7,9 @@
     "start": "npm run dev",
     "bundle": "node node_modules/webpack/bin/webpack.js -p --colors --display-error-details --config webpack.build.config.js",
     "dev": "cross-env NODE_ENV=development babel-node server/app.js",
-    "transpile": "babel src --out-dir dist",
+    "transpile:js": "babel src --out-dir dist",
     "transpile:ts": "babel src --out-dir dist --extensions \".ts\"",
-    "build": "rm -rf dist && mkdir dist && npm run transpile && npm run transpile:ts && npm run bundle",
+    "build": "rm -rf dist && mkdir dist && npm run transpile:js && npm run transpile:ts && npm run bundle",
     "build:demo": "node node_modules/webpack/bin/webpack.js -p --colors --display-error-details --config server/webpack.example.build.js",
     "online": "npm run build && npm run build:demo"
   },
