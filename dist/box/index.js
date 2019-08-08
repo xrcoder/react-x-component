@@ -142,7 +142,7 @@
         }, _react["default"].Children.map(children, function (child) {
           if ((0, _typeof2["default"])(child) !== 'object' || !t.childType.includes((0, _util.getFuncName)(child.type))) {
             console.warn("Box\u7EC4\u4EF6\u7684\u5B50\u7EC4\u4EF6\u5FC5\u987B\u662F".concat(t.childType.toString(), "\u7EC4\u4EF6\u7C7B\u578B"));
-            return null;
+            return (0, _core.jsx)(child.type, child.props); // return null;
           } else {
             return (0, _core.jsx)(child.type, child.props);
           }

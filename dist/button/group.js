@@ -38,7 +38,7 @@
 
       if ((0, _typeof2["default"])(child) !== 'object' || (0, _util.getFuncName)(child.type) !== 'Button') {
         console.warn('ButtonGroup组件的子组件必须是Button组件！');
-        return null;
+        return (0, _core.jsx)(child.type, child.props); // return null;
       } else {
         return (0, _core.jsx)(child.type, child.props);
       }

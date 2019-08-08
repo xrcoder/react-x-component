@@ -36,7 +36,7 @@
     }, _react["default"].Children.map(children, function (child) {
       if ((0, _typeof2["default"])(child) !== 'object' || !typeArr.includes((0, _util.getFuncName)(child.type))) {
         console.warn('Button.Box组件的子组件必须是Button类型组件！');
-        return null;
+        return (0, _core.jsx)(child.type, child.props); // return null;
       } else {
         return (0, _core.jsx)(child.type, child.props);
       }
