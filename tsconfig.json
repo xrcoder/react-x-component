@@ -5,7 +5,9 @@
         "sourceMap": true,
         "removeComments": true,
         "noUnusedLocals": true,
-        "noUnusedParameters": true
+        "noUnusedParameters": true,
+        "esModuleInterop": true,
+        "outDir": "dist"
     },
     "exclude": [
         "node_modules"

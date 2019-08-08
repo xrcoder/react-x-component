@@ -11,8 +11,8 @@ module.exports = {
     ],
     output: {
         path: path.join(__dirname, 'dist'),
-        filename: 'react-rayr-component.min.js',
-        library: 'ReactRayrComponent',
+        filename: 'react-x-component.min.js',
+        library: 'ReactXComponent',
         libraryTarget: 'umd',
     },
     resolve: {
@@ -89,7 +89,7 @@ module.exports = {
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: 'react-rayr-component.min.css'
+            filename: 'react-x-component.min.css'
         })
     ]
 };
