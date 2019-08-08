@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {getFuncName} from '../util';
 
 export function Row({children, className, space, style}) {
     return (
@@ -10,19 +9,7 @@ export function Row({children, className, space, style}) {
              css={{
                  marginRight: `-${space}px`,
                  marginLeft: `-${space}px`
-             }}>
-            {
-                React.Children.map(children, (child) => {
-                    if (typeof child !== 'object' || getFuncName(child.type) !== 'Col') {
-                        console.warn('Row组件的子组件必须是Col组件！')
-                        return <child.type space={space} {...child.props}/>;
-                        // return null;
-                    } else {
-                        return <child.type space={space} {...child.props}/>;
-                    }
-                })
-            }
-        </div>
+             }}>{children}</div>
     );
 }
 

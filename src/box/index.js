@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {getFuncName} from "../util";
 
 class Header extends React.Component {
     render() {
@@ -68,19 +67,7 @@ export default class extends React.Component {
         let t = this;
         let {children, className} = t.props;
         return (
-            <div className={classnames('x-box', className)}>
-                {
-                    React.Children.map(children, (child) => {
-                        if (typeof child !== 'object' || !t.childType.includes(getFuncName(child.type))) {
-                            console.warn(`Box组件的子组件必须是${t.childType.toString()}组件类型`)
-                            return <child.type {...child.props}/>;
-                            // return null;
-                        } else {
-                            return <child.type {...child.props}/>;
-                        }
-                    })
-                }
-            </div>
+            <div className={classnames('x-box', className)}>{children}</div>
         )
     }
 }
