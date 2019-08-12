@@ -33,7 +33,8 @@ export default class extends React.Component {
                     label: '香蕉'
                 }
             ],
-            selected: [1, 2]
+            selected: [1, 2],
+            halfValue: 'off'
         }
     }
 
@@ -127,6 +128,38 @@ export default class extends React.Component {
                                         isDisabled: !this.state.isDisabled
                                     })
                                 }}><Icon name={'ban'}/>切换禁用</Button>
+                            </Button.Box>
+                        </Box.Footer>
+                    </Box>
+                </Col>
+                <Col lg={6} md={12}>
+                    <Box>
+                        <Box.Header>半选状态</Box.Header>
+                        <Box.Body>
+                            <Checkbox.Half
+                                label={'当前选择'}
+                                value={this.state.halfValue}
+                                onChange={(e, res) => {
+                                    console.log(res);
+                                }}/>
+                        </Box.Body>
+                        <Box.Footer>
+                            <Button.Box align={'left'}>
+                                <Button onClick={() => {
+                                    this.setState({
+                                        halfValue: 'on'
+                                    })
+                                }}><Icon name={'plus'}/>全选</Button>
+                                <Button onClick={() => {
+                                    this.setState({
+                                        halfValue: 'off'
+                                    })
+                                }}><Icon name={'ban'}/>取消</Button>
+                                <Button onClick={() => {
+                                    this.setState({
+                                        halfValue: 'half'
+                                    })
+                                }}><Icon name={'check'}/>半选</Button>
                             </Button.Box>
                         </Box.Footer>
                     </Box>

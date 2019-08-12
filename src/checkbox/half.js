@@ -1,34 +1,29 @@
 import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {useCheckDisabled, useCheckValue} from './state';
+import {useCheckValue} from './state';
 
-function CheckItem({className, style, disabled, label, value, onChange}) {
+function CheckItem({className, style, label, value, onChange}) {
 
     const oValue = useCheckValue(value);
-    const oDisabled = useCheckDisabled(disabled);
     const cls = classnames('x-checkbox-item', className, {
-        'x-checkbox-selected': oValue.value,
-        'x-checkbox-disabled': oDisabled.value
+        'x-checkbox-selected': oValue.value === 'on',
+        'x-checkbox-half': oValue.value === 'half'
     });
 
     useEffect(() => {
         oValue.updateValue(value);
     }, [value]);
 
-    useEffect(() => {
-        oDisabled.updateValue(disabled);
-    }, [disabled]);
-
     return (
         <div className={cls}
              style={style}
              onClick={(e) => {
-                 if (disabled) {
-                     return;
+                 if (oValue.value === 'off' || oValue.value === 'half') {
+                     oValue.updateValue('on');
+                 } else {
+                     oValue.updateValue('off');
                  }
-                 let v = !oValue.value;
-                 oValue.updateValue(v);
                  onChange(e, v);
              }}>
             <span className="icon"></span>
@@ -41,7 +36,7 @@ CheckItem.propTypes = {
     className: PropTypes.string,
     style: PropTypes.object,
     label: PropTypes.string,
-    value: PropTypes.bool,
+    value: PropTypes.oneOf(['half', 'on', 'off']),
     disabled: PropTypes.bool,
     onChange: PropTypes.func
 }
@@ -50,7 +45,7 @@ CheckItem.defaultProps = {
     className: '',
     style: null,
     label: '',
-    value: false,
+    value: 'off',
     disabled: false,
     onChange: function () {
     }

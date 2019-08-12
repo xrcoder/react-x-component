@@ -68,6 +68,24 @@
     }
 }
 
+.x-checkbox-half {
+    .icon {
+        position: relative;
+        background-color: #2A1166;
+        border: none;
+
+        &:after {
+            position: absolute;
+            content: "";
+            left: 2px;
+            top: 6px;
+            width: 10px;
+            height: 2px;
+            background-color: #fff;
+        }
+    }
+}
+
 .x-checkbox-disabled {
     cursor: not-allowed;
     opacity: 0.65;
