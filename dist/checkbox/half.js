@@ -8,7 +8,7 @@
       exports: {}
     };
     factory(mod.exports, global.core, global.react, global.propTypes, global.classnames, global.state);
-    global.item = mod.exports;
+    global.half = mod.exports;
   }
 })(this, function (_exports, _core, _react, _propTypes, _classnames, _state) {
   "use strict";
@@ -28,32 +28,27 @@
   function CheckItem(_ref) {
     var className = _ref.className,
         style = _ref.style,
-        disabled = _ref.disabled,
         label = _ref.label,
         value = _ref.value,
         onChange = _ref.onChange;
     var oValue = (0, _state.useCheckValue)(value);
-    var oDisabled = (0, _state.useCheckDisabled)(disabled);
     var cls = (0, _classnames["default"])('x-checkbox-item', className, {
-      'x-checkbox-selected': oValue.value,
-      'x-checkbox-disabled': oDisabled.value
+      'x-checkbox-selected': oValue.value === 'on',
+      'x-checkbox-half': oValue.value === 'half'
     });
     (0, _react.useEffect)(function () {
       oValue.updateValue(value);
     }, [value]);
-    (0, _react.useEffect)(function () {
-      oDisabled.updateValue(disabled);
-    }, [disabled]);
     return (0, _core.jsx)("div", {
       className: cls,
       style: style,
       onClick: function onClick(e) {
-        if (disabled) {
-          return;
+        if (oValue.value === 'off' || oValue.value === 'half') {
+          oValue.updateValue('on');
+        } else {
+          oValue.updateValue('off');
         }
 
-        var v = !oValue.value;
-        oValue.updateValue(v);
         onChange(e, v);
       }
     }, (0, _core.jsx)("span", {
@@ -67,7 +62,7 @@
     className: _propTypes["default"].string,
     style: _propTypes["default"].object,
     label: _propTypes["default"].string,
-    value: _propTypes["default"].bool,
+    value: _propTypes["default"].oneOf(['half', 'on', 'off']),
     disabled: _propTypes["default"].bool,
     onChange: _propTypes["default"].func
   };
@@ -75,7 +70,7 @@
     className: '',
     style: null,
     label: '',
-    value: false,
+    value: 'off',
     disabled: false,
     onChange: function onChange() {}
   };
