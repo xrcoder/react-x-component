@@ -140,7 +140,9 @@ export default class extends React.Component {
                                 label={'当前选择'}
                                 value={this.state.halfValue}
                                 onChange={(e, res) => {
-                                    console.log(res);
+                                    this.setState({
+                                        halfValue: res
+                                    })
                                 }}/>
                         </Box.Body>
                         <Box.Footer>

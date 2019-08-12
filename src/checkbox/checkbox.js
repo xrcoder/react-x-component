@@ -43,7 +43,6 @@ function CheckBox(props) {
     }, [options]);
 
     useEffect(() => {
-        console.log(value);
         if (value === null) {
             oData.updateData([]);
         } else {

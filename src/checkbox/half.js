@@ -19,12 +19,14 @@ function CheckItem({className, style, label, value, onChange}) {
         <div className={cls}
              style={style}
              onClick={(e) => {
+                 let status = '';
                  if (oValue.value === 'off' || oValue.value === 'half') {
-                     oValue.updateValue('on');
+                     status = 'on';
                  } else {
-                     oValue.updateValue('off');
+                     status = 'off';
                  }
-                 onChange(e, v);
+                 oValue.updateValue(status);
+                 onChange(e, status);
              }}>
             <span className="icon"></span>
             <span className="name">{label}</span>

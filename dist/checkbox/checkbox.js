@@ -86,8 +86,6 @@
       oList.updateData(options);
     }, [options]);
     (0, _react.useEffect)(function () {
-      console.log(value);
-
       if (value === null) {
         oData.updateData([]);
       } else {

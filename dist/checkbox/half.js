@@ -43,13 +43,16 @@
       className: cls,
       style: style,
       onClick: function onClick(e) {
+        var status = '';
+
         if (oValue.value === 'off' || oValue.value === 'half') {
-          oValue.updateValue('on');
+          status = 'on';
         } else {
-          oValue.updateValue('off');
+          status = 'off';
         }
 
-        onChange(e, v);
+        oValue.updateValue(status);
+        onChange(e, status);
       }
     }, (0, _core.jsx)("span", {
       className: "icon"
