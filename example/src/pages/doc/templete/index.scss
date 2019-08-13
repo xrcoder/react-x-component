@@ -1,0 +1,40 @@
+.doc-templete{
+    background-color: #fff;
+    border:1px solid #d0d0d0;
+    .component-content{
+        padding: 20px;
+        border-bottom: 1px solid #d0d0d0;
+    }
+    .code-content{
+        max-height: 0;
+        opacity: 0;
+        overflow-y:scroll;
+        transition: max-height 0.5s,padding 0.5s,opacity 0.5s;
+
+    }
+    .content-show-true{
+        max-height: 500px;
+        padding: 20px;
+        border-bottom: 1px solid #d0d0d0; 
+        opacity: 1;
+    }
+    .content-show-false{
+        max-height: 0;
+        padding: 0;
+        opacity: 0;
+    }
+    .templete-footer{
+        text-align: center;
+        position: relative;
+        line-height: 40px;
+        cursor: pointer;
+        left:20px;
+        opacity: 0.2;
+        transition: opacity 0.5s,left 0.5s;
+        &:hover{
+            opacity: 0.8;
+            left:0;
+            color:#1b7fed;
+        }
+    }
+}
