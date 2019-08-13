@@ -39,7 +39,7 @@ export default withRouter(function (props) {
         <LayoutB>
             <Header className="app-header"><AppHeader/></Header>
             <Switch>
-                <Route path={`${props.match.url}/doc`} component={() => <div style={{marginTop: '50px'}}><DocComponent /></div>}/>
+                <Route path={`${props.match.url}/doc`} component={() => <DocComponent />}/>
                 <Route path={`${props.match.url}/component`} component={() => <AppComponent {...props}/>}/>
             </Switch>
         </LayoutB>
