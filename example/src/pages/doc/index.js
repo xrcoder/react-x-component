@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter,Switch } from 'react-router-dom';
+import {Route} from 'react-router-dom';
 
-@withRouter
-export default class extends React.Component {
-    render() {
-        return (
-            <div>文档页面</div>
-        )
-    }
+export default ()=>{
+    return (
+        <Switch>
+            <Route path='/app/doc/button' component={require('./button')}/>
+        </Switch>
+    )
 }
