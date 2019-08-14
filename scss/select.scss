@@ -15,7 +15,7 @@
     }
 
     &-placeholder {
-        color: $input-placeholder-color;
+        color: $input-placeholder-color !important;
     }
 
     &-select-target {
@@ -146,6 +146,7 @@
 
     &-select__placeholder {
         cursor: text;
+        color: $input-placeholder-color !important;
     }
 
     &-select-search {
