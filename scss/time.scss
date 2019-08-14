@@ -1,3 +1,4 @@
+@import "~element-theme-default/lib/date-picker.css";
 @import "~element-theme-default/lib/time-picker.css";
 @import "~element-theme-default/lib/time-select.css";
 
@@ -54,6 +55,7 @@
 
 .el-input__inner {
     border-color: $input-border-color;
+
     &:hover {
         border-color: $input-active-border-color;
     }
@@ -61,10 +63,11 @@
 
 .el-picker-panel {
     box-shadow: none;
+    margin-top: 1px;
+    border-color: $input-border-color;
 }
 
 .el-picker-panel.time-select {
-    margin-top: 1px;
     box-sizing: border-box;
 
     .time-select-item {
