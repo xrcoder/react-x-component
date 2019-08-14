@@ -1,3 +1,6 @@
+$boxPaddingBoth: 20px;
+
+
 .x-box {
     background-color: #fff;
     margin-bottom: 10px;
@@ -9,19 +12,19 @@
 .x-box-header {
     color: #444;
     display: block;
-    padding: 10px 30px;
+    padding: 10px $boxPaddingBoth;
     position: relative;
     border-bottom: 1px solid #EAEAEA;
     font-weight: bold;
 }
 
 .x-box-body {
-    padding: 20px 30px;
+    padding: 20px $boxPaddingBoth;
     position: relative;
 }
 
 .x-box-footer {
     border-top: 1px solid #EAEAEA;
-    padding: 10px 30px;
+    padding: 10px $boxPaddingBoth;
     position: relative;
 }
