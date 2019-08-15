@@ -1,3 +1,4 @@
+@import "~element-theme-default/lib/icon.css";
 @import "~element-theme-default/lib/date-picker.css";
 @import "~element-theme-default/lib/time-picker.css";
 @import "~element-theme-default/lib/time-select.css";
@@ -42,19 +43,19 @@
         }
     }
 
-    &.is-active.is-filled {
-        .el-icon-time, .el-icon-close {
-            font: normal normal normal 14px/1 FontAwesome;
-
-            &:before {
-                content: "\f057";
-            }
-        }
-    }
+    //&.is-active.is-filled {
+    //    .el-icon-time, .el-icon-close {
+    //        font: normal normal normal 14px/1 FontAwesome;
+    //
+    //        &:before {
+    //            content: "\f057";
+    //        }
+    //    }
+    //}
 }
 
 .el-input__icon {
-    top: 2px;
+    color: $input-border-color;
 }
 
 .el-input__inner {

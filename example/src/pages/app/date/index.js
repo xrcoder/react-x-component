@@ -1,5 +1,5 @@
 import React from 'react';
-import {Box, TimePicker, TimeSelect, DatePicker} from 'react-x-component';
+import {Box, Row, Col, TimePicker, TimeSelect, DatePicker} from 'react-x-component';
 
 class TimerDemo extends React.Component {
     constructor(props) {
@@ -90,24 +90,24 @@ class DateDemoShort extends React.Component {
 
         return (
             <DatePicker
-                ref={e=>this.datepicker2 = e}
+                ref={e => this.datepicker2 = e}
                 value={value2}
                 align="right"
                 placeholder="选择日期"
-                onChange={date=>{
+                onChange={date => {
                     console.debug('DatePicker2 changed: ', date)
                     this.setState({value2: date})
 
                 }}
                 shortcuts={[{
                     text: '今天',
-                    onClick: (picker)=> {
+                    onClick: (picker) => {
                         this.setState({value2: new Date()})
                         this.datepicker2.togglePickerVisible()
                     }
                 }, {
                     text: '昨天',
-                    onClick: (picker)=> {
+                    onClick: (picker) => {
                         const date = new Date();
                         date.setTime(date.getTime() - 3600 * 1000 * 24);
                         this.setState({value2: date})
@@ -115,7 +115,7 @@ class DateDemoShort extends React.Component {
                     }
                 }, {
                     text: '一周前',
-                    onClick: (picker)=> {
+                    onClick: (picker) => {
                         const date = new Date();
                         date.setTime(date.getTime() - 3600 * 1000 * 24 * 7);
                         this.setState({value2: date})
@@ -127,22 +127,120 @@ class DateDemoShort extends React.Component {
     }
 }
 
+class DateDemoWeek extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {}
+    }
+
+    render() {
+        const {value} = this.state
+
+        return (
+            <DatePicker
+                value={value}
+                placeholder="选择周"
+                onChange={date => {
+                    this.setState({value: date})
+                }}
+                format="yyyy 第 WW 周"
+                selectionMode="week"
+            />
+        )
+    }
+}
+
+class DateDemoMonth extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {}
+    }
+
+    render() {
+        const {value} = this.state
+
+        return (
+            <DatePicker
+                value={value}
+                placeholder="选择月"
+                onChange={date => {
+                    this.setState({value: date})
+                }}
+                selectionMode="month"
+            />
+        )
+    }
+}
+
+class DateDemoYear extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {}
+    }
+
+    render() {
+        const {value} = this.state
+
+        return (
+            <DatePicker
+                value={value}
+                placeholder="选择年"
+                onChange={date => {
+                    this.setState({value: date})
+                }}
+                selectionMode="year"
+                align="right"
+            />
+        )
+    }
+}
+
 export default function () {
     return (
-        <Box>
-            <Box.Header>时间选择器</Box.Header>
-            <Box.Body>
-                <TimerDemo></TimerDemo>
-            </Box.Body>
-            <Box.Body>
-                <TimerDemoSelect></TimerDemoSelect>
-            </Box.Body>
-            <Box.Body>
-                <DateDemo/>
-            </Box.Body>
-            <Box.Body>
-                <DateDemoShort/>
-            </Box.Body>
-        </Box>
+        <Row>
+            <Col md={6}>
+                <Box>
+                    <Box.Header>时间选择器</Box.Header>
+                    <Box.Body>
+                        <TimerDemo></TimerDemo>
+                    </Box.Body>
+                    <Box.Body>
+                        <TimerDemoSelect></TimerDemoSelect>
+                    </Box.Body>
+                </Box>
+                <Box>
+                    <Box.Header>日期选择器</Box.Header>
+                    <Box.Body>
+                        <DateDemo/>
+                    </Box.Body>
+                    <Box.Body>
+                        <DateDemoShort/>
+                    </Box.Body>
+                </Box>
+            </Col>
+            <Col md={6}>
+                <Box>
+                    <Box.Header>区间选择器</Box.Header>
+                    <Box.Body>
+                        <TimerDemo></TimerDemo>
+                    </Box.Body>
+                    <Box.Body>
+                        <TimerDemoSelect></TimerDemoSelect>
+                    </Box.Body>
+                </Box>
+                <Box>
+                    <Box.Header>日期单位选择</Box.Header>
+                    <Box.Body>
+                        <DateDemoWeek></DateDemoWeek>
+                    </Box.Body>
+                    <Box.Body>
+                        <DateDemoMonth></DateDemoMonth>
+                    </Box.Body>
+                    <Box.Body>
+                        <DateDemoYear></DateDemoYear>
+                    </Box.Body>
+                </Box>
+            </Col>
+        </Row>
     );
 }
