@@ -1,20 +1,25 @@
 .doc-templete{
     background-color: #fff;
     border:1px solid #d0d0d0;
+    margin-bottom: 20px;
     .component-content{
         padding: 20px;
-        border-bottom: 1px solid #d0d0d0;
+        border-bottom: 1px solid #d0d0d0; 
     }
     .code-content{
         max-height: 0;
         opacity: 0;
         overflow-y:scroll;
         transition: max-height 0.5s,padding 0.5s,opacity 0.5s;
+        code{
+            font-family: auto;
+            line-height: 30px;
+        }
 
     }
     .content-show-true{
         max-height: 500px;
-        padding: 20px;
+        padding: 0px;
         border-bottom: 1px solid #d0d0d0; 
         opacity: 1;
     }

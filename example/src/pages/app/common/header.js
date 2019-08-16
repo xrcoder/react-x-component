@@ -18,7 +18,7 @@ export default withRouter((props) => {
         },
         {
             'name': '文档',
-            'pathname': '/app/doc/button'
+            'pathname': '/app/doc'
         },
         {
             'name': '案例',
@@ -26,7 +26,7 @@ export default withRouter((props) => {
         }
     ]
 
-    const { pathname } = props.location;
+    const { pathname } = props.location
     return (
         <>
             <a className="logo"></a>
@@ -34,7 +34,7 @@ export default withRouter((props) => {
                 {
                     tabArr.map(item => {
                         return (
-                            <li className={classnames({ 'active': pathname === item.pathname })}>
+                            <li className={classnames({ 'active': pathname.indexOf(item.pathname)!==-1 })}>
                                 <Link to={{
                                     pathname: item.pathname
                                 }}>{item.name}</Link>

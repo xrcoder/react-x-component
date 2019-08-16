@@ -5,7 +5,7 @@ import {Route} from 'react-router-dom';
 export default ()=>{
     return (
         <Switch>
-            <Route path='/app/doc/button' component={require('./button')}/>
+            <Route path='/app/doc/button' component={require('./button/index')}/>
         </Switch>
     )
 }
