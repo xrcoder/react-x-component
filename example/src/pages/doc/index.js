@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react';
-import { withRouter,Switch } from 'react-router-dom';
-import {Route} from 'react-router-dom';
+import {Route, withRouter,Switch,Redirect } from 'react-router-dom';
 
-export default ()=>{
+export default withRouter(({match})=>{
     return (
         <Switch>
-            <Route path='/app/doc/button' component={require('./button/index')}/>
+            <Route path={`${match.url}/button`} component={require('./button/index')}/>
+            <Route component={() => <Redirect push to={`${match.url}/button`} />} />
         </Switch>
     )
-}
+})
