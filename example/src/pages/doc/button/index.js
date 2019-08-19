@@ -175,12 +175,12 @@ export default () => {
         </Button.Box>
     </>`
 
-    const apiData = [
+    const apiData = [{list:[
         ['disabled', '按钮是否禁用', 'Boolean', 'true,false', 'false'],
         ['icon', '按钮所带的icon', 'String', 'icon对应的值', '--'],
         ['type', '不同类型的按钮', 'String', 'primary,danger,text', '--'],
         ['size', '不同大小的按钮', 'String', 'sm,lg', '--']
-    ]
+    ]}]
 
     return (
         <div className='doc-btn'>
