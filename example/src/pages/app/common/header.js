@@ -14,7 +14,7 @@ export default withRouter((props) => {
         },
         {
             'name': '组件',
-            'pathname': '/app/component/button'
+            'pathname': '/app/component'
         },
         {
             'name': '文档',
