@@ -1,7 +1,7 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import Templete from '../templete'
 import ApiTable from '../templete/api_table'
-import { Button, Row, Col, Box, Icon, ButtonGroup, ButtonIcon, Input } from 'react-x-component'
+import { Button,Icon, ButtonGroup, ButtonIcon, Input } from 'react-x-component'
 import './index.scss'
 
 
@@ -178,6 +178,7 @@ export default () => {
     const apiData = [
         ['disabled', '按钮是否禁用', 'Boolean', 'true,false', 'false'],
         ['icon', '按钮所带的icon', 'String', 'icon对应的值', '--'],
+        ['inverse', '反转按钮样式', 'Boolean', 'true,false', 'false'],
         ['type', '不同类型的按钮', 'String', 'primary,danger,text', '--'],
         ['size', '不同大小的按钮', 'String', 'sm,lg', '--']
     ]
