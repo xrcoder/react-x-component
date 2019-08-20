@@ -101,7 +101,7 @@
       oInput.updateValue(value);
     }, [value]);
     return (0, _core.jsx)(_group["default"], {
-      className: (0, _classnames["default"])(className),
+      className: (0, _classnames["default"])('x-input-clear', className),
       style: style
     }, (0, _core.jsx)(_input["default"], {
       placeholder: placeholder,

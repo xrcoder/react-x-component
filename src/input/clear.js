@@ -44,7 +44,7 @@ function Clear(props) {
     }, [value]);
 
     return (
-        <Group className={classnames(className)} style={style}>
+        <Group className={classnames('x-input-clear', className)} style={style}>
             <Input
                 placeholder={placeholder}
                 type={type}
