@@ -59,12 +59,15 @@
         flex: 1;
         min-width: auto;
         width: 0;
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
     }
 
     .x-select {
         flex: none;
         min-width: 90px;
         margin-right: -1px;
+
         .x-select__control--menu-is-open {
             z-index: 2;
         }
@@ -72,6 +75,8 @@
 
     .x-select__control {
         background-color: #F7F8F9 !important;
+        border-bottom-right-radius: 0 !important;
+        border-top-right-radius: 0 !important;
     }
 
     .group-addon-right .x-btn {
@@ -110,9 +115,17 @@
     .x-input {
         border-bottom-right-radius: 0;
         border-top-right-radius: 0;
+        border-bottom-left-radius: 2px;
+        border-top-left-radius: 2px;
     }
 
     .x-btn {
         border-color: $input-border-color;
+    }
+}
+
+.x-input-clear {
+    .x-input {
+        border-radius: 2px;
     }
 }

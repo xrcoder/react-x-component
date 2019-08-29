@@ -2,10 +2,6 @@
 
 $gridColumns: 12 !default;
 
-.x-row * {
-    box-sizing: border-box;
-}
-
 .x-row {
 
     &:before {
@@ -23,6 +19,7 @@ $gridColumns: 12 !default;
 .x-row [class^=col-] {
     position: relative;
     min-height: 1px;
+    box-sizing: border-box;
 }
 
 //计算列展示
