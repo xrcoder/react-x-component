@@ -91,10 +91,10 @@
         overflow: hidden;
         position: relative;
 
-        & > img {
-            height: 100%;
-            margin: 0 auto;
-        }
+        // & > img {
+        //     height: 100%;
+        //     margin: 0 auto;
+        // }
 
         &:hover {
             .x-upload-img-opt {

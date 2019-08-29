@@ -17,6 +17,17 @@ const UploadList = ({ imgList, onDeleteItem }) => {
 
     let renderPreviewItem = (data, index) => {
         const { uid, imgData, status } = data;
+        let img = new Image(),
+            style = {};
+            img.src = imgData;
+            
+        if(img.width > img.height){
+            style.width = '100%';
+            style.margin = 'auto 0';
+        }else{
+            style.height = '100%';
+            style.margin = '0 auto';
+        }
         return (
             <div className="x-upload-item-preview x-upload-box" key={`${uid}_${index}`}>
                 {
@@ -29,7 +40,7 @@ const UploadList = ({ imgList, onDeleteItem }) => {
                         </div>
                     </div> 
                     : <div className="x-upload-img-box">
-                            <img src={imgData} />
+                            <img src={imgData} style={style}/>
                             <div className="x-upload-img-opt">
                                 <Icon name={'trash'} onClick={() => { onDeleteItem(index) }} />
                             </div>
