@@ -22,6 +22,10 @@ class DateRangePicker extends React.Component {
         e.preventDefault();
     }
 
+    togglePickerVisible() {
+        this.daterangepicker.togglePickerVisible();
+    }
+
     render() {
         const props = this.props;
 

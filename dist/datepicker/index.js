@@ -58,6 +58,11 @@
         e.preventDefault();
       }
     }, {
+      key: "togglePickerVisible",
+      value: function togglePickerVisible() {
+        this.daterangepicker.togglePickerVisible();
+      }
+    }, {
       key: "render",
       value: function render() {
         var _this2 = this;
