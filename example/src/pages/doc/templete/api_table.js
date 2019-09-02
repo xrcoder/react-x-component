@@ -1,10 +1,14 @@
 import react, { useState } from 'react'
 import './index.scss'
 
-export default (apiData) => {
+export default (apiData, title = 'API', subTitle) => {
     return (
         <div className="doc-templete">
-            <h4>API</h4>
+            <h4>
+                {title}
+                {
+                    subTitle ? <h5>{subTitle}</h5> : null
+                }</h4>
             <div className="component-content">
                 <table>
                     <thead>

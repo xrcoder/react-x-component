@@ -100,8 +100,10 @@ export default () => {
     </Row>`
 
     const apiData = [
-        ['className', '自定义样式', 'String', '', '--'],
-        ['name', 'fontasome中对应icon的值', 'String', '', '--'],
+        ['useStyle', '自定义样式', 'Object', '', '--'],
+        ['placement', '提示内容出现的位置', 'String', 'up,down,left,right', 'up'],
+        ['content', '提示框的内容', 'string|ReactNode', '', '--'],
+        ['eventToggle', '触发提示框的事件', 'String', 'react的事件名字', '默认hover触发'],
     ]
 
     return (

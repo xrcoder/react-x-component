@@ -8,6 +8,8 @@ export default withRouter(({match})=>{
             <Route path={`${match.url}/icon`} component={require('./icon/index')}/>
             <Route path={`${match.url}/form`} component={require('./form/index')}/>
             <Route path={`${match.url}/tooltip`} component={require('./tooltip/index')}/>
+            <Route path={`${match.url}/box`} component={require('./box/index')}/>
+            <Route path={`${match.url}/radio`} component={require('./radio/index')}/>
             <Route component={() => <Redirect push to={`${match.url}/button`} />} />
         </Switch>
     )
