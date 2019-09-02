@@ -51,6 +51,18 @@
       var uid = data.uid,
           imgData = data.imgData,
           status = data.status;
+      var img = new Image(),
+          style = {};
+      img.src = imgData;
+
+      if (img.width > img.height) {
+        style.width = '100%';
+        style.margin = 'auto 0';
+      } else {
+        style.height = '100%';
+        style.margin = '0 auto';
+      }
+
       return (0, _core.jsx)("div", {
         className: "x-upload-item-preview x-upload-box",
         key: "".concat(uid, "_").concat(index)
@@ -66,7 +78,8 @@
       }))) : (0, _core.jsx)("div", {
         className: "x-upload-img-box"
       }, (0, _core.jsx)("img", {
-        src: imgData
+        src: imgData,
+        style: style
       }), (0, _core.jsx)("div", {
         className: "x-upload-img-opt"
       }, (0, _core.jsx)(_icon["default"], {

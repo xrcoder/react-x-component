@@ -153,8 +153,10 @@ span.el-date-editor {
     width: 270px;
     height: 34px;
     border: 1px solid #D0D2DA;
+    box-sizing: border-box;
     border-radius: 2px;
     .el-input {
+        box-sizing: border-box;
         padding-left: 12px;
         width: 100%;
         input {
