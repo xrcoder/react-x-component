@@ -41,6 +41,26 @@ export default class extends React.Component {
                         </Box>
                     </Col>
                 </Row>
+                <Row>
+                    <Col md={6}>
+                        <Box nogap>
+                            <Box.Header>顶格盒子</Box.Header>
+                            <Box.Body>
+                                这是一个盒子
+                            </Box.Body>
+                            <Box.Footer>盒子Footer（尾部）</Box.Footer>
+                        </Box>
+                    </Col>
+                    <Col md={6}>
+                        <Box nogap>
+                            <Box.Header>顶格盒子</Box.Header>
+                            <Box.Body>
+                                这是一个盒子
+                            </Box.Body>
+                            <Box.Footer>盒子Footer（尾部）</Box.Footer>
+                        </Box>
+                    </Col>
+                </Row>
             </>
         )
     }

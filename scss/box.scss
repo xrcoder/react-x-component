@@ -1,6 +1,3 @@
-$boxPaddingBoth: 20px;
-
-
 .x-box {
     background-color: #fff;
     margin-bottom: 10px;
@@ -28,4 +25,12 @@ $boxPaddingBoth: 20px;
     border-top: 1px solid #EAEAEA;
     padding: 10px 0;
     position: relative;
+}
+
+.x-box-nogap {
+    padding: 0;
+
+    .x-box-header, .x-box-body, .x-box-footer {
+        padding: 10px 20px;
+    }
 }

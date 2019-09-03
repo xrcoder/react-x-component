@@ -10,7 +10,7 @@
     factory(mod.exports, global.core, global.classCallCheck, global.createClass, global.possibleConstructorReturn, global.getPrototypeOf, global.inherits, global.react, global.propTypes, global.classnames);
     global.index = mod.exports;
   }
-})(this, function (_exports, _core, _classCallCheck2, _createClass2, _possibleConstructorReturn2, _getPrototypeOf3, _inherits2, _react, _propTypes, _classnames) {
+})(this, function (_exports, _core, _classCallCheck2, _createClass2, _possibleConstructorReturn2, _getPrototypeOf2, _inherits2, _react, _propTypes, _classnames) {
   "use strict";
 
   var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -22,7 +22,7 @@
   _classCallCheck2 = _interopRequireDefault(_classCallCheck2);
   _createClass2 = _interopRequireDefault(_createClass2);
   _possibleConstructorReturn2 = _interopRequireDefault(_possibleConstructorReturn2);
-  _getPrototypeOf3 = _interopRequireDefault(_getPrototypeOf3);
+  _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf2);
   _inherits2 = _interopRequireDefault(_inherits2);
   _react = _interopRequireDefault(_react);
   _propTypes = _interopRequireDefault(_propTypes);
@@ -35,7 +35,7 @@
 
     function Header() {
       (0, _classCallCheck2["default"])(this, Header);
-      return (0, _possibleConstructorReturn2["default"])(this, (0, _getPrototypeOf3["default"])(Header).apply(this, arguments));
+      return (0, _possibleConstructorReturn2["default"])(this, (0, _getPrototypeOf2["default"])(Header).apply(this, arguments));
     }
 
     (0, _createClass2["default"])(Header, [{
@@ -57,7 +57,7 @@
 
     function Body() {
       (0, _classCallCheck2["default"])(this, Body);
-      return (0, _possibleConstructorReturn2["default"])(this, (0, _getPrototypeOf3["default"])(Body).apply(this, arguments));
+      return (0, _possibleConstructorReturn2["default"])(this, (0, _getPrototypeOf2["default"])(Body).apply(this, arguments));
     }
 
     (0, _createClass2["default"])(Body, [{
@@ -79,7 +79,7 @@
 
     function Footer() {
       (0, _classCallCheck2["default"])(this, Footer);
-      return (0, _possibleConstructorReturn2["default"])(this, (0, _getPrototypeOf3["default"])(Footer).apply(this, arguments));
+      return (0, _possibleConstructorReturn2["default"])(this, (0, _getPrototypeOf2["default"])(Footer).apply(this, arguments));
     }
 
     (0, _createClass2["default"])(Footer, [{
@@ -114,19 +114,8 @@
     (0, _inherits2["default"])(_default, _React$Component4);
 
     function _default() {
-      var _getPrototypeOf2;
-
-      var _this;
-
       (0, _classCallCheck2["default"])(this, _default);
-
-      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-        args[_key] = arguments[_key];
-      }
-
-      _this = (0, _possibleConstructorReturn2["default"])(this, (_getPrototypeOf2 = (0, _getPrototypeOf3["default"])(_default)).call.apply(_getPrototypeOf2, [this].concat(args)));
-      _this.childType = ['Header', 'Body', 'Footer'];
-      return _this;
+      return (0, _possibleConstructorReturn2["default"])(this, (0, _getPrototypeOf2["default"])(_default).apply(this, arguments));
     }
 
     (0, _createClass2["default"])(_default, [{
@@ -135,9 +124,12 @@
         var t = this;
         var _t$props = t.props,
             children = _t$props.children,
+            nogap = _t$props.nogap,
             className = _t$props.className;
         return (0, _core.jsx)("div", {
-          className: (0, _classnames["default"])('x-box', className)
+          className: (0, _classnames["default"])('x-box', {
+            'x-box-nogap': nogap
+          }, className)
         }, children);
       }
     }]);
@@ -147,11 +139,13 @@
   _exports["default"] = _default;
   _default.propTypes = {
     className: _propTypes["default"].string,
-    type: _propTypes["default"].oneOf(['default', 'primary', 'danger', 'info', 'warning'])
+    type: _propTypes["default"].oneOf(['default', 'primary', 'danger', 'info', 'warning']),
+    nogap: _propTypes["default"].bool
   };
   _default.defaultProps = {
     className: '',
-    type: 'default'
+    type: 'default',
+    nogap: false
   };
   _default.Header = Header;
   _default.Body = Body;

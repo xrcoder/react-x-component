@@ -48,11 +48,13 @@ export default class extends React.Component {
     static propTypes = {
         className: PropTypes.string,
         type: PropTypes.oneOf(['default', 'primary', 'danger', 'info', 'warning']),
+        nogap: PropTypes.bool
     };
 
     static defaultProps = {
         className: '',
-        type: 'default'
+        type: 'default',
+        nogap: false
     };
 
     static Header = Header;
@@ -61,13 +63,11 @@ export default class extends React.Component {
 
     static Footer = Footer;
 
-    childType = ['Header', 'Body', 'Footer'];
-
     render() {
         let t = this;
-        let {children, className} = t.props;
+        let {children, nogap, className} = t.props;
         return (
-            <div className={classnames('x-box', className)}>{children}</div>
+            <div className={classnames('x-box', {'x-box-nogap': nogap}, className)}>{children}</div>
         )
     }
 }
