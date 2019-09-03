@@ -1,5 +1,5 @@
 import React from 'react';
-import {Box, Select, Input, Form, Special} from 'react-x-component';
+import {Box, Select, Input, Form} from 'react-x-component';
 
 const stateOptions = [
     {value: '1', label: '身份证'},
@@ -78,12 +78,6 @@ export default class extends React.Component {
                                     value: res
                                 });
                             }}/>
-                    </Box.Body>
-                </Box>
-                <Box>
-                    <Box.Header>输入框</Box.Header>
-                    <Box.Body>
-                        <Special.Week options={stateOptions}/>
                     </Box.Body>
                 </Box>
             </>
