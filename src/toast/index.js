@@ -11,6 +11,10 @@ function push(msg, opt) {
     let _opt = {
         hideProgressBar: true,
         type: 'info',
+        position: 'top-center',
+        autoClose: 3000,
+        closeButton: false,
+        pauseOnFocusLoss: false,
         onClose: () => {
             toastId = null
         }
