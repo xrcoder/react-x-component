@@ -32,6 +32,10 @@
     var _opt = {
       hideProgressBar: true,
       type: 'info',
+      position: 'top-center',
+      autoClose: 3000,
+      closeButton: false,
+      pauseOnFocusLoss: false,
       onClose: function onClose() {
         toastId = null;
       }
