@@ -7,24 +7,25 @@ $boxPaddingBoth: 20px;
     border-radius: 1px;
     box-shadow: 0 2px 4px 0 rgba(239, 242, 247, 1);
     font-size: 14px;
+    padding: 0 20px;
 }
 
 .x-box-header {
     color: #444;
     display: block;
-    padding: 10px $boxPaddingBoth;
+    padding: 10px 0;
     position: relative;
     border-bottom: 1px solid #EAEAEA;
     font-weight: bold;
 }
 
 .x-box-body {
-    padding: 20px $boxPaddingBoth;
+    padding: 20px 0;
     position: relative;
 }
 
 .x-box-footer {
     border-top: 1px solid #EAEAEA;
-    padding: 10px $boxPaddingBoth;
+    padding: 10px 0;
     position: relative;
 }
