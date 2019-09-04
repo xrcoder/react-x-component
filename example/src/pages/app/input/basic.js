@@ -108,7 +108,7 @@ export default class extends React.Component {
                             }}><Icon name={'rss'}/></Input.Search>
                         </Form.Group>
                         <Form.Group>
-                            <Input.Search onEnter={(res) => {
+                            <Input.Search clear onEnter={(res) => {
                                 console.log(res);
                             }} onChange={(res) => {
                                 console.log(res);

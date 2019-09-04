@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "@emotion/core", "@babel/runtime/helpers/extends", "react", "classnames", "./input", "./group"], factory);
+    define(["exports", "@emotion/core", "@babel/runtime/helpers/extends", "react", "classnames", "./input", "./group", "./clear"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("@emotion/core"), require("@babel/runtime/helpers/extends"), require("react"), require("classnames"), require("./input"), require("./group"));
+    factory(exports, require("@emotion/core"), require("@babel/runtime/helpers/extends"), require("react"), require("classnames"), require("./input"), require("./group"), require("./clear"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.core, global._extends, global.react, global.classnames, global.input, global.group);
+    factory(mod.exports, global.core, global._extends, global.react, global.classnames, global.input, global.group, global.clear);
     global.addon = mod.exports;
   }
-})(this, function (_exports, _core, _extends2, _react, _classnames, _input, _group) {
+})(this, function (_exports, _core, _extends2, _react, _classnames, _input, _group, _clear) {
   "use strict";
 
   var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -24,9 +24,10 @@
   _classnames = _interopRequireDefault(_classnames);
   _input = _interopRequireDefault(_input);
   _group = _interopRequireDefault(_group);
+  _clear = _interopRequireDefault(_clear);
 
   function Inner(props) {
-    return (0, _core.jsx)(_react["default"].Fragment, null, (0, _core.jsx)(_input["default"], props), (0, _core.jsx)("div", {
+    return (0, _core.jsx)(_react["default"].Fragment, null, props.clear ? (0, _core.jsx)(_clear["default"], props) : (0, _core.jsx)(_input["default"], props), (0, _core.jsx)("div", {
       className: "group-addon-right"
     }, props.render()));
   }

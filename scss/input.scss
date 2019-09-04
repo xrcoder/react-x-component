@@ -91,6 +91,38 @@
             margin-right: 0;
         }
     }
+}
+
+.x-input-group-addon {
+    .x-input {
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 2px;
+        border-top-left-radius: 2px;
+    }
+
+    .x-input-clear {
+        display: flex;
+        flex: 1;
+        min-width: auto;
+    }
+
+    .x-btn {
+        border-color: $input-border-color;
+    }
+}
+
+.x-input-clear {
+
+    position: relative;
+    display: inline-flex;
+    min-width: 270px;
+
+    .x-input {
+        flex: 1;
+        min-width: auto;
+        width: 0;
+    }
 
     .clear-btn {
         position: absolute;
@@ -108,24 +140,5 @@
             cursor: pointer;
             opacity: 1;
         }
-    }
-}
-
-.x-input-group-addon {
-    .x-input {
-        border-bottom-right-radius: 0;
-        border-top-right-radius: 0;
-        border-bottom-left-radius: 2px;
-        border-top-left-radius: 2px;
-    }
-
-    .x-btn {
-        border-color: $input-border-color;
-    }
-}
-
-.x-input-clear {
-    .x-input {
-        border-radius: 2px;
     }
 }

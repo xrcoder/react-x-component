@@ -1,9 +1,7 @@
 import React, {useState, useEffect, useCallback} from 'react';
 import classnames from 'classnames';
 import Icon from '../icon';
-
 import Input from './input';
-import Group from './group';
 
 function useClearBtn(value) {
     let [status, setStatus] = useState(value);
@@ -44,7 +42,7 @@ function Clear(props) {
     }, [value]);
 
     return (
-        <Group className={classnames('x-input-clear', className)} style={style}>
+        <div className={classnames('x-input-clear', className)} style={style}>
             <Input
                 placeholder={placeholder}
                 type={type}
@@ -76,7 +74,7 @@ function Clear(props) {
                       onClear && onClear(e);
                   }}
             />
-        </Group>
+        </div>
     )
 }
 

@@ -3,11 +3,14 @@ import classnames from 'classnames';
 
 import Input from './input';
 import Group from './group';
+import Clear from './clear';
 
 function Inner(props) {
     return (
         <>
-            <Input {...props}/>
+            {
+                props.clear ? <Clear {...props}/> : <Input {...props}/>
+            }
             <div className="group-addon-right">{props.render()}</div>
         </>
     )

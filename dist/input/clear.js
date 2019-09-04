@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "@emotion/core", "@babel/runtime/helpers/slicedToArray", "react", "classnames", "../icon", "./input", "./group"], factory);
+    define(["exports", "@emotion/core", "@babel/runtime/helpers/slicedToArray", "react", "classnames", "../icon", "./input"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("@emotion/core"), require("@babel/runtime/helpers/slicedToArray"), require("react"), require("classnames"), require("../icon"), require("./input"), require("./group"));
+    factory(exports, require("@emotion/core"), require("@babel/runtime/helpers/slicedToArray"), require("react"), require("classnames"), require("../icon"), require("./input"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.core, global.slicedToArray, global.react, global.classnames, global.icon, global.input, global.group);
+    factory(mod.exports, global.core, global.slicedToArray, global.react, global.classnames, global.icon, global.input);
     global.clear = mod.exports;
   }
-})(this, function (_exports, _core, _slicedToArray2, _react, _classnames, _icon, _input, _group) {
+})(this, function (_exports, _core, _slicedToArray2, _react, _classnames, _icon, _input) {
   "use strict";
 
   var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
@@ -26,7 +26,6 @@
   _classnames = _interopRequireDefault(_classnames);
   _icon = _interopRequireDefault(_icon);
   _input = _interopRequireDefault(_input);
-  _group = _interopRequireDefault(_group);
 
   function useClearBtn(value) {
     var _useState = (0, _react.useState)(value),
@@ -100,7 +99,7 @@
     (0, _react.useEffect)(function () {
       oInput.updateValue(value);
     }, [value]);
-    return (0, _core.jsx)(_group["default"], {
+    return (0, _core.jsx)("div", {
       className: (0, _classnames["default"])('x-input-clear', className),
       style: style
     }, (0, _core.jsx)(_input["default"], {
