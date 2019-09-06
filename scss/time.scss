@@ -218,8 +218,72 @@ span.el-date-editor {
 }
 
 .el-picker-panel__body-wrapper {
-    padding-top: 50px;
-    
+    .el-date-picker__header-label {
+        &:hover {
+            color: #48576a;
+        }
+    }
+    // 星期模式
+    .el-date-table.is-week-mode {
+        .el-date-table__row:hover {
+            background-color: #e4e8f1;
+        }
+        tr.el-date-table__row.current {
+            td {
+                position: relative;
+                background-color: #F0F1F9;
+            }
+            td.in-range.start-date {
+                &:before {
+                    position: absolute;
+                    content: ' ';
+                    top: 0;
+                    left: 17px;
+                    width: 17px;
+                    height: 100%;
+                    background-color: #F0F1F9;
+                    z-index: -1;
+                    border: none;
+                }
+            }
+            td.in-range.end-date {
+                &:after {
+                    display: none;
+                }
+                &:before {
+                    position: absolute;
+                    content: ' ';
+                    top: 0;
+                    left: 0;
+                    width: 13px;
+                    height: 100%;
+                    background-color: #F0F1F9;
+                    z-index: -1;
+                    border: none;
+                }
+            }
+            td.in-range.start-date.end-date {
+                &:before {
+                    display: none;
+                }
+                &::after {
+                    display: none;
+                }
+            }
+        }
+    }
+    // 月份模式
+    .el-month-table {
+        td.current .cell {
+            background-color: #2A1166 !important;
+        }
+    }
+    // 年份模式
+    .el-year-table {
+        td.current .cell {
+            background-color: #2A1166 !important;
+        }
+    }
     .el-picker-panel [slot=sidebar]+.el-picker-panel__body,
     .el-picker-panel__sidebar+.el-picker-panel__body {
         margin-left: 0;
@@ -307,6 +371,18 @@ span.el-date-editor {
 .el-date-range-picker.has-sidebar.has-time {
     min-width: 660px !important;
 }
+.el-date-picker {
+    .el-date-table td.current:not(.disabled),
+    .el-date-table td.end-date,
+    .el-date-table td.start-date {
+        border-radius: 50px;
+    }
+    .el-date-table td.today {
+        &.current {
+            color: #FFF;
+        }
+    }
+}
 .el-date-range-picker, .el-date-picker {
     .el-date-table td.current:not(.disabled),
     .el-date-table td.end-date,
@@ -330,4 +406,9 @@ span.el-date-editor {
 
 .el-time-panel__btn.confirm {
     color: #2A1166 !important;
+}
+.el-picker-panel.has-sidebar {
+    .el-picker-panel__body-wrapper {
+        padding-top: 50px;
+    }
 }
