@@ -1,11 +1,17 @@
-import React, {Fragment} from 'react';
-import {withRouter} from 'react-router-dom';
+import React from 'react';
+import {withRouter, Switch, Route, Redirect} from 'react-router-dom';
 
 @withRouter
 export default class extends React.Component {
     render() {
+        const {match} = this.props;
         return (
-            <div>文档页面</div>
+            <div className="app-doc-layout">
+                <Switch>
+                    <Route path={`${match.url}/button`} component={require('./button')}/>
+                    <Redirect to={`${match.url}/button`}/>
+                </Switch>
+            </div>
         )
     }
 }

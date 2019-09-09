@@ -26,7 +26,7 @@ export default {
     module: {
         rules: [
             {
-                test: /\.(js|ts|tsx)?$/,
+                test: /\.js$/,
                 exclude: /node_modules/,
                 use: [
                     {
@@ -68,6 +68,10 @@ export default {
                         }
                     }
                 ]
+            },
+            {
+                test: /\.(md|code)$/,
+                use: 'raw-loader',
             }
         ]
     },

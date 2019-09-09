@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, Switch, withRouter} from 'react-router-dom';
+import {Route, Switch, withRouter, Redirect} from 'react-router-dom';
 
 export default withRouter(({match}) => {
     return (
@@ -23,10 +23,7 @@ export default withRouter(({match}) => {
             <Route path={`${match.url}/remind`} component={require('./remind')}/>
             <Route path={`${match.url}/table`} component={require('./table')}/>
             <Route path={`${match.url}/date`} component={require('./date')}/>
-            <Route component={(props) => {
-                props.history.$push(`${props.match.url}/button`);
-                return null;
-            }}/>
+            <Redirect to={`${match.url}/button`}/>
         </Switch>
     );
 });

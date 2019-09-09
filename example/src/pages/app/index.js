@@ -20,12 +20,6 @@ function Main() {
     )
 }
 
-function Doc() {
-    return (
-        <div style={{marginTop: '50px'}}>doc</div>
-    )
-}
-
 export default class extends React.Component {
 
     shouldComponentUpdate() {
@@ -41,7 +35,7 @@ export default class extends React.Component {
                 </Header>
                 <Switch>
                     <Route path={`${match.url}/component`} component={Main}/>
-                    <Route path={`${match.url}/doc`} component={Doc}/>
+                    <Route path={`${match.url}/doc`} component={require('../doc')}/>
                 </Switch>
             </LayoutB>
         )
