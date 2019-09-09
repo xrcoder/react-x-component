@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, Switch, withRouter} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 import {Toast} from 'react-x-component';
 
 function RedirectTo(props) {
@@ -12,8 +12,8 @@ export default function () {
         <>
             <Switch>
                 <Route path="/home" component={require('./home')}/>
-                <Route path="/app" component={require('./app/layout_b')}/>
-                <Route component={withRouter(RedirectTo)}/>
+                <Route path="/app" component={require('./app')}/>
+                <Route component={RedirectTo}/>
             </Switch>
             <Toast.Container/>
         </>
