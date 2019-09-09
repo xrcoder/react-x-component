@@ -7,17 +7,15 @@ function RedirectTo(props) {
     return null;
 }
 
-export default class extends React.Component {
-    render() {
-        return (
-            <>
-                <Switch>
-                    <Route path="/home" component={require('./home')}/>
-                    <Route path="/app" component={require('./app/layout_b')}/>
-                    <Route component={withRouter(RedirectTo)}/>
-                </Switch>
-                <Toast.Container/>
-            </>
-        )
-    }
+export default function () {
+    return (
+        <>
+            <Switch>
+                <Route path="/home" component={require('./home')}/>
+                <Route path="/app" component={require('./app/layout_b')}/>
+                <Route component={withRouter(RedirectTo)}/>
+            </Switch>
+            <Toast.Container/>
+        </>
+    )
 }

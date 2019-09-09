@@ -20,14 +20,15 @@ function AppComponent() {
     )
 }
 
-export default withRouter(function (props) {
+export default function (props) {
+    console.log('1');
     return (
         <LayoutB>
             <Header className="app-header"><AppHeader/></Header>
             <Switch>
-                <Route path={`${props.match.url}/doc`} component={() => <div style={{marginTop: '50px'}}>doc</div>}/>
-                <Route path={`${props.match.url}/component`} component={() => <AppComponent {...props}/>}/>
+                <Route path={`/app/component`} component={() => <AppComponent {...props}/>}/>
+                <Route path={`/app/doc`} component={() => <div style={{marginTop: '50px'}}>doc</div>}/>
             </Switch>
         </LayoutB>
     )
-})
+}
