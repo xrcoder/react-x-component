@@ -22,13 +22,13 @@
   _react = _interopRequireDefault(_react);
   _classnames = _interopRequireDefault(_classnames);
 
-  var XContainer = function XContainer(props) {
+  var Container = function Container(props) {
     return (0, _core.jsx)("div", {
       className: (0, _classnames["default"])('x-b-container', props.className)
     }, props.children);
   };
 
-  var _default = XContainer;
+  var _default = Container;
   _exports["default"] = _default;
   module.exports = exports.default;
 });

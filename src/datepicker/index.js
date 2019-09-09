@@ -1,11 +1,11 @@
 import React from 'react';
-import {DatePicker, DateRangePicker as DateRangePickerRc} from 'element-react';
+import { DatePicker, DateRangePicker as DateRangePickerRc } from 'element-react';
 
 class DateRangePicker extends React.Component {
     elInputTime1 = null;
     elInputTime2 = null;
     daterangepicker = null;
-    
+
     constructor(props) {
         super(props);
     }
@@ -30,15 +30,16 @@ class DateRangePicker extends React.Component {
         const props = this.props;
 
         return (
-            <DateRangePickerRc 
+            <DateRangePickerRc
                 {...props}
+                className={props.format.indexOf('mm') !== -1 ? 'picker-has-minute' : ''}
                 shortcuts={
                     props.shortcuts || [{
                         text: '今日',
                         onClick: () => {
-                            const end = new Date(new Date(new Date().toLocaleDateString()).getTime()+24*60*60*1000-1);
+                            const end = new Date(new Date(new Date().toLocaleDateString()).getTime() + 24 * 60 * 60 * 1000 - 1);
                             const start = new Date(end.getFullYear(), end.getMonth(), end.getDate());
-                            this.setState({value: [start, end]});
+                            this.setState({ value: [start, end] });
                             this.daterangepicker.togglePickerVisible();
                             this.props.onChange && this.props.onChange([start, end]);
                         }
@@ -46,18 +47,18 @@ class DateRangePicker extends React.Component {
                     {
                         text: '本周',
                         onClick: () => {
-                            const NowDate=new Date();
-                            const WeekFirstDay=new Date(NowDate.getTime() - (NowDate.getDay() - 1) * 86400000);
-                            const WeekLastDay=new Date((WeekFirstDay.getTime()/1000 + 6*86400)*1000);
-                            const M = Number(WeekLastDay.getMonth())+1
-                            const tmpTime = new Date(WeekLastDay.getFullYear()+"-"+M+"-"+WeekLastDay.getDate())
-                            const end = new Date(tmpTime.getTime()+24*60*60*1000-1);
+                            const NowDate = new Date();
+                            const WeekFirstDay = new Date(NowDate.getTime() - (NowDate.getDay() - 1) * 86400000);
+                            const WeekLastDay = new Date((WeekFirstDay.getTime() / 1000 + 6 * 86400) * 1000);
+                            const M = Number(WeekLastDay.getMonth()) + 1
+                            const tmpTime = new Date(WeekLastDay.getFullYear() + "-" + M + "-" + WeekLastDay.getDate())
+                            const end = new Date(tmpTime.getTime() + 24 * 60 * 60 * 1000 - 1);
                             NowDate.setDate(NowDate.getDate() - NowDate.getDay() + 1);
                             const begin = NowDate.getFullYear() + "-" + (NowDate.getMonth() + 1) + "-" + NowDate.getDate() + " 00:00:00";
                             const start = new Date(begin);
                             start.setTime(start.getTime());
 
-                            this.setState({value: [start, end]});
+                            this.setState({ value: [start, end] });
                             this.daterangepicker.togglePickerVisible();
                             this.props.onChange && this.props.onChange([start, end]);
                         }
@@ -65,16 +66,16 @@ class DateRangePicker extends React.Component {
                     {
                         text: '本月',
                         onClick: () => {
-                            const NowDate=new Date();
-                            const MonthNextFirstDay=new Date(NowDate.getFullYear(),NowDate.getMonth()+1,1);
-                            const MonthLastDay=new Date(MonthNextFirstDay.getTime()-86400000);
-                            const M = Number(MonthLastDay.getMonth())+1
-                            const tmpDate = new Date(MonthLastDay.getFullYear()+"-"+M+"-"+MonthLastDay.getDate())
-                            const end = new Date(tmpDate.getTime()+24*60*60*1000-1);
+                            const NowDate = new Date();
+                            const MonthNextFirstDay = new Date(NowDate.getFullYear(), NowDate.getMonth() + 1, 1);
+                            const MonthLastDay = new Date(MonthNextFirstDay.getTime() - 86400000);
+                            const M = Number(MonthLastDay.getMonth()) + 1
+                            const tmpDate = new Date(MonthLastDay.getFullYear() + "-" + M + "-" + MonthLastDay.getDate())
+                            const end = new Date(tmpDate.getTime() + 24 * 60 * 60 * 1000 - 1);
                             const start = new Date(end.getFullYear(), end.getMonth(), end.getDate());
                             start.setTime(start.getTime() - 3600 * 1000 * 24 * (end.getDate() - 1));
 
-                            this.setState({value: [start, end]});
+                            this.setState({ value: [start, end] });
                             this.daterangepicker.togglePickerVisible();
                             this.props.onChange && this.props.onChange([start, end]);
                         }
