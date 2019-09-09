@@ -157,20 +157,30 @@ span.el-date-editor {
     border-radius: 2px;
     .el-input {
         box-sizing: border-box;
-        padding-left: 12px;
+        padding-left: 10px;
         width: 100%;
         input {
             display: block;
-            padding-left: 3px;
+            padding-left: 0;
             line-height: 32px;
             height: 32px;
             border: none;
-            font-size: 12px;
+            font-size: 14px;
             padding-right: 3px;
         }
     }
     &.is-active {
         border-color: #645A82;
+    }
+    &.picker-has-minute {
+        .el-input input {
+            font-size: 12px;
+        }
+        .el-date-editor--daterange {
+            &:after {
+                font-size: 12px;
+            }
+        }
     }
 }
 
@@ -200,7 +210,7 @@ span.el-date-editor {
             top: 7px;
             content: '至';
             color: #484852;
-            font-size: 12px;
+            font-size: 14px;
         }
     }
     &.is-filled {
@@ -291,7 +301,7 @@ span.el-date-editor {
             .el-icon-arrow-right {
                 &:before {
                     content: '至';
-                    font-size: 12px;
+                    font-size: 14px;
                     color: #435068;
                 }
             }

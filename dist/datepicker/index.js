@@ -69,6 +69,7 @@
 
         var props = this.props;
         return (0, _core.jsx)(_elementReact.DateRangePicker, (0, _extends2["default"])({}, props, {
+          className: props.format.indexOf('mm') !== -1 ? 'picker-has-minute' : '',
           shortcuts: props.shortcuts || [{
             text: '今日',
             onClick: function onClick() {
