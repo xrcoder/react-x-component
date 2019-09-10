@@ -20,7 +20,8 @@ export default {
         extensions: ['.js', '.jsx', '.tsx', '.ts'],
         alias: {
             'react-x-component': path.resolve(__dirname, '../src'),
-            'services': path.resolve(__dirname, '../example/src/services')
+            'services': path.resolve(__dirname, '../example/src/services'),
+            'components': path.resolve(__dirname, '../example/src/components')
         }
     },
     module: {
@@ -70,7 +71,7 @@ export default {
                 ]
             },
             {
-                test: /\.(md|code)$/,
+                test: /\.(md|x)$/,
                 use: 'raw-loader',
             }
         ]
