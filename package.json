@@ -36,7 +36,6 @@
     "element-react": "^1.4.34",
     "element-theme-default": "^1.4.13",
     "font-awesome": "^4.7.0",
-    "mdx.macro": "^0.2.9",
     "prop-types": "^15.7.2",
     "rc-tooltip": "^3.7.3",
     "react-markdown": "^4.2.2",
