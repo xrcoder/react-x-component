@@ -1,7 +1,6 @@
 import './index.scss';
 import React from 'react';
 import {Row, Col, Box, Icon} from 'react-x-component';
-import {Demo} from "./demo";
 
 export default class extends React.Component {
     render() {
