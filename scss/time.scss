@@ -422,3 +422,23 @@ span.el-date-editor {
         padding-top: 50px;
     }
 }
+
+
+.el-picker-panel__body.is-in-range {
+    .el-date-table td.in-range {
+        background-color: transparent;
+        &:after {
+            display: none;
+        }
+        &.end-date:before {
+            display: none;
+        }
+        &.start-date:before {
+            display: none;
+        }
+    }
+    .el-date-table td.end-date {
+        background-color: transparent !important;
+        color: #2A1166;
+    }
+}
