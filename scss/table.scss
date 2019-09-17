@@ -11,7 +11,7 @@
         border-right: none;
         border-left: none;
         line-height: 14px;
-        padding: 18px 32px 17px;
+        padding: 18px 20px 17px;
         text-align: left;
         font-size: 14px;
         color: #676560;
@@ -22,7 +22,8 @@
     thead > tr > td {
         border-bottom-width: 2px;
         border-top: none;
-        color: $theme-font-color;;
+        color: $theme-font-color;
+        white-space: nowrap;
     }
 
     tbody tr {
