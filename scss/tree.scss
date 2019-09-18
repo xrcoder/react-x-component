@@ -1,0 +1,7 @@
+.el-tree.el-tree--max-choose {
+    .el-tree-node {
+        &:not(.is-checked) {
+            color: #999;
+        }
+    }
+}
