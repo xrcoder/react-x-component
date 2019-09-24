@@ -4,7 +4,7 @@
 
 import React from 'react';
 import classnames from 'classnames';
-import {Link, withRouter} from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 @withRouter
 export default class extends React.Component {
@@ -89,13 +89,17 @@ export default class extends React.Component {
                 {
                     name: 'Date 日历时间',
                     pathname: `/${prefix}/date`
+                },
+                {
+                    name: 'Tree 树状',
+                    pathname: `/${prefix}/tree`
                 }
             ]
         }
     }
 
     render() {
-        const {pathname} = this.props.location;
+        const { pathname } = this.props.location;
         return (
             <>
                 <ul className="app-sider-menu">
@@ -103,7 +107,7 @@ export default class extends React.Component {
                     {
                         this.state.menus.map((item, index) => {
                             return (
-                                <li key={index} className={classnames({'active': pathname === item.pathname})}>
+                                <li key={index} className={classnames({ 'active': pathname === item.pathname })}>
                                     <Link to={{
                                         pathname: item.pathname
                                     }}>{item.name}</Link>

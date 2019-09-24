@@ -34,3 +34,4 @@ export Remind from './remind';
 export DropdownSelect from './dropdown';
 export * from './timepicker';
 export * from './datepicker';
+export DataTree from './tree';
