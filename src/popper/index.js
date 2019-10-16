@@ -10,7 +10,8 @@ function Popper(props) {
         mouseEnterDelay,
         mouseLeaveDelay,
         overlayStyle,
-        onVisibleChange
+        onVisibleChange,
+        visible
     } = props;
 
     return (
@@ -24,6 +25,7 @@ function Popper(props) {
             overlayStyle={overlayStyle}
             onVisibleChange={onVisibleChange}
             prefixCls={'x-popper'}
+            visible={visible}
         >{props.children}
         </RcTooltip>
     )
