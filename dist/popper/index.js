@@ -30,8 +30,7 @@
         mouseEnterDelay = props.mouseEnterDelay,
         mouseLeaveDelay = props.mouseLeaveDelay,
         overlayStyle = props.overlayStyle,
-        onVisibleChange = props.onVisibleChange,
-        visible = props.visible;
+        onVisibleChange = props.onVisibleChange;
     return (0, _core.jsx)(_rcTooltip["default"], {
       overlayClassName: overlayClassName,
       placement: placement,
@@ -41,8 +40,7 @@
       mouseEnterDelay: mouseEnterDelay,
       overlayStyle: overlayStyle,
       onVisibleChange: onVisibleChange,
-      prefixCls: 'x-popper',
-      visible: visible
+      prefixCls: 'x-popper'
     }, props.children);
   }
 
