@@ -30,7 +30,11 @@ function push(msg, opt) {
 }
 
 function notify(msg, type) {
+    if (toastId) {
+        toast.dismiss(toastId)
+    }
     return toast(msg, {
+        position: 'top-right',
         hideProgressBar: true,
         type: type,
         closeButton: false,

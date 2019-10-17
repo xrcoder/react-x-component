@@ -51,7 +51,12 @@
   }
 
   function notify(msg, type) {
+    if (toastId) {
+      _reactToastify.toast.dismiss(toastId);
+    }
+
     return (0, _reactToastify.toast)(msg, {
+      position: 'top-right',
       hideProgressBar: true,
       type: type,
       closeButton: false,
