@@ -91,7 +91,7 @@
               var WeekFirstDay = new Date(NowDate.getTime() - (NowDate.getDay() - 1) * 86400000);
               var WeekLastDay = new Date((WeekFirstDay.getTime() / 1000 + 6 * 86400) * 1000);
               var M = Number(WeekLastDay.getMonth()) + 1;
-              var tmpTime = new Date(WeekLastDay.getFullYear() + "-" + M + "-" + WeekLastDay.getDate());
+              var tmpTime = new Date(WeekLastDay.getFullYear() + "-" + M + "-" + WeekLastDay.getDate() + ' ' + '00:00:00');
               var end = new Date(tmpTime.getTime() + 24 * 60 * 60 * 1000 - 1);
               NowDate.setDate(NowDate.getDate() - NowDate.getDay() + 1);
               var begin = NowDate.getFullYear() + "-" + (NowDate.getMonth() + 1) + "-" + NowDate.getDate() + " 00:00:00";
@@ -113,7 +113,7 @@
               var MonthNextFirstDay = new Date(NowDate.getFullYear(), NowDate.getMonth() + 1, 1);
               var MonthLastDay = new Date(MonthNextFirstDay.getTime() - 86400000);
               var M = Number(MonthLastDay.getMonth()) + 1;
-              var tmpDate = new Date(MonthLastDay.getFullYear() + "-" + M + "-" + MonthLastDay.getDate());
+              var tmpDate = new Date(MonthLastDay.getFullYear() + "-" + M + "-" + MonthLastDay.getDate() + ' ' + '00:00:00');
               var end = new Date(tmpDate.getTime() + 24 * 60 * 60 * 1000 - 1);
               var start = new Date(end.getFullYear(), end.getMonth(), end.getDate());
               start.setTime(start.getTime() - 3600 * 1000 * 24 * (end.getDate() - 1));
