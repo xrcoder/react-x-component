@@ -48,7 +48,8 @@
         onError = _ref.onError,
         data = _ref.data,
         headers = _ref.headers,
-        method = _ref.method;
+        method = _ref.method,
+        canDrag = _ref.canDrag;
 
     var _useState = (0, _react.useState)(getUid()),
         _useState2 = (0, _slicedToArray2["default"])(_useState, 2),
@@ -133,12 +134,27 @@
       uploadInput.current.click();
     };
 
+    var handleDragOver = function handleDragOver(e) {
+      if (!canDrag) return;
+      e.preventDefault();
+      e.stopPropagation();
+    };
+
+    var handleDrop = function handleDrop(e) {
+      if (!canDrag) return;
+      e.preventDefault();
+      e.stopPropagation();
+      selectFile(e);
+    };
+
     return (0, _core.jsx)("div", {
       className: (0, _classnames["default"])('x-upload', className),
       ref: dragEl,
       onClick: function onClick() {
         handleClick();
-      }
+      },
+      onDragOver: handleDragOver,
+      onDrop: handleDrop
     }, (0, _core.jsx)("div", {
       className: "x-upload-trigger"
     }, children), (0, _core.jsx)("input", {
@@ -165,12 +181,14 @@
     onError: _propTypes["default"].func,
     timeout: _propTypes["default"].number,
     className: _propTypes["default"].string,
-    name: _propTypes["default"].string
+    name: _propTypes["default"].string,
+    canDrag: _propTypes["default"].bool
   };
   Upload.defaultProps = {
     fileType: '*',
     timeout: 10000,
     name: 'file',
+    canDrag: false,
     onBeforeStart: function onBeforeStart() {
       return true;
     },

@@ -10,7 +10,7 @@ function getUid() {
     return `upload-${now}-${++index}`
 }
 
-const Upload = ({ className, multiple, timeout, name, children, fileType, url, onBeforeStart, onProgress, onFinished, onError, data, headers, method }) => {
+const Upload = ({ className, multiple, timeout, name, children, fileType, url, onBeforeStart, onProgress, onFinished, onError, data, headers, method, canDrag }) => {
 
     const [uid, setUid] = useState(getUid());
     const [uploadList, setUploadList] = useState({});
@@ -82,8 +82,21 @@ const Upload = ({ className, multiple, timeout, name, children, fileType, url, o
         uploadInput.current.click()
     }
 
+    let handleDragOver = (e) => {
+        if (!canDrag) return;
+        e.preventDefault()
+        e.stopPropagation()
+    }
+
+    let handleDrop = (e) => {
+        if (!canDrag) return;
+        e.preventDefault()
+        e.stopPropagation()
+        selectFile(e);
+    }
+
     return (
-        <div className={classnames('x-upload', className)} ref={dragEl} onClick={() => { handleClick() }}>
+        <div className={classnames('x-upload', className)} ref={dragEl} onClick={() => { handleClick() }} onDragOver={handleDragOver}  onDrop={handleDrop}>
             <div className="x-upload-trigger" >
                 {children}
             </div>
@@ -113,12 +126,14 @@ Upload.propTypes = {
     timeout: PropTypes.number,
     className: PropTypes.string,
     name: PropTypes.string,
+    canDrag: PropTypes.bool
 }
 
 Upload.defaultProps = {
     fileType: '*',
     timeout: 10000,
     name: 'file',
+    canDrag: false,
     onBeforeStart: () => { return true },
     onProgress: () => { },
     onError: () => { },
