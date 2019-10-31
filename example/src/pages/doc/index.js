@@ -1,16 +1,16 @@
 import React from 'react';
-import {withRouter, Switch, Route, Redirect} from 'react-router-dom';
-import {LayoutB} from 'react-x-component';
+import { withRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { LayoutB } from 'react-x-component';
 import AppSider from '../app/common/sider';
 
 @withRouter
 export default class extends React.Component {
     render() {
-        const {match} = this.props;
+        const { match } = this.props;
         return (
             <LayoutB.Container>
                 <LayoutB.Sider className="app-sider">
-                    <AppSider prefix="app/doc"/>
+                    <AppSider prefix="app/doc" />
                 </LayoutB.Sider>
                 <LayoutB.Content className="app-content">
                     <Switch>
@@ -18,6 +18,7 @@ export default class extends React.Component {
                         <Route path={`${match.url}/grid`} component={require('./grid')}/>
                         <Route path={`${match.url}/toggle`} component={require('./toggle')}/>
                         <Route path={`${match.url}/form`} component={require('./form')}/>
+                        <Route path={`${match.url}/pagination`} component={require('./pagination')} />
                         <Route path={`${match.url}/tooltip`} component={require('./tooltip')}/>
                         <Route path={`${match.url}/toast`} component={require('./toast')}/>
                         <Route path={`${match.url}/box`} component={require('./box')}/>
