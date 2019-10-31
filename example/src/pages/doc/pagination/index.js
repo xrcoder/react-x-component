@@ -84,7 +84,7 @@ export default class extends React.Component {
 						</Box.Body>
 					</Box>
 					<Box>
-						<Box.Header>Pagination.Page Props Api</Box.Header>
+						<Box.Header>Pagination.Page Attributes</Box.Header>
 						<Box.Body>
 							<Prism>
 								{`import { Pagination } from 'react-x-component';
@@ -97,7 +97,7 @@ const { Page } = Pagination;`}
 						</Box.Body>
 					</Box>
 					<Box>
-						<Box.Header>Pagination.Size Props Api</Box.Header>
+						<Box.Header>Pagination.Size Attributes</Box.Header>
 						<Box.Body>
 							<Prism>
 								{`import { Pagination } from 'react-x-component';
@@ -110,7 +110,7 @@ const { Size } = Pagination;`}
 						</Box.Body>
 					</Box>
 					<Box>
-						<Box.Header>Pagination Props Api</Box.Header>
+						<Box.Header>Pagination Attributes</Box.Header>
 						<Box.Body>
 							<Prism>
 								{`import { Pagination } from 'react-x-component';`}
