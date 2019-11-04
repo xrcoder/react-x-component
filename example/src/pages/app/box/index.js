@@ -11,7 +11,6 @@ export default class extends React.Component {
                         <Box>
                             <Box.Header>基础使用（标题）</Box.Header>
                             <Box.Body>
-                                <Demo name={1}></Demo>
                                 这是一个盒子
                             </Box.Body>
                             <Box.Footer>盒子Footer（尾部）</Box.Footer>

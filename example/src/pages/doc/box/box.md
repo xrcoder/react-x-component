@@ -1,0 +1,1 @@
+容器组件，三部分组成(Box.Header, Box.Body, Box.Footer)
