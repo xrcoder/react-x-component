@@ -1,14 +1,17 @@
 import React from 'react';
-import {Row, Col} from 'react-x-component';
+import { Box, Row, Col } from 'react-x-component';
+import { Prism, Markdown, ApiTable } from 'components';
+import ToastMd from './toast.md';
 
 export default class extends React.Component {
     render() {
         return (
-            <Row>
-                <Col md={12}>
-                    等待你来填充
-                </Col>
-            </Row>
+            <Box>
+                <Box.Header>Toast</Box.Header>
+                <Box.Body>
+                    <Markdown content={ToastMd}></Markdown>
+                </Box.Body>
+            </Box>
         )
     }
 }
