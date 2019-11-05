@@ -32,7 +32,7 @@ function Radio(props) {
                             key={item.value}
                             label={item.label}
                             disabled={item.disabled}
-                            value={item.value === oValue.data.value}
+                            value={item.value === (oValue.data && oValue.data.value)}
                             onChange={(e) => {
                                 oValue.onSelected(item, onChange, e);
                             }}
