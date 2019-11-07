@@ -1,7 +1,7 @@
 import { Upload } from 'react-x-component';
 
 render() {
-    return() {
+    return(
         <Upload
             url="http://10.199.0.216:3000/api/upload"
             fileType="application/zip"
@@ -22,5 +22,5 @@ render() {
         >
             <Button><Icon name="upload" />点击或拖拽上传</Button>
         </Upload>
-    }
+    )
 }

@@ -5,7 +5,7 @@ this.state = {
 }
 
 render() {
-    return() {
+    return(
         <Switch 
             status={this.state.status} 
             disabled={true}
@@ -15,5 +15,5 @@ render() {
                 })
             }}
         />
-    }
+    )
 }

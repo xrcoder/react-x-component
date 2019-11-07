@@ -5,7 +5,7 @@ this.state = {
 }
 
 render() {
-    return() {
+    return(
         <Switch 
             status={this.state.status} 
             onChange={(e, res) => {
@@ -14,5 +14,5 @@ render() {
                 })
             }}
         />
-    }
+    )
 }
