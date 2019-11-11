@@ -32,7 +32,7 @@ class DateRangePicker extends React.Component {
         return (
             <DateRangePickerRc
                 {...props}
-                className={props.format.indexOf('mm') !== -1 ? 'picker-has-minute' : ''}
+                className={props.format && props.format.indexOf('mm') !== -1 ? 'picker-has-minute' : ''}
                 shortcuts={
                     props.shortcuts || [{
                         text: '今日',
