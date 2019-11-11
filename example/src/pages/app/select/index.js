@@ -47,9 +47,9 @@ export default class extends React.Component {
                         </Box.Body>
                     </Box>
                 </Col>
-                <Col lg={6} md={6}>
+                {/* <Col lg={6} md={6}>
                     <SelectSingle/>
-                </Col>
+                </Col> */}
                 <Col lg={6} md={6}>
                     <Box>
                         <Box.Header>搜索</Box.Header>

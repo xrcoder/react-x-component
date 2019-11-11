@@ -16,6 +16,7 @@ export default class extends React.Component {
                     <Switch>
                         <Route path={`${match.url}/button`} component={require('./button')}/>
                         <Route path={`${match.url}/grid`} component={require('./grid')}/>
+                        <Route path={`${match.url}/icon`} component={require('./icon')}/>
                         <Route path={`${match.url}/toggle`} component={require('./toggle')}/>
                         <Route path={`${match.url}/form`} component={require('./form')}/>
                         <Route path={`${match.url}/pagination`} component={require('./pagination')} />
