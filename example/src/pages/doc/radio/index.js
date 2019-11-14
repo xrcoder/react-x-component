@@ -33,7 +33,7 @@ export default class extends React.Component {
                     <Box>
                         <Box.Header>基本用法</Box.Header>
                         <Box.Body>
-                            <Radio 
+                            <Radio
                                 options={[{
                                     value: 1,
                                     label: '苹果'
@@ -43,8 +43,8 @@ export default class extends React.Component {
                                 },{
                                     value: 3,
                                     label: '猕猴桃'
-                                }]} 
-                                value={this.state.selected} 
+                                }]}
+                                value={this.state.selected}
                                 onChange={(res) => {
                                     this.setState({
                                         selected: res
@@ -59,7 +59,7 @@ export default class extends React.Component {
                     <Box>
                         <Box.Header>禁用状态</Box.Header>
                         <Box.Body>
-                            <Radio 
+                            <Radio
                                 options={[{
                                     value: 1,
                                     label: '苹果',
@@ -70,8 +70,8 @@ export default class extends React.Component {
                                 },{
                                     value: 3,
                                     label: '猕猴桃'
-                                }]} 
-                                value={this.state.selected} 
+                                }]}
+                                value={this.state.selected}
                                 onChange={(res) => {
                                     this.setState({
                                         selected: res
