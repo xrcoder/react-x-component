@@ -16,6 +16,7 @@ export default class extends React.Component {
                         </Box.Header>
                         <Box.Body>
                             丰富内容显示，展现Icon
+                            目前Icon组件默认使用的是font-awesome图标库
                         </Box.Body>
                     </Box>
                     <Box>
