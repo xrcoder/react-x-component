@@ -4,10 +4,10 @@ import classnames from 'classnames';
 import ReactSelect from 'react-select'
 
 function Select(props) {
-    const {className, disabled, isMulti, size, isSearchable, isClearable, menuIsOpen, isRtl, options, value, noOptionsMessage, placeholder, menuPlacement, components, onChange} = props;
+    const {className, disabled, isMulti, size, isSearchable, isClearable, menuIsOpen, isRtl, options, value, noOptionsMessage, placeholder, menuPlacement, components, onChange, noBorder} = props;
     return (
         <ReactSelect
-            className={classnames('x-select', size ? `x-select-${size}` : null, className)}
+            className={classnames('x-select', size ? `x-select-${size}` : null, className, noBorder ? `x-select-no-border`: null)}
             classNamePrefix="x-select"
             isSearchable={isSearchable}
             components={components}
@@ -30,14 +30,16 @@ Select.propTypes = {
     className: PropTypes.string,
     noOptionsMessage: PropTypes.func,
     placeholder: PropTypes.string,
-    size: PropTypes.string
+    size: PropTypes.string,
+    noBorder: PropTypes.bool
 }
 
 Select.defaultProps = {
     className: '',
     noOptionsMessage: () => '结果不存在',
     placeholder: '请选择要输入的内容',
-    size: ''
+    size: '',
+    noBorder: false
 }
 
 export default Select;

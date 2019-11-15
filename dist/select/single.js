@@ -39,9 +39,10 @@
         placeholder = props.placeholder,
         menuPlacement = props.menuPlacement,
         components = props.components,
-        onChange = props.onChange;
+        onChange = props.onChange,
+        noBorder = props.noBorder;
     return (0, _core.jsx)(_reactSelect["default"], {
-      className: (0, _classnames["default"])('x-select', size ? "x-select-".concat(size) : null, className),
+      className: (0, _classnames["default"])('x-select', size ? "x-select-".concat(size) : null, className, noBorder ? "x-select-no-border" : null),
       classNamePrefix: "x-select",
       isSearchable: isSearchable,
       components: components,
@@ -63,7 +64,8 @@
     className: _propTypes["default"].string,
     noOptionsMessage: _propTypes["default"].func,
     placeholder: _propTypes["default"].string,
-    size: _propTypes["default"].string
+    size: _propTypes["default"].string,
+    noBorder: _propTypes["default"].bool
   };
   Select.defaultProps = {
     className: '',
@@ -71,7 +73,8 @@
       return '结果不存在';
     },
     placeholder: '请选择要输入的内容',
-    size: ''
+    size: '',
+    noBorder: false
   };
   var _default = Select;
   _exports["default"] = _default;

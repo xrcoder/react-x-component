@@ -161,6 +161,19 @@
             cursor: pointer !important;
         }
     }
+
+    &-select-no-border {
+        .x-select__control {
+            border-color: transparent !important;
+        }
+        .x-select__menu {
+            border-color: transparent !important;
+        }
+        .x-select__single-value {
+            color: #3E257A !important;
+            font-weight: 500;
+        }
+    }
 }
 
 .x-select__option--is-focused.x-select__option--is-selected {
