@@ -5,6 +5,8 @@ import ToastMd from './toast.md';
 
 import Example01 from './example01.x';
 import Example02 from './example02.x';
+import Example03 from './example03.x';
+import Example04 from './example04.x';
 
 import { pushApi, notifyApi } from './api';
 
@@ -17,6 +19,10 @@ export default class extends React.Component {
                         <Box.Header>Toast</Box.Header>
                         <Box.Body>
                             <Markdown content={ToastMd}></Markdown>
+                            <div>1.在页面入口调用react-toastify的configure方法，进行全局的配置；</div>
+                            <Prism>{Example03}</Prism>
+                            <div>2.定义一个Toast.Container组件在页面中</div>
+                            <Prism>{Example04}</Prism>
                         </Box.Body>
                     </Box>
                     <Box>
