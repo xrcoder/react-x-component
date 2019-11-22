@@ -1,7 +1,7 @@
 import React from 'react';
-import {Box, Row, Col, Table, Form, Input, Icon, Button, Select} from 'react-x-component';
-import {Prism, Markdown} from 'components';
-const {Tr, Td, Th} = Table;
+import { Box, Row, Col, Table, Form, Input, Icon, Button, Select } from 'react-x-component';
+import { Prism, Markdown } from 'components';
+const { Tr, Td, Th } = Table;
 
 import normalInput from './examples/normalInput.x';
 import disabledInput from './examples/disabledInput.x';
@@ -18,10 +18,10 @@ import FormMd from './form.md';
 import './doc.scss';
 
 const stateOptions = [
-    {value: '1', label: '身份证'},
-    {value: '2', label: '护照'},
-    {value: '3', label: '军官证'},
-    {value: '4', label: '户口本'}
+    { value: '1', label: '身份证' },
+    { value: '2', label: '护照' },
+    { value: '3', label: '军官证' },
+    { value: '4', label: '户口本' }
 ];
 
 
@@ -31,7 +31,7 @@ export default class extends React.Component {
         this.state = {
             demo: '',
             disabled: false,
-            singleValue: {value: '1', label: '身份证'},
+            singleValue: { value: '1', label: '身份证' },
             phone: '',
             password: ''
         }
@@ -42,7 +42,7 @@ export default class extends React.Component {
                 <Col md={12}>
                     <Box>
                         <Box.Header>Form</Box.Header>
-                        <Box.Body><Markdown content={FormMd}/></Box.Body>
+                        <Box.Body><Markdown content={FormMd} /></Box.Body>
                     </Box>
                     <Box>
                         <Box.Header>表单项-基本输入框</Box.Header>
@@ -55,7 +55,7 @@ export default class extends React.Component {
                                         this.setState({
                                             demo: value
                                         });
-                                    }}/>
+                                    }} />
                             </Form.Group>
                             <Prism>{normalInput}</Prism>
                         </Box.Body>
@@ -98,8 +98,8 @@ export default class extends React.Component {
                         <Box.Body>
                             <Form.Group className="form-doc" errorMsg={'这里展示错误信息'}>
                                 <Form.Name>可显示错误信息的输入框：</Form.Name>
-                                <Input 
-                                    placeholder={'请输入姓名'} 
+                                <Input
+                                    placeholder={'请输入姓名'}
                                     onChange={(value) => {
                                         console.log(value);
                                     }}
@@ -112,9 +112,9 @@ export default class extends React.Component {
                         <Box.Header>复合输入框-搜索框</Box.Header>
                         <Box.Body>
                             <Form.Group>
-                                <Input.Search 
+                                <Input.Search
                                     className="form-doc"
-                                    clear 
+                                    clear
                                     onEnter={(res) => {
                                         console.log('点击回车的回调函数');
                                     }}
@@ -125,7 +125,7 @@ export default class extends React.Component {
                                         console.log('点击搜索的回调函数');
                                     }}
                                 >
-                                    <Icon name={'search'}/>
+                                    <Icon name={'search'} />
                                 </Input.Search>
                             </Form.Group>
                             <Prism>{searchInput}</Prism>
@@ -146,9 +146,9 @@ export default class extends React.Component {
                                     }}
                                     render={() => {
                                         return (
-                                            <Button 
+                                            <Button
                                                 onClick={() => {
-                                            }}>自定义</Button>
+                                                }}>自定义</Button>
                                         )
                                     }}
                                 />
@@ -171,14 +171,14 @@ export default class extends React.Component {
                                             this.setState({
                                                 singleValue: value
                                             });
-                                        }}/>
+                                        }} />
                                     <Input
                                         value={this.state.demo}
                                         onChange={(res) => {
                                             this.setState({
                                                 demo: res
                                             });
-                                        }}/>
+                                        }} />
                                 </Input.Group>
                             </Form.Group>
                             <Prism>{selectInput}</Prism>
@@ -231,12 +231,77 @@ export default class extends React.Component {
                                 <Form.Name>文本域：</Form.Name>
                                 <Input.Textarea onChange={(res) => {
                                     console.log(res);
-                                }}/>
+                                }} />
                             </Form.Group>
                             <Prism>{textareaForm}</Prism>
                         </Box.Body>
                     </Box>
-                    
+                    <Box>
+                        <Box.Header>Form.Group Attributes</Box.Header>
+                        <Box.Body>
+                            <Table>
+                                <Table.Head>
+                                    <Th>参数</Th>
+                                    <Th>类型</Th>
+                                    <Th>默认值</Th>
+                                    <Th>说明</Th>
+                                </Table.Head>
+                                <Table.Body>
+                                    <Tr>
+                                        <Td>className</Td>
+                                        <Td>string</Td>
+                                        <Td>''</Td>
+                                        <Td>自定义class</Td>
+                                    </Tr>
+                                    <Tr>
+                                        <Td>style</Td>
+                                        <Td>object</Td>
+                                        <Td>null</Td>
+                                        <Td>自定义样式</Td>
+                                    </Tr>
+                                    <Tr>
+                                        <Td>errorMsg</Td>
+                                        <Td>string</Td>
+                                        <Td>''</Td>
+                                        <Td>form表单错误提示信息</Td>
+                                    </Tr>
+                                </Table.Body>
+                            </Table>
+                        </Box.Body>
+                    </Box>
+                    <Box>
+                        <Box.Header>Form.Name Attributes</Box.Header>
+                        <Box.Body>
+                            <Table>
+                                <Table.Head>
+                                    <Th>参数</Th>
+                                    <Th>类型</Th>
+                                    <Th>默认值</Th>
+                                    <Th>说明</Th>
+                                </Table.Head>
+                                <Table.Body>
+                                    <Tr>
+                                        <Td>className</Td>
+                                        <Td>string</Td>
+                                        <Td>''</Td>
+                                        <Td>自定义class</Td>
+                                    </Tr>
+                                    <Tr>
+                                        <Td>style</Td>
+                                        <Td>object</Td>
+                                        <Td>null</Td>
+                                        <Td>自定义样式</Td>
+                                    </Tr>
+                                    <Tr>
+                                        <Td>required</Td>
+                                        <Td>boolean</Td>
+                                        <Td>false</Td>
+                                        <Td>是否展示必填项*符号</Td>
+                                    </Tr>
+                                </Table.Body>
+                            </Table>
+                        </Box.Body>
+                    </Box>
                     <Box>
                         <Box.Header>Input Attributes</Box.Header>
                         <Box.Body>
