@@ -2,17 +2,22 @@ html, body {
     font-family: "Microsoft YaHei";
 }
 
-html, body, div, p, ul, ol, li {
+html, body, div{
     margin: 0;
     padding: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    margin: 0;
+    // margin: 0;
 }
 
-ul, li {
+ul.nav, .nav li, ul.app-sider-menu, .app-sider-menu li {
     list-style: none;
+}
+
+ul.nav{
+    margin: 0;
+    padding: 0;
 }
 
 a {
